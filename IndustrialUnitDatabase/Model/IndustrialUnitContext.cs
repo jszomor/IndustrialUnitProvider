@@ -13,7 +13,7 @@ namespace IndustrialUnitDatabase.Model
     public DbSet<Order> Order { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      optionsBuilder.UseSqlite($"Data Source={Helper.DataBasePath("IndustrialUnit.db")}");
+      optionsBuilder.UseSqlite($"Data Source={Helper.DataBasePath("IndustrialUnitDB.db")}");
     }
   }
 }

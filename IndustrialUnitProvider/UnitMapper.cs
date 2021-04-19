@@ -7,18 +7,24 @@ namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public ItemsView LoadUnitsFromSheet(ItemsView items, string fileName)
+    public void LoadUnitsFromSheet(string fileName)
     {
+      Equipments equipments = new Equipments();
       var sheetEquipment = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
-      AssignValue(items.Equipments, sheetEquipment);
+      AssignValue(equipments.EquipmentList, sheetEquipment);
+      var equipmentToJsonSerializer = new ItemsToJsonSerializer();
+      equipmentToJsonSerializer.BuildJson(equipments);
 
+      List<ValveView> valves = new List<ValveView>();
       var sheetValve = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
-      AssignValue(items.Valves, sheetValve);
+      AssignValue(valves, sheetValve);
+      var valveToJsonSerializer = new ItemsToJsonSerializer();
+      valveToJsonSerializer.BuildJson(valves);
 
+      List<InstrumentView> instruments = new List<InstrumentView>();
       var sheetInstruments = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
-      AssignValue(items.Instruments, sheetInstruments);
+      AssignValue(instruments, sheetInstruments);
 
-      return items;
     }
 
     public List<T> AssignValue<T>(List<T> parameterCollection, ExcelWorksheet sheet) where T : class, new()
