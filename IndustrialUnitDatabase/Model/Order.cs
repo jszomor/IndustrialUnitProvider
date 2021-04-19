@@ -1,12 +1,11 @@
-﻿using IndustrialUnitProvider;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace IndustrialUnitDatabase.Model
 {
   public class Order
   {
+    [Key]
     public int OrderId { get; set; }
     public int Quantity { get; set; }
     public string ItemName { get; set; }

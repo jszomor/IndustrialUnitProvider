@@ -1,6 +1,6 @@
 ﻿namespace IndustrialUnitProvider
 {
-  public class Instrument
+  public class InstrumentView
   {
     public int Id { get; set; }
     public string ItemType { get; set; }

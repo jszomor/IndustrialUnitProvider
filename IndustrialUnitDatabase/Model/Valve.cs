@@ -1,7 +1,10 @@
-﻿namespace IndustrialUnitProvider
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace IndustrialUnitDatabase.Model
 {
   public class Valve
   {
+    [Key]
     public int Id { get; set; }
     public string ItemType { get; set; }
     public string Operation { get; set; }

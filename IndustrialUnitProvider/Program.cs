@@ -9,7 +9,7 @@ namespace IndustrialUnitProvider
   {
     static void Main(string[] args)
     {
-      var items = new Items();
+      var items = new ItemsView();
 
       var mapper = new UnitMapper();
 

@@ -16,7 +16,7 @@ namespace IndustrialUnitTest
     public void EquipmentValuesShouldBeLikeInTheExcel()
     {
       var mapper = new UnitMapper();
-      var items = new Items();
+      var items = new ItemsView();
 
       string file = "3Rows.xlsx";
       string sheetName = "Equipment";
@@ -25,9 +25,9 @@ namespace IndustrialUnitTest
 
       mapper.AssignValue(items.Equipments, sheet);
 
-      var expected = new List<Equipment>()
+      var expected = new List<EquipmentView>()
       {
-        new Equipment
+        new EquipmentView
         {
           Id = 1,
           ItemType = "Blower",
@@ -38,7 +38,7 @@ namespace IndustrialUnitTest
           Model = "80B",
           UnitPrice = 35000
         },
-        new Equipment
+        new EquipmentView
         {
           Id = 2,
           ItemType = "Blower",
@@ -58,7 +58,7 @@ namespace IndustrialUnitTest
     public void ValveValuesShouldBeLikeInTheExcel()
     {
       var mapper = new UnitMapper();
-      var items = new Items();
+      var items = new ItemsView();
 
       string file = "3Rows.xlsx";
       string sheetName = "Valve";
@@ -67,9 +67,9 @@ namespace IndustrialUnitTest
 
       mapper.AssignValue(items.Valves, sheet);
 
-      var expected = new List<Valve>()
+      var expected = new List<ValveView>()
       {
-        new Valve
+        new ValveView
         {
           Id = 1,
           ItemType = "Butterfly valve",
@@ -80,7 +80,7 @@ namespace IndustrialUnitTest
           Manufacturer = "MVV 5.21",
           UnitPrice = 13
         },
-        new Valve
+        new ValveView
         {
           Id = 2,
           ItemType = "Butterfly valve",
@@ -100,7 +100,7 @@ namespace IndustrialUnitTest
     public void ShouldThrowInvalidOperationExceptionInCaseOfEmptyEquipmentSheet()
     {
       var mapper = new UnitMapper();
-      var items = new Items();
+      var items = new ItemsView();
 
       string file = "NoData.xlsx";
       string sheetName = "Equipment";
@@ -114,7 +114,7 @@ namespace IndustrialUnitTest
     public void ShouldThrowInvalidOperationExceptionInCaseOfEmptyValveSheet()
     {
       var mapper = new UnitMapper();
-      var items = new Items();
+      var items = new ItemsView();
 
       string file = "NoData.xlsx";
       string sheetName = "Valve";
@@ -128,7 +128,7 @@ namespace IndustrialUnitTest
     public void ShouldThrowKeyNotFoundExceptionInCaseOfMissingColumnInEquipmentSheet()
     {
       var mapper = new UnitMapper();
-      var testItem = new Items();
+      var testItem = new ItemsView();
 
       string file = "MissingColumn.xlsx";
       string sheetName = "Equipment";
@@ -142,7 +142,7 @@ namespace IndustrialUnitTest
     public void ShouldThrowKeyNotFoundExceptionInCaseOfMissingColumnInValveSheet()
     {
       var mapper = new UnitMapper();
-      var testItem = new Items();
+      var testItem = new ItemsView();
 
       string file = "MissingColumn.xlsx";
       string sheetName = "Valve";
@@ -156,7 +156,7 @@ namespace IndustrialUnitTest
     public void ShouldThrowFormatExceptionInCaseOfInvalidFormatInEquipmentSheet()
     {
       var mapper = new UnitMapper();
-      var items = new Items();
+      var items = new ItemsView();
 
       string file = "InvalidFormat.xlsx";
       string sheetName = "Equipment";
@@ -170,7 +170,7 @@ namespace IndustrialUnitTest
     public void ShouldThrowFormatExceptionInCaseOfInvalidFormatInValveSheet()
     {
       var mapper = new UnitMapper();
-      var items = new Items();
+      var items = new ItemsView();
 
       string file = "InvalidFormat.xlsx";
       string sheetName = "Valve";

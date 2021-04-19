@@ -5,7 +5,7 @@ namespace IndustrialUnitProvider
 {
   internal class ItemsToJsonSerializer
   {
-    internal void BuildJson(Items IndustrialUnits)
+    internal void BuildJson(ItemsView IndustrialUnits)
     {
       var serializer = new JsonSerializer
       {

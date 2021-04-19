@@ -23,5 +23,7 @@ namespace IndustrialUnitProvider
     public static string ProjectPath(string file) => Path.Combine(Directory.GetCurrentDirectory(), file);
 
     public static string TestPath(string file) => Path.Combine((Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName), "TestData", file);
+
+    public static string DataBasePath(string file) => Path.Combine((Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName), "Database", file);
   }
 }

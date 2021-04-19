@@ -7,7 +7,7 @@ namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public Items LoadUnitsFromSheet(Items items, string fileName)
+    public ItemsView LoadUnitsFromSheet(ItemsView items, string fileName)
     {
       var sheetEquipment = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
       AssignValue(items.Equipments, sheetEquipment);
