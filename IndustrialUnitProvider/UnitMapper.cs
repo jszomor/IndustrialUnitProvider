@@ -9,9 +9,9 @@ namespace IndustrialUnitProvider
   {
     public void LoadUnitsFromSheet(string fileName)
     {
-      Equipments equipments = new Equipments();
+      List<EquipmentView> equipments = new List<EquipmentView>();
       var sheetEquipment = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
-      AssignValue(equipments.EquipmentList, sheetEquipment);
+      AssignValue(equipments, sheetEquipment);
 
       List<ValveView> valves = new List<ValveView>();
       var sheetValve = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
@@ -20,7 +20,6 @@ namespace IndustrialUnitProvider
       List<InstrumentView> instruments = new List<InstrumentView>();
       var sheetInstruments = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
       AssignValue(instruments, sheetInstruments);
-
     }
 
     public void AssignValue<T>(List<T> parameterCollection, ExcelWorksheet sheet) where T : class, new()
@@ -73,11 +72,8 @@ namespace IndustrialUnitProvider
         throw new InvalidOperationException("Source file is empty");
       }
 
-
       var itemToJsonSerializer = new ItemsToJsonSerializer();
-      itemToJsonSerializer.BuildJson(parameterCollection);
-
-      //return parameterCollection;
+      itemToJsonSerializer.BuildJson(parameterCollection, sheet.Name);
     }
   }
 }

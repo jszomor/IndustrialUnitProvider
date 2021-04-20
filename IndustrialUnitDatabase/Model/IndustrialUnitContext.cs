@@ -1,5 +1,7 @@
 ﻿using IndustrialUnitProvider;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.IO;
 
 namespace IndustrialUnitDatabase.Model
 {
@@ -13,7 +15,9 @@ namespace IndustrialUnitDatabase.Model
     public DbSet<Order> Order { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      optionsBuilder.UseSqlite($"Data Source={Helper.DataBasePath("IndustrialUnitDB.db")}");
+      string file = "IndustrialUnitDB.db";
+
+      optionsBuilder.UseSqlite($"Data Source={Path.Combine(Environment.CurrentDirectory, file)}");
     }
   }
 }

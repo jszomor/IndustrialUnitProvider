@@ -3,13 +3,8 @@ using System.Collections.Generic;
 
 namespace IndustrialUnitProvider
 {
-  public class Equipments
-  {
-    public List<EquipmentView> EquipmentList { get; set; } = new List<EquipmentView>();
-  }
   public class EquipmentView
   {
-    public EquipmentView() { }
 
     [JsonProperty("Id")]
     public int Id { get; set; }

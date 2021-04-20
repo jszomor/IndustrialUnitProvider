@@ -1,0 +1,62 @@
+[
+  {
+    "Id": 1,
+    "ItemType": "MLSS sensor",
+    "OperationPrinciple": "Immersible",
+    "InstallationType": "Tank wall",
+    "MediumToMeasure": "Waste water",
+    "Supplier": "Hach Lange",
+    "Manufacturer": "Hach Lange",
+    "UnitPrice": 5600.0
+  },
+  {
+    "Id": 2,
+    "ItemType": "TT and PH transmitter",
+    "OperationPrinciple": "Immersible",
+    "InstallationType": "Tank wall",
+    "MediumToMeasure": "Waste water",
+    "Supplier": "Hach Lange",
+    "Manufacturer": "Hach Lange",
+    "UnitPrice": 1400.0
+  },
+  {
+    "Id": 3,
+    "ItemType": "Pressure transmitter",
+    "OperationPrinciple": "Pressure",
+    "InstallationType": "Flange",
+    "MediumToMeasure": "Waste water",
+    "Supplier": "Hach Lange",
+    "Manufacturer": "Siemens",
+    "UnitPrice": 570.0
+  },
+  {
+    "Id": 4,
+    "ItemType": "Level switch",
+    "OperationPrinciple": "Capacitive",
+    "InstallationType": "Flange",
+    "MediumToMeasure": "Waste water",
+    "Supplier": "Hach Lange",
+    "Manufacturer": "Siemens",
+    "UnitPrice": 222.0
+  },
+  {
+    "Id": 5,
+    "ItemType": "Level transmitter",
+    "OperationPrinciple": "Radar",
+    "InstallationType": "Tank wall",
+    "MediumToMeasure": "Waste water",
+    "Supplier": "Hach Lange",
+    "Manufacturer": "Siemens",
+    "UnitPrice": 270.0
+  },
+  {
+    "Id": 6,
+    "ItemType": "Flow transmitter",
+    "OperationPrinciple": "Electromagnetic",
+    "InstallationType": "Pipe",
+    "MediumToMeasure": "Sludge",
+    "Supplier": "Hach Lange",
+    "Manufacturer": "Siemens",
+    "UnitPrice": 1100.0
+  }
+]

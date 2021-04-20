@@ -5,14 +5,16 @@ namespace IndustrialUnitProvider
 {
   internal class ItemsToJsonSerializer
   {
-    internal void BuildJson<T>(T IndustrialUnits)
+    internal void BuildJson<T>(T IndustrialUnits, string name)
     {
       var serializer = new JsonSerializer
       {
         Formatting = Formatting.Indented
       };
 
-      using (StreamWriter sw = new StreamWriter(Helper.ProjectPath($"{0}UnitToDatabase.json")))
+      string path = Helper.SeedPath($"{name}UnitToDatabase.json");
+
+      using (StreamWriter sw = new StreamWriter(path))
       {
         using (JsonWriter writer = new JsonTextWriter(sw))
         {

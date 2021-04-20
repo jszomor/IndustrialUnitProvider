@@ -1,4 +1,6 @@
-﻿namespace IndustrialUnitProvider
+﻿using System.Collections.Generic;
+
+namespace IndustrialUnitProvider
 {
   public class InstrumentView
   {
