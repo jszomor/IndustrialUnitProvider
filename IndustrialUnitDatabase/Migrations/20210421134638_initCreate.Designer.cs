@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndustrialUnitDatabase.Migrations
 {
     [DbContext(typeof(IndustrialUnitContext))]
-    [Migration("20210419203427_Init")]
-    partial class Init
+    [Migration("20210421134638_initCreate")]
+    partial class initCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,7 @@ namespace IndustrialUnitDatabase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Equipments");
+                    b.ToTable("Equipment");
                 });
 
             modelBuilder.Entity("IndustrialUnitDatabase.Model.Instrument", b =>
@@ -78,7 +78,7 @@ namespace IndustrialUnitDatabase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Instruments");
+                    b.ToTable("Instrument");
                 });
 
             modelBuilder.Entity("IndustrialUnitDatabase.Model.Order", b =>
@@ -121,7 +121,7 @@ namespace IndustrialUnitDatabase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("IndustrialUnitDatabase.Model.Valve", b =>
@@ -153,7 +153,7 @@ namespace IndustrialUnitDatabase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Valves");
+                    b.ToTable("Valve");
                 });
 #pragma warning restore 612, 618
         }

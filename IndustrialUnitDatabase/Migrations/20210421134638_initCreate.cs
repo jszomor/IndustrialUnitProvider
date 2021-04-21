@@ -2,12 +2,12 @@
 
 namespace IndustrialUnitDatabase.Migrations
 {
-    public partial class Init : Migration
+    public partial class initCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Equipments",
+                name: "Equipment",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -22,11 +22,11 @@ namespace IndustrialUnitDatabase.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Equipments", x => x.Id);
+                    table.PrimaryKey("PK_Equipment", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Instruments",
+                name: "Instrument",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -41,7 +41,7 @@ namespace IndustrialUnitDatabase.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Instruments", x => x.Id);
+                    table.PrimaryKey("PK_Instrument", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -60,7 +60,7 @@ namespace IndustrialUnitDatabase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -72,11 +72,11 @@ namespace IndustrialUnitDatabase.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Valves",
+                name: "Valve",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -91,26 +91,26 @@ namespace IndustrialUnitDatabase.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Valves", x => x.Id);
+                    table.PrimaryKey("PK_Valve", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Equipments");
+                name: "Equipment");
 
             migrationBuilder.DropTable(
-                name: "Instruments");
+                name: "Instrument");
 
             migrationBuilder.DropTable(
                 name: "Order");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
 
             migrationBuilder.DropTable(
-                name: "Valves");
+                name: "Valve");
         }
     }
 }
