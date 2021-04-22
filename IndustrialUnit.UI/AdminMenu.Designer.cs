@@ -30,6 +30,8 @@ namespace IndustrialUnit.UI
     private void InitializeComponent()
     {
       this.sidePanel = new System.Windows.Forms.Panel();
+      this.log_btn = new System.Windows.Forms.Button();
+      this.button1 = new System.Windows.Forms.Button();
       this.Admin_btn = new System.Windows.Forms.Button();
       this.Home_btn = new System.Windows.Forms.Button();
       this.DeleteUnit_btn = new System.Windows.Forms.Button();
@@ -40,7 +42,6 @@ namespace IndustrialUnit.UI
       this.applicationName = new System.Windows.Forms.Label();
       this.headerPanel = new System.Windows.Forms.Panel();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.button1 = new System.Windows.Forms.Button();
       this.sidePanel.SuspendLayout();
       this.headerPanel.SuspendLayout();
       this.SuspendLayout();
@@ -48,6 +49,7 @@ namespace IndustrialUnit.UI
       // sidePanel
       // 
       this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+      this.sidePanel.Controls.Add(this.log_btn);
       this.sidePanel.Controls.Add(this.button1);
       this.sidePanel.Controls.Add(this.Admin_btn);
       this.sidePanel.Controls.Add(this.Home_btn);
@@ -60,6 +62,42 @@ namespace IndustrialUnit.UI
       this.sidePanel.Name = "sidePanel";
       this.sidePanel.Size = new System.Drawing.Size(250, 541);
       this.sidePanel.TabIndex = 0;
+      // 
+      // log_btn
+      // 
+      this.log_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+      this.log_btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.log_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+      this.log_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+      this.log_btn.FlatAppearance.BorderSize = 0;
+      this.log_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.log_btn.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.log_btn.ForeColor = System.Drawing.Color.White;
+      this.log_btn.Location = new System.Drawing.Point(0, 371);
+      this.log_btn.Name = "log_btn";
+      this.log_btn.Size = new System.Drawing.Size(250, 46);
+      this.log_btn.TabIndex = 10;
+      this.log_btn.TabStop = false;
+      this.log_btn.Text = "Log";
+      this.log_btn.UseVisualStyleBackColor = false;
+      // 
+      // button1
+      // 
+      this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+      this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+      this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+      this.button1.FlatAppearance.BorderSize = 0;
+      this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.button1.ForeColor = System.Drawing.Color.White;
+      this.button1.Location = new System.Drawing.Point(0, 111);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(250, 46);
+      this.button1.TabIndex = 9;
+      this.button1.TabStop = false;
+      this.button1.Text = "Create custom collection";
+      this.button1.UseVisualStyleBackColor = false;
       // 
       // Admin_btn
       // 
@@ -218,24 +256,6 @@ namespace IndustrialUnit.UI
       this.panel1.Size = new System.Drawing.Size(751, 60);
       this.panel1.TabIndex = 2;
       // 
-      // button1
-      // 
-      this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-      this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-      this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-      this.button1.FlatAppearance.BorderSize = 0;
-      this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.button1.ForeColor = System.Drawing.Color.White;
-      this.button1.Location = new System.Drawing.Point(0, 111);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(250, 46);
-      this.button1.TabIndex = 9;
-      this.button1.TabStop = false;
-      this.button1.Text = "Create custom collection";
-      this.button1.UseVisualStyleBackColor = false;
-      // 
       // AdminMenu
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +290,7 @@ namespace IndustrialUnit.UI
     private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.Button Admin_btn;
     private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button log_btn;
   }
 }
 

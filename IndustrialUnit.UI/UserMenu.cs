@@ -15,9 +15,31 @@ namespace IndustrialUnit.UI
       applicationName.Text = "Industrial Unit Manager";
     }
 
-    private void Insert_btn_Click(object sender, EventArgs e)
+    private void Admin_btn_Click(object sender, EventArgs e)
     {
-      //Insert_btn.FlatAppearance.BorderColor = Color.Black;
+      OpenChildForm(new AdminMenu());
+    }
+
+    private void Home_btn_Click(object sender, EventArgs e)
+    {
+      OpenChildForm(new HomeForm());
+    }
+
+
+    private Form activeForm = null;
+    private void OpenChildForm(Form childForm)
+    {
+      if(activeForm != null)
+      {
+        activeForm.Close();
+      }
+      activeForm = childForm;
+      childForm.TopLevel = false;
+      childForm.FormBorderStyle = FormBorderStyle.None;
+      childForm.Dock = DockStyle.Fill;
+      homeChildForm.Controls.Add(childForm);
+      childForm.BringToFront();
+      childForm.Show();
     }
   }
 }

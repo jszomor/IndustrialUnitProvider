@@ -30,13 +30,14 @@ namespace IndustrialUnit.UI
     private void InitializeComponent()
     {
       this.sidePanel = new System.Windows.Forms.Panel();
+      this.button1 = new System.Windows.Forms.Button();
       this.Admin_btn = new System.Windows.Forms.Button();
       this.Home_btn = new System.Windows.Forms.Button();
       this.ViewUnit_btn = new System.Windows.Forms.Button();
       this.applicationName = new System.Windows.Forms.Label();
       this.headerPanel = new System.Windows.Forms.Panel();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.button1 = new System.Windows.Forms.Button();
+      this.homeChildForm = new System.Windows.Forms.Panel();
       this.sidePanel.SuspendLayout();
       this.headerPanel.SuspendLayout();
       this.SuspendLayout();
@@ -53,9 +54,26 @@ namespace IndustrialUnit.UI
       this.sidePanel.Size = new System.Drawing.Size(250, 541);
       this.sidePanel.TabIndex = 0;
       // 
+      // button1
+      // 
+      this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+      this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+      this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+      this.button1.FlatAppearance.BorderSize = 0;
+      this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.button1.ForeColor = System.Drawing.Color.White;
+      this.button1.Location = new System.Drawing.Point(0, 111);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(250, 46);
+      this.button1.TabIndex = 8;
+      this.button1.TabStop = false;
+      this.button1.Text = "Create custom collection";
+      this.button1.UseVisualStyleBackColor = false;
+      // 
       // Admin_btn
       // 
-      this.Admin_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
       this.Admin_btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.Admin_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
       this.Admin_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -70,6 +88,7 @@ namespace IndustrialUnit.UI
       this.Admin_btn.TabStop = false;
       this.Admin_btn.Text = "Admin";
       this.Admin_btn.UseVisualStyleBackColor = false;
+      this.Admin_btn.Click += new System.EventHandler(this.Admin_btn_Click);
       // 
       // Home_btn
       // 
@@ -88,6 +107,7 @@ namespace IndustrialUnit.UI
       this.Home_btn.TabStop = false;
       this.Home_btn.Text = "Home";
       this.Home_btn.UseVisualStyleBackColor = false;
+      this.Home_btn.Click += new System.EventHandler(this.Home_btn_Click);
       // 
       // ViewUnit_btn
       // 
@@ -136,23 +156,14 @@ namespace IndustrialUnit.UI
       this.panel1.Size = new System.Drawing.Size(751, 60);
       this.panel1.TabIndex = 2;
       // 
-      // button1
+      // homeChildForm
       // 
-      this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-      this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-      this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-      this.button1.FlatAppearance.BorderSize = 0;
-      this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.button1.ForeColor = System.Drawing.Color.White;
-      this.button1.Location = new System.Drawing.Point(0, 111);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(250, 46);
-      this.button1.TabIndex = 8;
-      this.button1.TabStop = false;
-      this.button1.Text = "Create custom collection";
-      this.button1.UseVisualStyleBackColor = false;
+      this.homeChildForm.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+      this.homeChildForm.BackColor = System.Drawing.Color.LightCoral;
+      this.homeChildForm.Location = new System.Drawing.Point(249, 59);
+      this.homeChildForm.Name = "homeChildForm";
+      this.homeChildForm.Size = new System.Drawing.Size(751, 541);
+      this.homeChildForm.TabIndex = 3;
       // 
       // MainGround
       // 
@@ -160,13 +171,14 @@ namespace IndustrialUnit.UI
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Gainsboro;
       this.ClientSize = new System.Drawing.Size(1000, 600);
+      this.Controls.Add(this.homeChildForm);
       this.Controls.Add(this.panel1);
       this.Controls.Add(this.headerPanel);
       this.Controls.Add(this.sidePanel);
+      this.ForeColor = System.Drawing.Color.Black;
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.Name = "MainGround";
       this.Text = "MainGround";
-      this.Load += new System.EventHandler(this.LogoMethod);
       this.sidePanel.ResumeLayout(false);
       this.headerPanel.ResumeLayout(false);
       this.headerPanel.PerformLayout();
@@ -184,6 +196,7 @@ namespace IndustrialUnit.UI
     private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.Button Admin_btn;
     private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Panel homeChildForm;
   }
 }
 
