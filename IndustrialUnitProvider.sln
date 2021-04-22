@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndustrialUnitDatabase", "I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndustrialUnitTest", "IndustrialUnitTest\IndustrialUnitTest.csproj", "{28F6ACAE-418C-4FAD-827B-6D9C7D0C0121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialUnit.Model", "IndustrialUnit.Model\IndustrialUnit.Model.csproj", "{66A5992A-C439-424A-8EC5-E27F24B454DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndustrialUnit.Model", "IndustrialUnit.Model\IndustrialUnit.Model.csproj", "{66A5992A-C439-424A-8EC5-E27F24B454DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialUnit.UI", "IndustrialUnit.UI\IndustrialUnit.UI.csproj", "{21D96346-BBD7-48E2-B4AC-08E495A458D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{66A5992A-C439-424A-8EC5-E27F24B454DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66A5992A-C439-424A-8EC5-E27F24B454DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66A5992A-C439-424A-8EC5-E27F24B454DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21D96346-BBD7-48E2-B4AC-08E495A458D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21D96346-BBD7-48E2-B4AC-08E495A458D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21D96346-BBD7-48E2-B4AC-08E495A458D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21D96346-BBD7-48E2-B4AC-08E495A458D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
