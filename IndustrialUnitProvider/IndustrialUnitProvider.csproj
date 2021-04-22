@@ -15,4 +15,9 @@
     <None Include="bin\Debug\netcoreapp3.1\IndustrialUnits.xlsx" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IndustrialUnit.Model\IndustrialUnit.Model.csproj" />
+    <ProjectReference Include="..\IndustrialUnitDatabase\IndustrialUnitDatabase.csproj" />
+  </ItemGroup>
+
 </Project>

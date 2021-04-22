@@ -11,26 +11,10 @@ namespace IndustrialUnitDatabase
   {
     static void Main()
     {
-      string cs = @"URI=file:C:\Users\jszom\source\repos\IndustrialUnitProvider\IndustrialUnitDatabase\IndustrialUnitDB.db";
-
-      
-
-      var equipment = new Equipment
-      {
-        Id = 1,
-        ItemType = "Blower",
-        Capacity = 25,
-        Pressure = 650,
-        PowerConsumption = 55,
-        Manufacturer = "Kubicek",
-        Model = "80B",
-        UnitPrice = 35000
-      };
-
-      //SQLiteDataAccess.InsertEquipment(equipment);
-
-
-      SQLiteDataAccess.LoadPeople();
+      Console.WriteLine("Select Tables from Industrial Unit Manager.");
+      Console.WriteLine("Currently available tables: Equipment, Valve or Instrument. Please select.");
+      string tableName = Console.ReadLine();
+      SQLiteDataAccess.ReadTable(tableName);
     }
   }
 }

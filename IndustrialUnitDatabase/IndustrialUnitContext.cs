@@ -1,9 +1,9 @@
-﻿using IndustrialUnitProvider;
+﻿using IndustrialUnitDatabase.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
 
-namespace IndustrialUnitDatabase.Model
+namespace IndustrialUnitDatabase
 {
   public class IndustrialUnitContext : DbContext
   {

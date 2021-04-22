@@ -25,11 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Seed\" />
+    <Folder Include="ExcelToJson\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IndustrialUnitProvider\IndustrialUnitProvider.csproj" />
+    <ProjectReference Include="..\IndustrialUnit.Model\IndustrialUnit.Model.csproj" />
   </ItemGroup>
 
 </Project>

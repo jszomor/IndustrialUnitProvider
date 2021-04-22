@@ -12,7 +12,7 @@ namespace IndustrialUnitProvider
         Formatting = Formatting.Indented
       };
 
-      string path = Helper.SeedPath($"{name}UnitToDatabase.json");
+      string path = PathFinder.ExcelToJsonPath($"{name}UnitToDatabase.json");
 
       using (StreamWriter sw = new StreamWriter(path))
       {

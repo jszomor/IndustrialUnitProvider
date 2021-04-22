@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml;
+﻿using IndustrialUnitDatabase;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -10,15 +11,15 @@ namespace IndustrialUnitProvider
     public void LoadUnitsFromSheet(string fileName)
     {
       List<EquipmentView> equipments = new List<EquipmentView>();
-      var sheetEquipment = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
+      var sheetEquipment = ExcelWorker.ReadExcel(PathFinder.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
       AssignValue(equipments, sheetEquipment);
 
       List<ValveView> valves = new List<ValveView>();
-      var sheetValve = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
+      var sheetValve = ExcelWorker.ReadExcel(PathFinder.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
       AssignValue(valves, sheetValve);
 
       List<InstrumentView> instruments = new List<InstrumentView>();
-      var sheetInstruments = Helper.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
+      var sheetInstruments = ExcelWorker.ReadExcel(PathFinder.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
       AssignValue(instruments, sheetInstruments);
     }
 
@@ -63,6 +64,9 @@ namespace IndustrialUnitProvider
               nextId++;
             }
           }
+
+          SQLiteDataAccess.Insert(unit, sheet.Name);
+
           parameterCollection.Add(unit);
         }
       }
