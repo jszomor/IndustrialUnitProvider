@@ -13,7 +13,7 @@ namespace IndustrialUnitDatabase
 {
   public static class SQLiteDataAccess
   {
-    public static string loadConnectionString = $"Data Source={PathFinder.DatabasePath("IndustrialUnitDB.db")}";
+    public static string loadConnectionString = $"Data Source={Paths.DatabasePath("IndustrialUnitDB.db")}";
 
     public static void ReadTable(string tableName)
     {
