@@ -238,6 +238,7 @@ namespace IndustrialUnit.UI
       this.applicationName.TabIndex = 0;
       this.applicationName.Text = "applicationName";
       this.applicationName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.Load += new System.EventHandler(this.LogoMethod);
       // 
       // headerPanel
       // 
@@ -268,7 +269,6 @@ namespace IndustrialUnit.UI
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.Name = "AdminMenu";
       this.Text = "MainGround";
-      this.Load += new System.EventHandler(this.LogoMethod);
       this.sidePanel.ResumeLayout(false);
       this.headerPanel.ResumeLayout(false);
       this.headerPanel.PerformLayout();

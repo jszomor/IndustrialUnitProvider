@@ -138,6 +138,7 @@ namespace IndustrialUnit.UI
       this.applicationName.TabIndex = 0;
       this.applicationName.Text = "applicationName";
       this.applicationName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.Load += new System.EventHandler(this.LogoMethod);
       // 
       // headerPanel
       // 
