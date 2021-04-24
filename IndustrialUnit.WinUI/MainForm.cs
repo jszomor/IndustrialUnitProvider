@@ -17,47 +17,57 @@ namespace IndustrialUnit.WinUI
       InitializeComponent();
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void SelectUnitToolStripMenuItem2_Click(object sender, EventArgs e)
     {
 
     }
 
-    private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+    private void MainForm_Load(object sender, EventArgs e)
     {
 
     }
 
-    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+    private void panel1_Paint(object sender, PaintEventArgs e)
     {
 
     }
 
-    private void equipmentToolStripMenuItem1_Click(object sender, EventArgs e)
+    private void fileToolStripMenuItem_Click(object sender, EventArgs e)
     {
 
     }
 
-    private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    private void loadCollectionToolStripMenuItem_Click(object sender, EventArgs e)
     {
 
     }
 
-    private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+    private void saveCollectionToolStripMenuItem_Click(object sender, EventArgs e)
     {
 
     }
 
-    private void valveToolStripMenuItem_Click(object sender, EventArgs e)
+    private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
 
     }
 
-    private void equipmentToolStripMenuItem2_Click(object sender, EventArgs e)
+    private void equipmentToolStripMenuItem3_Click(object sender, EventArgs e)
     {
 
     }
 
-    private void instrumentToolStripMenuItem_Click(object sender, EventArgs e)
+    private void valveToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void instrumentToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void helpToolStripMenuItem_Click(object sender, EventArgs e)
     {
 
     }
