@@ -7,7 +7,7 @@
     "ConnectionType": "Wafer",
     "Supplier": "MVV",
     "Manufacturer": "MVV 5.21",
-    "UnitPrice": 13.0
+    "UnitPrice": 13.00
   },
   {
     "Id": 2,
@@ -17,6 +17,66 @@
     "ConnectionType": "Wafer",
     "Supplier": "MVV",
     "Manufacturer": "VAG cerex",
-    "UnitPrice": 114.0
+    "UnitPrice": 114.00
+  },
+  {
+    "Id": 3,
+    "ItemType": "Butterfly valve",
+    "Operation": "Manual",
+    "Size": 80.0,
+    "ConnectionType": "Wafer",
+    "Supplier": "MVV",
+    "Manufacturer": "VAG cerex",
+    "UnitPrice": 120.00
+  },
+  {
+    "Id": 4,
+    "ItemType": "Butterfly valve",
+    "Operation": "Manual",
+    "Size": 150.0,
+    "ConnectionType": "Wafer",
+    "Supplier": "MVV",
+    "Manufacturer": "VAG cerex",
+    "UnitPrice": 247.00
+  },
+  {
+    "Id": 5,
+    "ItemType": "Butterfly valve",
+    "Operation": "Manual",
+    "Size": 150.0,
+    "ConnectionType": "Wafer",
+    "Supplier": "MVV",
+    "Manufacturer": "MVV 5.21",
+    "UnitPrice": 47.00
+  },
+  {
+    "Id": 6,
+    "ItemType": "Butterfly valve",
+    "Operation": "Manual",
+    "Size": 200.0,
+    "ConnectionType": "Wafer",
+    "Supplier": "MVV",
+    "Manufacturer": "MVV 5.21",
+    "UnitPrice": 78.00
+  },
+  {
+    "Id": 7,
+    "ItemType": "Butterfly valve",
+    "Operation": "Manual",
+    "Size": 200.0,
+    "ConnectionType": "Wafer",
+    "Supplier": "MVV",
+    "Manufacturer": "VAG cerex",
+    "UnitPrice": 336.00
+  },
+  {
+    "Id": 8,
+    "ItemType": "Butterfly valve",
+    "Operation": "Manual",
+    "Size": 250.0,
+    "ConnectionType": "Wafer",
+    "Supplier": "MVV",
+    "Manufacturer": "VAG cerex",
+    "UnitPrice": 486.00
   }
 ]

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IndustrialUnit.UI
+namespace IndustrialUnit.WinUI
 {
   static class Program
   {
@@ -16,7 +16,7 @@ namespace IndustrialUnit.UI
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new MainGround());
+      Application.Run(new MainForm());
     }
   }
 }

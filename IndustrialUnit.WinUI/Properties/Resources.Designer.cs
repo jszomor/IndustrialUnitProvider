@@ -8,9 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace IndustrialUnit.UI.Properties
+namespace IndustrialUnit.WinUI.Properties
 {
+
+
   /// <summary>
   ///   A strongly-typed resource class, for looking up localized strings, etc.
   /// </summary>
@@ -43,7 +44,7 @@ namespace IndustrialUnit.UI.Properties
       {
         if ((resourceMan == null))
         {
-          global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IndustrialUnit.UI.Properties.Resources", typeof(Resources).Assembly);
+          global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IndustrialUnit.WinUI.Properties.Resources", typeof(Resources).Assembly);
           resourceMan = temp;
         }
         return resourceMan;
