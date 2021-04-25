@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IndustrialUnit.UI
+namespace IndustrialUnit.WinUI
 {
-  public partial class HomeForm : Form
+  public partial class EquipmentForm : Form
   {
-    public HomeForm()
+    public EquipmentForm()
     {
       InitializeComponent();
+    }
+
+    private void panel1_Paint(object sender, PaintEventArgs e)
+    {
+
     }
   }
 }
