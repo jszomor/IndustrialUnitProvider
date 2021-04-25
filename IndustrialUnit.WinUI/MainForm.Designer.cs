@@ -29,6 +29,7 @@
     private void InitializeComponent()
     {
       this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+      this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.loadCollectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.saveCollectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,8 +44,7 @@
       this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.panel1 = new System.Windows.Forms.Panel();
-      this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.mainPanelForChildForm = new System.Windows.Forms.Panel();
       this.menuStrip2.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -57,9 +57,15 @@
             this.helpToolStripMenuItem});
       this.menuStrip2.Location = new System.Drawing.Point(0, 0);
       this.menuStrip2.Name = "menuStrip2";
-      this.menuStrip2.Size = new System.Drawing.Size(800, 24);
+      this.menuStrip2.Size = new System.Drawing.Size(984, 24);
       this.menuStrip2.TabIndex = 4;
       this.menuStrip2.Text = "menuStrip2";
+      // 
+      // homeToolStripMenuItem
+      // 
+      this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+      this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+      this.homeToolStripMenuItem.Text = "Home";
       // 
       // fileToolStripMenuItem
       // 
@@ -167,30 +173,26 @@
       this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
       this.aboutToolStripMenuItem.Text = "&About...";
       // 
-      // panel1
+      // mainPanelForChildForm
       // 
-      this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.panel1.Location = new System.Drawing.Point(0, 27);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(800, 423);
-      this.panel1.TabIndex = 5;
-      this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-      // 
-      // homeToolStripMenuItem
-      // 
-      this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-      this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-      this.homeToolStripMenuItem.Text = "Home";
+      this.mainPanelForChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.mainPanelForChildForm.Location = new System.Drawing.Point(0, 24);
+      this.mainPanelForChildForm.Name = "mainPanelForChildForm";
+      this.mainPanelForChildForm.Size = new System.Drawing.Size(984, 537);
+      this.mainPanelForChildForm.TabIndex = 5;
+      this.mainPanelForChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.ChildPanel);
       // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Controls.Add(this.panel1);
+      this.ClientSize = new System.Drawing.Size(984, 561);
+      this.Controls.Add(this.mainPanelForChildForm);
       this.Controls.Add(this.menuStrip2);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+      this.MinimumSize = new System.Drawing.Size(1000, 600);
       this.Name = "MainForm";
-      this.Text = "Form1";
+      this.Text = "Industrial Unit Manager";
       this.Load += new System.EventHandler(this.MainForm_Load);
       this.menuStrip2.ResumeLayout(false);
       this.menuStrip2.PerformLayout();
@@ -215,7 +217,7 @@
         private System.Windows.Forms.ToolStripMenuItem equipmentToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem valveToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem instrumentToolStripMenuItem1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel mainPanelForChildForm;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
     }
 }

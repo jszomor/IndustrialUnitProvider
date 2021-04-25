@@ -12,9 +12,28 @@ namespace IndustrialUnit.WinUI
 {
   public partial class MainForm : Form
   {
+
+    private Form activeForm { get; set; }
+
     public MainForm()
     {
       InitializeComponent();
+    }
+
+    private void OpenChildForm(Form childForm)
+    {
+      if(activeForm != null)
+      {
+        activeForm.Close();
+      }
+      activeForm = childForm;
+      childForm.TopLevel = false;
+      childForm.FormBorderStyle = FormBorderStyle.None;
+      childForm.Dock = DockStyle.Fill;
+      this.mainPanelForChildForm.Controls.Add(childForm);
+      this.mainPanelForChildForm.Tag = childForm;
+      childForm.BringToFront();
+      childForm.Show();
     }
 
     private void SelectUnitToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -27,7 +46,7 @@ namespace IndustrialUnit.WinUI
 
     }
 
-    private void panel1_Paint(object sender, PaintEventArgs e)
+    private void ChildPanel(object sender, PaintEventArgs e)
     {
 
     }
@@ -54,7 +73,7 @@ namespace IndustrialUnit.WinUI
 
     private void equipmentToolStripMenuItem3_Click(object sender, EventArgs e)
     {
-
+      OpenChildForm(new EquipmentForm());
     }
 
     private void valveToolStripMenuItem1_Click(object sender, EventArgs e)
