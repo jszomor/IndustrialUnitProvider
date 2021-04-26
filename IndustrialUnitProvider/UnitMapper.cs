@@ -65,7 +65,8 @@ namespace IndustrialUnitProvider
             }
           }
 
-          SQLiteDataAccess.Insert(unit, sheet.Name);
+          var SQLiteData = new SQLiteDataAccess();
+          SQLiteData.Insert(unit, sheet.Name);
 
           parameterCollection.Add(unit);
         }

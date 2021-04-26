@@ -11,21 +11,29 @@ using System.Text;
 
 namespace IndustrialUnitDatabase
 {
-  public static class SQLiteDataAccess
+  public class SQLiteDataAccess
   {
-    public static string loadConnectionString = $"Data Source={Paths.DatabasePath("IndustrialUnitDB.db")}";
+    private string loadConnectionString = $"Data Source={Paths.DatabasePath("IndustrialUnitDB.db")}";
 
-    public static void ReadTable(string tableName)
+    public IDbConnection GetConnection(string tableName)
     {
-      using var con = new SQLiteConnection(loadConnectionString);
+      var con = new SQLiteConnection(loadConnectionString);
       con.Open();
+
+      //WriteTableDataToConsole(tableName, con);
+
+      return con;
+    }
+
+    private void WriteTableDataToConsole(string tableName, SQLiteConnection con)
+    {
 
       string stm = $"SELECT * FROM {tableName}";
 
       using var cmd = new SQLiteCommand(stm, con);
       using SQLiteDataReader rdr = cmd.ExecuteReader();
 
-  
+
       while (rdr.Read())
       {
         var sb = new StringBuilder();
@@ -38,7 +46,8 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public static void Insert<T>(T unit, string sheetName)
+
+    public void Insert<T>(T unit, string sheetName)
     {
       using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
       {

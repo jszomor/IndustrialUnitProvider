@@ -14,7 +14,8 @@ namespace IndustrialUnitDatabase
       Console.WriteLine("Select Tables from Industrial Unit Manager.");
       Console.WriteLine("Currently available tables: Equipment, Valve or Instrument. Please select.");
       string tableName = Console.ReadLine();
-      SQLiteDataAccess.ReadTable(tableName);
+      var SQLiteDataAccess = new SQLiteDataAccess();
+      SQLiteDataAccess.GetConnection(tableName);
     }
   }
 }

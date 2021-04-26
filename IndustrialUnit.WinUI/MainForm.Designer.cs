@@ -81,21 +81,21 @@
       // loadCollectionToolStripMenuItem
       // 
       this.loadCollectionToolStripMenuItem.Name = "loadCollectionToolStripMenuItem";
-      this.loadCollectionToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+      this.loadCollectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.loadCollectionToolStripMenuItem.Text = "Load collection";
       this.loadCollectionToolStripMenuItem.Click += new System.EventHandler(this.loadCollectionToolStripMenuItem_Click);
       // 
       // saveCollectionToolStripMenuItem
       // 
       this.saveCollectionToolStripMenuItem.Name = "saveCollectionToolStripMenuItem";
-      this.saveCollectionToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+      this.saveCollectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.saveCollectionToolStripMenuItem.Text = "Save collection";
       this.saveCollectionToolStripMenuItem.Click += new System.EventHandler(this.saveCollectionToolStripMenuItem_Click);
       // 
       // exitToolStripMenuItem
       // 
       this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-      this.exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.exitToolStripMenuItem.Text = "Exit";
       this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
       // 
@@ -106,8 +106,8 @@
             this.valveToolStripMenuItem1,
             this.instrumentToolStripMenuItem1});
       this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-      this.unitToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-      this.unitToolStripMenuItem.Text = "SelectUnitType";
+      this.unitToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+      this.unitToolStripMenuItem.Text = "Item category";
       this.unitToolStripMenuItem.Click += new System.EventHandler(this.SelectUnitToolStripMenuItem2_Click);
       // 
       // equipmentToolStripMenuItem3
