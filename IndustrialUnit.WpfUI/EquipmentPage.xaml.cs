@@ -34,7 +34,8 @@ namespace IndustrialUnit.WpfUI
     private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       var sqlAccess = new SQLiteDataAccess();
-      sqlAccess.GetConnection("Equipment");
+      IDbConnection conn = sqlAccess.GetConnection("Equipment");
+
 
     }
   }
