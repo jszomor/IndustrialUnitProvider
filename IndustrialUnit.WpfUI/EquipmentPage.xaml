@@ -58,7 +58,7 @@
       <DataGrid.Columns>
         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="auto"/>
         <DataGridTextColumn Header="Item name" Binding="{Binding ItemType}" Width="auto"/>
-        <DataGridTextColumn Header="Capacity (m \u207A 3 /min)" Binding="{Binding Capacity}" Width="auto"/>
+        <DataGridTextColumn Header="Capacity (m3/min)" Binding="{Binding Capacity}" Width="auto"/>
         <DataGridTextColumn Header="Pressure (mbar)" Binding="{Binding Pressure}" Width="auto"/>
         <DataGridTextColumn Header="Power consumption (kW)" Binding="{Binding PowerConsumption}" Width="auto"/>
         <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="auto"/>
