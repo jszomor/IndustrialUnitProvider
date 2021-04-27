@@ -3,6 +3,7 @@ using IndustrialUnitDatabase.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,15 @@ namespace IndustrialUnit.WpfUI
     public EquipmentPage()
     {
       InitializeComponent();
+      FillDataGrid();
+    }
+
+    private void FillDataGrid()
+    {
+      var sqlAccess = new SQLiteDataAccess();
+      DataTable dt = sqlAccess.GetConnectionOnDataTable("Equipment");
+
+      EquipmentTableGrid.ItemsSource = dt.DefaultView;
     }
 
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -33,10 +43,7 @@ namespace IndustrialUnit.WpfUI
 
     private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-      var sqlAccess = new SQLiteDataAccess();
-      IDbConnection conn = sqlAccess.GetConnection("Equipment");
-
-
+     
     }
   }
 }

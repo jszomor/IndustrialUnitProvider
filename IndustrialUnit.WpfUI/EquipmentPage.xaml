@@ -48,21 +48,22 @@
     <Label Content="Unit price"        Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14"/>
     <TextBox Margin="0,5,0,5"          Grid.Column="2" Grid.Row="7" Text="" TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14"/>
     
-    <DataGrid x:Name="EquipmentTable"  Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="3" Margin="0,0,15,15" Grid.RowSpan="10" SelectionChanged="DataGrid_SelectionChanged" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+    <DataGrid Name="EquipmentTableGrid"  Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="3" Margin="0,0,15,15" Grid.RowSpan="10" SelectionChanged="DataGrid_SelectionChanged" ItemsSource="{Binding}" AutoGenerateColumns="False" >
       <DataGrid.ColumnHeaderStyle>
         <Style TargetType="{x:Type DataGridColumnHeader}">
           <Setter Property="FontWeight" Value="Bold"/>
           <Setter Property="FontSize" Value="14"/>
         </Style>
       </DataGrid.ColumnHeaderStyle>
-      <DataGrid.Columns>        
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="auto"/>
         <DataGridTextColumn Header="Item name" Binding="{Binding ItemType}" Width="auto"/>
-        <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity}" Width="auto"/>
-        <DataGridTextColumn Header="Pressure" Binding="{Binding Pressure}" Width="auto"/>
-        <DataGridTextColumn Header="Power consumption" Binding="{Binding PowerConsumption}" Width="auto"/>
+        <DataGridTextColumn Header="Capacity (m \u207A 3 /min)" Binding="{Binding Capacity}" Width="auto"/>
+        <DataGridTextColumn Header="Pressure (mbar)" Binding="{Binding Pressure}" Width="auto"/>
+        <DataGridTextColumn Header="Power consumption (kW)" Binding="{Binding PowerConsumption}" Width="auto"/>
         <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="auto"/>
         <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="auto"/>
-        <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice}" Width="auto"/>
+        <DataGridTextColumn Header="Unit Price (EUR)" Binding="{Binding UnitPrice}" Width="auto"/>
       </DataGrid.Columns>
     </DataGrid>
     

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using IndustrialUnitDatabase.Model;
 using IndustrialUnitProvider;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,14 +16,19 @@ namespace IndustrialUnitDatabase
   {
     private string loadConnectionString = $"Data Source={Paths.DatabasePath("IndustrialUnitDB.db")}";
 
-    public IDbConnection GetConnection(string tableName)
+    public DataTable GetConnectionOnDataTable(string tableName)
     {
-      var con = new SQLiteConnection(loadConnectionString);
-      con.Open();
+      using (var con = new SQLiteConnection(loadConnectionString))
+      {
+        con.Open();
 
-      //WriteTableDataToConsole(tableName, con);
-
-      return con;
+        string stm = $"SELECT * FROM {tableName}";
+        var cmd = new SQLiteCommand(stm, con);
+        SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd);
+        DataTable dt = new DataTable(tableName);
+        sda.Fill(dt);
+        return dt;
+      }
     }
 
     private void WriteTableDataToConsole(string tableName, SQLiteConnection con)
