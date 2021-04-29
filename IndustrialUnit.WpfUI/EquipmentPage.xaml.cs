@@ -26,6 +26,7 @@ namespace IndustrialUnit.WpfUI
     {
       InitializeComponent();
       FillDataGrid();
+
     }
 
     private void FillDataGrid()
@@ -45,5 +46,25 @@ namespace IndustrialUnit.WpfUI
     {
      
     }
+
+    private void EQInsert_Click(object sender, RoutedEventArgs e)
+    {
+      var eq = new Equipment
+      {
+        ItemType = EqItemTypeLabel.Text,
+        Capacity = Convert.ToDecimal(EqCapacityLabel.Text),
+        Pressure = Convert.ToDecimal(EqPressureLabel.Text),
+        PowerConsumption = Convert.ToDecimal(EqPowerConsumptionLabel.Text),
+        Manufacturer = EqManufacturerLabel.Text,
+        Model = EqModelLabel.Text,
+        UnitPrice = Convert.ToDecimal(EqUnitPriceLabel.Text)
+      };
+
+
+      var sqlAccess = new SQLiteDataAccess();
+      sqlAccess.Insert(eq, "Equipment");
+    }
+
+
   }
 }
