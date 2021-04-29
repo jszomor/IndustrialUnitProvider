@@ -20,17 +20,15 @@ namespace IndustrialUnit.Model
 
     public static string DatabasePath(string databaseName) => Path.Combine((Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName), "IndustrialUnitDatabase", databaseName);
 
-    public static decimal ConvertStringToDecimal(string value)
+    public static T ConvertType<T>(string value, Type type)
     {
-      bool success = decimal.TryParse(value, out decimal number);
-
-      if (success)
+      try
       {
-        return number;
+        return (T)Convert.ChangeType(value, type);        
       }
-      else
+      catch (FormatException)
       {
-        throw new FormatException($"The value cannot converted into decimal type.");
+        throw new FormatException($"This '{value}' cannot be converted to '{type}' type.");
       }
     }
   }

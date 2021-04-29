@@ -1,4 +1,5 @@
 ﻿using IndustrialUnit.Model;
+using IndustrialUnit.Model.Model;
 using IndustrialUnitDatabase;
 using OfficeOpenXml;
 using System;

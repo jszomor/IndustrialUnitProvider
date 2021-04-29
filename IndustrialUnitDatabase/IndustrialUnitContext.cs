@@ -1,4 +1,4 @@
-﻿using IndustrialUnitDatabase.Model;
+﻿using IndustrialUnit.Model.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
