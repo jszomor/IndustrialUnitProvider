@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace IndustrialUnitDatabase.Model
+namespace IndustrialUnit.Model.Model
 {
   public class Order
   {

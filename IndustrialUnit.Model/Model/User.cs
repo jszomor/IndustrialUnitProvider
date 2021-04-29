@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace IndustrialUnitDatabase.Model
+namespace IndustrialUnit.Model.Model
 {
   public class User
   {

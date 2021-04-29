@@ -1,4 +1,5 @@
-﻿using IndustrialUnitDatabase;
+﻿using IndustrialUnit.Model;
+using IndustrialUnitDatabase;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,16 @@ namespace IndustrialUnitProvider
   {
     public void LoadUnitsFromSheet(string fileName)
     {
-      List<EquipmentView> equipments = new List<EquipmentView>();
-      var sheetEquipment = ExcelWorker.ReadExcel(Paths.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
+      List<Equipment> equipments = new List<Equipment>();
+      var sheetEquipment = ExcelWorker.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
       AssignValue(equipments, sheetEquipment);
 
-      List<ValveView> valves = new List<ValveView>();
-      var sheetValve = ExcelWorker.ReadExcel(Paths.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
+      List<Valve> valves = new List<Valve>();
+      var sheetValve = ExcelWorker.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
       AssignValue(valves, sheetValve);
 
-      List<InstrumentView> instruments = new List<InstrumentView>();
-      var sheetInstruments = ExcelWorker.ReadExcel(Paths.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
+      List<Instrument> instruments = new List<Instrument>();
+      var sheetInstruments = ExcelWorker.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
       AssignValue(instruments, sheetInstruments);
     }
 

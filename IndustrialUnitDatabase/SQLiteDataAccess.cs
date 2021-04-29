@@ -1,6 +1,5 @@
 ﻿using Dapper;
-using IndustrialUnitDatabase.Model;
-using IndustrialUnitProvider;
+using IndustrialUnit.Model;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,7 @@ namespace IndustrialUnitDatabase
 {
   public class SQLiteDataAccess
   {
-    private string loadConnectionString = $"Data Source={Paths.DatabasePath("IndustrialUnitDB.db")}";
+    private string loadConnectionString = $"Data Source={Helper.DatabasePath("IndustrialUnitDB.db")}";
 
     public DataTable GetConnectionOnDataTable(string tableName)
     {

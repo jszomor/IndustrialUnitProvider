@@ -1,5 +1,6 @@
 ﻿using IndustrialUnitDatabase;
-using IndustrialUnitDatabase.Model;
+using IndustrialUnit.Model;
+using IndustrialUnit.Model.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -52,7 +53,7 @@ namespace IndustrialUnit.WpfUI
       var eq = new Equipment
       {
         ItemType = EqItemTypeLabel.Text,
-        Capacity = Convert.ToDecimal(EqCapacityLabel.Text),
+        Capacity = Helper. (EqCapacityLabel.Text),
         Pressure = Convert.ToDecimal(EqPressureLabel.Text),
         PowerConsumption = Convert.ToDecimal(EqPowerConsumptionLabel.Text),
         Manufacturer = EqManufacturerLabel.Text,

@@ -1,4 +1,5 @@
-using IndustrialUnitProvider;
+using IndustrialUnit.Model;
+using IndustrialUnit.Model.Model;
 using FluentAssertions;
 using System;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using OfficeOpenXml;
 using System.Linq;
 using System.Collections;
+using IndustrialUnitProvider;
 
 namespace IndustrialUnitTest
 {
@@ -16,18 +18,18 @@ namespace IndustrialUnitTest
     public void EquipmentValuesShouldBeLikeInTheExcel()
     {
       var mapper = new UnitMapper();
-      var items = new ItemsView();
+      List<Equipment> equipments= new List<Equipment>();
 
       string file = "3Rows.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
 
-      mapper.AssignValue(items.Equipments, sheet);
+      mapper.AssignValue(equipments, sheet);
 
-      var expected = new List<EquipmentView>()
+      var expected = new List<Equipment>()
       {
-        new EquipmentView
+        new Equipment
         {
           Id = 1,
           ItemType = "Blower",
@@ -38,7 +40,7 @@ namespace IndustrialUnitTest
           Model = "80B",
           UnitPrice = 35000
         },
-        new EquipmentView
+        new Equipment
         {
           Id = 2,
           ItemType = "Blower",
@@ -51,25 +53,25 @@ namespace IndustrialUnitTest
         }
       };
 
-      items.Equipments.Should().BeEquivalentTo(expected);
+      equipments.Should().BeEquivalentTo(expected);
     }
 
     [Fact]
     public void ValveValuesShouldBeLikeInTheExcel()
     {
       var mapper = new UnitMapper();
-      var items = new ItemsView();
+      List<Valve> valves = new List<Valve>();
 
       string file = "3Rows.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
 
-      mapper.AssignValue(items.Valves, sheet);
+      mapper.AssignValue(valves, sheet);
 
-      var expected = new List<ValveView>()
+      var expected = new List<Valve>()
       {
-        new ValveView
+        new Valve
         {
           Id = 1,
           ItemType = "Butterfly valve",
@@ -80,7 +82,7 @@ namespace IndustrialUnitTest
           Manufacturer = "MVV 5.21",
           UnitPrice = 13
         },
-        new ValveView
+        new Valve
         {
           Id = 2,
           ItemType = "Butterfly valve",
@@ -93,91 +95,91 @@ namespace IndustrialUnitTest
         }
       };
 
-      items.Valves.Should().BeEquivalentTo(expected);
+      valves.Should().BeEquivalentTo(expected);
     }
 
     [Fact]
     public void ShouldThrowInvalidOperationExceptionInCaseOfEmptyEquipmentSheet()
     {
       var mapper = new UnitMapper();
-      var items = new ItemsView();
+      List<Equipment> equipments = new List<Equipment>();
 
       string file = "NoData.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
 
-      Assert.Throws<InvalidOperationException>(() => mapper.AssignValue(items.Equipments, sheet));
+      Assert.Throws<InvalidOperationException>(() => mapper.AssignValue(equipments, sheet));
     }
 
     [Fact]
     public void ShouldThrowInvalidOperationExceptionInCaseOfEmptyValveSheet()
     {
       var mapper = new UnitMapper();
-      var items = new ItemsView();
+      List<Valve> valves = new List<Valve>();
 
       string file = "NoData.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
 
-      Assert.Throws<InvalidOperationException>(() => mapper.AssignValue(items.Valves, sheet));
+      Assert.Throws<InvalidOperationException>(() => mapper.AssignValue(valves, sheet));
     }
 
     [Fact]
     public void ShouldThrowKeyNotFoundExceptionInCaseOfMissingColumnInEquipmentSheet()
     {
       var mapper = new UnitMapper();
-      var testItem = new ItemsView();
+      List<Equipment> equipments = new List<Equipment>();
 
       string file = "MissingColumn.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
 
-      Assert.Throws<MissingColumnException>(() => mapper.AssignValue(testItem.Equipments, sheet));
+      Assert.Throws<MissingColumnException>(() => mapper.AssignValue(equipments, sheet));
     }
 
     [Fact]
     public void ShouldThrowKeyNotFoundExceptionInCaseOfMissingColumnInValveSheet()
     {
       var mapper = new UnitMapper();
-      var testItem = new ItemsView();
+      List<Valve> valves = new List<Valve>();
 
       string file = "MissingColumn.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
 
-      Assert.Throws<MissingColumnException>(() => mapper.AssignValue(testItem.Valves, sheet));
+      Assert.Throws<MissingColumnException>(() => mapper.AssignValue(valves, sheet));
     }
 
     [Fact]
     public void ShouldThrowFormatExceptionInCaseOfInvalidFormatInEquipmentSheet()
     {
       var mapper = new UnitMapper();
-      var items = new ItemsView();
+      List<Equipment> equipments = new List<Equipment>();
 
       string file = "InvalidFormat.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
 
-      Assert.Throws<FormatException>(() => mapper.AssignValue(items.Equipments, sheet));
+      Assert.Throws<FormatException>(() => mapper.AssignValue(equipments, sheet));
     }
 
     [Fact]
     public void ShouldThrowFormatExceptionInCaseOfInvalidFormatInValveSheet()
     {
       var mapper = new UnitMapper();
-      var items = new ItemsView();
+      List<Valve> valves = new List<Valve>();
 
       string file = "InvalidFormat.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
 
-      Assert.Throws<FormatException>(() => mapper.AssignValue(items.Valves, sheet));
+      Assert.Throws<FormatException>(() => mapper.AssignValue(valves, sheet));
     }
 
     [Fact]
@@ -186,7 +188,7 @@ namespace IndustrialUnitTest
       string file = "InvalidSheetName.xlsx";
       string sheetName = "Equipment";
 
-      Assert.Throws<InvalidOperationException>(() => ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName));
+      Assert.Throws<InvalidOperationException>(() => ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName));
     }
 
     [Fact]
@@ -195,7 +197,7 @@ namespace IndustrialUnitTest
       string file = "InvalidSheetName.xlsx";
       string sheetName = "Valve";
 
-      Assert.Throws<InvalidOperationException>(() => ExcelWorker.ReadExcel(Paths.TestPath, file, sheetName));
+      Assert.Throws<InvalidOperationException>(() => ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName));
     }
   }
 }
