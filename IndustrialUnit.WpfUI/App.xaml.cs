@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndustrialUnit.WpfUI.Validation;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,16 @@ namespace IndustrialUnit.WpfUI
   /// </summary>
   public partial class App : Application
   {
+    protected override void OnStartup(StartupEventArgs e)
+    {
+      MainWindow = new MainWindow()
+      {
+        DataContext = new EquipmentValidationModel()
+      };
+
+      MainWindow.Show();
+
+      base.OnStartup(e);
+    }
   }
 }

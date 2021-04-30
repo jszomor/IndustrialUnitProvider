@@ -3,16 +3,16 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:validationrules="clr-namespace:IndustrialUnit.WpfUI.ValidationRules"
+      xmlns:validationrules="clr-namespace:IndustrialUnit.WpfUI.Validation"
       mc:Ignorable="d" 
       d:DesignHeight="616.671" d:DesignWidth="1213.791"
       Title="EquipmentPage">
   
   <Page.DataContext>
-    <validationrules:EquipmentValidationRule/>
+    <validationrules:EquipmentValidationModel/>
   </Page.DataContext>
   
-  <Grid>
+  <Grid Margin="0,0,-28,0">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="20"/>
       <ColumnDefinition Width="140"/>
@@ -31,7 +31,7 @@
       <RowDefinition Height="50"/>
       <RowDefinition Height="50"/>
       <RowDefinition Height="50"/>
-      <RowDefinition Height="40"/>
+      <RowDefinition Height="50"/>
       <RowDefinition Height="40"/>
       <RowDefinition Height="40"/>
       <RowDefinition Height="40"/>
@@ -39,29 +39,32 @@
       <RowDefinition/>
     </Grid.RowDefinitions>
 
-    <Label Content="Equipment table"   Grid.Column="5" Grid.Row="0" FontSize="20" Margin="0,0,5,0"/>
+    <Label 
+      Content="Equipment table"   
+      Grid.Column="5" Grid.Row="0" 
+      FontSize="20" Margin="0,0,5,0"/>
     
-    <Label Content="Item type"
+    <Label 
+      Content="Item type"
       Grid.Column="1"
       Grid.Row="1"
       VerticalContentAlignment="Center"
       HorizontalContentAlignment="Left"
       FontSize="14"/>
-    
+
     <TextBox 
       x:Name="EqItemTypeLabel"
       FontSize="14"
-      Margin="0,5,0,5"
+      Margin="0,13,0,5"
       Grid.Column="2"
       Grid.Row="1"
       TextChanged="TextBox_TextChanged"
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
-      <!--Validation.ErrorTemplate="{StaticResource errorTemplate}">-->
       <TextBox.Text>
         <Binding Path="ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:MinimumCharacterRule MinimumCharacters="3"/>
+            <!--<validationrules:UnitValidationRule MinimumCharacters="3"/>-->
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -78,44 +81,187 @@
     <TextBox
       x:Name="EqCapacityLabel"
       FontSize="14"
-      Margin="0,5,0,5"
+      Margin="0,13,0,5"
       Grid.Column="2"
       Grid.Row="2"
       TextChanged="TextBox_TextChanged"
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
-      <!--Validation.ErrorTemplate="{StaticResource errorTemplate}">-->
       <TextBox.Text>
         <Binding Path="Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:MinimumCharacterRule MinimumCharacters="5"/>
+            <validationrules:UnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
     </TextBox>
     
-    <Label Content="Pressure"          Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14"/>
-    <TextBox Margin="0,5,0,5"          Grid.Column="2" Grid.Row="3" Text="{Binding Pressure, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
-                                       TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" x:Name="EqPressureLabel"/>
+    <Label 
+      Content="Pressure"          
+      Grid.Column="1" Grid.Row="3" 
+      VerticalContentAlignment="Center" 
+      HorizontalContentAlignment="Left" 
+      FontSize="14"/>
+
+    <TextBox 
+      x:Name="EqPressureLabel" 
+      FontSize="14"
+      Margin="0,13,0,5"          
+      Grid.Column="2" 
+      Grid.Row="3"
+      TextChanged="TextBox_TextChanged" 
+      HorizontalContentAlignment="Left" 
+      VerticalContentAlignment="Center">
+      <TextBox.Text>
+        <Binding Path="Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+          <Binding.ValidationRules>
+            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+          </Binding.ValidationRules>
+        </Binding>
+      </TextBox.Text>
+    </TextBox>
     
-    <Label Content="Power Consumption" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14"/>
-    <TextBox Margin="0,5,0,5"          Grid.Column="2" Grid.Row="4" Text="{Binding PowerConsumption, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
-                                       TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" x:Name="EqPowerConsumptionLabel"/>
+    <Label 
+      Content="Power Consumption" 
+      Grid.Column="1" 
+      Grid.Row="4" 
+      VerticalContentAlignment="Center" 
+      HorizontalContentAlignment="Left" 
+      FontSize="14"/>
+
+    <TextBox 
+      x:Name="EqPowerConsumptionLabel"
+      FontSize="14"
+      Margin="0,13,0,5"          
+      Grid.Column="2" 
+      Grid.Row="4"       
+      TextChanged="TextBox_TextChanged" 
+      HorizontalContentAlignment="Left" 
+      VerticalContentAlignment="Center">
+      <TextBox.Text>
+        <Binding Path="PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+          <Binding.ValidationRules>
+            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+          </Binding.ValidationRules>
+        </Binding>
+      </TextBox.Text>
+    </TextBox>
     
-    <Label Content="Manufacturer"      Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14"/>
-    <TextBox Margin="0,5,0,5"          Grid.Column="2" Grid.Row="5" Text="{Binding Manufacturer, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
-                                       TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" x:Name="EqManufacturerLabel"/>
+    <Label 
+      Content="Manufacturer"      
+      Grid.Column="1" Grid.Row="5" 
+      VerticalContentAlignment="Center" 
+      HorizontalContentAlignment="Left" 
+      FontSize="14"/>
+
+    <TextBox 
+      x:Name="EqManufacturerLabel"
+      FontSize="14" 
+      Margin="0,13,0,5"          
+      Grid.Column="2" 
+      Grid.Row="5" 
+      TextChanged="TextBox_TextChanged" 
+      HorizontalContentAlignment="Left" 
+      VerticalContentAlignment="Center">
+      <TextBox.Text>
+        <Binding Path="Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+          <Binding.ValidationRules>
+            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+          </Binding.ValidationRules>
+        </Binding>
+      </TextBox.Text>
+    </TextBox>
     
-    <Label Content="Model"             Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14"/>
-    <TextBox Margin="0,5,0,5"          Grid.Column="2" Grid.Row="6" Text="{Binding Model, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
-                                       TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" x:Name="EqModelLabel"/>
+    <Label 
+      Content="Model"             
+      Grid.Column="1" Grid.Row="6" 
+      VerticalContentAlignment="Center" 
+      HorizontalContentAlignment="Left" 
+      FontSize="14"/>
+
+    <TextBox 
+      x:Name="EqModelLabel" 
+      FontSize="14" 
+      Margin="0,13,0,5"          
+      Grid.Column="2" Grid.Row="6" 
+      TextChanged="TextBox_TextChanged" 
+      HorizontalContentAlignment="Left" 
+      VerticalContentAlignment="Center">
+      <TextBox.Text>
+        <Binding Path="Model" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+          <Binding.ValidationRules>
+            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+          </Binding.ValidationRules>
+        </Binding>
+      </TextBox.Text>
+    </TextBox>
     
-    <Label Content="Unit price"        Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14"/>
-    <TextBox Margin="0,5,0,5"          Grid.Column="2" Grid.Row="7" Text="{Binding UnitPrice, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
-                                       TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" x:Name="EqUnitPriceLabel"/>
+    <Label 
+      Content="Unit price"        
+      Grid.Column="1" 
+      Grid.Row="7" 
+      VerticalContentAlignment="Center" 
+      HorizontalContentAlignment="Left" 
+      FontSize="14"/>
+
+    <TextBox 
+      x:Name="EqUnitPriceLabel" 
+      FontSize="14"
+      Margin="0,13,0,5"          
+      Grid.Column="2" 
+      Grid.Row="7"
+      TextChanged="TextBox_TextChanged"
+      HorizontalContentAlignment="Left" 
+      VerticalContentAlignment="Center">
+      <TextBox.Text>
+        <Binding Path="UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+          <Binding.ValidationRules>
+            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+          </Binding.ValidationRules>
+        </Binding>
+      </TextBox.Text>
+    </TextBox>
 
     <Button x:Name="EQSearch" Content="Search" Grid.Column="1" Grid.Row="9" FontSize="14" FontWeight="Bold" Margin="10,5,30,5"/>
-    <Button x:Name="EQInsert" Content="Insert" Grid.Column="2" Grid.Row="9" FontSize="14" FontWeight="Bold" Margin="0,5,40,5" Click="EQInsert_Click"/>
+    
+    <Button 
+      x:Name="EQInsert" 
+      Content="Insert" 
+      Grid.Column="2" 
+      Grid.Row="9" 
+      FontSize="14" 
+      FontWeight="Bold" 
+      Margin="0,5,40,5" 
+      Click="EQInsert_Click">
+      <Button.Style>
+        <Style TargetType="Button">
+          <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=EqItemTypeLabel, Path=(Validation.HasError)}" Value="True">
+              <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=EqCapacityLabel, Path=(Validation.HasError)}" Value="True">
+              <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=EqPressureLabel, Path=(Validation.HasError)}" Value="True">
+              <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=EqPowerConsumptionLabel, Path=(Validation.HasError)}" Value="True">
+              <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=EqManufacturerLabel, Path=(Validation.HasError)}" Value="True">
+              <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=EqModelLabel, Path=(Validation.HasError)}" Value="True">
+              <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=EqUnitPriceLabel, Path=(Validation.HasError)}" Value="True">
+              <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+          </Style.Triggers>
+        </Style>
+      </Button.Style>
+    </Button>
+
     <Button x:Name="EQUpdate" Content="Update" Grid.Column="1" Grid.Row="10" FontSize="14" FontWeight="Bold" Margin="10,5,30,5"/>
     <Button x:Name="EQDelete" Content="Delete" Grid.Column="2" Grid.Row="10" FontSize="14" FontWeight="Bold" Margin="0,5,40,5"/>
 

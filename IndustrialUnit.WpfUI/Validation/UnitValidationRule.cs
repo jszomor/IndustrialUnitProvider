@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace IndustrialUnit.WpfUI.ValidationRules
+namespace IndustrialUnit.WpfUI.Validation
 {
-  public class MinimumCharacterRule : ValidationRule
+  public class UnitValidationRule : ValidationRule
   {
     public int MinimumCharacters { get; set; }
 
@@ -16,10 +16,10 @@ namespace IndustrialUnit.WpfUI.ValidationRules
     {
       string charString = value as string;
 
-      if (charString.Length < MinimumCharacters && !string.IsNullOrWhiteSpace(charString))
-        return new ValidationResult(false, $"Label atleast {MinimumCharacters} characters.");
-      else if (string.IsNullOrWhiteSpace(charString))
-        return new ValidationResult(false, $"Label cannot be empty.");
+      //if (charString.Length < MinimumCharacters && !string.IsNullOrWhiteSpace(charString))
+      //  return new ValidationResult(false, $"Label at least {MinimumCharacters} characters.");
+      //else if (string.IsNullOrWhiteSpace(charString))
+      //  return new ValidationResult(false, $"Label cannot be empty.");
 
       return new ValidationResult(true, null);
     }
