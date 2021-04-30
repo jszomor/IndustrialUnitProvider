@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Windows;
 using System.Windows.Controls;
+using IndustrialUnit.WpfUI.ValidationRules;
 
 namespace IndustrialUnit.WpfUI
 {
@@ -17,7 +18,6 @@ namespace IndustrialUnit.WpfUI
     {
       InitializeComponent();
       FillDataGrid();
-
     }
 
     private void FillDataGrid()
@@ -30,7 +30,6 @@ namespace IndustrialUnit.WpfUI
 
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
-
     }
 
     private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
