@@ -1,4 +1,4 @@
-﻿<Page x:Class="IndustrialUnit.WpfUI.EquipmentPage"
+﻿<Page x:Class="IndustrialUnit.WpfUI.EquipmentView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,10 +6,10 @@
       xmlns:validationrules="clr-namespace:IndustrialUnit.WpfUI.Validation"
       mc:Ignorable="d" 
       d:DesignHeight="616.671" d:DesignWidth="1213.791"
-      Title="EquipmentPage">
+      Title="EquipmentView">
   
   <Page.DataContext>
-    <validationrules:EquipmentValidationModel/>
+    <validationrules:EquipmentViewModel/>
   </Page.DataContext>
   
   <Grid Margin="0,0,-28,0">
@@ -64,7 +64,7 @@
       <TextBox.Text>
         <Binding Path="ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <!--<validationrules:UnitValidationRule MinimumCharacters="3"/>-->
+            <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -90,7 +90,7 @@
       <TextBox.Text>
         <Binding Path="Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+            <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -115,7 +115,7 @@
       <TextBox.Text>
         <Binding Path="Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+            <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -141,7 +141,7 @@
       <TextBox.Text>
         <Binding Path="PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+            <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -166,7 +166,7 @@
       <TextBox.Text>
         <Binding Path="Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+            <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -190,7 +190,7 @@
       <TextBox.Text>
         <Binding Path="Model" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+            <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -216,7 +216,7 @@
       <TextBox.Text>
         <Binding Path="UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:UnitValidationRule MinimumCharacters="3"/>
+            <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>

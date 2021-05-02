@@ -27,7 +27,7 @@ namespace IndustrialUnit.WpfUI
 
     private void Equipment_menu_click(object sender, RoutedEventArgs e)
     {
-      Main.Content = new EquipmentPage();
+      Main.Content = new EquipmentView();
     }
   }
 }

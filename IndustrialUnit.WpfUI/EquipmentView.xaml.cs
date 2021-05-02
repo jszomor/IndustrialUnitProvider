@@ -10,11 +10,11 @@ using IndustrialUnit.WpfUI.Validation;
 namespace IndustrialUnit.WpfUI
 {
   /// <summary>
-  /// Interaction logic for EquipmentPage.xaml
+  /// Interaction logic for EquipmentView.xaml
   /// </summary>
-  public partial class EquipmentPage : Page
+  public partial class EquipmentView : Page
   {
-    public EquipmentPage()
+    public EquipmentView()
     {
       InitializeComponent();
       FillDataGrid();

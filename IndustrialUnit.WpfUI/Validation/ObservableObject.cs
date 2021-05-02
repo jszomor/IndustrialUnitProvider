@@ -81,5 +81,19 @@ namespace IndustrialUnit.WpfUI.Validation
         OnErrorsChanged(propertyName);
       }
     }
+
+    //private void ValidateCapacityText()
+    //{
+    //  ClearErrors(nameof(Capacity));
+
+    //  if (Capacity.Any(char.IsLetter))
+    //    AddError(nameof(Capacity), "Only number is allowed.");
+
+    //  else if (!string.IsNullOrWhiteSpace(Capacity) && Capacity?.Length < 3)
+    //    AddError(nameof(Capacity), "Label must consist at least 3 char.");
+
+    //  else if (string.IsNullOrWhiteSpace(Capacity))
+    //    AddError(nameof(Capacity), "Label cannot be empty.");
+    //}
   }
 }
