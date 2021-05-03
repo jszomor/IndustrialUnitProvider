@@ -27,30 +27,5 @@ namespace IndustrialUnit.WpfUI
 
       EquipmentTableGrid.ItemsSource = dt.DefaultView;
     }
-
-    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-    {
-
-    }
-
-    private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-    }
-
-    private void EQInsert_Click(object sender, RoutedEventArgs e)
-    {
-      var eq = new Equipment();
-
-      eq.ItemType = EqItemTypeLabel.Text;
-      eq.Capacity = Helper.ConvertType<decimal>(EqCapacityLabel.Text, eq.Capacity.GetType());
-      eq.Pressure = Helper.ConvertType<decimal>(EqPressureLabel.Text, eq.Pressure.GetType());
-      eq.PowerConsumption = Helper.ConvertType<decimal>(EqPowerConsumptionLabel.Text, eq.PowerConsumption.GetType());
-      eq.Manufacturer = EqManufacturerLabel.Text;
-      eq.Model = EqModelLabel.Text;
-      eq.UnitPrice = Helper.ConvertType<decimal>(EqUnitPriceLabel.Text, eq.UnitPrice.GetType());      
-
-      var sqlAccess = new SQLiteDataAccess();
-      sqlAccess.Insert(eq, "Equipment");
-    }
   }
 }

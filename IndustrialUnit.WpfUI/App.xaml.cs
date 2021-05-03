@@ -1,4 +1,5 @@
 ﻿using IndustrialUnit.WpfUI.Validation;
+using IndustrialUnit.WpfUI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

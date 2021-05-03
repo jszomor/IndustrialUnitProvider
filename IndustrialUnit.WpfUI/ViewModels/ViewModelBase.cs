@@ -7,12 +7,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndustrialUnit.WpfUI.Validation
+namespace IndustrialUnit.WpfUI.ViewModels
 {
   /// <summary>
   /// A base for objects using property notification.
   /// </summary>
-  public class ObservableObject : INotifyPropertyChanged, INotifyDataErrorInfo
+  public class ViewModelBase : INotifyPropertyChanged, INotifyDataErrorInfo
   {
     public event PropertyChangedEventHandler PropertyChanged;
 

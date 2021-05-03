@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndustrialUnit.WpfUI.Commands;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,18 +7,19 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows.Input;
 
-namespace IndustrialUnit.WpfUI.Validation
+namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class EquipmentViewModel : ObservableObject
+  public class EquipmentViewModel : ViewModelBase
   {
     private string _itemType;
-    private string _capacity;
-    private string _pressure;
-    private string _powerConsumption;
+    private decimal _capacity;
+    private decimal _pressure;
+    private decimal _powerConsumption;
     private string _manufacturer;
     private string _model;
-    private string _unitPrice;
+    private decimal _unitPrice;
 
     public string ItemType
     {
@@ -29,7 +31,7 @@ namespace IndustrialUnit.WpfUI.Validation
       }
     }
 
-    public string Capacity
+    public decimal Capacity
     {
       get { return _capacity; }
       set
@@ -39,7 +41,7 @@ namespace IndustrialUnit.WpfUI.Validation
       }
     }
 
-    public string Pressure
+    public decimal Pressure
     {
       get { return _pressure; }
       set
@@ -49,7 +51,7 @@ namespace IndustrialUnit.WpfUI.Validation
       }
     }
 
-    public string PowerConsumption
+    public decimal PowerConsumption
     {
       get { return _powerConsumption; }
       set
@@ -79,7 +81,7 @@ namespace IndustrialUnit.WpfUI.Validation
       }
     }
 
-    public string UnitPrice
+    public decimal UnitPrice
     {
       get { return _unitPrice; }
       set
@@ -87,6 +89,13 @@ namespace IndustrialUnit.WpfUI.Validation
         _unitPrice = value;
         OnPropertyChanged("UnitPrice");
       }
+    }
+
+    public ICommand InsertEquipmentCommand { get; }
+
+    public EquipmentViewModel()
+    {
+      InsertEquipmentCommand = new InsertEquipmentCommand(this);
     }
   }
 }
