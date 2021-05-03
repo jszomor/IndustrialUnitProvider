@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using IndustrialUnit.WpfUI.Validation;
 
-namespace IndustrialUnit.WpfUI
+namespace IndustrialUnit.WpfUI.Views
 {
   /// <summary>
   /// Interaction logic for EquipmentView.xaml
