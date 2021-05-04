@@ -278,6 +278,5 @@
         <DataGridTextColumn Header="Unit Price (EUR)" Binding="{Binding UnitPrice}" Width="auto"/>
       </DataGrid.Columns>
     </DataGrid>
-
   </Grid>
 </Page>

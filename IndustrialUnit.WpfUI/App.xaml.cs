@@ -17,10 +17,7 @@ namespace IndustrialUnit.WpfUI
   {
     protected override void OnStartup(StartupEventArgs e)
     {
-      MainWindow = new MainWindow()
-      {
-        
-      };
+      MainWindow = new MainWindow();
 
       MainWindow.Show();
 
