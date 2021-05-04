@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class EquipmentViewModel : ViewModelBase, IEnumerable
+  public class EquipmentViewModel : ViewModelBase
   {
     private string _itemType;
     private decimal _capacity;
@@ -93,16 +93,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     public ICommand InsertEquipmentCommand { get; }
 
-    public EquipmentViewModel()
-    {
-      InsertEquipmentCommand = new InsertEquipmentCommand(this);
-    }
-
-    public IEnumerator GetEnumerator()
-    {
-      throw new NotImplementedException();
-    }
-
-    public IEnumerable<EquipmentViewModel> equipmentViewModels { get; set; }
+    public EquipmentViewModel() => InsertEquipmentCommand = new InsertEquipmentCommand(this);    
   }
 }

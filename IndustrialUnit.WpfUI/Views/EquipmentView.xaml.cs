@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Windows;
 using System.Windows.Controls;
 using IndustrialUnit.WpfUI.Validation;
+using IndustrialUnit.WpfUI.ViewModels;
 
 namespace IndustrialUnit.WpfUI.Views
 {
@@ -18,6 +19,7 @@ namespace IndustrialUnit.WpfUI.Views
     {
       InitializeComponent();
       FillDataGrid();
+      DataContext = new EquipmentViewModel();
     }
 
     private void FillDataGrid()

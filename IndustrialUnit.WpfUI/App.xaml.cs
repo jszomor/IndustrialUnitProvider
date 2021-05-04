@@ -19,7 +19,7 @@ namespace IndustrialUnit.WpfUI
     {
       MainWindow = new MainWindow()
       {
-        DataContext = new EquipmentViewModel()
+        
       };
 
       MainWindow.Show();
