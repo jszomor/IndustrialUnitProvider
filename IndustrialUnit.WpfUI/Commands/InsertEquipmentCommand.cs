@@ -4,6 +4,8 @@ using IndustrialUnit.WpfUI.ViewModels;
 using IndustrialUnitDatabase;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Windows;
 
@@ -38,9 +40,17 @@ namespace IndustrialUnit.WpfUI.Commands
     {
       if (IsEmpty())
       {
-        var sqlAccess = new SQLiteDataAccess();
-        sqlAccess.Insert(_viewModel, "Equipment");
-        MessageBox.Show($"You have successfully added.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        try
+        {
+          var sqlAccess = new SQLiteDataAccess();
+          sqlAccess.Insert(_viewModel, "Equipment");
+          MessageBox.Show($"You have successfully added.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        catch (FileNotFoundException message)
+        {
+          Debug.WriteLine("Database file not found!");
+          new FileNotFoundException($"{message}");
+        }
       }
       else
       {

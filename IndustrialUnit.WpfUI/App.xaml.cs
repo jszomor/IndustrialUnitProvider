@@ -15,13 +15,13 @@ namespace IndustrialUnit.WpfUI
   /// </summary>
   public partial class App : Application
   {
-    protected override void OnStartup(StartupEventArgs e)
-    {
-      MainWindow = new MainWindow();
+    //protected override void OnStartup(StartupEventArgs e)
+    //{
+    //  MainWindow = new MainWindow();
 
-      MainWindow.Show();
+    //  MainWindow.Show();
 
-      base.OnStartup(e);
-    }
+    //  base.OnStartup(e);
+    //}
   }
 }

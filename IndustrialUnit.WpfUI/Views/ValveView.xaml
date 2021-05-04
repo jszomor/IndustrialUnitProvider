@@ -5,28 +5,46 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="849" d:DesignWidth="1457">
+             d:DesignHeight="849" d:DesignWidth="1457"
+             
+             Loaded="UserControl_Loaded">
   
-  <UserControl.DataContext>
+  <!--<UserControl.DataContext>
     <viewModel:ValveViewModel/>
-  </UserControl.DataContext>
+  </UserControl.DataContext>-->
   
   <Grid>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="auto"/>
+      <ColumnDefinition Width="20"/>
       <ColumnDefinition Width="auto"/>
       <ColumnDefinition Width="auto"/>
       <ColumnDefinition Width="auto"/>
       <ColumnDefinition Width="auto"/>
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
-      <RowDefinition Height="auto"/>
+      <RowDefinition Height="20"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
-    
+
+    <ListView x:Name="lvValveItems" Margin="50" SelectionMode="Multiple" SelectionChanged="ListView_SelectionChanged" ItemsSource="{Binding Valves}">
+      <ListView.View>
+        <GridView>
+          <GridViewColumn Header="Is Completed">
+            <GridViewColumn.CellTemplate>
+              <DataTemplate>
+                <!--<CheckBox IsChecked="{Binding IsCompleted}"/>-->
+              </DataTemplate>
+            </GridViewColumn.CellTemplate>
+          </GridViewColumn>
+          <GridViewColumn Header="ItemType" DisplayMemberBinding="{Binding ItemType}"/>
+          <GridViewColumn Header="Owner" DisplayMemberBinding="{Binding Operation}"/>
+        </GridView>
+      </ListView.View>
+    </ListView>
+
   </Grid>
   
 </UserControl>

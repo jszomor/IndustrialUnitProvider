@@ -1,7 +1,9 @@
-﻿using IndustrialUnit.WpfUI.Commands;
+﻿using IndustrialUnit.Model.Model;
+using IndustrialUnit.WpfUI.Commands;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -13,6 +15,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class EquipmentViewModel : ViewModelBase
   {
+
     private string _itemType;
     private decimal _capacity;
     private decimal _pressure;
