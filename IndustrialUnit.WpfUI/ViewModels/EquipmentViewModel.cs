@@ -1,22 +1,4 @@
-﻿using Caliburn.Micro;
-using IndustrialUnit.Model.Model;
-using IndustrialUnit.WpfUI.Commands;
-using IndustrialUnitDatabase;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
+﻿using IndustrialUnit.WpfUI.Commands;
 using System.Windows.Input;
 
 namespace IndustrialUnit.WpfUI.ViewModels
