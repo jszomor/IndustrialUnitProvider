@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class MainViewModel : ViewModelBase
+  public class MainViewModel : BaseViewModel
   {
 		private ValveViewModel _valveViewModel;
 		public ValveViewModel ValveViewModel
@@ -17,7 +17,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 			set
 			{
 				_valveViewModel = value;
-				OnPropertyChanged(nameof(ValveViewModel));
+				//OnPropertyChanged(nameof(ValveViewModel));
 			}
 		}
 

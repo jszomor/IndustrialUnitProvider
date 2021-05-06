@@ -1,101 +1,43 @@
-﻿using IndustrialUnit.Model.Model;
+﻿using Caliburn.Micro;
+using IndustrialUnit.Model.Model;
 using IndustrialUnit.WpfUI.Commands;
+using IndustrialUnitDatabase;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class EquipmentViewModel : ViewModelBase
+  public class EquipmentViewModel : BaseViewModel
   {
+    public string ItemType { get; set; }
+    public decimal Capacity { get; set; }
+    public decimal Pressure { get; set; }
+    public decimal PowerConsumption { get; set; }
+    public string Manufacturer { get; set; }
+    public string Model { get; set; }
+    public decimal UnitPrice { get; set; }
 
-    private string _itemType;
-    private decimal _capacity;
-    private decimal _pressure;
-    private decimal _powerConsumption;
-    private string _manufacturer;
-    private string _model;
-    private decimal _unitPrice;
-
-    public string ItemType
-    {
-      get { return _itemType; }
-      set
-      {
-        _itemType = value;
-        OnPropertyChanged("ItemType");
-      }
-    }
-
-    public decimal Capacity
-    {
-      get { return _capacity; }
-      set
-      {
-        _capacity = value;
-        OnPropertyChanged("Capacity");
-      }
-    }
-
-    public decimal Pressure
-    {
-      get { return _pressure; }
-      set
-      {
-        _pressure = value;
-        OnPropertyChanged("Pressure");
-      }
-    }
-
-    public decimal PowerConsumption
-    {
-      get { return _powerConsumption; }
-      set
-      {
-        _powerConsumption = value;
-        OnPropertyChanged("PowerConsumption");
-      }
-    }
-
-    public string Manufacturer
-    {
-      get { return _manufacturer; }
-      set
-      {
-        _manufacturer = value;
-        OnPropertyChanged("Manufacturer");
-      }
-    }
-
-    public string Model
-    {
-      get { return _model; }
-      set
-      {
-        _model = value;
-        OnPropertyChanged("Model");
-      }
-    }
-
-    public decimal UnitPrice
-    {
-      get { return _unitPrice; }
-      set
-      {
-        _unitPrice = value;
-        OnPropertyChanged("UnitPrice");
-      }
-    }
+    private void RunInsertCommand() => EquipmentCommands.SubmitInsert(this, "Equipment");
 
     public ICommand InsertEquipmentCommand { get; }
 
-    public EquipmentViewModel() => InsertEquipmentCommand = new InsertEquipmentCommand(this);    
+    public EquipmentViewModel()
+    {      
+      InsertEquipmentCommand = new RelayCommand(RunInsertCommand);
+    }
   }
 }

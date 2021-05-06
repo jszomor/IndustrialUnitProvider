@@ -11,39 +11,32 @@ using System.Windows;
 
 namespace IndustrialUnit.WpfUI.Commands
 {
-  public class InsertEquipmentCommand : CommandBase
+  public static class EquipmentCommands
   {
-    private EquipmentViewModel _viewModel { get; set; }
-
-    public InsertEquipmentCommand(EquipmentViewModel ViewModel)
+    private static bool IsEmpty(EquipmentViewModel item)
     {
-      _viewModel = ViewModel;
-    }
+      if (string.IsNullOrEmpty(item.ItemType) ||
+          string.IsNullOrEmpty(item.Capacity.ToString()) ||
+          string.IsNullOrEmpty(item.Pressure.ToString()) ||
+          string.IsNullOrEmpty(item.PowerConsumption.ToString()) ||
+          string.IsNullOrEmpty(item.Manufacturer) ||
+          string.IsNullOrEmpty(item.Model) ||
+          string.IsNullOrEmpty(item.UnitPrice.ToString()))
+      {
+        return false;
+      }
 
-    private bool IsEmpty()
-    {
-        if (string.IsNullOrEmpty(_viewModel.ItemType) ||
-            string.IsNullOrEmpty(_viewModel.Capacity.ToString()) ||
-            string.IsNullOrEmpty(_viewModel.Pressure.ToString()) ||
-            string.IsNullOrEmpty(_viewModel.PowerConsumption.ToString()) ||
-            string.IsNullOrEmpty(_viewModel.Manufacturer) ||
-            string.IsNullOrEmpty(_viewModel.Model) ||
-            string.IsNullOrEmpty(_viewModel.UnitPrice.ToString()))
-        {
-          return false;
-        }
-      
       return true;
     }
 
-    public override void Execute(object parameter)
+    public static void SubmitInsert(EquipmentViewModel item, string tableName)
     {
-      if (IsEmpty())
+      if (IsEmpty(item))
       {
         try
         {
           var sqlAccess = new SQLiteDataAccess();
-          sqlAccess.Insert(_viewModel, "Equipment");
+          sqlAccess.Insert(item, tableName);
           MessageBox.Show($"You have successfully added.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (FileNotFoundException message)

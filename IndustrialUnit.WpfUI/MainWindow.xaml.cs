@@ -12,7 +12,6 @@ namespace IndustrialUnit.WpfUI
     public MainWindow()
     {
       InitializeComponent();
-
       DataContext = new MainViewModel();
     }
 

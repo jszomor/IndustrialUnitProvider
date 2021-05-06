@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class ValveViewModel : ViewModelBase
+  public class ValveViewModel : BaseViewModel
   {
 
     private ObservableCollection<Valve> _valves;
@@ -22,7 +22,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       set
       {
         _valves = value;
-        OnPropertyChanged(nameof(Valves));
+        //OnPropertyChanged(nameof(Valves));
       }
     }
 
