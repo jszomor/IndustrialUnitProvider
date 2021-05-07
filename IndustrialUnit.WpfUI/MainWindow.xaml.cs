@@ -15,9 +15,9 @@ namespace IndustrialUnit.WpfUI
       DataContext = new MainViewModel();
     }
 
-    private void LoadEquipmentMenu_click(object sender, RoutedEventArgs e)
+    public void LoadEquipmentMenu_click(object sender, RoutedEventArgs e)
     {
-      Main.Content = new EquipmentView();
+      Main.Content = new EquipmentViewModel();
     }
 
     private void LoadValveMenu_click(object sender, RoutedEventArgs e)

@@ -1,5 +1,7 @@
 ﻿using IndustrialUnit.WpfUI.ViewModels;
+using IndustrialUnit.WpfUI.Views;
 using IndustrialUnitDatabase;
+using System;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
@@ -10,7 +12,7 @@ namespace IndustrialUnit.WpfUI.Commands
 {
   public static class EquipmentCommands
   {
-    private static bool IsEmpty(EquipmentViewModel item)
+    private static bool IsEquipmentEmpty(EquipmentViewModel item)
     {
       if (string.IsNullOrEmpty(item.ItemType) ||
           string.IsNullOrEmpty(item.Capacity.ToString()) ||
@@ -22,11 +24,23 @@ namespace IndustrialUnit.WpfUI.Commands
       {
         return false;
       }
-
       return true;
     }
 
-    public static void SubmitInsert(EquipmentViewModel item, string tableName)
+    public static bool IsEmpty<T>(T item)
+    {
+      if(item is EquipmentViewModel)
+      {
+        EquipmentViewModel eqItem = item as EquipmentViewModel;
+        return IsEquipmentEmpty(eqItem);
+      }
+      else
+      {
+        throw new InvalidOperationException($"Invalid modelView name: [{item}]");
+      }
+    }
+
+    public static void SubmitInsert<T>(T item, string tableName)
     {
       if (IsEmpty(item))
       {
@@ -39,7 +53,7 @@ namespace IndustrialUnit.WpfUI.Commands
         catch (FileNotFoundException message)
         {
           Debug.WriteLine("Database file not found!");
-          new FileNotFoundException($"{message}");
+          throw new FileNotFoundException($"{message}");
         }
       }
       else

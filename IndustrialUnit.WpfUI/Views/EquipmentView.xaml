@@ -227,7 +227,8 @@
       Grid.Row="9" 
       FontSize="14" 
       FontWeight="Bold" 
-      Margin="0,5,40,5" 
+      Margin="0,5,40,5"
+      Click="EQInsert_Click"
       Command="{Binding InsertEquipmentCommand}">
       <Button.Style>
         <Style TargetType="Button">
@@ -267,7 +268,8 @@
               Grid.ColumnSpan="2" 
               Margin="0,0,0,0" 
               Grid.RowSpan="11" 
-              AutoGenerateColumns="False">
+              AutoGenerateColumns="False"
+              ItemsSource="{Binding EqDataGrid}">
       <DataGrid.ColumnHeaderStyle>
         <Style TargetType="{x:Type DataGridColumnHeader}">
           <Setter Property="FontWeight" Value="Bold"/>

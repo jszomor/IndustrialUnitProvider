@@ -26,7 +26,13 @@ namespace IndustrialUnit.WpfUI.Views
 
     public void FillDataGrid()
     {
-      EquipmentTableGrid.ItemsSource = EquipmentCommands.FillDataGrid("Equipment");         
+      EquipmentTableGrid.ItemsSource = EquipmentCommands.FillDataGrid("Equipment");
+    }
+
+    private void EQInsert_Click(object sender, RoutedEventArgs e)
+    {
+      EquipmentCommands.SubmitInsert(DataContext, "Equipment");
+      FillDataGrid();
     }
   }
 }
