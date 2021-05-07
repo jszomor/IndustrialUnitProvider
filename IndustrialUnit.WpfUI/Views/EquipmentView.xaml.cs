@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using IndustrialUnit.WpfUI.Validation;
 using IndustrialUnit.WpfUI.ViewModels;
 using System.IO;
+using IndustrialUnit.WpfUI.Commands;
 
 namespace IndustrialUnit.WpfUI.Views
 {
@@ -25,17 +26,7 @@ namespace IndustrialUnit.WpfUI.Views
 
     public void FillDataGrid()
     {
-      try
-      {
-        var sqlAccess = new SQLiteDataAccess();
-        DataTable dt = sqlAccess.GetConnectionOnDataTable("Equipment");
-
-        EquipmentTableGrid.ItemsSource = dt.DefaultView;
-      }
-      catch (FileNotFoundException message)
-      {
-        throw new FileNotFoundException($"{message}");
-      }    
+      EquipmentTableGrid.ItemsSource = EquipmentCommands.FillDataGrid("Equipment");         
     }
   }
 }
