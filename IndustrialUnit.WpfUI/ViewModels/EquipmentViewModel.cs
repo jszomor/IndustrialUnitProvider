@@ -33,17 +33,17 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     private void RunInsertCommand() => BaseModel.SubmitInsert(this, "Equipment", IsEquipmentEmpty);
     private void RunDeleteCommand() => BaseModel.SubmitDelete("Equipment", Id);
-
-    public DataTable EqDataGrid { get; set; }
+    private void RunUpdateCommand() => BaseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
 
     public ICommand InsertEquipmentCommand { get; }
-
-    public ICommand DeleteEquipmentCommand { get; set; }
+    public ICommand DeleteEquipmentCommand { get; }
+    public ICommand UpdateEquipmentCommand { get; }
 
     public EquipmentViewModel()
     {
       InsertEquipmentCommand = new RelayCommand(RunInsertCommand);
       DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
+      UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
     }
   }
 }

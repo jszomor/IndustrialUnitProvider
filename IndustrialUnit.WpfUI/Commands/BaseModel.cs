@@ -34,6 +34,28 @@ namespace IndustrialUnit.WpfUI.Commands
       }
     }
 
+    public static void SubmitUpdate<T>(T item, string tableName, Func<T, bool> action, int id)
+    {
+      if (action(item))
+      {
+        try
+        {
+          var sqlAccess = new SQLiteDataAccess();
+          sqlAccess.Update(item, tableName, id);
+          MessageBox.Show($"You have successfully updated.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        catch (FileNotFoundException message)
+        {
+          Debug.WriteLine("Database file not found!");
+          throw new FileNotFoundException($"{message}");
+        }
+      }
+      else
+      {
+        MessageBox.Show($"No empty cell is allowed.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+      }
+    }
+
     public static void SubmitDelete(string tableName, int id)
     {
       try

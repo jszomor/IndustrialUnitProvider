@@ -118,6 +118,37 @@ namespace IndustrialUnitDatabase
         throw new FileNotFoundException("Database file not found!");
       }
     }
+
+    public void Update<T>(T unit, string sheetName, int id)
+    {
+      if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
+      {
+        using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
+        {
+          switch (sheetName)
+          {
+            case "Equipment":
+              cnn.Execute($"update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
+                          $"Manufacturer=@Manufacturer, Model=@Model, UnitPrice=@UnitPrice where id={id}", unit);
+              break;
+
+            case "Valve":
+              cnn.Execute("update Valve (ItemType, Operation, Size, ConnectionType, Supplier, Manufacturer, UnitPrice) " +
+              "values (@ItemType, @Operation, @Size, @ConnectionType, @Supplier, @Manufacturer, @UnitPrice)", unit);
+              break;
+
+            case "Instrument":
+              cnn.Execute("update Instrument (ItemType, OperationPrinciple, InstallationType, MediumToMeasure, Supplier, Manufacturer, UnitPrice) " +
+              "values (@ItemType, @OperationPrinciple, @InstallationType, @MediumToMeasure, @Supplier, @Manufacturer, @UnitPrice)", unit);
+              break;
+          }
+        }
+      }
+      else
+      {
+        throw new FileNotFoundException("Database file not found!");
+      }
+    }
   }
 }
 
