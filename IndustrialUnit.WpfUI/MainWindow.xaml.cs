@@ -12,7 +12,7 @@ namespace IndustrialUnit.WpfUI
     public MainWindow()
     {
       InitializeComponent();
-      DataContext = new MainViewModel();
+      //DataContext = new MainViewModel();
     }
 
     public void LoadEquipmentMenu_click(object sender, RoutedEventArgs e)

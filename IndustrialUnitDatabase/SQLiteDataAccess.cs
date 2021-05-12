@@ -90,6 +90,34 @@ namespace IndustrialUnitDatabase
         throw new FileNotFoundException("Database file not found!");
       }
     }
+
+    public void Delete(string tableName, int id)
+    {
+      if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
+      {
+        using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
+        {
+          switch (tableName)
+          {
+            case "Equipment":
+              cnn.Execute($"delete from Equipment where id={id}");
+              break;
+
+            case "Valve":
+              cnn.Execute($"delete from Valve where id={id}");
+              break;
+
+            case "Instrument":
+              cnn.Execute($"delete from Instrument where id={id}");
+              break;
+          }
+        }
+      }
+      else
+      {
+        throw new FileNotFoundException("Database file not found!");
+      }
+    }
   }
 }
 

@@ -17,7 +17,10 @@ namespace IndustrialUnit.WpfUI
   {
     //protected override void OnStartup(StartupEventArgs e)
     //{
-    //  MainWindow = new MainWindow();
+    //  MainWindow = new MainWindow()
+    //  {
+    //    //DataContext = new MainViewModel()
+    //  };
 
     //  MainWindow.Show();
 

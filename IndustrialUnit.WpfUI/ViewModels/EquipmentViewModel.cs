@@ -1,4 +1,5 @@
 ﻿using IndustrialUnit.WpfUI.Commands;
+using System;
 using System.Data;
 using System.Windows.Input;
 
@@ -6,6 +7,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class EquipmentViewModel : BaseViewModel
   {
+    public int Id { get; set; }
     public string ItemType { get; set; }
     public decimal Capacity { get; set; }
     public decimal Pressure { get; set; }
@@ -14,15 +16,34 @@ namespace IndustrialUnit.WpfUI.ViewModels
     public string Model { get; set; }
     public decimal UnitPrice { get; set; }
 
-    //private void RunInsertCommand() => EquipmentCommands.SubmitInsert(this, "Equipment");
+    public bool IsEquipmentEmpty(EquipmentViewModel eq)
+    {
+      if (string.IsNullOrEmpty(ItemType) ||
+          string.IsNullOrEmpty(Capacity.ToString()) ||
+          string.IsNullOrEmpty(Pressure.ToString()) ||
+          string.IsNullOrEmpty(PowerConsumption.ToString()) ||
+          string.IsNullOrEmpty(Manufacturer) ||
+          string.IsNullOrEmpty(Model) ||
+          string.IsNullOrEmpty(UnitPrice.ToString()))
+      {
+        return false;
+      }
+      return true;
+    }
+
+    private void RunInsertCommand() => BaseModel.SubmitInsert(this, "Equipment", IsEquipmentEmpty);
+    private void RunDeleteCommand() => BaseModel.SubmitDelete("Equipment", Id);
 
     public DataTable EqDataGrid { get; set; }
 
-    //public ICommand InsertEquipmentCommand { get; }
+    public ICommand InsertEquipmentCommand { get; }
+
+    public ICommand DeleteEquipmentCommand { get; set; }
 
     public EquipmentViewModel()
-    {      
-      //InsertEquipmentCommand = new RelayCommand(RunInsertCommand);
+    {
+      InsertEquipmentCommand = new RelayCommand(RunInsertCommand);
+      DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
     }
   }
 }

@@ -10,39 +10,11 @@ using System.Windows.Controls;
 
 namespace IndustrialUnit.WpfUI.Commands
 {
-  public static class EquipmentCommands
+  public static class BaseModel
   {
-    private static bool IsEquipmentEmpty(EquipmentViewModel item)
+    public static void SubmitInsert<T>(T item, string tableName, Func<T, bool> action)
     {
-      if (string.IsNullOrEmpty(item.ItemType) ||
-          string.IsNullOrEmpty(item.Capacity.ToString()) ||
-          string.IsNullOrEmpty(item.Pressure.ToString()) ||
-          string.IsNullOrEmpty(item.PowerConsumption.ToString()) ||
-          string.IsNullOrEmpty(item.Manufacturer) ||
-          string.IsNullOrEmpty(item.Model) ||
-          string.IsNullOrEmpty(item.UnitPrice.ToString()))
-      {
-        return false;
-      }
-      return true;
-    }
-
-    public static bool IsEmpty<T>(T item)
-    {
-      if(item is EquipmentViewModel)
-      {
-        EquipmentViewModel eqItem = item as EquipmentViewModel;
-        return IsEquipmentEmpty(eqItem);
-      }
-      else
-      {
-        throw new InvalidOperationException($"Invalid modelView name: [{item}]");
-      }
-    }
-
-    public static void SubmitInsert<T>(T item, string tableName)
-    {
-      if (IsEmpty(item))
+      if (action(item))
       {
         try
         {
@@ -59,6 +31,21 @@ namespace IndustrialUnit.WpfUI.Commands
       else
       {
         MessageBox.Show($"No empty cell is allowed.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+      }
+    }
+
+    public static void SubmitDelete(string tableName, int id)
+    {
+      try
+      {
+        var sqlAccess = new SQLiteDataAccess();
+        sqlAccess.Delete(tableName, id);
+        MessageBox.Show($"You have successfully deleted.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+      }
+      catch (FileNotFoundException message)
+      {
+        Debug.WriteLine("Database access failed!");
+        throw new FileNotFoundException($"{message}");
       }
     }
 

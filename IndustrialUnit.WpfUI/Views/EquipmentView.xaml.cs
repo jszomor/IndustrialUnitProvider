@@ -9,29 +9,28 @@ using IndustrialUnit.WpfUI.Validation;
 using IndustrialUnit.WpfUI.ViewModels;
 using System.IO;
 using IndustrialUnit.WpfUI.Commands;
+using System.Windows.Input;
 
 namespace IndustrialUnit.WpfUI.Views
 {
   /// <summary>
   /// Interaction logic for EquipmentView.xaml
   /// </summary>
-  public partial class EquipmentView : Page
+  public partial class EquipmentView : UserControl
   {
     public EquipmentView()
     {
       InitializeComponent();
       FillDataGrid();
-      DataContext = new EquipmentViewModel();
     }
 
     public void FillDataGrid()
     {
-      EquipmentTableGrid.ItemsSource = EquipmentCommands.FillDataGrid("Equipment");
+      EquipmentTableGrid.ItemsSource = BaseModel.FillDataGrid("Equipment");
     }
 
-    private void EQInsert_Click(object sender, RoutedEventArgs e)
+    private void EQRefresh_Click(object sender, RoutedEventArgs e)
     {
-      EquipmentCommands.SubmitInsert(DataContext, "Equipment");
       FillDataGrid();
     }
   }
