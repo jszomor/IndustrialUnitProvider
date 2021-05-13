@@ -1,10 +1,13 @@
-﻿using IndustrialUnit.WpfUI.ViewModels;
+﻿using IndustrialUnit.Model.Model;
+using IndustrialUnit.WpfUI.ViewModels;
 using IndustrialUnit.WpfUI.Views;
 using IndustrialUnitDatabase;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -42,7 +45,7 @@ namespace IndustrialUnit.WpfUI.Commands
         {
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Update(item, tableName, id);
-          MessageBox.Show($"You have successfully updated.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+          MessageBox.Show($"{id} id number successfully updated.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (FileNotFoundException message)
         {
@@ -62,7 +65,7 @@ namespace IndustrialUnit.WpfUI.Commands
       {
         var sqlAccess = new SQLiteDataAccess();
         sqlAccess.Delete(tableName, id);
-        MessageBox.Show($"You have successfully deleted.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        MessageBox.Show($"{id} id number successfully deleted.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
       }
       catch (FileNotFoundException message)
       {
@@ -81,7 +84,7 @@ namespace IndustrialUnit.WpfUI.Commands
       {
         var equipmentTableGrid = new DataGrid();
         var sqlAccess = new SQLiteDataAccess();
-        DataTable dt = sqlAccess.GetConnectionOnDataTable(tableName);
+        DataTable dt = sqlAccess.GetAll(tableName);
         return dt.DefaultView;
       }
       catch (FileNotFoundException message)

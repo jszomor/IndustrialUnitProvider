@@ -7,7 +7,7 @@
               xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
               xmlns:views="clr-namespace:IndustrialUnit.WpfUI.Views"
               mc:Ignorable="d" 
-              d:DesignHeight="807.671" d:DesignWidth="1276.791">
+              d:DesignHeight="720.623" d:DesignWidth="1260.263">
 
 
 
@@ -15,7 +15,7 @@
     <viewModel:EquipmentViewModel/>
   </UserControl.DataContext>
 
-  <Grid>
+  <Grid Margin="0,0,10,0">
 
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="20"/>
@@ -58,18 +58,19 @@
       FontSize="14"/>
 
     <TextBox 
-      x:Name="EqIdLabel"
+      Name="EqIdTextBox"
       FontSize="14"
       Margin="0,13,0,5"
       Grid.Column="2"
       Grid.Row="1"
       HorizontalContentAlignment="Left"
-      VerticalContentAlignment="Center">
+      VerticalContentAlignment="Center"
+      IsEnabled="False"
+      Foreground="Gray">
       <TextBox.Text>
-        <Binding Path="Id">
-          <!--ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">-->
+        <Binding Path="Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <!--<validationrules:StringValidationRule MinimumCharacters="1"/>-->
+            <validationrules:NumberValidationRule MinimumCharacters="0"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -84,7 +85,7 @@
       FontSize="14"/>
 
     <TextBox 
-      x:Name="EqItemTypeLabel"
+      Name="EqItemTypeTextBox"
       FontSize="14"
       Margin="0,13,0,5"
       Grid.Column="2"
@@ -92,7 +93,7 @@
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -109,7 +110,7 @@
       FontSize="14"/>
 
     <TextBox
-      x:Name="EqCapacityLabel"
+      Name="EqCapacityTextBox"
       FontSize="14"
       Margin="0,13,0,5"
       Grid.Column="2"
@@ -117,7 +118,7 @@
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -134,7 +135,7 @@
       FontSize="14"/>
 
     <TextBox 
-      x:Name="EqPressureLabel" 
+      Name="EqPressureTextBox" 
       FontSize="14"
       Margin="0,13,0,5"          
       Grid.Column="2" 
@@ -142,7 +143,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -159,7 +160,7 @@
       FontSize="14"/>
 
     <TextBox 
-      x:Name="EqPowerConsumptionLabel"
+      Name="EqPowerConsumptionTextBox"
       FontSize="14"
       Margin="0,13,0,5"          
       Grid.Column="2" 
@@ -167,7 +168,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -184,7 +185,7 @@
       FontSize="14"/>
 
     <TextBox 
-      x:Name="EqManufacturerLabel"
+      Name="EqManufacturerTextBox"
       FontSize="14" 
       Margin="0,13,0,5"          
       Grid.Column="2" 
@@ -192,7 +193,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -209,7 +210,7 @@
       FontSize="14"/>
 
     <TextBox 
-      x:Name="EqModelLabel" 
+      Name="EqModelTextBox" 
       FontSize="14" 
       Margin="0,13,0,5"          
       Grid.Column="2" 
@@ -217,7 +218,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="Model" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="Model" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -234,7 +235,7 @@
       FontSize="14"/>
 
     <TextBox 
-      x:Name="EqUnitPriceLabel" 
+      Name="EqUnitPriceTextBox" 
       FontSize="14"
       Margin="0,13,0,5"          
       Grid.Column="2" 
@@ -242,7 +243,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -251,7 +252,7 @@
     </TextBox>
 
     <Button 
-      x:Name="EQSearch" 
+      Name="EQSearch" 
       Content="Search" 
       Grid.Column="1" 
       Grid.Row="10" 
@@ -260,7 +261,7 @@
       Margin="10,5,30,5"/>
 
     <Button 
-      x:Name="EQInsert" 
+      Name="EQInsert" 
       Content="Insert" 
       Grid.Column="2" 
       Grid.Row="10" 
@@ -297,14 +298,15 @@
       </Button.Style>
     </Button>
 
-    <Button x:Name="EQUpdate" 
-            Content="Update" 
-            Grid.Column="1" 
-            Grid.Row="11" 
-            FontSize="14" 
-            FontWeight="Bold" 
-            Margin="10,5,30,5"
-            Command="{Binding UpdateEquipmentCommand}">
+    <Button 
+      Name="EQUpdate" 
+      Content="Update" 
+      Grid.Column="1" 
+      Grid.Row="11" 
+      FontSize="14" 
+      FontWeight="Bold" 
+      Margin="10,5,30,5"
+      Command="{Binding UpdateEquipmentCommand}">
       <Button.Style>
         <Style TargetType="Button">
           <Style.Triggers>
@@ -334,7 +336,7 @@
       </Button.Style>
     </Button>
 
-    <Button x:Name="EQDelete" 
+    <Button Name="EQDelete" 
             Content="Delete" 
             Grid.Column="2" 
             Grid.Row="11" 
@@ -343,7 +345,7 @@
             Margin="0,5,40,5"
             Command="{Binding DeleteEquipmentCommand}"/>
 
-    <Button x:Name="EQRefresh" 
+    <Button Name="EQRefresh" 
             Content="Refresh"
             Grid.Column="2" 
             Grid.Row="12" 
@@ -352,14 +354,15 @@
             Margin="0,5,40,5"            
             Click="EQRefresh_Click"/>
 
-    <DataGrid x:Name="EquipmentTableGrid"  
+    <DataGrid Name="EquipmentTableGrid"  
               Grid.Column="4" 
               Grid.ColumnSpan="2" 
               Grid.Row="1" 
               Grid.RowSpan="13" 
               Margin="0,0,0,15" 
               AutoGenerateColumns="False"
-              ItemsSource="{Binding EqDataGrid}">
+              ItemsSource="{Binding EqDataGrid}" 
+              SelectionChanged="EquipmentTableGrid_SelectionChanged">
       <DataGrid.ColumnHeaderStyle>
         <Style TargetType="{x:Type DataGridColumnHeader}">
           <Setter Property="FontWeight" Value="Bold"/>

@@ -16,7 +16,7 @@ namespace IndustrialUnitDatabase
   {
     private string loadConnectionString = $"Data Source={Helper.DatabasePath("IndustrialUnitDB.db")}";
 
-    public DataTable GetConnectionOnDataTable(string tableName)
+    public DataTable GetAll(string tableName)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {
@@ -60,13 +60,13 @@ namespace IndustrialUnitDatabase
     }
 
 
-    public void Insert<T>(T unit, string sheetName)
+    public void Insert<T>(T unit, string tableName)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {
         using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
         {
-          switch (sheetName)
+          switch (tableName)
           {
             case "Equipment":
               cnn.Execute("insert into Equipment (ItemType, Capacity, Pressure, PowerConsumption, Manufacturer, Model, UnitPrice) " +
@@ -119,27 +119,27 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public void Update<T>(T unit, string sheetName, int id)
+    public void Update<T>(T unit, string tableName, int id)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {
         using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
         {
-          switch (sheetName)
+          switch (tableName)
           {
             case "Equipment":
-              cnn.Execute($"update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
+              cnn.Execute("update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
                           $"Manufacturer=@Manufacturer, Model=@Model, UnitPrice=@UnitPrice where id={id}", unit);
               break;
 
             case "Valve":
-              cnn.Execute("update Valve (ItemType, Operation, Size, ConnectionType, Supplier, Manufacturer, UnitPrice) " +
-              "values (@ItemType, @Operation, @Size, @ConnectionType, @Supplier, @Manufacturer, @UnitPrice)", unit);
+              cnn.Execute("update Valve set ItemType=@ItemType, Operation=@Operation, Size=@Size, ConnectionType=@ConnectionType, Supplier=@Supplier, " +
+                $"Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id={id}", unit);
               break;
 
             case "Instrument":
-              cnn.Execute("update Instrument (ItemType, OperationPrinciple, InstallationType, MediumToMeasure, Supplier, Manufacturer, UnitPrice) " +
-              "values (@ItemType, @OperationPrinciple, @InstallationType, @MediumToMeasure, @Supplier, @Manufacturer, @UnitPrice)", unit);
+              cnn.Execute("update Instrument set ItemType=@ItemType, OperationPrinciple=@OperationPrinciple, InstallationType=@InstallationType, MediumToMeasure=@MediumToMeasure, Supplier=@Supplier," +
+                $"Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id={id}", unit);
               break;
           }
         }
