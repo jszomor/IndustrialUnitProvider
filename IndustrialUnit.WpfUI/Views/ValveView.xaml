@@ -5,13 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="849" d:DesignWidth="1457"
-             
-             Loaded="UserControl_Loaded">
-  
-  <!--<UserControl.DataContext>
+             d:DesignHeight="849" d:DesignWidth="1457">
+
+  <UserControl.DataContext>
     <viewModel:ValveViewModel/>
-  </UserControl.DataContext>-->
+  </UserControl.DataContext>
   
   <Grid>
     <Grid.ColumnDefinitions>
@@ -29,7 +27,11 @@
       <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
 
-    <ListView x:Name="lvValveItems" Margin="50" SelectionMode="Multiple" SelectionChanged="ListView_SelectionChanged" ItemsSource="{Binding Valves}">
+    <ListView x:Name="lvValveItems" Margin="50" SelectionMode="Multiple" ItemsSource="{Binding Valves}" Grid.Column="1" Grid.Row="1">
+
+      <ListBoxItem Content="Id"/>
+      <ListBox Name="ValveIdBox"/>
+      <ListItem Name="abba"/>
       <ListView.View>
         <GridView>
           <GridViewColumn Header="Is Completed">
@@ -40,10 +42,12 @@
             </GridViewColumn.CellTemplate>
           </GridViewColumn>
           <GridViewColumn Header="ItemType" DisplayMemberBinding="{Binding ItemType}"/>
-          <GridViewColumn Header="Owner" DisplayMemberBinding="{Binding Operation}"/>
+          <GridViewColumn Header="Operation" DisplayMemberBinding="{Binding Operation}"/>
         </GridView>
       </ListView.View>
     </ListView>
+    <Label Content="Id" Grid.Row="2" Grid.Column="3"/>
+    <TextBox x:Name="Id" Grid.Row="2" Grid.Column="2"/>
 
   </Grid>
   

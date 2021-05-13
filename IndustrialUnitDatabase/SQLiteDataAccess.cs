@@ -38,28 +38,6 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    private void WriteTableDataToConsole(string tableName, SQLiteConnection con)
-    {
-
-      string stm = $"SELECT * FROM {tableName}";
-
-      using var cmd = new SQLiteCommand(stm, con);
-      using SQLiteDataReader rdr = cmd.ExecuteReader();
-
-
-      while (rdr.Read())
-      {
-        var sb = new StringBuilder();
-        for (int i = 0; i < rdr.FieldCount; i++)
-        {
-          sb.Append(rdr[i]);
-          sb.Append(",");
-        }
-        Console.WriteLine(sb);
-      }
-    }
-
-
     public void Insert<T>(T unit, string tableName)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))

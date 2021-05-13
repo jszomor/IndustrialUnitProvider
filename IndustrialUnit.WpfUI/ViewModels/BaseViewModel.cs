@@ -13,10 +13,5 @@ namespace IndustrialUnit.WpfUI.ViewModels
     {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-
-    protected void OnPropertyIntChanged(int propertyName)
-    {
-      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName.ToString()));
-    }
   }
 }

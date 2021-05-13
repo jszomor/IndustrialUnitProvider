@@ -9,8 +9,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class EquipmentViewModel : BaseViewModel
   {
-    private int _id;
-    public int Id { get => _id; set { _id = value; OnPropertyIntChanged(_id); } }
+    public int Id { get; set; }
     public string ItemType { get; set; }
     public decimal Capacity { get; set; }
     public decimal Pressure { get; set; }
