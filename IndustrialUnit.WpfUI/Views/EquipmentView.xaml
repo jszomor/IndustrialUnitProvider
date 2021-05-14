@@ -15,7 +15,7 @@
     <viewModel:EquipmentViewModel/>
   </UserControl.DataContext>
 
-  <Grid Margin="0,0,10,0">
+  <Grid Margin="0,0,-9,0">
 
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="20"/>

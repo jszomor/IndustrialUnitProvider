@@ -10,45 +10,25 @@
   <UserControl.DataContext>
     <viewModel:ValveViewModel/>
   </UserControl.DataContext>
-  
+
   <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="20"/>
-      <ColumnDefinition Width="auto"/>
-      <ColumnDefinition Width="auto"/>
-      <ColumnDefinition Width="auto"/>
-      <ColumnDefinition Width="auto"/>
-    </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
-      <RowDefinition Height="20"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
+      <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <ListView x:Name="lvValveItems" Margin="50" SelectionMode="Multiple" ItemsSource="{Binding Valves}" Grid.Column="1" Grid.Row="1">
-
-      <ListBoxItem Content="Id"/>
-      <ListBox Name="ValveIdBox"/>
-      <ListItem Name="abba"/>
-      <ListView.View>
-        <GridView>
-          <GridViewColumn Header="Is Completed">
-            <GridViewColumn.CellTemplate>
-              <DataTemplate>
-                <!--<CheckBox IsChecked="{Binding IsCompleted}"/>-->
-              </DataTemplate>
-            </GridViewColumn.CellTemplate>
-          </GridViewColumn>
-          <GridViewColumn Header="ItemType" DisplayMemberBinding="{Binding ItemType}"/>
-          <GridViewColumn Header="Operation" DisplayMemberBinding="{Binding Operation}"/>
-        </GridView>
-      </ListView.View>
-    </ListView>
-    <Label Content="Id" Grid.Row="2" Grid.Column="3"/>
-    <TextBox x:Name="Id" Grid.Row="2" Grid.Column="2"/>
+    <DockPanel Grid.Row="0" Grid.RowSpan="5">
+      <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+        <Label Content="Id" Grid.Row="0"/>
+        <TextBox Text="{Binding Id}"  Grid.Row="1"/>
+        <Label Content="Item type" Grid.Row="2"/>
+        <TextBox Text="{Binding ItemType}" Grid.Row="3"/>
+      </StackPanel>
+    </DockPanel>
 
   </Grid>
-  
+
 </UserControl>
