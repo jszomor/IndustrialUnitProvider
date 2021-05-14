@@ -47,6 +47,9 @@ namespace IndustrialUnit.WpfUI.Views
       EqModelTextBox.Clear();
       EqUnitPriceTextBox.Clear();
 
+      LogTextBlock.Background = Brushes.LightGray;
+      LogTextBlock.Text = "";
+
       DataContext = new EquipmentViewModel();
     }
 
@@ -69,6 +72,8 @@ namespace IndustrialUnit.WpfUI.Views
         EqManufacturerTextBox.Text = rowSelected[textBoxNames[5]].ToString();
         EqModelTextBox.Text = rowSelected[textBoxNames[6]].ToString();
         EqUnitPriceTextBox.Text = rowSelected[textBoxNames[7]].ToString();
+
+        LogTextBlock.Text = $"Number {rowSelected[textBoxNames[0]]} is selected";
       }
     }
 
@@ -80,8 +85,15 @@ namespace IndustrialUnit.WpfUI.Views
       }
       else
       {
-        MessageBox.Show("Item name is the only search parameter, it cannot be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+        LogTextBlock.Text = "Item name is the only search parameter, \nit cannot be empty!";
+        LogTextBlock.Background = Brushes.LightYellow;
+        //MessageBox.Show("Item name is the only search parameter, it cannot be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
       }      
+    }
+
+    private void LogText_Click(object sender, RoutedEventArgs e)
+    {
+      LogTextBlock.Text = BaseModel.MessageToView;
     }
   }
 }
