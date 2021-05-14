@@ -12,6 +12,7 @@ using IndustrialUnit.WpfUI.Models;
 using System.Windows.Input;
 using System.Collections.Generic;
 using System.Windows.Media;
+using IndustrialUnitProvider;
 
 namespace IndustrialUnit.WpfUI.Views
 {
@@ -68,6 +69,11 @@ namespace IndustrialUnit.WpfUI.Views
         EqModelTextBox.Text = rowSelected[textBoxNames[6]].ToString();
         EqUnitPriceTextBox.Text = rowSelected[textBoxNames[7]].ToString();
       }
+    }
+
+    private void Search_click(object sender, RoutedEventArgs e)
+    {
+      EquipmentTableGrid.ItemsSource = BaseModel.FillDataGridFiltered("Equipment", EqItemTypeTextBox.Text);
     }
   }
 }

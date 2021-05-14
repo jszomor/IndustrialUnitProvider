@@ -258,7 +258,7 @@
       Grid.Row="10" 
       FontSize="14" 
       FontWeight="Bold" 
-      Margin="10,5,30,5"/>
+      Margin="10,5,30,5" Click="Search_click"/>
 
     <Button 
       Name="EQInsert" 

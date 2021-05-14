@@ -82,9 +82,22 @@ namespace IndustrialUnit.WpfUI.Models
     {
       try
       {
-        var equipmentTableGrid = new DataGrid();
         var sqlAccess = new SQLiteDataAccess();
         DataTable dt = sqlAccess.GetAll(tableName);
+        return dt.DefaultView;
+      }
+      catch (FileNotFoundException message)
+      {
+        throw new FileNotFoundException($"{message}");
+      }
+    }
+
+    public static DataView FillDataGridFiltered(string tableName, string itemType)
+    {
+      try
+      {
+        var sqlAccess = new SQLiteDataAccess();
+        DataTable dt = sqlAccess.GetFilteredDB(tableName, itemType);
         return dt.DefaultView;
       }
       catch (FileNotFoundException message)

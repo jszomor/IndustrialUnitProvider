@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\IndustrialUnit.Model\IndustrialUnit.Model.csproj" />
     <ProjectReference Include="..\IndustrialUnitDatabase\IndustrialUnitDatabase.csproj" />
+    <ProjectReference Include="..\IndustrialUnitProvider\IndustrialUnitProvider.csproj" />
   </ItemGroup>
 
 </Project>
