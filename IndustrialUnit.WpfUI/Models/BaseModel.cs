@@ -33,7 +33,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
       else
       {
-        MessageBox.Show($"No empty cell is allowed.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        MessageBox.Show($"No empty cell is allowed.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
       }
     }
 
@@ -55,7 +55,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
       else
       {
-        MessageBox.Show($"No empty cell is allowed.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        MessageBox.Show($"No empty cell is allowed.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
       }
     }
 

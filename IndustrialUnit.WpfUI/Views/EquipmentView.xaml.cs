@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Collections.Generic;
 using System.Windows.Media;
 using IndustrialUnitProvider;
+using System;
 
 namespace IndustrialUnit.WpfUI.Views
 {
@@ -73,7 +74,14 @@ namespace IndustrialUnit.WpfUI.Views
 
     private void Search_click(object sender, RoutedEventArgs e)
     {
-      EquipmentTableGrid.ItemsSource = BaseModel.FillDataGridFiltered("Equipment", EqItemTypeTextBox.Text);
+      if (!String.IsNullOrWhiteSpace(EqItemTypeTextBox.Text))
+      {
+        EquipmentTableGrid.ItemsSource = BaseModel.FillDataGridFiltered("Equipment", EqItemTypeTextBox.Text);
+      }
+      else
+      {
+        MessageBox.Show("Item name is the only search parameter, it cannot be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+      }      
     }
   }
 }
