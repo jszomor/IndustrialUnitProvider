@@ -1,5 +1,5 @@
 ﻿using IndustrialUnit.Model.Model;
-using IndustrialUnit.WpfUI.Commands;
+using IndustrialUnit.WpfUI.Models;
 using IndustrialUnit.WpfUI.Views;
 using System;
 using System.Collections.Generic;

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace IndustrialUnit.WpfUI.Commands
+namespace IndustrialUnit.WpfUI.Models
 {
   public class LoadValveCommand : ICommand
   {

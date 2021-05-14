@@ -1,4 +1,4 @@
-﻿using IndustrialUnit.WpfUI.Commands;
+﻿using IndustrialUnit.WpfUI.Models;
 using System;
 using System.Data;
 using System.Windows;

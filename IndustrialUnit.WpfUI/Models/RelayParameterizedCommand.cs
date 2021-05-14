@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace IndustrialUnit.WpfUI.Commands
+namespace IndustrialUnit.WpfUI.Models
 {
   public class RelayParameterizedCommand<T> : ICommand
   {

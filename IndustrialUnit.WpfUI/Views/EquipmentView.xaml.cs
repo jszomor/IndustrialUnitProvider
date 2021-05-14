@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using IndustrialUnit.WpfUI.Validation;
 using IndustrialUnit.WpfUI.ViewModels;
 using System.IO;
-using IndustrialUnit.WpfUI.Commands;
+using IndustrialUnit.WpfUI.Models;
 using System.Windows.Input;
 using System.Collections.Generic;
 using System.Windows.Media;
@@ -24,6 +24,7 @@ namespace IndustrialUnit.WpfUI.Views
     {
       InitializeComponent();
       FillDataGrid();
+      DataContext = new EquipmentViewModel();
     }
 
     public void FillDataGrid()
@@ -34,6 +35,17 @@ namespace IndustrialUnit.WpfUI.Views
     private void EQRefresh_Click(object sender, RoutedEventArgs e)
     {
       FillDataGrid();
+
+      EqIdTextBox.Clear();
+      EqItemTypeTextBox.Clear();
+      EqCapacityTextBox.Clear();
+      EqPressureTextBox.Clear();
+      EqPowerConsumptionTextBox.Clear();
+      EqManufacturerTextBox.Clear();
+      EqModelTextBox.Clear();
+      EqUnitPriceTextBox.Clear();
+
+      DataContext = new EquipmentViewModel();
     }
 
     private void EquipmentTableGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

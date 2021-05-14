@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace IndustrialUnit.WpfUI.Commands
+namespace IndustrialUnit.WpfUI.Models
 {
   public static class BaseModel
   {
@@ -23,7 +23,7 @@ namespace IndustrialUnit.WpfUI.Commands
         {
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Insert(item, tableName);
-          MessageBox.Show($"You have successfully added.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+          MessageBox.Show($"You have successfully added. \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (FileNotFoundException message)
         {
@@ -45,7 +45,7 @@ namespace IndustrialUnit.WpfUI.Commands
         {
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Update(item, tableName, id);
-          MessageBox.Show($"{id} id number successfully updated.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+          MessageBox.Show($"{id} id number successfully updated \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (FileNotFoundException message)
         {
@@ -65,7 +65,7 @@ namespace IndustrialUnit.WpfUI.Commands
       {
         var sqlAccess = new SQLiteDataAccess();
         sqlAccess.Delete(tableName, id);
-        MessageBox.Show($"{id} id number successfully deleted.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        MessageBox.Show($"{id} id number successfully deleted \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
       }
       catch (FileNotFoundException message)
       {
