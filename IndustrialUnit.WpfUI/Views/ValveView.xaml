@@ -28,7 +28,6 @@
         <TextBox Text="{Binding ItemType}" Grid.Row="3"/>
       </StackPanel>
     </DockPanel>
-
   </Grid>
 
 </UserControl>
