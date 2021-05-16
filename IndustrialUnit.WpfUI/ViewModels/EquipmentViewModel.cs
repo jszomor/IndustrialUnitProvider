@@ -35,7 +35,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     private void RunInsertCommand() => BaseModel.SubmitInsert(this, "Equipment", IsEquipmentEmpty);
     private void RunDeleteCommand() => BaseModel.SubmitDelete("Equipment", Id);
-    private void RunUpdateCommand() => BaseModel. SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
+    private void RunUpdateCommand() => BaseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
 
 
     public ICommand InsertEquipmentCommand { get; }

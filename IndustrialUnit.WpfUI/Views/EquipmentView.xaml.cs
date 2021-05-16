@@ -85,7 +85,7 @@ namespace IndustrialUnit.WpfUI.Views
       }
       else
       {
-        LogTextBlock.Text = "Item name is the only search parameter, \nit cannot be empty!";
+        LogTextBlock.Text = "Item name is the parameter for search, \nit cannot be empty!";
         LogTextBlock.Background = Brushes.LightYellow;
         //MessageBox.Show("Item name is the only search parameter, it cannot be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
       }      
