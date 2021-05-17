@@ -253,7 +253,7 @@
     </TextBox>
 
     <Border BorderThickness="1" BorderBrush="Black" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2" Height="80" Margin="0,10,0,10">
-      <TextBlock x:Name="LogTextBlock" Background="LightGray" FontWeight="Bold" Padding="3"/>
+      <TextBlock Text="{Binding MessageToView, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="LogTextBlock" Background="LightGray" FontWeight="Bold" Padding="3"/>
     </Border>
 
     <Button 
@@ -274,8 +274,7 @@
       FontSize="14" 
       FontWeight="Bold" 
       Margin="0,5,40,5"
-      Command="{Binding InsertEquipmentCommand}"
-      Click="LogText_Click">
+      Command="{Binding InsertEquipmentCommand}">
       <Button.Style>
         <Style TargetType="Button">
           <Style.Triggers>
@@ -313,8 +312,7 @@
       FontSize="14" 
       FontWeight="Bold" 
       Margin="10,5,30,5"
-      Command="{Binding UpdateEquipmentCommand}"
-      Click="LogText_Click">
+      Command="{Binding UpdateEquipmentCommand}">
       <Button.Style>
         <Style TargetType="Button">
           <Style.Triggers>
@@ -351,8 +349,7 @@
             FontSize="14" 
             FontWeight="Bold" 
             Margin="0,5,40,5"
-            Command="{Binding DeleteEquipmentCommand}"
-            Click="LogText_Click"/>
+            Command="{Binding DeleteEquipmentCommand}"/>
 
     <Button Name="EQRefresh" 
             Content="Refresh"

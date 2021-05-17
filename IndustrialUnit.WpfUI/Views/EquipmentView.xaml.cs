@@ -93,7 +93,7 @@ namespace IndustrialUnit.WpfUI.Views
 
     private void LogText_Click(object sender, RoutedEventArgs e)
     {
-      LogTextBlock.Text = BaseModel.MessageToView;
+      //LogTextBlock.Text = BaseModel.MessageToView;
     }
   }
 }

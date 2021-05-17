@@ -9,6 +9,15 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class EquipmentViewModel : BaseViewModel
   {
+
+    private string _messageToView;
+
+    public string MessageToView
+    {
+      get { return _messageToView; }
+      set { _messageToView = value; OnPropertyChanged(nameof(MessageToView)); }
+    }
+
     public int Id { get; set; }
     public string ItemType { get; set; }
     public decimal Capacity { get; set; }
@@ -33,9 +42,9 @@ namespace IndustrialUnit.WpfUI.ViewModels
       return true;
     }
 
-    private void RunInsertCommand() => BaseModel.SubmitInsert(this, "Equipment", IsEquipmentEmpty);
-    private void RunDeleteCommand() => BaseModel.SubmitDelete("Equipment", Id);
-    private void RunUpdateCommand() => BaseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
+    private void RunInsertCommand() => BaseModel.SubmitInsert(this, "Equipment", IsEquipmentEmpty, MessageToView);
+    private void RunDeleteCommand() => BaseModel.SubmitDelete("Equipment", Id, MessageToView);
+    private void RunUpdateCommand() => BaseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id, MessageToView);
 
 
     public ICommand InsertEquipmentCommand { get; }

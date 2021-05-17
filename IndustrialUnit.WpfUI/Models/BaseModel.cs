@@ -15,9 +15,9 @@ namespace IndustrialUnit.WpfUI.Models
 {
   public static class BaseModel
   {
-    public static string MessageToView { get; set; }
+    //public static string MessageToView { get; set; }
 
-    public static void SubmitInsert<T>(T item, string tableName, Func<T, bool> action)
+    public static void SubmitInsert<T>(T item, string tableName, Func<T, bool> action, string messageToView)
     {
       if (action(item))
       {
@@ -26,7 +26,7 @@ namespace IndustrialUnit.WpfUI.Models
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Insert(item, tableName);
           //MessageBox.Show($"You have successfully added. \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          MessageToView = "You have successfully added. \nPress refresh to see the result.";
+          messageToView = "You have successfully added. \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
         {
@@ -37,11 +37,11 @@ namespace IndustrialUnit.WpfUI.Models
       else
       {
         //MessageBox.Show($"No empty cell is allowed.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-        MessageToView = "No empty cell is allowed.";
+        messageToView = "No empty cell is allowed.";
       }
     }
 
-    public static void SubmitUpdate<T>(T item, string tableName, Func<T, bool> action, int id)
+    public static void SubmitUpdate<T>(T item, string tableName, Func<T, bool> action, int id, string messageToView)
     {
       if (action(item))
       {
@@ -50,7 +50,7 @@ namespace IndustrialUnit.WpfUI.Models
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Update(item, tableName, id);
           //MessageBox.Show($"{id} id number successfully updated \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          MessageToView = $"{id} id number successfully updated \nPress refresh to see the result.";
+          messageToView = $"{id} id number successfully updated \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
         {
@@ -61,11 +61,11 @@ namespace IndustrialUnit.WpfUI.Models
       else
       {
         //MessageBox.Show($"No empty cell is allowed.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-        MessageToView = "No empty cell is allowed.";
+        messageToView = "No empty cell is allowed.";
       }
     }
 
-    public static void SubmitDelete(string tableName, int id)
+    public static void SubmitDelete(string tableName, int id, string messageToView)
     {
       try
       {
@@ -74,12 +74,12 @@ namespace IndustrialUnit.WpfUI.Models
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Delete(tableName, id);
           //MessageBox.Show($"Id: {id} successfully deleted. \nPress Refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          MessageToView = $"Id: {id} successfully deleted. \nPress Refresh to see the result.";
+          messageToView = $"Id: {id} successfully deleted. \nPress Refresh to see the result.";
         }
         else
         {
           //MessageBox.Show($"Please select an item to delete.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          MessageToView = "Please select an item to delete.";
+          messageToView = "Please select an item to delete.";
         }
       }
       catch (FileNotFoundException message)
