@@ -22,6 +22,9 @@ namespace IndustrialUnit.WpfUI.Views
   /// </summary>
   public partial class EquipmentView : UserControl
   {
+
+    BaseModel BaseModel = new();
+
     public EquipmentView()
     {
       InitializeComponent();
@@ -89,11 +92,6 @@ namespace IndustrialUnit.WpfUI.Views
         LogTextBlock.Background = Brushes.LightYellow;
         //MessageBox.Show("Item name is the only search parameter, it cannot be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
       }      
-    }
-
-    private void LogText_Click(object sender, RoutedEventArgs e)
-    {
-      //LogTextBlock.Text = BaseModel.MessageToView;
     }
   }
 }

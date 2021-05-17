@@ -42,10 +42,11 @@ namespace IndustrialUnit.WpfUI.ViewModels
       return true;
     }
 
-    private void RunInsertCommand() => BaseModel.SubmitInsert(this, "Equipment", IsEquipmentEmpty, MessageToView);
-    private void RunDeleteCommand() => BaseModel.SubmitDelete("Equipment", Id, MessageToView);
-    private void RunUpdateCommand() => BaseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id, MessageToView);
+    readonly BaseModel baseModel = new();
 
+    private void RunInsertCommand() => MessageToView = baseModel.SubmitInsert(this, "Equipment", IsEquipmentEmpty);
+    private void RunDeleteCommand() => MessageToView = baseModel.SubmitDelete("Equipment", Id);
+    private void RunUpdateCommand() => MessageToView = baseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
 
     public ICommand InsertEquipmentCommand { get; }
     public ICommand DeleteEquipmentCommand { get; }
