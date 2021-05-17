@@ -15,8 +15,6 @@ namespace IndustrialUnit.WpfUI.Models
 {
   public class BaseModel
   {
-    private string MessageToView;
-
     public string SubmitInsert<T>(T item, string tableName, Func<T, bool> action)
     {
       if (action(item))
@@ -26,7 +24,7 @@ namespace IndustrialUnit.WpfUI.Models
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Insert(item, tableName);
           //MessageBox.Show($"You have successfully added. \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          MessageToView = "You have successfully added. \nPress refresh to see the result.";
+          return "You have successfully added. \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
         {
@@ -37,10 +35,8 @@ namespace IndustrialUnit.WpfUI.Models
       else
       {
         //MessageBox.Show($"No empty cell is allowed.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-        MessageToView = "No empty cell is allowed.";
+        return "No empty cell is allowed.";
       }
-
-      return MessageToView;
     }
 
     public string SubmitUpdate<T>(T item, string tableName, Func<T, bool> action, int id)
@@ -52,7 +48,7 @@ namespace IndustrialUnit.WpfUI.Models
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Update(item, tableName, id);
           //MessageBox.Show($"{id} id number successfully updated \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          MessageToView = $"{id} id number successfully updated \nPress refresh to see the result.";
+          return $"{id} id number successfully updated \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
         {
@@ -63,10 +59,8 @@ namespace IndustrialUnit.WpfUI.Models
       else
       {
         //MessageBox.Show($"No empty cell is allowed.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-        MessageToView = "No empty cell is allowed.";
+        return "No empty cell is allowed.";
       }
-
-      return MessageToView;
     }
 
     public string SubmitDelete(string tableName, int id)
@@ -78,12 +72,12 @@ namespace IndustrialUnit.WpfUI.Models
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Delete(tableName, id);
           //MessageBox.Show($"Id: {id} successfully deleted. \nPress Refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          MessageToView = $"Id: {id} successfully deleted. \nPress Refresh to see the result.";
+          return $"Id: {id} successfully deleted. \nPress Refresh to see the result.";
         }
         else
         {
           //MessageBox.Show($"Please select an item to delete.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          MessageToView = "Please select an item to delete.";
+          return "Please select an item to delete.";
         }
       }
       catch (FileNotFoundException message)
@@ -91,8 +85,6 @@ namespace IndustrialUnit.WpfUI.Models
         Debug.WriteLine("Database access failed!");
         throw new FileNotFoundException($"{message}");
       }
-
-      return MessageToView;
     }
 
     /// <summary>
@@ -111,20 +103,27 @@ namespace IndustrialUnit.WpfUI.Models
       {
         throw new FileNotFoundException($"{message}");
       }
-
     }
 
-    public DataView FillDataGridFiltered(string tableName, string itemType)
+    public (DataView, string) FillDataGridFiltered(string tableName, string itemType)
     {
-      try
+
+      if (!String.IsNullOrWhiteSpace(itemType))
       {
-        var sqlAccess = new SQLiteDataAccess();
-        DataTable dt = sqlAccess.GetFilteredDB(tableName, itemType);
-        return dt.DefaultView;
+        try
+        {
+          var sqlAccess = new SQLiteDataAccess();
+          DataTable dt = sqlAccess.GetFilteredDB(tableName, itemType);
+          return (dt.DefaultView, $"Filter item: {itemType}");
+        }
+        catch (FileNotFoundException message)
+        {
+          throw new FileNotFoundException($"{message}");
+        }
       }
-      catch (FileNotFoundException message)
+      else
       {
-        throw new FileNotFoundException($"{message}");
+        return (null, "");
       }
     }
   }

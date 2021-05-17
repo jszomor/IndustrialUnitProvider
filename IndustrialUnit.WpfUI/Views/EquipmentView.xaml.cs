@@ -28,19 +28,17 @@ namespace IndustrialUnit.WpfUI.Views
     public EquipmentView()
     {
       InitializeComponent();
-      FillDataGrid();
+      //FillDataGrid();
       DataContext = new EquipmentViewModel();
     }
 
     public void FillDataGrid()
     {
-      EquipmentTableGrid.ItemsSource = BaseModel.FillDataGrid("Equipment");
+      //EquipmentTableGrid.ItemsSource = BaseModel.FillDataGrid("Equipment");
     }
 
     private void EQRefresh_Click(object sender, RoutedEventArgs e)
     {
-      FillDataGrid();
-
       EqIdTextBox.Clear();
       EqItemTypeTextBox.Clear();
       EqCapacityTextBox.Clear();
@@ -63,8 +61,14 @@ namespace IndustrialUnit.WpfUI.Views
       {
         List<string> textBoxNames = new()
         {
-          "Id", "ItemType", "Capacity", "Pressure", 
-          "PowerConsumption", "Manufacturer", "Model", "UnitPrice"
+          "Id",
+          "ItemType",
+          "Capacity",
+          "Pressure",
+          "PowerConsumption",
+          "Manufacturer",
+          "Model",
+          "UnitPrice"
         };
 
         EqIdTextBox.Text = rowSelected[textBoxNames[0]].ToString();
@@ -80,18 +84,18 @@ namespace IndustrialUnit.WpfUI.Views
       }
     }
 
-    private void Search_click(object sender, RoutedEventArgs e)
-    {
-      if (!String.IsNullOrWhiteSpace(EqItemTypeTextBox.Text))
-      {
-        EquipmentTableGrid.ItemsSource = BaseModel.FillDataGridFiltered("Equipment", EqItemTypeTextBox.Text);
-      }
-      else
-      {
-        LogTextBlock.Text = "Item name is the parameter for search, \nit cannot be empty!";
-        LogTextBlock.Background = Brushes.LightYellow;
-        //MessageBox.Show("Item name is the only search parameter, it cannot be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-      }      
-    }
+    //private void Search_click(object sender, RoutedEventArgs e)
+    //{
+    //  if (!String.IsNullOrWhiteSpace(EqItemTypeTextBox.Text))
+    //  {
+    //    EquipmentTableGrid.ItemsSource = BaseModel.FillDataGridFiltered("Equipment", EqItemTypeTextBox.Text);
+    //  }
+    //  else
+    //  {
+    //    LogTextBlock.Text = "Item name is the parameter for search, \nit cannot be empty!";
+    //    LogTextBlock.Background = Brushes.LightYellow;
+    //    //MessageBox.Show("Item name is the only search parameter, it cannot be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+    //  }      
+    //}
   }
 }
