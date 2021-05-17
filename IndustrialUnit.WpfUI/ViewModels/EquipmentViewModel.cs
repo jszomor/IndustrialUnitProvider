@@ -21,8 +21,16 @@ namespace IndustrialUnit.WpfUI.ViewModels
       set 
       {
         _eqDataGrid = value; 
-        OnPropertyChanged(nameof(EqDataGrid));
+        OnPropertyChanged();
       }}
+
+
+    private DataGrid _dataGrid;
+    public DataGrid MyDataGrid
+    {
+      get { return _dataGrid; }
+      set { _dataGrid = value; }
+    }
 
 
     private string _messageToView;
@@ -35,18 +43,123 @@ namespace IndustrialUnit.WpfUI.ViewModels
       set 
       { 
         _messageToView = value;
-        OnPropertyChanged(nameof(MessageToView)); 
+        OnPropertyChanged(); 
       }
     }
 
-    public int Id { get; set; }
-    public string ItemType { get; set; }
-    public decimal Capacity { get; set; }
-    public decimal Pressure { get; set; }
-    public decimal PowerConsumption { get; set; }
-    public string Manufacturer { get; set; }
-    public string Model { get; set; }
-    public decimal UnitPrice { get; set; }
+
+    private int _id;
+    public int Id 
+    {
+      get
+      {
+        return _id;
+      }
+      set
+      {
+        _id = value;
+        OnPropertyChanged();
+      } 
+    }
+
+
+    private string _itemType;
+    public string ItemType 
+    {
+      get
+      {
+        return _itemType;
+      }
+      set 
+      {
+        _itemType = value;
+        OnPropertyChanged();      
+      }
+    }
+
+    private decimal _capacity;
+    public decimal Capacity 
+    {
+      get
+      {
+        return _capacity;
+      }
+      set 
+      {
+        _capacity = value;
+        OnPropertyChanged();
+      } 
+    }
+
+    private decimal _pressure;
+    public decimal Pressure
+    {
+      get
+      {
+        return _pressure;
+      }
+      set
+      {
+        _pressure = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private decimal _powerConsumption;
+    public decimal PowerConsumption 
+    {
+      get
+      {
+        return _powerConsumption;
+      }
+      set
+      {
+        _powerConsumption = value;
+        OnPropertyChanged();
+      } 
+    }
+
+    private string _manufacturer;
+    public string Manufacturer 
+    {
+      get
+      {
+        return _manufacturer;
+      }
+      set
+      {
+        _manufacturer = value;
+        OnPropertyChanged();
+      } 
+    }
+
+    private string _model;
+    public string Model 
+    {
+      get
+      {
+        return _model;
+      }
+      set
+      {
+        _model = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private decimal _unitPrice;
+    public decimal UnitPrice 
+    {
+      get
+      {
+        return _unitPrice;
+      }
+      set
+      {
+        _unitPrice = value;
+        OnPropertyChanged();
+      } 
+    }
 
     public bool IsEquipmentEmpty(EquipmentViewModel eq)
     {
@@ -77,44 +190,11 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     public EquipmentViewModel()
     {
-      DataGrid select = new();
-      select.SelectionChanged += EquipmentTableGrid_SelectionChanged;
-
       AddEquipmentCommand = new RelayCommand(RunAddCommand);
       DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
       UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
       SearchEquipmentCommand = new RelayCommand(RunSearchCommand);
       EqDataGrid = baseModel.FillDataGrid("Equipment");
-    }
-
-    public void EquipmentTableGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-      DataGrid dg = (DataGrid)sender;
-      if (dg.SelectedItem is DataRowView rowSelected)
-      {
-        List<string> textBoxNames = new()
-        {
-          "Id",
-          "ItemType",
-          "Capacity",
-          "Pressure",
-          "PowerConsumption",
-          "Manufacturer",
-          "Model",
-          "UnitPrice"
-        };
-
-        //EqIdTextBox.Text = rowSelected[textBoxNames[0]].ToString();
-        //EqItemTypeTextBox.Text = rowSelected[textBoxNames[1]].ToString();
-        //EqCapacityTextBox.Text = rowSelected[textBoxNames[2]].ToString();
-        //EqPressureTextBox.Text = rowSelected[textBoxNames[3]].ToString();
-        //EqPowerConsumptionTextBox.Text = rowSelected[textBoxNames[4]].ToString();
-        //EqManufacturerTextBox.Text = rowSelected[textBoxNames[5]].ToString();
-        //EqModelTextBox.Text = rowSelected[textBoxNames[6]].ToString();
-        //EqUnitPriceTextBox.Text = rowSelected[textBoxNames[7]].ToString();
-
-        //LogTextBlock.Text = $"Number {rowSelected[textBoxNames[0]]} is selected";
-      }
     }
   }
 }

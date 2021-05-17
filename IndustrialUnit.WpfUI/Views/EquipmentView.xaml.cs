@@ -35,9 +35,8 @@ namespace IndustrialUnit.WpfUI.Views
 
     private void EquipmentTableGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-      DataGrid dg = (DataGrid)sender;
-      if (dg.SelectedItem is DataRowView rowSelected)
-      {
+      BaseModel baseModel = new();
+
         List<string> textBoxNames = new()
         {
           "Id",
@@ -50,17 +49,7 @@ namespace IndustrialUnit.WpfUI.Views
           "UnitPrice"
         };
 
-        EqIdTextBox.Text = rowSelected[textBoxNames[0]].ToString();
-        EqItemTypeTextBox.Text = rowSelected[textBoxNames[1]].ToString();
-        EqCapacityTextBox.Text = rowSelected[textBoxNames[2]].ToString();
-        EqPressureTextBox.Text = rowSelected[textBoxNames[3]].ToString();
-        EqPowerConsumptionTextBox.Text = rowSelected[textBoxNames[4]].ToString();
-        EqManufacturerTextBox.Text = rowSelected[textBoxNames[5]].ToString();
-        EqModelTextBox.Text = rowSelected[textBoxNames[6]].ToString();
-        EqUnitPriceTextBox.Text = rowSelected[textBoxNames[7]].ToString();
-
-        LogTextBlock.Text = $"Number {rowSelected[textBoxNames[0]]} is selected";
-      }
+      baseModel.DataGrid_SelectionChanged(DataContext, sender, textBoxNames);
     }
   }
 }

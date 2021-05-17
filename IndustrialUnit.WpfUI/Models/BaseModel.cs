@@ -126,5 +126,34 @@ namespace IndustrialUnit.WpfUI.Models
         return (null, "");
       }
     }
+
+    public void DataGrid_SelectionChanged<T>(T item, object sender, List<string> textBoxNames) where T : class, new()
+    {
+      DataGrid dg = (DataGrid)sender;
+      if (dg.SelectedItem is DataRowView rowSelected)
+      {
+        PropertyInfo[] properties = item.GetType().GetProperties();
+        int i = 0;
+        foreach (var prop in properties)
+        {
+          try
+          {
+            if (i >= textBoxNames.Count)
+            {
+              return;              
+            }
+            else if(prop.Name == textBoxNames[i])
+            {
+              prop.SetValue(item, Convert.ChangeType(rowSelected[textBoxNames[i]], prop.PropertyType));
+              ++i;
+            }            
+          }
+          catch(FormatException)
+          {
+            throw new FormatException();
+          }
+        }
+      }
+    }
   }
 }

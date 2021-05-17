@@ -9,8 +9,6 @@
               mc:Ignorable="d" 
               d:DesignHeight="720.623" d:DesignWidth="1260.263">
 
-
-
   <UserControl.DataContext>
     <viewModel:EquipmentViewModel/>
   </UserControl.DataContext>
@@ -274,7 +272,7 @@
       FontSize="14" 
       FontWeight="Bold" 
       Margin="0,5,40,5"
-      Command="{Binding InsertEquipmentCommand}">
+      Command="{Binding AddEquipmentCommand}">
       <Button.Style>
         <Style TargetType="Button">
           <Style.Triggers>
