@@ -38,7 +38,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public void Insert<T>(T unit, string tableName)
+    public void Add<T>(T unit, string tableName)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {

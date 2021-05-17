@@ -15,14 +15,14 @@ namespace IndustrialUnit.WpfUI.Models
 {
   public class BaseModel
   {
-    public string SubmitInsert<T>(T item, string tableName, Func<T, bool> action)
+    public string SubmitAdd<T>(T item, string tableName, Func<T, bool> action)
     {
       if (action(item))
       {
         try
         {
           var sqlAccess = new SQLiteDataAccess();
-          sqlAccess.Insert(item, tableName);
+          sqlAccess.Add(item, tableName);
           //MessageBox.Show($"You have successfully added. \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
           return "You have successfully added. \nPress refresh to see the result.";
         }
@@ -48,7 +48,7 @@ namespace IndustrialUnit.WpfUI.Models
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Update(item, tableName, id);
           //MessageBox.Show($"{id} id number successfully updated \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          return $"{id} id number successfully updated \nPress refresh to see the result.";
+          return $"Id number: {id} successfully updated \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
         {
@@ -72,7 +72,7 @@ namespace IndustrialUnit.WpfUI.Models
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Delete(tableName, id);
           //MessageBox.Show($"Id: {id} successfully deleted. \nPress Refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-          return $"Id: {id} successfully deleted. \nPress Refresh to see the result.";
+          return $"Id number: {id} successfully deleted. \nPress Refresh to see the result.";
         }
         else
         {

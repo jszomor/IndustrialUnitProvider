@@ -22,35 +22,14 @@ namespace IndustrialUnit.WpfUI.Views
   /// </summary>
   public partial class EquipmentView : UserControl
   {
-
-    BaseModel BaseModel = new();
-
     public EquipmentView()
     {
       InitializeComponent();
-      //FillDataGrid();
       DataContext = new EquipmentViewModel();
-    }
-
-    public void FillDataGrid()
-    {
-      //EquipmentTableGrid.ItemsSource = BaseModel.FillDataGrid("Equipment");
     }
 
     private void EQRefresh_Click(object sender, RoutedEventArgs e)
     {
-      EqIdTextBox.Clear();
-      EqItemTypeTextBox.Clear();
-      EqCapacityTextBox.Clear();
-      EqPressureTextBox.Clear();
-      EqPowerConsumptionTextBox.Clear();
-      EqManufacturerTextBox.Clear();
-      EqModelTextBox.Clear();
-      EqUnitPriceTextBox.Clear();
-
-      LogTextBlock.Background = Brushes.LightGray;
-      LogTextBlock.Text = "";
-
       DataContext = new EquipmentViewModel();
     }
 
@@ -83,19 +62,5 @@ namespace IndustrialUnit.WpfUI.Views
         LogTextBlock.Text = $"Number {rowSelected[textBoxNames[0]]} is selected";
       }
     }
-
-    //private void Search_click(object sender, RoutedEventArgs e)
-    //{
-    //  if (!String.IsNullOrWhiteSpace(EqItemTypeTextBox.Text))
-    //  {
-    //    EquipmentTableGrid.ItemsSource = BaseModel.FillDataGridFiltered("Equipment", EqItemTypeTextBox.Text);
-    //  }
-    //  else
-    //  {
-    //    LogTextBlock.Text = "Item name is the parameter for search, \nit cannot be empty!";
-    //    LogTextBlock.Background = Brushes.LightYellow;
-    //    //MessageBox.Show("Item name is the only search parameter, it cannot be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-    //  }      
-    //}
   }
 }

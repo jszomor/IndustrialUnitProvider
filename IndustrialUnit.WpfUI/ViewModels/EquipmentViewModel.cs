@@ -65,21 +65,29 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     readonly BaseModel baseModel = new();
 
-    private void RunInsertCommand() => MessageToView = baseModel.SubmitInsert(this, "Equipment", IsEquipmentEmpty);
+    private void RunAddCommand() => MessageToView = baseModel.SubmitAdd(this, "Equipment", IsEquipmentEmpty);
     private void RunDeleteCommand() => MessageToView = baseModel.SubmitDelete("Equipment", Id);
     private void RunUpdateCommand() => MessageToView = baseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
-    private void RunSearchCommand()
-    {
-      (EqDataGrid, MessageToView) = baseModel.FillDataGridFiltered("Equipment", ItemType);
-    }
-    //private void RunFillGridCommand() => EqDataGrid = baseModel.FillDataGrid("Equipment");
+    private void RunSearchCommand() => (EqDataGrid, MessageToView) = baseModel.FillDataGridFiltered("Equipment", ItemType);
 
-    public ICommand InsertEquipmentCommand { get; }
+    public ICommand AddEquipmentCommand { get; }
     public ICommand DeleteEquipmentCommand { get; }
     public ICommand UpdateEquipmentCommand { get; }
     public ICommand SearchEquipmentCommand { get; }
 
-    public  void EquipmentTableGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    public EquipmentViewModel()
+    {
+      DataGrid select = new();
+      select.SelectionChanged += EquipmentTableGrid_SelectionChanged;
+
+      AddEquipmentCommand = new RelayCommand(RunAddCommand);
+      DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
+      UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
+      SearchEquipmentCommand = new RelayCommand(RunSearchCommand);
+      EqDataGrid = baseModel.FillDataGrid("Equipment");
+    }
+
+    public void EquipmentTableGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       DataGrid dg = (DataGrid)sender;
       if (dg.SelectedItem is DataRowView rowSelected)
@@ -107,18 +115,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
         //LogTextBlock.Text = $"Number {rowSelected[textBoxNames[0]]} is selected";
       }
-    }
-
-    public EquipmentViewModel()
-    {
-      DataGrid select = new();
-      select.SelectionChanged += EquipmentTableGrid_SelectionChanged;
-
-      InsertEquipmentCommand = new RelayCommand(RunInsertCommand);
-      DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
-      UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
-      SearchEquipmentCommand = new RelayCommand(RunSearchCommand);
-      EqDataGrid = baseModel.FillDataGrid("Equipment");
     }
   }
 }
