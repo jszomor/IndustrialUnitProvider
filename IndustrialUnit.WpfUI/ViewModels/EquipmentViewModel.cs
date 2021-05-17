@@ -25,14 +25,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }}
 
 
-    private DataGrid _dataGrid;
-    public DataGrid MyDataGrid
-    {
-      get { return _dataGrid; }
-      set { _dataGrid = value; }
-    }
-
-
     private string _messageToView;
     public string MessageToView
     {
@@ -77,6 +69,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
+
     private decimal _capacity;
     public decimal Capacity 
     {
@@ -90,6 +83,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
         OnPropertyChanged();
       } 
     }
+
 
     private decimal _pressure;
     public decimal Pressure
@@ -105,6 +99,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
+
     private decimal _powerConsumption;
     public decimal PowerConsumption 
     {
@@ -118,6 +113,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
         OnPropertyChanged();
       } 
     }
+
 
     private string _manufacturer;
     public string Manufacturer 
@@ -133,6 +129,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       } 
     }
 
+
     private string _model;
     public string Model 
     {
@@ -146,6 +143,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
         OnPropertyChanged();
       }
     }
+
 
     private decimal _unitPrice;
     public decimal UnitPrice 
