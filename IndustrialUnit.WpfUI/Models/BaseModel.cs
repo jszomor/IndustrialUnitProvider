@@ -107,8 +107,6 @@ namespace IndustrialUnit.WpfUI.Models
 
     public (DataView, string) FillDataGridFiltered(string tableName, string itemType)
     {
-      DataView d = new();
-
       if (!String.IsNullOrWhiteSpace(itemType))
       {
         try
