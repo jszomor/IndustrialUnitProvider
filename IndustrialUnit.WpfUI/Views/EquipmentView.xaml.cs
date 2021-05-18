@@ -35,8 +35,6 @@ namespace IndustrialUnit.WpfUI.Views
 
     private void EquipmentTableGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-      BaseModel baseModel = new();
-
         Dictionary<string, int> textBoxNames = new()
         {
           { "Id", 0 },
@@ -49,7 +47,7 @@ namespace IndustrialUnit.WpfUI.Views
           { "UnitPrice", 7 }
         };
 
-      baseModel.DataGrid_SelectionChanged(DataContext, sender, textBoxNames);
+      BaseModel.DataGrid_SelectionChanged(DataContext, sender, textBoxNames);
     }
   }
 }

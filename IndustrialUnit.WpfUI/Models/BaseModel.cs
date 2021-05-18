@@ -13,9 +13,9 @@ using System.Windows.Controls;
 
 namespace IndustrialUnit.WpfUI.Models
 {
-  public class BaseModel
+  public static class BaseModel
   {
-    public string SubmitAdd<T>(T item, string tableName, Func<T, bool> action)
+    public static string SubmitAdd<T>(T item, string tableName, Func<T, bool> action)
     {
       if (action(item))
       {
@@ -39,7 +39,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public string SubmitUpdate<T>(T item, string tableName, Func<T, bool> action, int id)
+    public static string SubmitUpdate<T>(T item, string tableName, Func<T, bool> action, int id)
     {
       if (action(item))
       {
@@ -63,7 +63,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public string SubmitDelete(string tableName, int id)
+    public static string SubmitDelete(string tableName, int id)
     {
       try
       {
@@ -91,7 +91,7 @@ namespace IndustrialUnit.WpfUI.Models
     /// Pass database to datagrid
     /// </summary>
     /// <returns></returns>
-    public DataView FillDataGrid(string tableName)
+    public static DataView FillDataGrid(string tableName)
     {
       try
       {
@@ -105,7 +105,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public (DataView, string) FillDataGridFiltered(string tableName, string itemType)
+    public static (DataView, string) FillDataGridFiltered(string tableName, string itemType)
     {
       if (!String.IsNullOrWhiteSpace(itemType))
       {
@@ -126,7 +126,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public void DataGrid_SelectionChanged<T>(T item, object sender, Dictionary<string, int> textBoxNames) where T : class, new()
+    public static void DataGrid_SelectionChanged<T>(T item, object sender, Dictionary<string, int> textBoxNames) where T : class, new()
     {
       DataGrid dg = (DataGrid)sender;
       if (dg.SelectedItem is DataRowView rowSelected)

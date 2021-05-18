@@ -1,7 +1,9 @@
-﻿using IndustrialUnit.WpfUI.Models;
+﻿using IndustrialUnit.Model.Model;
+using IndustrialUnit.WpfUI.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +14,34 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class EquipmentViewModel : BaseViewModel
   {
+
+    private ObservableCollection<Equipment> _equipments;
+    public ObservableCollection<Equipment> Equipments
+    {
+      get
+      {
+        return _equipments;
+      }
+      set
+      {
+        _equipments = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private Equipment _selectedEquipment;
+    public Equipment SelectedEquipment {
+      get
+      {
+        return _selectedEquipment;
+      }
+      set
+      {
+        _selectedEquipment = value;
+        OnPropertyChanged();
+      }
+    }
+
     private DataView _eqDataGrid;
     public DataView EqDataGrid { 
       get 
@@ -174,12 +204,10 @@ namespace IndustrialUnit.WpfUI.ViewModels
       return true;
     }
 
-    readonly BaseModel baseModel = new();
-
-    private void RunAddCommand() => MessageToView = baseModel.SubmitAdd(this, "Equipment", IsEquipmentEmpty);
-    private void RunDeleteCommand() => MessageToView = baseModel.SubmitDelete("Equipment", Id);
-    private void RunUpdateCommand() => MessageToView = baseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
-    private void RunSearchCommand() => (EqDataGrid, MessageToView) = baseModel.FillDataGridFiltered("Equipment", ItemType);
+    private void RunAddCommand() => MessageToView = BaseModel.SubmitAdd(this, "Equipment", IsEquipmentEmpty);
+    private void RunDeleteCommand() => MessageToView = BaseModel.SubmitDelete("Equipment", Id);
+    private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
+    private void RunSearchCommand() => (EqDataGrid, MessageToView) = BaseModel.FillDataGridFiltered("Equipment", ItemType);
 
     public ICommand AddEquipmentCommand { get; }
     public ICommand DeleteEquipmentCommand { get; }
@@ -192,7 +220,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
       UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
       SearchEquipmentCommand = new RelayCommand(RunSearchCommand);
-      EqDataGrid = baseModel.FillDataGrid("Equipment");
+      EqDataGrid = BaseModel.FillDataGrid("Equipment");
     }
   }
 }
