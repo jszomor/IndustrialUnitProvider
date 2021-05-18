@@ -107,6 +107,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public (DataView, string) FillDataGridFiltered(string tableName, string itemType)
     {
+      DataView d = new();
 
       if (!String.IsNullOrWhiteSpace(itemType))
       {
@@ -114,7 +115,7 @@ namespace IndustrialUnit.WpfUI.Models
         {
           var sqlAccess = new SQLiteDataAccess();
           DataTable dt = sqlAccess.GetFilteredDB(tableName, itemType);
-          return (dt.DefaultView, $"Filter item: {itemType}");
+          return (dt.DefaultView, $"Filter name: {itemType} \nPress Refresh to see the whole database again.");
         }
         catch (FileNotFoundException message)
         {
@@ -123,29 +124,23 @@ namespace IndustrialUnit.WpfUI.Models
       }
       else
       {
-        return (null, "");
+        return (FillDataGrid(tableName), "Filter word is 'Item Name', \nit cannot be empty for searching!");
       }
     }
 
-    public void DataGrid_SelectionChanged<T>(T item, object sender, List<string> textBoxNames) where T : class, new()
+    public void DataGrid_SelectionChanged<T>(T item, object sender, Dictionary<string, int> textBoxNames) where T : class, new()
     {
       DataGrid dg = (DataGrid)sender;
       if (dg.SelectedItem is DataRowView rowSelected)
       {
         PropertyInfo[] properties = item.GetType().GetProperties();
-        int i = 0;
         foreach (var prop in properties)
         {
           try
           {
-            if (i >= textBoxNames.Count)
+            if (textBoxNames.TryGetValue(prop.Name, out int index))
             {
-              return;              
-            }
-            else if(prop.Name == textBoxNames[i])
-            {
-              prop.SetValue(item, Convert.ChangeType(rowSelected[textBoxNames[i]], prop.PropertyType));
-              ++i;
+              prop.SetValue(item, Convert.ChangeType(rowSelected[index], prop.PropertyType));
             }            
           }
           catch(FormatException)

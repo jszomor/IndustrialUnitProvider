@@ -37,16 +37,16 @@ namespace IndustrialUnit.WpfUI.Views
     {
       BaseModel baseModel = new();
 
-        List<string> textBoxNames = new()
+        Dictionary<string, int> textBoxNames = new()
         {
-          "Id",
-          "ItemType",
-          "Capacity",
-          "Pressure",
-          "PowerConsumption",
-          "Manufacturer",
-          "Model",
-          "UnitPrice"
+          { "Id", 0 },
+          { "ItemType", 1 },
+          { "Capacity", 2 },
+          { "Pressure", 3 },
+          { "PowerConsumption", 4 },
+          { "Manufacturer", 5 },
+          { "Model", 6 },
+          { "UnitPrice", 7 }
         };
 
       baseModel.DataGrid_SelectionChanged(DataContext, sender, textBoxNames);
