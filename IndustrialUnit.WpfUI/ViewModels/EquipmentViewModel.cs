@@ -15,8 +15,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
   public class EquipmentViewModel : BaseViewModel
   {
 
-    private ObservableCollection<Equipment> _equipments;
-    public ObservableCollection<Equipment> Equipments
+    private ObservableCollection<EquipmentModel> _equipments;
+    public ObservableCollection<EquipmentModel> Equipments
     {
       get
       {
@@ -29,8 +29,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private Equipment _selectedEquipment;
-    public Equipment SelectedEquipment {
+    private EquipmentModel _selectedEquipment;
+    public EquipmentModel SelectedEquipment {
       get
       {
         return _selectedEquipment;
