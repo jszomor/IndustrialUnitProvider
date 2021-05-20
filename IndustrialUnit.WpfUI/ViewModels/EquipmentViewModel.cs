@@ -84,6 +84,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
     }
 
 
+    #region EquipmentViewModel Properties
+
     private int _id;
     public int Id
     {
@@ -202,25 +204,26 @@ namespace IndustrialUnit.WpfUI.ViewModels
         OnPropertyChanged();
       }
     }
+    #endregion
 
-    public bool IsEquipmentEmpty(EquipmentViewModel eq)
+    public bool IsEquipmentEmpty(EquipmentModel eq)
     {
-      if (string.IsNullOrEmpty(ItemType) ||
-          string.IsNullOrEmpty(Capacity.ToString()) ||
-          string.IsNullOrEmpty(Pressure.ToString()) ||
-          string.IsNullOrEmpty(PowerConsumption.ToString()) ||
-          string.IsNullOrEmpty(Manufacturer) ||
-          string.IsNullOrEmpty(Model) ||
-          string.IsNullOrEmpty(UnitPrice.ToString()))
+      if (string.IsNullOrEmpty(eq.ItemType) ||
+          string.IsNullOrEmpty(eq.Capacity.ToString()) ||
+          string.IsNullOrEmpty(eq.Pressure.ToString()) ||
+          string.IsNullOrEmpty(eq.PowerConsumption.ToString()) ||
+          string.IsNullOrEmpty(eq.Manufacturer) ||
+          string.IsNullOrEmpty(eq.Model) ||
+          string.IsNullOrEmpty(eq.UnitPrice.ToString()))
       {
         return false;
       }
       return true;
     }
 
-    private void RunAddCommand() => MessageToView = BaseModel.SubmitAdd(this, "Equipment", IsEquipmentEmpty);
+    private void RunAddCommand() => MessageToView = BaseModel.SubmitAdd(SelectedEquipment, "Equipment", IsEquipmentEmpty);
     private void RunDeleteCommand() => MessageToView = BaseModel.SubmitDelete("Equipment", Id);
-    private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(this, "Equipment", IsEquipmentEmpty, Id);
+    private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(SelectedEquipment, "Equipment", IsEquipmentEmpty, Id);
     private void RunSearchCommand() => (EqDataGrid, MessageToView) = BaseModel.FillDataGridFiltered("Equipment", ItemType);
 
     public ICommand AddEquipmentCommand { get; }
