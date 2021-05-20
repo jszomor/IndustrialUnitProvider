@@ -50,7 +50,7 @@
               Grid.RowSpan="14" 
               Margin="0,0,0,15" 
               AutoGenerateColumns="False"              
-              ItemsSource="{Binding Path=EqDataGrid, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+              ItemsSource="{Binding Path=Equipments}" 
               SelectedItem="{Binding Path=SelectedEquipment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
               SelectionChanged="EquipmentTableGrid_SelectionChanged">
       <DataGrid.ColumnHeaderStyle>
@@ -95,7 +95,7 @@
       IsEnabled="False"
       Foreground="Gray">
       <TextBox.Text>
-        <Binding Path="Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="SelectedEquipment.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="0"/>
           </Binding.ValidationRules>
@@ -121,7 +121,7 @@
       VerticalContentAlignment="Center">
       <!--Text="{Binding Path=SelectedEquipment.ItemType, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">-->
       <TextBox.Text>
-        <Binding Path="ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedEquipment.ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -146,7 +146,7 @@
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedEquipment.Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -171,7 +171,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedEquipment.Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -196,7 +196,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedEquipment.PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -221,7 +221,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedEquipment.Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -246,7 +246,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="Model" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedEquipment.Model" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:StringValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -271,7 +271,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedEquipment.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:NumberValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>

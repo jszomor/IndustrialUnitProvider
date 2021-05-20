@@ -25,7 +25,10 @@ namespace IndustrialUnit.WpfUI.Views
     public EquipmentView()
     {
       InitializeComponent();
-      DataContext = new EquipmentViewModel();
+      EquipmentViewModel e = new EquipmentViewModel();
+
+      EquipmentTableGrid.ItemsSource = e.GetEquipments();
+      //DataContext = new EquipmentViewModel();
     }
 
     private void EQRefresh_Click(object sender, RoutedEventArgs e)
@@ -47,7 +50,7 @@ namespace IndustrialUnit.WpfUI.Views
           { "UnitPrice", 7 }
         };
 
-      BaseModel.DataGrid_SelectionChanged(DataContext, sender, textBoxNames);
+      //BaseModel.DataGrid_SelectionChanged(DataContext, sender, textBoxNames);
     }
   }
 }

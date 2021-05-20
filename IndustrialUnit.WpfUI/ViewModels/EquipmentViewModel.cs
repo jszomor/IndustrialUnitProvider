@@ -29,8 +29,20 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
+    public ObservableCollection<EquipmentModel> GetEquipments()
+    {
+      ObservableCollection<EquipmentModel> equipmentModels = new();
+
+      equipmentModels.Add(new EquipmentModel() { Id = 1, ItemType = "Blower", Capacity = 60, 
+        Manufacturer = "Kubicek", Model = "35C", PowerConsumption = 76, Pressure = 600, UnitPrice = 24000 });
+
+      return equipmentModels;
+    }
+
+
     private EquipmentModel _selectedEquipment;
-    public EquipmentModel SelectedEquipment {
+    public EquipmentModel SelectedEquipment
+    {
       get
       {
         return _selectedEquipment;
@@ -43,35 +55,37 @@ namespace IndustrialUnit.WpfUI.ViewModels
     }
 
     private DataView _eqDataGrid;
-    public DataView EqDataGrid { 
-      get 
+    public DataView EqDataGrid
+    {
+      get
       {
         return _eqDataGrid;
-      } 
-      set 
+      }
+      set
       {
-        _eqDataGrid = value; 
+        _eqDataGrid = value;
         OnPropertyChanged();
-      }}
+      }
+    }
 
 
     private string _messageToView;
     public string MessageToView
     {
-      get 
-      { 
-        return _messageToView; 
+      get
+      {
+        return _messageToView;
       }
-      set 
-      { 
+      set
+      {
         _messageToView = value;
-        OnPropertyChanged(); 
+        OnPropertyChanged();
       }
     }
 
 
     private int _id;
-    public int Id 
+    public int Id
     {
       get
       {
@@ -81,37 +95,37 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         _id = value;
         OnPropertyChanged();
-      } 
+      }
     }
 
 
     private string _itemType;
-    public string ItemType 
+    public string ItemType
     {
       get
       {
         return _itemType;
       }
-      set 
+      set
       {
         _itemType = value;
-        OnPropertyChanged();      
+        OnPropertyChanged();
       }
     }
 
 
     private decimal _capacity;
-    public decimal Capacity 
+    public decimal Capacity
     {
       get
       {
         return _capacity;
       }
-      set 
+      set
       {
         _capacity = value;
         OnPropertyChanged();
-      } 
+      }
     }
 
 
@@ -131,7 +145,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
 
     private decimal _powerConsumption;
-    public decimal PowerConsumption 
+    public decimal PowerConsumption
     {
       get
       {
@@ -141,12 +155,12 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         _powerConsumption = value;
         OnPropertyChanged();
-      } 
+      }
     }
 
 
     private string _manufacturer;
-    public string Manufacturer 
+    public string Manufacturer
     {
       get
       {
@@ -156,12 +170,12 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         _manufacturer = value;
         OnPropertyChanged();
-      } 
+      }
     }
 
 
     private string _model;
-    public string Model 
+    public string Model
     {
       get
       {
@@ -176,7 +190,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
 
     private decimal _unitPrice;
-    public decimal UnitPrice 
+    public decimal UnitPrice
     {
       get
       {
@@ -186,7 +200,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         _unitPrice = value;
         OnPropertyChanged();
-      } 
+      }
     }
 
     public bool IsEquipmentEmpty(EquipmentViewModel eq)
@@ -220,6 +234,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
       UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
       SearchEquipmentCommand = new RelayCommand(RunSearchCommand);
+      //GetEquipments();
       EqDataGrid = BaseModel.FillDataGrid("Equipment");
     }
   }
