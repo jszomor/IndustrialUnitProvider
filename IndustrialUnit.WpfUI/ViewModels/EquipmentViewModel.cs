@@ -27,6 +27,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         _equipments = value;
         OnPropertyChanged();
+        SelectedEquipment = new EquipmentModel();
       }
     }
 
@@ -59,10 +60,10 @@ namespace IndustrialUnit.WpfUI.ViewModels
     }
 
 
-    public ObservableCollection<EquipmentModel> GetEquipments()
+    public static ObservableCollection<EquipmentModel> GetEquipments()
     {
       SQLiteDataAccess DataAccess = new();
-      ObservableCollection<EquipmentModel> eq = new();
+      ObservableCollection<EquipmentModel> equipmentCollection = new();
       var getEquipment = DataAccess.GetAll("Equipment");
 
       var rowNumber = getEquipment.Rows.Count;
@@ -70,7 +71,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       for (int i = 0; i < rowNumber; i++)
       {
         var item = getEquipment.Rows[i];
-        eq.Add(
+        equipmentCollection.Add(
           new EquipmentModel()
           {
             Id = Convert.ToInt32(item.ItemArray[0]),
@@ -83,17 +84,17 @@ namespace IndustrialUnit.WpfUI.ViewModels
             UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
           });
       }
-      return eq;
+      return equipmentCollection;
     }
 
-    public ObservableCollection<EquipmentModel> GetFilteredEquipments()
+    public ObservableCollection<EquipmentModel> GetFilteredEquipments(ObservableCollection<EquipmentModel> Equipments)
     {
       if (!String.IsNullOrWhiteSpace(SelectedEquipment.ItemType))
       {
         try
         {
           SQLiteDataAccess DataAccess = new();
-          ObservableCollection<EquipmentModel> eq = new();
+          ObservableCollection<EquipmentModel> equipmentCollection = new();
           var getFilteredEquipment = DataAccess.GetFilteredDB("Equipment", SelectedEquipment.ItemType);
           string originalItemName = SelectedEquipment.ItemType;
           var rowNumber = getFilteredEquipment.Rows.Count;
@@ -101,7 +102,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
           for (int i = 0; i < rowNumber; i++)
           {
             var item = getFilteredEquipment.Rows[i];
-            eq.Add(
+            equipmentCollection.Add(
               new EquipmentModel()
               {
                 Id = Convert.ToInt32(item.ItemArray[0]),
@@ -114,10 +115,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
                 UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
               });
           }
-          Equipments = GetEquipments();
-          SelectedEquipment = new EquipmentModel();
           MessageToView = $"Filter name: {originalItemName} \nPress Refresh to see the whole database again.";
-          return eq;
+          return equipmentCollection;
         }
         catch (FileNotFoundException message)
         {
@@ -131,7 +130,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    public bool IsEquipmentEmpty(EquipmentModel eq)
+    public static bool IsEquipmentEmpty(EquipmentModel eq)
     {
       if (string.IsNullOrEmpty(eq.ItemType) ||
           string.IsNullOrEmpty(eq.Capacity.ToString()) ||
@@ -149,12 +148,10 @@ namespace IndustrialUnit.WpfUI.ViewModels
     private void RunAddCommand() => MessageToView = BaseModel.SubmitAdd(SelectedEquipment, "Equipment", IsEquipmentEmpty);
     private void RunDeleteCommand() => MessageToView = BaseModel.SubmitDelete("Equipment", SelectedEquipment.Id);
     private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(SelectedEquipment, "Equipment", IsEquipmentEmpty, SelectedEquipment.Id);
-    private void RunFilterCommand() => Equipments = GetFilteredEquipments();
+    private void RunFilterCommand() => Equipments = GetFilteredEquipments(Equipments);
     private void RunRefreshCommand()
     {
-
       Equipments = GetEquipments();
-
       MessageToView = "Refresh done.";
     }
 
@@ -172,7 +169,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
       FilterEquipmentCommand = new RelayCommand(RunFilterCommand);
       RefreshEquipmentCommand = new RelayCommand(RunRefreshCommand);
       Equipments = GetEquipments();
-      SelectedEquipment = new EquipmentModel();
     }
   }
 }
