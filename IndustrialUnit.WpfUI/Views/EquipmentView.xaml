@@ -50,9 +50,8 @@
               Grid.RowSpan="14" 
               Margin="0,0,0,15" 
               AutoGenerateColumns="False"              
-              ItemsSource="{Binding Path=Equipments}" 
-              SelectedItem="{Binding Path=SelectedEquipment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-              SelectionChanged="EquipmentTableGrid_SelectionChanged">
+              ItemsSource="{Binding Path=Equipments, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+              SelectedItem="{Binding Path=SelectedEquipment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
       <DataGrid.ColumnHeaderStyle>
         <Style TargetType="{x:Type DataGridColumnHeader}">
           <Setter Property="FontWeight" Value="Bold"/>

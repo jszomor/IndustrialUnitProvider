@@ -1,10 +1,12 @@
 ﻿using IndustrialUnit.Model.Model;
 using IndustrialUnit.WpfUI.Models;
+using IndustrialUnitDatabase;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -14,7 +16,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class EquipmentViewModel : BaseViewModel
   {
-
     private ObservableCollection<EquipmentModel> _equipments;
     public ObservableCollection<EquipmentModel> Equipments
     {
@@ -29,17 +30,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    public ObservableCollection<EquipmentModel> GetEquipments()
-    {
-      ObservableCollection<EquipmentModel> equipmentModels = new();
-
-      equipmentModels.Add(new EquipmentModel() { Id = 1, ItemType = "Blower", Capacity = 60, 
-        Manufacturer = "Kubicek", Model = "35C", PowerConsumption = 76, Pressure = 600, UnitPrice = 24000 });
-
-      return equipmentModels;
-    }
-
-
     private EquipmentModel _selectedEquipment;
     public EquipmentModel SelectedEquipment
     {
@@ -53,21 +43,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
         OnPropertyChanged();
       }
     }
-
-    private DataView _eqDataGrid;
-    public DataView EqDataGrid
-    {
-      get
-      {
-        return _eqDataGrid;
-      }
-      set
-      {
-        _eqDataGrid = value;
-        OnPropertyChanged();
-      }
-    }
-
 
     private string _messageToView;
     public string MessageToView
@@ -84,127 +59,77 @@ namespace IndustrialUnit.WpfUI.ViewModels
     }
 
 
-    #region EquipmentViewModel Properties
-
-    private int _id;
-    public int Id
+    public ObservableCollection<EquipmentModel> GetEquipments()
     {
-      get
+      SQLiteDataAccess DataAccess = new();
+      ObservableCollection<EquipmentModel> eq = new();
+      var getEquipment = DataAccess.GetAll("Equipment");
+
+      var rowNumber = getEquipment.Rows.Count;
+
+      for (int i = 0; i < rowNumber; i++)
       {
-        return _id;
+        var item = getEquipment.Rows[i];
+        eq.Add(
+          new EquipmentModel()
+          {
+            Id = Convert.ToInt32(item.ItemArray[0]),
+            ItemType = Convert.ToString(item.ItemArray[1]),
+            Capacity = Convert.ToDecimal(item.ItemArray[2]),
+            Pressure = Convert.ToDecimal(item.ItemArray[3]),
+            PowerConsumption = Convert.ToDecimal(item.ItemArray[4]),
+            Manufacturer = Convert.ToString(item.ItemArray[5]),
+            Model = Convert.ToString(item.ItemArray[6]),
+            UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
+          });
       }
-      set
-      {
-        _id = value;
-        OnPropertyChanged();
-      }
+      return eq;
     }
 
-
-    private string _itemType;
-    public string ItemType
+    public ObservableCollection<EquipmentModel> GetFilteredEquipments()
     {
-      get
+      if (!String.IsNullOrWhiteSpace(SelectedEquipment.ItemType))
       {
-        return _itemType;
+        try
+        {
+          SQLiteDataAccess DataAccess = new();
+          ObservableCollection<EquipmentModel> eq = new();
+          var getFilteredEquipment = DataAccess.GetFilteredDB("Equipment", SelectedEquipment.ItemType);
+
+          var rowNumber = getFilteredEquipment.Rows.Count;
+
+          for (int i = 0; i < rowNumber; i++)
+          {
+            var item = getFilteredEquipment.Rows[i];
+            eq.Add(
+              new EquipmentModel()
+              {
+                Id = Convert.ToInt32(item.ItemArray[0]),
+                ItemType = Convert.ToString(item.ItemArray[1]),
+                Capacity = Convert.ToDecimal(item.ItemArray[2]),
+                Pressure = Convert.ToDecimal(item.ItemArray[3]),
+                PowerConsumption = Convert.ToDecimal(item.ItemArray[4]),
+                Manufacturer = Convert.ToString(item.ItemArray[5]),
+                Model = Convert.ToString(item.ItemArray[6]),
+                UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
+              });
+          }
+          Equipments = GetEquipments();
+          SelectedEquipment = new EquipmentModel();
+          MessageToView = $"Filter name: {SelectedEquipment.ItemType} \nPress Refresh to see the whole database again.";
+          return eq;
+        }
+        catch (FileNotFoundException message)
+        {
+          throw new FileNotFoundException($"{message}");
+        }
       }
-      set
+      else
       {
-        _itemType = value;
-        OnPropertyChanged();
+        MessageToView = "Filter word is 'Item Name', \nit cannot be empty for searching!";
+        return Equipments;
       }
     }
-
-
-    private decimal _capacity;
-    public decimal Capacity
-    {
-      get
-      {
-        return _capacity;
-      }
-      set
-      {
-        _capacity = value;
-        OnPropertyChanged();
-      }
-    }
-
-
-    private decimal _pressure;
-    public decimal Pressure
-    {
-      get
-      {
-        return _pressure;
-      }
-      set
-      {
-        _pressure = value;
-        OnPropertyChanged();
-      }
-    }
-
-
-    private decimal _powerConsumption;
-    public decimal PowerConsumption
-    {
-      get
-      {
-        return _powerConsumption;
-      }
-      set
-      {
-        _powerConsumption = value;
-        OnPropertyChanged();
-      }
-    }
-
-
-    private string _manufacturer;
-    public string Manufacturer
-    {
-      get
-      {
-        return _manufacturer;
-      }
-      set
-      {
-        _manufacturer = value;
-        OnPropertyChanged();
-      }
-    }
-
-
-    private string _model;
-    public string Model
-    {
-      get
-      {
-        return _model;
-      }
-      set
-      {
-        _model = value;
-        OnPropertyChanged();
-      }
-    }
-
-
-    private decimal _unitPrice;
-    public decimal UnitPrice
-    {
-      get
-      {
-        return _unitPrice;
-      }
-      set
-      {
-        _unitPrice = value;
-        OnPropertyChanged();
-      }
-    }
-    #endregion
 
     public bool IsEquipmentEmpty(EquipmentModel eq)
     {
@@ -222,9 +147,9 @@ namespace IndustrialUnit.WpfUI.ViewModels
     }
 
     private void RunAddCommand() => MessageToView = BaseModel.SubmitAdd(SelectedEquipment, "Equipment", IsEquipmentEmpty);
-    private void RunDeleteCommand() => MessageToView = BaseModel.SubmitDelete("Equipment", Id);
-    private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(SelectedEquipment, "Equipment", IsEquipmentEmpty, Id);
-    private void RunSearchCommand() => (EqDataGrid, MessageToView) = BaseModel.FillDataGridFiltered("Equipment", ItemType);
+    private void RunDeleteCommand() => MessageToView = BaseModel.SubmitDelete("Equipment", SelectedEquipment.Id);
+    private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(SelectedEquipment, "Equipment", IsEquipmentEmpty, SelectedEquipment.Id);
+    private void RunSearchCommand() => Equipments = GetFilteredEquipments();
 
     public ICommand AddEquipmentCommand { get; }
     public ICommand DeleteEquipmentCommand { get; }
@@ -237,8 +162,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
       UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
       SearchEquipmentCommand = new RelayCommand(RunSearchCommand);
-      //GetEquipments();
-      EqDataGrid = BaseModel.FillDataGrid("Equipment");
+      Equipments = GetEquipments();
+      SelectedEquipment = new EquipmentModel();
     }
   }
 }

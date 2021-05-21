@@ -25,32 +25,11 @@ namespace IndustrialUnit.WpfUI.Views
     public EquipmentView()
     {
       InitializeComponent();
-      EquipmentViewModel e = new EquipmentViewModel();
-
-      EquipmentTableGrid.ItemsSource = e.GetEquipments();
-      //DataContext = new EquipmentViewModel();
     }
 
     private void EQRefresh_Click(object sender, RoutedEventArgs e)
     {
       DataContext = new EquipmentViewModel();
-    }
-
-    private void EquipmentTableGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        Dictionary<string, int> textBoxNames = new()
-        {
-          { "Id", 0 },
-          { "ItemType", 1 },
-          { "Capacity", 2 },
-          { "Pressure", 3 },
-          { "PowerConsumption", 4 },
-          { "Manufacturer", 5 },
-          { "Model", 6 },
-          { "UnitPrice", 7 }
-        };
-
-      //BaseModel.DataGrid_SelectionChanged(DataContext, sender, textBoxNames);
     }
   }
 }

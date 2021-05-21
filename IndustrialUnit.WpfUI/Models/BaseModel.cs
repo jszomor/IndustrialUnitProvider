@@ -23,7 +23,6 @@ namespace IndustrialUnit.WpfUI.Models
         {
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Add(item, tableName);
-          //MessageBox.Show($"You have successfully added. \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
           return "You have successfully added. \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
@@ -34,7 +33,6 @@ namespace IndustrialUnit.WpfUI.Models
       }
       else
       {
-        //MessageBox.Show($"No empty cell is allowed.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
         return "No empty cell is allowed.";
       }
     }
@@ -47,7 +45,6 @@ namespace IndustrialUnit.WpfUI.Models
         {
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Update(item, tableName, id);
-          //MessageBox.Show($"{id} id number successfully updated \nPress refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
           return $"Id number: {id} successfully updated \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
@@ -58,7 +55,6 @@ namespace IndustrialUnit.WpfUI.Models
       }
       else
       {
-        //MessageBox.Show($"No empty cell is allowed.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
         return "No empty cell is allowed.";
       }
     }
@@ -71,12 +67,10 @@ namespace IndustrialUnit.WpfUI.Models
         {
           var sqlAccess = new SQLiteDataAccess();
           sqlAccess.Delete(tableName, id);
-          //MessageBox.Show($"Id: {id} successfully deleted. \nPress Refresh to see the result.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
           return $"Id number: {id} successfully deleted. \nPress Refresh to see the result.";
         }
         else
         {
-          //MessageBox.Show($"Please select an item to delete.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
           return "Please select an item to delete.";
         }
       }
@@ -84,68 +78,6 @@ namespace IndustrialUnit.WpfUI.Models
       {
         Debug.WriteLine("Database access failed!");
         throw new FileNotFoundException($"{message}");
-      }
-    }
-
-    /// <summary>
-    /// Pass database to datagrid
-    /// </summary>
-    /// <returns></returns>
-    public static DataView FillDataGrid(string tableName)
-    {
-      try
-      {
-        var sqlAccess = new SQLiteDataAccess();
-        DataTable dt = sqlAccess.GetAll(tableName);
-        return dt.DefaultView;
-      }
-      catch (FileNotFoundException message)
-      {
-        throw new FileNotFoundException($"{message}");
-      }
-    }
-
-    public static (DataView, string) FillDataGridFiltered(string tableName, string itemType)
-    {
-      if (!String.IsNullOrWhiteSpace(itemType))
-      {
-        try
-        {
-          var sqlAccess = new SQLiteDataAccess();
-          DataTable dt = sqlAccess.GetFilteredDB(tableName, itemType);
-          return (dt.DefaultView, $"Filter name: {itemType} \nPress Refresh to see the whole database again.");
-        }
-        catch (FileNotFoundException message)
-        {
-          throw new FileNotFoundException($"{message}");
-        }
-      }
-      else
-      {
-        return (FillDataGrid(tableName), "Filter word is 'Item Name', \nit cannot be empty for searching!");
-      }
-    }
-
-    public static void DataGrid_SelectionChanged<T>(T item, object sender, Dictionary<string, int> textBoxNames) where T : class, new()
-    {
-      DataGrid dg = (DataGrid)sender;
-      if (dg.SelectedItem is DataRowView rowSelected)
-      {
-        PropertyInfo[] properties = item.GetType().GetProperties();
-        foreach (var prop in properties)
-        {
-          try
-          {
-            if (textBoxNames.TryGetValue(prop.Name, out int index))
-            {
-              prop.SetValue(item, Convert.ChangeType(rowSelected[index], prop.PropertyType));
-            }            
-          }
-          catch(FormatException)
-          {
-            throw new FormatException();
-          }
-        }
       }
     }
   }
