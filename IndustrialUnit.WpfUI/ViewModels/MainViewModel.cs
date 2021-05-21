@@ -1,9 +1,5 @@
 ﻿using IndustrialUnit.WpfUI.Models;
 using IndustrialUnit.WpfUI.Views;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Input;
 
