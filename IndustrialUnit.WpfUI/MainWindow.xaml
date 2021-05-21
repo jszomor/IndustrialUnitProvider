@@ -5,9 +5,9 @@
         xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
         xmlns:view="clr-namespace:IndustrialUnit.WpfUI.Views">
   
-  <!--<Window.DataContext>
+  <Window.DataContext>
     <viewModel:MainViewModel/>
-  </Window.DataContext>-->
+  </Window.DataContext>
 
   <Grid>
     <DockPanel>
@@ -18,13 +18,13 @@
           <MenuItem Header="_Exit" />
         </MenuItem>
         <MenuItem Header="_Unit category">
-          <MenuItem Header="_Equipment" Click="LoadEquipmentMenu_click"/>
-          <MenuItem Header="_Valve" Click="LoadValveMenu_click"/>
+          <MenuItem Header="_Equipment" Command="{Binding LoadEquipmentView}"/>
+          <MenuItem Header="_Valve" Command="{Binding LoadValveView}"/>
           <MenuItem Header="_Instrument" />
         </MenuItem>
       </Menu>
       <TextBox AcceptsReturn="True" />
     </DockPanel>
-    <Frame x:Name="Main" Margin="0,20,0,0" Grid.Column="0" Grid.Row="0"/>
+    <Frame x:Name="Main" Margin="0,20,0,0" Grid.Column="0" Grid.Row="0" Content="{Binding Frame}"/>
   </Grid>
 </Window>

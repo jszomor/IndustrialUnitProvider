@@ -18,7 +18,6 @@ namespace IndustrialUnit.WpfUI.Views
   /// </summary>
   public partial class ValveView : UserControl
   {
-
     public ValveView()
     {
       InitializeComponent();

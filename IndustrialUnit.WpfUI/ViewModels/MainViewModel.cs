@@ -1,35 +1,31 @@
 ﻿using IndustrialUnit.WpfUI.Models;
+using IndustrialUnit.WpfUI.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class MainViewModel : BaseViewModel
   {
-  //  private EquipmentViewModel _equipmentViewModel;
-  //  public EquipmentViewModel EquipmentViewModel
-		//{
-  //    get { return _equipmentViewModel; }
-  //    set { _equipmentViewModel = value; }
-  //  }
+    public Frame Frame { get; set; } = new();
+    public EquipmentView EquipmentView { get; set; } = new();
+    public ValveView ValveView { get; set; } = new();
 
+    public ICommand LoadEquipmentView { get; }
+    public ICommand LoadValveView { get; }
 
-  //  private ValveViewModel _valveViewModel;
-		//public ValveViewModel ValveViewModel
-		//{
-		//	get { return _valveViewModel; }
-		//	set
-		//	{
-		//		_valveViewModel = value;
-		//		//OnPropertyChanged(nameof(ValveViewModel));
-		//	}
-		//}
+    public void InitEquipmentView() => Frame.Content = EquipmentView;
 
-		//public MainViewModel()
-		//{
-		//	_valveViewModel = new ValveViewModel();
-		//	_equipmentViewModel = new EquipmentViewModel();
-		//}
+    public void InitValveView() => Frame.Content = ValveView;
+
+    public MainViewModel()
+    {
+      LoadEquipmentView = new RelayCommand(InitEquipmentView);
+      LoadValveView = new RelayCommand(InitValveView);
+    }  
 	}
 }

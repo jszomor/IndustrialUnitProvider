@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Controls;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
@@ -14,5 +15,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
     {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
+
+
+    
   }
 }
