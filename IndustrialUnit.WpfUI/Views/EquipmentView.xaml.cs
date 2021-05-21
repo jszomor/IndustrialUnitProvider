@@ -26,10 +26,5 @@ namespace IndustrialUnit.WpfUI.Views
     {
       InitializeComponent();
     }
-
-    private void EQRefresh_Click(object sender, RoutedEventArgs e)
-    {
-      DataContext = new EquipmentViewModel();
-    }
   }
 }

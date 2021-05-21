@@ -95,7 +95,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
           SQLiteDataAccess DataAccess = new();
           ObservableCollection<EquipmentModel> eq = new();
           var getFilteredEquipment = DataAccess.GetFilteredDB("Equipment", SelectedEquipment.ItemType);
-
+          string originalItemName = SelectedEquipment.ItemType;
           var rowNumber = getFilteredEquipment.Rows.Count;
 
           for (int i = 0; i < rowNumber; i++)
@@ -116,7 +116,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
           }
           Equipments = GetEquipments();
           SelectedEquipment = new EquipmentModel();
-          MessageToView = $"Filter name: {SelectedEquipment.ItemType} \nPress Refresh to see the whole database again.";
+          MessageToView = $"Filter name: {originalItemName} \nPress Refresh to see the whole database again.";
           return eq;
         }
         catch (FileNotFoundException message)
@@ -149,19 +149,28 @@ namespace IndustrialUnit.WpfUI.ViewModels
     private void RunAddCommand() => MessageToView = BaseModel.SubmitAdd(SelectedEquipment, "Equipment", IsEquipmentEmpty);
     private void RunDeleteCommand() => MessageToView = BaseModel.SubmitDelete("Equipment", SelectedEquipment.Id);
     private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(SelectedEquipment, "Equipment", IsEquipmentEmpty, SelectedEquipment.Id);
-    private void RunSearchCommand() => Equipments = GetFilteredEquipments();
+    private void RunFilterCommand() => Equipments = GetFilteredEquipments();
+    private void RunRefreshCommand()
+    {
+
+      Equipments = GetEquipments();
+
+      MessageToView = "Refresh done.";
+    }
 
     public ICommand AddEquipmentCommand { get; }
     public ICommand DeleteEquipmentCommand { get; }
     public ICommand UpdateEquipmentCommand { get; }
-    public ICommand SearchEquipmentCommand { get; }
+    public ICommand FilterEquipmentCommand { get; }
+    public ICommand RefreshEquipmentCommand { get; }
 
     public EquipmentViewModel()
     {
       AddEquipmentCommand = new RelayCommand(RunAddCommand);
       DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
       UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
-      SearchEquipmentCommand = new RelayCommand(RunSearchCommand);
+      FilterEquipmentCommand = new RelayCommand(RunFilterCommand);
+      RefreshEquipmentCommand = new RelayCommand(RunRefreshCommand);
       Equipments = GetEquipments();
       SelectedEquipment = new EquipmentModel();
     }

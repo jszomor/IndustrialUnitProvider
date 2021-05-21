@@ -283,14 +283,14 @@
     </Border>
 
     <Button 
-      Name="EQSearch" 
-      Content="Search" 
+      Name="EQFilter" 
+      Content="Filter" 
       Grid.Column="1" 
       Grid.Row="10" 
       FontSize="14" 
       FontWeight="Bold" 
       Margin="10,5,30,5" 
-      Command="{Binding SearchEquipmentCommand, UpdateSourceTrigger=PropertyChanged}"/>
+      Command="{Binding FilterEquipmentCommand, UpdateSourceTrigger=PropertyChanged}"/>
 
     <Button 
       Name="EQInsert" 
@@ -383,7 +383,7 @@
             Grid.Row="12" 
             FontSize="14" 
             FontWeight="Bold" 
-            Margin="0,5,40,5"            
-            Click="EQRefresh_Click"/>
+            Margin="0,5,40,5"
+            Command="{Binding RefreshEquipmentCommand}"/>
   </Grid>
 </UserControl>
