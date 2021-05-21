@@ -21,8 +21,7 @@ namespace IndustrialUnit.WpfUI.Models
       {
         try
         {
-          var sqlAccess = new SQLiteDataAccess();
-          sqlAccess.Add(item, tableName);
+          SQLiteDataAccess.Add(item, tableName);
           return "You have successfully added. \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
@@ -43,8 +42,7 @@ namespace IndustrialUnit.WpfUI.Models
       {
         try
         {
-          var sqlAccess = new SQLiteDataAccess();
-          sqlAccess.Update(item, tableName, id);
+          SQLiteDataAccess.Update(item, tableName, id);
           return $"Id number: {id} successfully updated \nPress refresh to see the result.";
         }
         catch (FileNotFoundException message)
@@ -65,8 +63,7 @@ namespace IndustrialUnit.WpfUI.Models
       {
         if(String.IsNullOrWhiteSpace(id.ToString()) || id > 0)
         {
-          var sqlAccess = new SQLiteDataAccess();
-          sqlAccess.Delete(tableName, id);
+          SQLiteDataAccess.Delete(tableName, id);
           return $"Id number: {id} successfully deleted. \nPress Refresh to see the result.";
         }
         else

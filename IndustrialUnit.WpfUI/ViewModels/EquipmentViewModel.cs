@@ -16,8 +16,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class EquipmentViewModel : BaseViewModel
   {
-    private ObservableCollection<EquipmentModel> _equipments;
-    public ObservableCollection<EquipmentModel> Equipments
+    private ObservableCollection<EquipmentViewProperties> _equipments;
+    public ObservableCollection<EquipmentViewProperties> Equipments
     {
       get
       {
@@ -27,12 +27,12 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         _equipments = value;
         OnPropertyChanged();
-        SelectedEquipment = new EquipmentModel();
+        SelectedEquipment = new EquipmentViewProperties();
       }
     }
 
-    private EquipmentModel _selectedEquipment;
-    public EquipmentModel SelectedEquipment
+    private EquipmentViewProperties _selectedEquipment;
+    public EquipmentViewProperties SelectedEquipment
     {
       get
       {
@@ -60,11 +60,10 @@ namespace IndustrialUnit.WpfUI.ViewModels
     }
 
 
-    public static ObservableCollection<EquipmentModel> GetEquipments()
+    public static ObservableCollection<EquipmentViewProperties> GetEquipments()
     {
-      SQLiteDataAccess DataAccess = new();
-      ObservableCollection<EquipmentModel> equipmentCollection = new();
-      var getEquipment = DataAccess.GetAll("Equipment");
+      ObservableCollection<EquipmentViewProperties> equipmentCollection = new();
+      var getEquipment = SQLiteDataAccess.GetAll("Equipment");
 
       var rowNumber = getEquipment.Rows.Count;
 
@@ -72,7 +71,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         var item = getEquipment.Rows[i];
         equipmentCollection.Add(
-          new EquipmentModel()
+          new EquipmentViewProperties()
           {
             Id = Convert.ToInt32(item.ItemArray[0]),
             ItemType = Convert.ToString(item.ItemArray[1]),
@@ -87,15 +86,14 @@ namespace IndustrialUnit.WpfUI.ViewModels
       return equipmentCollection;
     }
 
-    public ObservableCollection<EquipmentModel> GetFilteredEquipments(ObservableCollection<EquipmentModel> Equipments)
+    public ObservableCollection<EquipmentViewProperties> GetFilteredEquipments(ObservableCollection<EquipmentViewProperties> Equipments)
     {
       if (!String.IsNullOrWhiteSpace(SelectedEquipment.ItemType))
       {
         try
         {
-          SQLiteDataAccess DataAccess = new();
-          ObservableCollection<EquipmentModel> equipmentCollection = new();
-          var getFilteredEquipment = DataAccess.GetFilteredDB("Equipment", SelectedEquipment.ItemType);
+          ObservableCollection<EquipmentViewProperties> equipmentCollection = new();
+          var getFilteredEquipment = SQLiteDataAccess.GetFilteredDB("Equipment", SelectedEquipment.ItemType);
           string originalItemName = SelectedEquipment.ItemType;
           var rowNumber = getFilteredEquipment.Rows.Count;
 
@@ -103,7 +101,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
           {
             var item = getFilteredEquipment.Rows[i];
             equipmentCollection.Add(
-              new EquipmentModel()
+              new EquipmentViewProperties()
               {
                 Id = Convert.ToInt32(item.ItemArray[0]),
                 ItemType = Convert.ToString(item.ItemArray[1]),
@@ -130,7 +128,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    public static bool IsEquipmentEmpty(EquipmentModel eq)
+    public static bool IsEquipmentEmpty(EquipmentViewProperties eq)
     {
       if (string.IsNullOrEmpty(eq.ItemType) ||
           string.IsNullOrEmpty(eq.Capacity.ToString()) ||

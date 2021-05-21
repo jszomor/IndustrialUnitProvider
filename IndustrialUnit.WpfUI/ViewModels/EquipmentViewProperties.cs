@@ -1,13 +1,12 @@
-﻿using IndustrialUnit.WpfUI.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndustrialUnit.WpfUI.Models
+namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class EquipmentModel : BaseViewModel
+  public class EquipmentViewProperties : BaseViewModel
   {
 
     private int _id;
@@ -130,3 +129,6 @@ namespace IndustrialUnit.WpfUI.Models
     }
   }
 }
+
+
+

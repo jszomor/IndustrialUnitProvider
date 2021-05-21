@@ -12,11 +12,11 @@ using System.Text;
 
 namespace IndustrialUnitDatabase
 {
-  public class SQLiteDataAccess
+  public static class SQLiteDataAccess
   {
-    private string loadConnectionString = $"Data Source={Helper.DatabasePath("IndustrialUnitDB.db")}";
+    private static readonly string loadConnectionString = $"Data Source={Helper.DatabasePath("IndustrialUnitDB.db")}";
 
-    public DataTable GetAll(string tableName)
+    public static DataTable GetAll(string tableName)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {
@@ -38,7 +38,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public DataTable GetFilteredDB(string tableName, string itemType)
+    public static DataTable GetFilteredDB(string tableName, string itemType)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {
@@ -60,7 +60,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public void Add<T>(T unit, string tableName)
+    public static void Add<T>(T unit, string tableName)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {
@@ -91,7 +91,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public void Delete(string tableName, int id)
+    public static void Delete(string tableName, int id)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {
@@ -106,7 +106,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public void Update<T>(T unit, string tableName, int id)
+    public static void Update<T>(T unit, string tableName, int id)
     {
       if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
       {
