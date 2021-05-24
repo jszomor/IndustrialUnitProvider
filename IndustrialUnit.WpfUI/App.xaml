@@ -7,8 +7,68 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
+
+          <Style x:Key="RoundButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="DarkKhaki" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+              <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                  <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="1">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  </Border>
+                </ControlTemplate>
+              </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Olive"/>
+              </Trigger>
+            </Style.Triggers>
+          </Style>
+          
+          <Style x:Key="RoundButtonValidationTemplate" TargetType="Button">
+            <Setter Property="Background" Value="DarkKhaki" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+              <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                  <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="1">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  </Border>
+                </ControlTemplate>
+              </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Olive"/>
+              </Trigger>
+              <DataTrigger Binding="{Binding ElementName=EqItemTypeLabel, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqCapacityLabel, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqPressureLabel, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqPowerConsumptionLabel, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqManufacturerLabel, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqModelLabel, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqUnitPriceLabel, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+          
           <Style TargetType="TextBox">
-            <Setter Property="Padding" Value="2 1" />
+            <Setter Property="Padding" Value="1" />
             <Setter Property="BorderBrush" Value="LightGray" />
             <Setter Property="Validation.ErrorTemplate">
               <Setter.Value>
