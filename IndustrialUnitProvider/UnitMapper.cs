@@ -13,15 +13,15 @@ namespace IndustrialUnitProvider
     public void LoadUnitsFromSheet(string fileName)
     {
       List<Equipment> equipments = new List<Equipment>();
-      var sheetEquipment = ExcelWorker.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
+      var sheetEquipment = ExcelWorker.ReadExcel(PathHelper.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
       AssignValue(equipments, sheetEquipment);
 
       List<Valve> valves = new List<Valve>();
-      var sheetValve = ExcelWorker.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
+      var sheetValve = ExcelWorker.ReadExcel(PathHelper.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
       AssignValue(valves, sheetValve);
 
       List<Instrument> instruments = new List<Instrument>();
-      var sheetInstruments = ExcelWorker.ReadExcel(Helper.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
+      var sheetInstruments = ExcelWorker.ReadExcel(PathHelper.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
       AssignValue(instruments, sheetInstruments);
     }
 

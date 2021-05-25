@@ -1,8 +1,6 @@
-﻿using IndustrialUnit.WpfUI.ViewModels;
-using IndustrialUnit.WpfUI.Views;
-using System.Windows;
+﻿using System.Windows;
 
-namespace IndustrialUnit.WpfUI
+namespace IndustrialUnit.WpfUI.Views
 {
   /// <summary>
   /// Interaction logic for MainWindow.xaml

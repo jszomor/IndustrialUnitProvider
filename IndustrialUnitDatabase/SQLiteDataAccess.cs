@@ -14,55 +14,73 @@ namespace IndustrialUnitDatabase
 {
   public static class SQLiteDataAccess
   {
-    private static readonly string loadConnectionString = $"Data Source={Helper.DatabasePath("IndustrialUnitDB.db")}";
+    private static readonly string loadConnectionString = $"Data Source={PathHelper.DatabasePath("IndustrialUnitDB.db")}";
 
-    public static DataTable GetAll(string tableName)
+    private static void RunDatabaseCommandsToModify(Action<SQLiteConnection> action)
     {
-      if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
-      {
-        using (var con = new SQLiteConnection(loadConnectionString))
-        {
-          con.Open();
-
-          string stm = $"SELECT * FROM {tableName}";
-          var cmd = new SQLiteCommand(stm, con);
-          SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd);
-          DataTable dt = new DataTable(tableName);
-          sda.Fill(dt);
-          return dt;
-        }
-      }
-      else
-      {
+      if (!File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
         throw new FileNotFoundException("Database not found!");
+      using var connection = new SQLiteConnection(loadConnectionString);
+      connection.Open();
+      action(connection);
+    }
+
+    private static T RunDatabaseCommandsToRead<T>(Func<SQLiteConnection, T> action)
+    {
+      if (!File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
+        throw new FileNotFoundException("Database not found!");
+      using var connection = new SQLiteConnection(loadConnectionString);
+      connection.Open();
+      return action(connection);
+    }
+
+    public static DataTable GetDb(string sqlCommand, string tableName)
+    {
+      try
+      {
+        return RunDatabaseCommandsToRead(db =>
+        {
+          var command = new SQLiteCommand(sqlCommand, db);
+          SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(command);
+          DataTable table = new DataTable(tableName);
+          dataAdapter.Fill(table);
+          return table;
+        });
+      }
+      catch (FileNotFoundException message)
+      {
+        throw new FileNotFoundException($"{message}");
       }
     }
 
-    public static DataTable GetFilteredDB(string tableName, string itemType)
+    public static void AddItem<T>(T unitType, string sqlCommand)
     {
-      if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
+      RunDatabaseCommandsToModify(db =>
       {
-        using (var con = new SQLiteConnection(loadConnectionString))
-        {
-          con.Open();
+        db.Execute(sqlCommand, unitType);
+      });
+    }
 
-          string stm = $"SELECT * FROM {tableName} where ItemType='{itemType}'";
-          var cmd = new SQLiteCommand(stm, con);
-          SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd);
-          DataTable dt = new DataTable(tableName);
-          sda.Fill(dt);
-          return dt;
-        }
-      }
-      else
+    public static void UpdateEquipment<T>(T unit, int id)
+    {
+      RunDatabaseCommandsToModify(db =>
       {
-        throw new FileNotFoundException("Database not found!");
-      }
+        db.Execute("update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
+                  $"Manufacturer=@Manufacturer, Model=@Model, UnitPrice=@UnitPrice where id={id}", unit);
+      });
+    }
+
+    public static void Delete(string tableName, int id)
+    {
+      RunDatabaseCommandsToModify(db =>
+      {
+        db.Execute($"delete from {tableName} where id={id}");
+      });
     }
 
     public static void Add<T>(T unit, string tableName)
     {
-      if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
+      if (File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
       {
         using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
         {
@@ -91,24 +109,9 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public static void Delete(string tableName, int id)
-    {
-      if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
-      {
-        using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
-        {
-          cnn.Execute($"delete from {tableName} where id={id}");
-        }
-      }
-      else
-      {
-        throw new FileNotFoundException("Database file not found!");
-      }
-    }
-
     public static void Update<T>(T unit, string tableName, int id)
     {
-      if (File.Exists(Helper.DatabasePath("IndustrialUnitDB.db")))
+      if (File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
       {
         using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
         {

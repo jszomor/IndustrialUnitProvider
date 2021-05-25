@@ -1,9 +1,8 @@
-﻿<Window x:Class="IndustrialUnit.WpfUI.MainWindow"
+﻿<Window x:Class="IndustrialUnit.WpfUI.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Industrial Unit Manager" MinHeight="750" MinWidth="1300"
-        xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
-        xmlns:view="clr-namespace:IndustrialUnit.WpfUI.Views">
+        xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels">
   
   <Window.DataContext>
     <viewModel:MainViewModel/>

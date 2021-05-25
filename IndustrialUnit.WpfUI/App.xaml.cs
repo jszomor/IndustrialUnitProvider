@@ -1,11 +1,4 @@
-﻿using IndustrialUnit.WpfUI.Validation;
-using IndustrialUnit.WpfUI.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using IndustrialUnit.WpfUI.Views;
 using System.Windows;
 
 namespace IndustrialUnit.WpfUI
@@ -15,5 +8,11 @@ namespace IndustrialUnit.WpfUI
   /// </summary>
   public partial class App : Application
   {
+    protected override void OnStartup(StartupEventArgs e)
+    {
+      var main = new MainWindow();
+      main.Show();
+      base.OnStartup(e);
+    }
   }
 }

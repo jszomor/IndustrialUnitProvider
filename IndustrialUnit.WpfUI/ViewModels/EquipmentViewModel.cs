@@ -52,97 +52,13 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-
-    public static ObservableCollection<Equipment> GetEquipments()
-    {
-      ObservableCollection<Equipment> equipmentCollection = new();
-      var getEquipment = SQLiteDataAccess.GetAll("Equipment");
-
-      var rowNumber = getEquipment.Rows.Count;
-
-      for (int i = 0; i < rowNumber; i++)
-      {
-        var item = getEquipment.Rows[i];
-        equipmentCollection.Add(
-          new Equipment()
-          {
-            Id = Convert.ToInt32(item.ItemArray[0]),
-            ItemType = Convert.ToString(item.ItemArray[1]),
-            Capacity = Convert.ToDecimal(item.ItemArray[2]),
-            Pressure = Convert.ToDecimal(item.ItemArray[3]),
-            PowerConsumption = Convert.ToDecimal(item.ItemArray[4]),
-            Manufacturer = Convert.ToString(item.ItemArray[5]),
-            Model = Convert.ToString(item.ItemArray[6]),
-            UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
-          });
-      }
-      return equipmentCollection;
-    }
-
-    public ObservableCollection<Equipment> GetFilteredEquipments(ObservableCollection<Equipment> Equipments)
-    {
-      if (!String.IsNullOrWhiteSpace(SelectedEquipment.ItemType))
-      {
-        try
-        {
-          ObservableCollection<Equipment> equipmentCollection = new();
-          var getFilteredEquipment = SQLiteDataAccess.GetFilteredDB("Equipment", SelectedEquipment.ItemType);
-          string originalItemName = SelectedEquipment.ItemType;
-          var rowNumber = getFilteredEquipment.Rows.Count;
-
-          for (int i = 0; i < rowNumber; i++)
-          {
-            var item = getFilteredEquipment.Rows[i];
-            equipmentCollection.Add(
-              new Equipment()
-              {
-                Id = Convert.ToInt32(item.ItemArray[0]),
-                ItemType = Convert.ToString(item.ItemArray[1]),
-                Capacity = Convert.ToDecimal(item.ItemArray[2]),
-                Pressure = Convert.ToDecimal(item.ItemArray[3]),
-                PowerConsumption = Convert.ToDecimal(item.ItemArray[4]),
-                Manufacturer = Convert.ToString(item.ItemArray[5]),
-                Model = Convert.ToString(item.ItemArray[6]),
-                UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
-              });
-          }
-          MessageToView = $"Filter name: {originalItemName} \nPress Refresh to see the whole database again.";
-          return equipmentCollection;
-        }
-        catch (FileNotFoundException message)
-        {
-          throw new FileNotFoundException($"{message}");
-        }
-      }
-      else
-      {
-        MessageToView = "Filter word is 'Item Name', \nit cannot be empty for searching!";
-        return Equipments;
-      }
-    }
-
-    public static bool IsEquipmentEmpty(Equipment eq)
-    {
-      if (string.IsNullOrEmpty(eq.ItemType) ||
-          string.IsNullOrEmpty(eq.Capacity.ToString()) ||
-          string.IsNullOrEmpty(eq.Pressure.ToString()) ||
-          string.IsNullOrEmpty(eq.PowerConsumption.ToString()) ||
-          string.IsNullOrEmpty(eq.Manufacturer) ||
-          string.IsNullOrEmpty(eq.Model) ||
-          string.IsNullOrEmpty(eq.UnitPrice.ToString()))
-      {
-        return false;
-      }
-      return true;
-    }
-
-    private void RunAddCommand() => MessageToView = BaseModel.SubmitAdd(SelectedEquipment, "Equipment", IsEquipmentEmpty);
+    private void RunAddCommand() => MessageToView = EquipmentModel.SubmitAdd(SelectedEquipment, EquipmentModel.IsTextBoxEmpty);
     private void RunDeleteCommand() => MessageToView = BaseModel.SubmitDelete("Equipment", SelectedEquipment.Id);
-    private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(SelectedEquipment, "Equipment", IsEquipmentEmpty, SelectedEquipment.Id);
-    private void RunFilterCommand() => Equipments = GetFilteredEquipments(Equipments);
+    private void RunUpdateCommand() => MessageToView = BaseModel.SubmitUpdate(SelectedEquipment, EquipmentModel.IsTextBoxEmpty, SelectedEquipment.Id);
+    private void RunFilterCommand() => (Equipments, MessageToView) = EquipmentModel.GetFilteredEquipments(Equipments, SelectedEquipment.ItemType);
     private void RunRefreshCommand()
     {
-      Equipments = GetEquipments();
+      Equipments = EquipmentModel.GetAllEquipments();
       MessageToView = "Refresh done.";
     }
 
@@ -159,7 +75,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
       FilterEquipmentCommand = new RelayCommand(RunFilterCommand);
       RefreshEquipmentCommand = new RelayCommand(RunRefreshCommand);
-      Equipments = GetEquipments();
+      Equipments = EquipmentModel.GetAllEquipments();
     }
   }
 }

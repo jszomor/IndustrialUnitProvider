@@ -8,15 +8,12 @@ namespace IndustrialUnit.WpfUI.ViewModels
   public class MainViewModel : BaseViewModel
   {
     public Frame Frame { get; set; } = new();
-    public EquipmentView EquipmentView { get; set; } = new();
-    public ValveView ValveView { get; set; } = new();
-
     public ICommand LoadEquipmentView { get; }
     public ICommand LoadValveView { get; }
 
-    public void InitEquipmentView() => Frame.Content = EquipmentView;
+    public void InitEquipmentView() => Frame.Content = new EquipmentView();
 
-    public void InitValveView() => Frame.Content = ValveView;
+    public void InitValveView() => Frame.Content = new ValveView();
 
     public MainViewModel()
     {

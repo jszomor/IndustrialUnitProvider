@@ -23,7 +23,7 @@ namespace IndustrialUnitTest
       string file = "3Rows.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName);
 
       mapper.AssignValue(equipments, sheet);
 
@@ -65,7 +65,7 @@ namespace IndustrialUnitTest
       string file = "3Rows.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName);
 
       mapper.AssignValue(valves, sheet);
 
@@ -107,7 +107,7 @@ namespace IndustrialUnitTest
       string file = "NoData.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName);
 
       Assert.Throws<InvalidOperationException>(() => mapper.AssignValue(equipments, sheet));
     }
@@ -121,7 +121,7 @@ namespace IndustrialUnitTest
       string file = "NoData.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName);
 
       Assert.Throws<InvalidOperationException>(() => mapper.AssignValue(valves, sheet));
     }
@@ -135,7 +135,7 @@ namespace IndustrialUnitTest
       string file = "MissingColumn.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName);
 
       Assert.Throws<MissingColumnException>(() => mapper.AssignValue(equipments, sheet));
     }
@@ -149,7 +149,7 @@ namespace IndustrialUnitTest
       string file = "MissingColumn.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName);
 
       Assert.Throws<MissingColumnException>(() => mapper.AssignValue(valves, sheet));
     }
@@ -163,7 +163,7 @@ namespace IndustrialUnitTest
       string file = "InvalidFormat.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName);
 
       Assert.Throws<FormatException>(() => mapper.AssignValue(equipments, sheet));
     }
@@ -177,7 +177,7 @@ namespace IndustrialUnitTest
       string file = "InvalidFormat.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName);
 
       Assert.Throws<FormatException>(() => mapper.AssignValue(valves, sheet));
     }
@@ -188,7 +188,7 @@ namespace IndustrialUnitTest
       string file = "InvalidSheetName.xlsx";
       string sheetName = "Equipment";
 
-      Assert.Throws<InvalidOperationException>(() => ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName));
+      Assert.Throws<InvalidOperationException>(() => ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName));
     }
 
     [Fact]
@@ -197,7 +197,7 @@ namespace IndustrialUnitTest
       string file = "InvalidSheetName.xlsx";
       string sheetName = "Valve";
 
-      Assert.Throws<InvalidOperationException>(() => ExcelWorker.ReadExcel(Helper.TestPath, file, sheetName));
+      Assert.Throws<InvalidOperationException>(() => ExcelWorker.ReadExcel(PathHelper.TestPath, file, sheetName));
     }
   }
 }
