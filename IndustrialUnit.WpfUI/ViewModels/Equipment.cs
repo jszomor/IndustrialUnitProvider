@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class EquipmentViewProperties : BaseViewModel
+  public class Equipment : BaseViewModel
   {
 
     private int _id;

@@ -301,7 +301,7 @@
       Grid.Row="10" 
       FontSize="14" 
       FontWeight="Bold" 
-      Margin="10,5,30,5" 
+      Margin="10,5,30,5"      
       Command="{Binding FilterEquipmentCommand, UpdateSourceTrigger=PropertyChanged}"/>
 
     <Button
