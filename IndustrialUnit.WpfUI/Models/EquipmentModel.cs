@@ -11,31 +11,6 @@ namespace IndustrialUnit.WpfUI.Models
   {
     private static readonly string TableName = "Equipment";
 
-    private static readonly string GetAllItemSqlCommand = $"SELECT * FROM {TableName}";
-
-    private static readonly string AddEquipmentSqlCommand = "insert into Equipment (ItemType, Capacity, Pressure, PowerConsumption, Manufacturer, Model, UnitPrice) " +
-                "values (@ItemType, @Capacity, @Pressure, @PowerConsumption, @Manufacturer, @Model, @UnitPrice)";    
-
-    public static string SubmitAdd<T>(T item, Func<T, bool> action)
-    {
-      if (action(item))
-      {
-        try
-        {
-          SQLiteDataAccess.AddItem(item, AddEquipmentSqlCommand);
-          return "You have successfully added. \nPress refresh to see the result.";
-        }
-        catch (FileNotFoundException message)
-        {
-          Debug.WriteLine("Database file not found!");
-          throw new FileNotFoundException($"{message}");
-        }
-      }
-      else
-      {
-        return "No empty cell is allowed.";
-      }
-    }
     public static ObservableCollection<Equipment> MapEquipment(string sqlCommand)
     {
       ObservableCollection<Equipment> equipmentCollection = new();
@@ -62,15 +37,77 @@ namespace IndustrialUnit.WpfUI.Models
       return equipmentCollection;
     }
 
-    public static ObservableCollection<Equipment> GetAllEquipments() => MapEquipment(GetAllItemSqlCommand);
+    public static ObservableCollection<Equipment> GetAllEquipments() => MapEquipment($"SELECT * FROM {TableName}");
 
     public static (ObservableCollection<Equipment>, string) GetFilteredEquipments(ObservableCollection<Equipment> Equipments, string SelectedItem)
     {
       if (String.IsNullOrWhiteSpace(SelectedItem))
         return (Equipments, "Filter key is 'Item Name', \nit cannot be empty for searching!");
 
-      string GetFilteredItemSqlCommand = $"SELECT * FROM {TableName} where ItemType='{SelectedItem}'";
-      return (MapEquipment(GetFilteredItemSqlCommand), $"Filter name: {SelectedItem} \nPress Refresh to see the whole database again.");
+      string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{SelectedItem}'";
+
+      return (MapEquipment(sqlCommand), 
+        $"Filter name: {SelectedItem} \nPress Refresh to see the whole database again.");
+    }
+
+    public static string SubmitAdd(Equipment item)
+    {
+      if (!IsTextBoxEmpty(item))
+        return "No empty cell is allowed.";
+
+      string sqlCommand = $"insert into {TableName} (ItemType, Capacity, Pressure, PowerConsumption, Manufacturer, Model, UnitPrice) " +
+                "values (@ItemType, @Capacity, @Pressure, @PowerConsumption, @Manufacturer, @Model, @UnitPrice)";
+
+      try
+      {
+        SQLiteDataAccess.ActOnItem(item, sqlCommand);
+
+        return "You have successfully added. \nPress refresh to see the result.";
+      }
+      catch (FileNotFoundException message)
+      {
+        Debug.WriteLine("Database file not found!");
+        throw new FileNotFoundException($"{message}");
+      }
+    }
+
+    public static string SubmitUpdate(Equipment equipment, int id)
+    {
+      if (!IsTextBoxEmpty(equipment))
+        return "No empty cell is allowed.";
+
+      string sqlCommand = "update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
+                  $"Manufacturer=@Manufacturer, Model=@Model, UnitPrice=@UnitPrice where id=";
+
+      try
+      {
+        SQLiteDataAccess.ActOnItem(equipment, sqlCommand+id);
+        return $"Id number: {id} successfully updated \nPress refresh to see the result.";
+      }
+      catch (FileNotFoundException message)
+      {
+        Debug.WriteLine("Database file not found!");
+        throw new FileNotFoundException($"{message}");
+      }
+    }
+
+    public static string SubmitDelete(int id)
+    {
+      if (!String.IsNullOrEmpty(id.ToString()) || id <= 0)
+        return "Please select an item to delete.";
+
+      string sqlCommand = $"delete from {TableName} where id={id}";
+
+      try
+      {      
+        SQLiteDataAccess.Delete(sqlCommand);
+        return $"Id number: {id} successfully deleted. \nPress Refresh to see the result.";
+      }
+      catch (FileNotFoundException message)
+      {
+        Debug.WriteLine("Database access failed!");
+        throw new FileNotFoundException($"{message}");
+      }
     }
 
     public static bool IsTextBoxEmpty(Equipment eq)

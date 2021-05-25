@@ -53,7 +53,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public static void AddItem<T>(T unitType, string sqlCommand)
+    public static void ActOnItem<T>(T unitType, string sqlCommand)
     {
       RunDatabaseCommandsToModify(db =>
       {
@@ -61,20 +61,11 @@ namespace IndustrialUnitDatabase
       });
     }
 
-    public static void UpdateEquipment<T>(T unit, int id)
+    public static void Delete(string sqlCommand)
     {
       RunDatabaseCommandsToModify(db =>
       {
-        db.Execute("update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
-                  $"Manufacturer=@Manufacturer, Model=@Model, UnitPrice=@UnitPrice where id={id}", unit);
-      });
-    }
-
-    public static void Delete(string tableName, int id)
-    {
-      RunDatabaseCommandsToModify(db =>
-      {
-        db.Execute($"delete from {tableName} where id={id}");
+        db.Execute(sqlCommand);
       });
     }
 
