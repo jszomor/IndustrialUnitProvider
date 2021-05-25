@@ -93,7 +93,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitDelete(int id)
     {
-      if (!String.IsNullOrEmpty(id.ToString()) || id <= 0)
+      if (id <= 0 || String.IsNullOrEmpty(id.ToString()))
         return "Please select an item to delete.";
 
       string sqlCommand = $"delete from {TableName} where id={id}";
