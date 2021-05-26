@@ -29,8 +29,8 @@ namespace IndustrialUnit.WpfUI.Models
             Operation = Convert.ToString(item.ItemArray[2]),
             Size = Convert.ToDecimal(item.ItemArray[3]),
             ConnectionType = Convert.ToString(item.ItemArray[4]),
-            Supplier = Convert.ToString(item.ItemArray[6]),
-            Manufacturer = Convert.ToString(item.ItemArray[5]),
+            Supplier = Convert.ToString(item.ItemArray[5]),
+            Manufacturer = Convert.ToString(item.ItemArray[6]),
             UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
           });
       }
@@ -50,9 +50,9 @@ namespace IndustrialUnit.WpfUI.Models
         $"Filter name: {selectedItem} \nPress Refresh to see the whole database again.");
     }
 
-    public static string SubmitAdd(Valve item)
+    public static string SubmitAdd(Valve valve)
     {
-      if (!IsTextBoxEmpty(item))
+      if (!IsTextBoxEmpty(valve) || valve == null)
         return "No empty cell is allowed.";
 
       string sqlCommand = $"insert into {TableName} (ItemType, Operation, Size, ConnectionType, Supplier, Manufacturer, UnitPrice) " +
@@ -60,7 +60,7 @@ namespace IndustrialUnit.WpfUI.Models
 
       try
       {
-        SQLiteDataAccess.ActOnItem(item, sqlCommand);
+        SQLiteDataAccess.ActOnItem(valve, sqlCommand);
 
         return "You have successfully added. \nPress refresh to see the result.";
       }
@@ -73,7 +73,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitUpdate(Valve valve)
     {
-      if (!IsTextBoxEmpty(valve))
+      if (!IsTextBoxEmpty(valve) || valve == null)
         return "No empty cell is allowed.";
 
       string sqlCommand = $"update {TableName} set ItemType=@ItemType, Operation=@Operation, Size=@Size, ConnectionType=@ConnectionType, " +
@@ -91,17 +91,17 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitDelete(int id)
+    public static string SubmitDelete(Valve valve)
     {
-      if (id <= 0)
+      if (valve.Id <= 0 || valve == null)
         return "Please select an item to delete.";
 
-      string sqlCommand = $"delete from {TableName} where id={id}";
+      string sqlCommand = $"delete from {TableName} where id={valve.Id}";
 
       try
       {      
         SQLiteDataAccess.Delete(sqlCommand);
-        return $"Id number: {id} successfully deleted. \nPress Refresh to see the result.";
+        return $"Id number: {valve.Id} successfully deleted. \nPress Refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {

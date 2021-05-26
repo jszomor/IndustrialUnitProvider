@@ -13,7 +13,64 @@
     <UserControl.DataContext>
     <viewModel:EquipmentViewModel/>
   </UserControl.DataContext>
-  
+
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+
+          <Style x:Key="RoundButtonValidationTemplate" TargetType="Button">
+            <Setter Property="Background" Value="DarkKhaki" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+              <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                  <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="1">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  </Border>
+                </ControlTemplate>
+              </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+              <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="Olive"/>
+              </Trigger>
+              <DataTrigger Binding="{Binding ElementName=EqItemTypeTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqCapacityTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqPressureTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqPowerConsumptionTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqManufacturerTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqModelTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding ElementName=EqUnitPriceTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+          
+        </ResourceDictionary>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </UserControl.Resources>
+
   <Grid Margin="0,0,-9,0" Background="MintCream">
 
     <Grid.ColumnDefinitions>
@@ -97,7 +154,7 @@
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:NumberValidationRule MinimumCharacters="0"/>
+            <validationrules:NumericValidationRule MinimumCharacters="0"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -119,7 +176,6 @@
       Grid.Row="2"
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
-      <!--Text="{Binding Path=SelectedEquipment.ItemType, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">-->
       <TextBox.Text>
         <Binding Path="SelectedEquipment.ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -148,7 +204,7 @@
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumberValidationRule MinimumCharacters="1"/>
+            <validationrules:NumericValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -173,7 +229,7 @@
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumberValidationRule MinimumCharacters="1"/>
+            <validationrules:NumericValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -198,7 +254,7 @@
       <TextBox.Text>
         <Binding Path="SelectedEquipment.PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumberValidationRule MinimumCharacters="1"/>
+            <validationrules:NumericValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -273,7 +329,7 @@
       <TextBox.Text>
         <Binding Path="SelectedEquipment.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumberValidationRule MinimumCharacters="1"/>
+            <validationrules:NumericValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>

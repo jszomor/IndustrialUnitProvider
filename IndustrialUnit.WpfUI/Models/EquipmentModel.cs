@@ -52,7 +52,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitAdd(Equipment item)
     {
-      if (!IsTextBoxEmpty(item))
+      if (!IsTextBoxEmpty(item) || item == null )
         return "No empty cell is allowed.";
 
       string sqlCommand = $"insert into {TableName} (ItemType, Capacity, Pressure, PowerConsumption, Manufacturer, Model, UnitPrice) " +
@@ -73,7 +73,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitUpdate(Equipment equipment)
     {
-      if (!IsTextBoxEmpty(equipment))
+      if (!IsTextBoxEmpty(equipment) || equipment == null)
         return "No empty cell is allowed.";
 
       string sqlCommand = "update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
@@ -91,17 +91,17 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitDelete(int id)
+    public static string SubmitDelete(Equipment equipment)
     {
-      if (id <= 0)
+      if (equipment.Id <= 0 || equipment == null)
         return "Please select an item to delete.";
 
-      string sqlCommand = $"delete from {TableName} where id={id}";
+      string sqlCommand = $"delete from {TableName} where id={equipment.Id}";
 
       try
       {      
         SQLiteDataAccess.Delete(sqlCommand);
-        return $"Id number: {id} successfully deleted. \nPress Refresh to see the result.";
+        return $"Id number: {equipment.Id} successfully deleted. \nPress Refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {

@@ -53,7 +53,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
     }
 
     private void RunAddCommand() => MessageToView = EquipmentModel.SubmitAdd(SelectedEquipment);
-    private void RunDeleteCommand() => MessageToView = EquipmentModel.SubmitDelete(SelectedEquipment.Id);
+    private void RunDeleteCommand() => MessageToView = EquipmentModel.SubmitDelete(SelectedEquipment);
     private void RunUpdateCommand() => MessageToView = EquipmentModel.SubmitUpdate(SelectedEquipment);
     private void RunFilterCommand() => (Equipments, MessageToView) = EquipmentModel.GetFilteredEquipments(Equipments, SelectedEquipment.ItemType);
     private void RunRefreshCommand()

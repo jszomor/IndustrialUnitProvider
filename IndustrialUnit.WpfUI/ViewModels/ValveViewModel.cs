@@ -53,7 +53,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
     }
 
     private void RunAddCommand() => MessageToView = ValveModel.SubmitAdd(SelectedValve);
-    private void RunDeleteCommand() => MessageToView = ValveModel.SubmitDelete(SelectedValve.Id);
+    private void RunDeleteCommand() => MessageToView = ValveModel.SubmitDelete(SelectedValve);
     private void RunUpdateCommand() => MessageToView = ValveModel.SubmitUpdate(SelectedValve);
     private void RunFilterCommand() => (Valves, MessageToView) = ValveModel.GetFilteredValves(Valves, SelectedValve.ItemType);
     private void RunRefreshCommand()

@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace IndustrialUnit.WpfUI.Validation
 {
-  public class NumberValidationRule : ValidationRule
+  public class NumericValidationRule : ValidationRule
   {
     public int MinimumCharacters { get; set; }
 
