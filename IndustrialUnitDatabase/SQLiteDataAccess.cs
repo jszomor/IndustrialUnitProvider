@@ -1,14 +1,9 @@
 ﻿using Dapper;
 using IndustrialUnit.Model;
-using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace IndustrialUnitDatabase
 {
@@ -69,7 +64,7 @@ namespace IndustrialUnitDatabase
       });
     }
 
-    public static void Add<T>(T unit, string tableName)
+    public static void AddCollection<T>(T unit, string tableName)
     {
       if (File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
       {
@@ -90,37 +85,6 @@ namespace IndustrialUnitDatabase
             case "Instrument":
               cnn.Execute("insert into Instrument (ItemType, OperationPrinciple, InstallationType, MediumToMeasure, Supplier, Manufacturer, UnitPrice) " +
               "values (@ItemType, @OperationPrinciple, @InstallationType, @MediumToMeasure, @Supplier, @Manufacturer, @UnitPrice)", unit);
-              break;
-          }
-        }
-      }
-      else
-      {
-        throw new FileNotFoundException("Database file not found!");
-      }
-    }
-
-    public static void Update<T>(T unit, string tableName, int id)
-    {
-      if (File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
-      {
-        using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
-        {
-          switch (tableName)
-          {
-            case "Equipment":
-              cnn.Execute("update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
-                          $"Manufacturer=@Manufacturer, Model=@Model, UnitPrice=@UnitPrice where id={id}", unit);
-              break;
-
-            case "Valve":
-              cnn.Execute("update Valve set ItemType=@ItemType, Operation=@Operation, Size=@Size, ConnectionType=@ConnectionType, Supplier=@Supplier, " +
-                $"Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id={id}", unit);
-              break;
-
-            case "Instrument":
-              cnn.Execute("update Instrument set ItemType=@ItemType, OperationPrinciple=@OperationPrinciple, InstallationType=@InstallationType, MediumToMeasure=@MediumToMeasure, Supplier=@Supplier," +
-                $"Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id={id}", unit);
               break;
           }
         }

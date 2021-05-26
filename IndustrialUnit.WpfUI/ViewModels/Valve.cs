@@ -1,8 +1,9 @@
-﻿namespace IndustrialUnit.WpfUI.ViewModels
-{
-  public class Equipment : BaseViewModel
-  {
+﻿using System.ComponentModel.DataAnnotations;
 
+namespace IndustrialUnit.WpfUI.ViewModels
+{
+  public class Valve : BaseViewModel
+  {
     private int _id;
     public int Id
     {
@@ -32,51 +33,61 @@
       }
     }
 
-
-    private decimal _capacity;
-    public decimal Capacity
+    private string _operation;
+    public string Operation
     {
       get
       {
-        return _capacity;
+        return _operation;
       }
       set
       {
-        _capacity = value;
+        _operation = value;
         OnPropertyChanged();
       }
     }
 
-
-    private decimal _pressure;
-    public decimal Pressure
+    private decimal _size;
+    public decimal Size
     {
       get
       {
-        return _pressure;
+        return _size;
       }
       set
       {
-        _pressure = value;
+        _size = value;
         OnPropertyChanged();
       }
     }
 
-
-    private decimal _powerConsumption;
-    public decimal PowerConsumption
+    private string _connectionType;
+    public string ConnectionType
     {
       get
       {
-        return _powerConsumption;
+        return _connectionType;
       }
       set
       {
-        _powerConsumption = value;
+        _connectionType = value;
         OnPropertyChanged();
       }
     }
 
+    private string _supplier;
+    public string Supplier
+    {
+      get
+      {
+        return _supplier;
+      }
+      set
+      {
+        _supplier = value;
+        OnPropertyChanged();
+      }
+    }
 
     private string _manufacturer;
     public string Manufacturer
@@ -91,22 +102,6 @@
         OnPropertyChanged();
       }
     }
-
-
-    private string _model;
-    public string Model
-    {
-      get
-      {
-        return _model;
-      }
-      set
-      {
-        _model = value;
-        OnPropertyChanged();
-      }
-    }
-
 
     private decimal _unitPrice;
     public decimal UnitPrice
@@ -123,6 +118,3 @@
     }
   }
 }
-
-
-

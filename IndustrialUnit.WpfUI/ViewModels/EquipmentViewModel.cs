@@ -54,7 +54,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     private void RunAddCommand() => MessageToView = EquipmentModel.SubmitAdd(SelectedEquipment);
     private void RunDeleteCommand() => MessageToView = EquipmentModel.SubmitDelete(SelectedEquipment.Id);
-    private void RunUpdateCommand() => MessageToView = EquipmentModel.SubmitUpdate(SelectedEquipment, SelectedEquipment.Id);
+    private void RunUpdateCommand() => MessageToView = EquipmentModel.SubmitUpdate(SelectedEquipment);
     private void RunFilterCommand() => (Equipments, MessageToView) = EquipmentModel.GetFilteredEquipments(Equipments, SelectedEquipment.ItemType);
     private void RunRefreshCommand()
     {
@@ -62,19 +62,19 @@ namespace IndustrialUnit.WpfUI.ViewModels
       MessageToView = "Refresh done.";
     }
 
-    public ICommand AddEquipmentCommand { get; }
-    public ICommand DeleteEquipmentCommand { get; }
-    public ICommand UpdateEquipmentCommand { get; }
-    public ICommand FilterEquipmentCommand { get; }
-    public ICommand RefreshEquipmentCommand { get; }
+    public ICommand AddCommand { get; }
+    public ICommand DeleteCommand { get; }
+    public ICommand UpdateCommand { get; }
+    public ICommand FilterCommand { get; }
+    public ICommand RefreshCommand { get; }
 
     public EquipmentViewModel()
     {
-      AddEquipmentCommand = new RelayCommand(RunAddCommand);
-      DeleteEquipmentCommand = new RelayCommand(RunDeleteCommand);
-      UpdateEquipmentCommand = new RelayCommand(RunUpdateCommand);
-      FilterEquipmentCommand = new RelayCommand(RunFilterCommand);
-      RefreshEquipmentCommand = new RelayCommand(RunRefreshCommand);
+      AddCommand = new RelayCommand(RunAddCommand);
+      DeleteCommand = new RelayCommand(RunDeleteCommand);
+      UpdateCommand = new RelayCommand(RunUpdateCommand);
+      FilterCommand = new RelayCommand(RunFilterCommand);
+      RefreshCommand = new RelayCommand(RunRefreshCommand);
       Equipments = EquipmentModel.GetAllEquipments();
     }
   }

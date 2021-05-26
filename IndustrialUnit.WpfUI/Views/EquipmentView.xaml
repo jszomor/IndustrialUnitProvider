@@ -302,7 +302,7 @@
       FontSize="14" 
       FontWeight="Bold" 
       Margin="10,5,30,5"      
-      Command="{Binding FilterEquipmentCommand, UpdateSourceTrigger=PropertyChanged}"/>
+      Command="{Binding FilterCommand, UpdateSourceTrigger=PropertyChanged}"/>
 
     <Button
       Style="{StaticResource RoundButtonValidationTemplate}"
@@ -313,7 +313,7 @@
       FontSize="14"
       FontWeight="Bold" 
       Margin="0,5,40,5"
-      Command="{Binding AddEquipmentCommand}"/>
+      Command="{Binding AddCommand}"/>
 
     <Button
       Style="{StaticResource RoundButtonValidationTemplate}"
@@ -324,7 +324,7 @@
       FontSize="14" 
       FontWeight="Bold" 
       Margin="10,5,30,5"
-      Command="{Binding UpdateEquipmentCommand}"/>
+      Command="{Binding UpdateCommand}"/>
 
     <Button       
       Style ="{StaticResource RoundButtonTemplate}"
@@ -335,7 +335,7 @@
       FontSize="14" 
       FontWeight="Bold" 
       Margin="0,5,40,5"
-      Command="{Binding DeleteEquipmentCommand}"/>
+      Command="{Binding DeleteCommand}"/>
 
     <Button 
       Style ="{StaticResource RoundButtonTemplate}"
@@ -346,6 +346,6 @@
       FontSize="14" 
       FontWeight="Bold" 
       Margin="0,5,40,5"
-      Command="{Binding RefreshEquipmentCommand}"/>
+      Command="{Binding RefreshCommand}"/>
   </Grid>
 </UserControl>

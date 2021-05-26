@@ -7,13 +7,13 @@ using System.IO;
 
 namespace IndustrialUnit.WpfUI.Models
 {
-  public class EquipmentModel
+  public class ValveModel
   {
-    private static readonly string TableName = "Equipment";
+    private static readonly string TableName = "Valve";
 
-    public static ObservableCollection<Equipment> MapEquipment(string sqlCommand)
+    public static ObservableCollection<Valve> MapValve(string sqlCommand)
     {
-      ObservableCollection<Equipment> equipmentCollection = new();
+      ObservableCollection<Valve> valveCollection = new();
       var getFilteredItem = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
       var dbRowNumber = getFilteredItem.Rows.Count;
@@ -21,42 +21,42 @@ namespace IndustrialUnit.WpfUI.Models
       for (int i = 0; i < dbRowNumber; i++)
       {
         var item = getFilteredItem.Rows[i];
-        equipmentCollection.Add(
-          new Equipment()
+        valveCollection.Add(
+          new Valve()
           {
             Id = Convert.ToInt32(item.ItemArray[0]),
             ItemType = Convert.ToString(item.ItemArray[1]),
-            Capacity = Convert.ToDecimal(item.ItemArray[2]),
-            Pressure = Convert.ToDecimal(item.ItemArray[3]),
-            PowerConsumption = Convert.ToDecimal(item.ItemArray[4]),
+            Operation = Convert.ToString(item.ItemArray[2]),
+            Size = Convert.ToDecimal(item.ItemArray[3]),
+            ConnectionType = Convert.ToString(item.ItemArray[4]),
+            Supplier = Convert.ToString(item.ItemArray[6]),
             Manufacturer = Convert.ToString(item.ItemArray[5]),
-            Model = Convert.ToString(item.ItemArray[6]),
             UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
           });
       }
-      return equipmentCollection;
+      return valveCollection;
     }
 
-    public static ObservableCollection<Equipment> GetAllEquipments() => MapEquipment($"SELECT * FROM {TableName}");
+    public static ObservableCollection<Valve> GetAllValves() => MapValve($"SELECT * FROM {TableName}");
 
-    public static (ObservableCollection<Equipment>, string) GetFilteredEquipments(ObservableCollection<Equipment> equipments, string selectedItem)
+    public static (ObservableCollection<Valve>, string) GetFilteredValves(ObservableCollection<Valve> valves, string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
-        return (equipments, "Filter key is 'Item Name', \nit cannot be empty for searching!");
+        return (valves, "Filter key is 'Item Name', \nit cannot be empty for searching!");
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
-      return (MapEquipment(sqlCommand), 
+      return (MapValve(sqlCommand), 
         $"Filter name: {selectedItem} \nPress Refresh to see the whole database again.");
     }
 
-    public static string SubmitAdd(Equipment item)
+    public static string SubmitAdd(Valve item)
     {
       if (!IsTextBoxEmpty(item))
         return "No empty cell is allowed.";
 
-      string sqlCommand = $"insert into {TableName} (ItemType, Capacity, Pressure, PowerConsumption, Manufacturer, Model, UnitPrice) " +
-                "values (@ItemType, @Capacity, @Pressure, @PowerConsumption, @Manufacturer, @Model, @UnitPrice)";
+      string sqlCommand = $"insert into {TableName} (ItemType, Operation, Size, ConnectionType, Supplier, Manufacturer, UnitPrice) " +
+                "values (@ItemType, @Operation, @Size, @ConnectionType, @Supplier, @Manufacturer, @UnitPrice)";
 
       try
       {
@@ -71,18 +71,18 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitUpdate(Equipment equipment)
+    public static string SubmitUpdate(Valve valve)
     {
-      if (!IsTextBoxEmpty(equipment))
+      if (!IsTextBoxEmpty(valve))
         return "No empty cell is allowed.";
 
-      string sqlCommand = "update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
-                  $"Manufacturer=@Manufacturer, Model=@Model, UnitPrice=@UnitPrice where id=";
+      string sqlCommand = $"update {TableName} set ItemType=@ItemType, Operation=@Operation, Size=@Size, ConnectionType=@ConnectionType, " +
+                  $"Supplier=@Supplier, Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id=";
 
       try
       {
-        SQLiteDataAccess.ActOnItem(equipment, sqlCommand + equipment.Id);
-        return $"Id number: {equipment.Id} successfully updated \nPress refresh to see the result.";
+        SQLiteDataAccess.ActOnItem(valve, sqlCommand + valve.Id);
+        return $"Id number: {valve.Id} successfully updated \nPress refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {
@@ -110,15 +110,15 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static bool IsTextBoxEmpty(Equipment eq)
+    public static bool IsTextBoxEmpty(Valve valve)
     {
-      if (string.IsNullOrEmpty(eq.ItemType) ||
-          string.IsNullOrEmpty(eq.Capacity.ToString()) ||
-          string.IsNullOrEmpty(eq.Pressure.ToString()) ||
-          string.IsNullOrEmpty(eq.PowerConsumption.ToString()) ||
-          string.IsNullOrEmpty(eq.Manufacturer) ||
-          string.IsNullOrEmpty(eq.Model) ||
-          string.IsNullOrEmpty(eq.UnitPrice.ToString()))
+      if (string.IsNullOrEmpty(valve.ItemType) ||
+          string.IsNullOrEmpty(valve.Operation) ||
+          string.IsNullOrEmpty(valve.Size.ToString()) ||
+          string.IsNullOrEmpty(valve.ConnectionType) ||
+          string.IsNullOrEmpty(valve.Supplier) ||
+          string.IsNullOrEmpty(valve.Manufacturer) ||
+          string.IsNullOrEmpty(valve.UnitPrice.ToString()))
       {
         return false;
       }
