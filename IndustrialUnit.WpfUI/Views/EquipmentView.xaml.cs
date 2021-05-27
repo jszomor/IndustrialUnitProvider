@@ -1,19 +1,6 @@
-﻿using IndustrialUnitDatabase;
-using IndustrialUnit.Model;
-using IndustrialUnit.Model.Model;
-using System.Data;
-using System.Data.SQLite;
-using System.Windows;
-using System.Windows.Controls;
-using IndustrialUnit.WpfUI.Validation;
-using IndustrialUnit.WpfUI.ViewModels;
-using System.IO;
-using IndustrialUnit.WpfUI.Models;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Collections.Generic;
-using System.Windows.Media;
-using IndustrialUnitProvider;
-using System;
+using System.Text.RegularExpressions;
 
 namespace IndustrialUnit.WpfUI.Views
 {

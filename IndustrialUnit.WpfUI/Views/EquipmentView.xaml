@@ -5,15 +5,16 @@
               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
               xmlns:validationrules="clr-namespace:IndustrialUnit.WpfUI.Validation"
               xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+		          xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
               xmlns:views="clr-namespace:IndustrialUnit.WpfUI.Views"
               mc:Ignorable="d" 
               d:DesignHeight="720.623" d:DesignWidth="1260.263">
 
-    
-    <UserControl.DataContext>
+  <UserControl.DataContext>
     <viewModel:EquipmentViewModel/>
   </UserControl.DataContext>
-
+  
   <UserControl.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
@@ -134,14 +135,14 @@
       FontSize="20" Margin="0,0,5,0"/>
 
     <Label 
-      Content="Id"
+      Content="Id (auto)"
       Grid.Column="1"
       Grid.Row="1"
       VerticalContentAlignment="Center"
       HorizontalContentAlignment="Left"
       FontSize="14"/>
 
-    <TextBox 
+    <TextBox
       Name="EqIdTextBox"
       FontSize="14"
       Margin="0,13,0,5"
@@ -176,6 +177,7 @@
       Grid.Row="2"
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
+      
       <TextBox.Text>
         <Binding Path="SelectedEquipment.ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -183,7 +185,7 @@
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
-    </TextBox>
+    </TextBox>    
 
     <Label 
       Content="Capacity"
@@ -201,6 +203,13 @@
       Grid.Row="3"
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
+      
+      <i:Interaction.Triggers>
+        <i:EventTrigger EventName="PreviewTextInput">
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumbericTextInput" />
+        </i:EventTrigger>
+      </i:Interaction.Triggers>
+      
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -226,6 +235,13 @@
       Grid.Row="4"
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
+
+      <i:Interaction.Triggers>
+        <i:EventTrigger EventName="PreviewTextInput">
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumbericTextInput" />
+        </i:EventTrigger>
+      </i:Interaction.Triggers>
+      
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -251,6 +267,13 @@
       Grid.Row="5"       
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
+
+      <i:Interaction.Triggers>
+        <i:EventTrigger EventName="PreviewTextInput">
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumbericTextInput" />
+        </i:EventTrigger>
+      </i:Interaction.Triggers>
+      
       <TextBox.Text>
         <Binding Path="SelectedEquipment.PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -276,6 +299,7 @@
       Grid.Row="6" 
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
+
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -301,6 +325,7 @@
       Grid.Row="7"
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
+      
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Model" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -326,6 +351,13 @@
       Grid.Row="8"
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
+
+      <i:Interaction.Triggers>
+        <i:EventTrigger EventName="PreviewTextInput">
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumbericTextInput" />
+        </i:EventTrigger>
+      </i:Interaction.Triggers>
+      
       <TextBox.Text>
         <Binding Path="SelectedEquipment.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
