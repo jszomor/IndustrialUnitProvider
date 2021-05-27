@@ -93,7 +93,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitDelete(Equipment equipment)
     {
-      if (equipment.Id <= 0 || equipment == null)
+      if (equipment.Id <= 0 || equipment == null || equipment.Id == null)
         return "Please select an item to delete.";
 
       string sqlCommand = $"delete from {TableName} where id={equipment.Id}";
@@ -112,13 +112,15 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static bool IsTextBoxEmpty(Equipment eq)
     {
-      if (string.IsNullOrEmpty(eq.ItemType) ||
-          string.IsNullOrEmpty(eq.Capacity.ToString()) ||
-          string.IsNullOrEmpty(eq.Pressure.ToString()) ||
-          string.IsNullOrEmpty(eq.PowerConsumption.ToString()) ||
+      if (
+          eq.Id == null ||
+          string.IsNullOrEmpty(eq.ItemType) ||
+          eq.Capacity == null ||
+          eq.Pressure == null ||
+          eq.PowerConsumption == null ||
           string.IsNullOrEmpty(eq.Manufacturer) ||
           string.IsNullOrEmpty(eq.Model) ||
-          string.IsNullOrEmpty(eq.UnitPrice.ToString()))
+          eq.UnitPrice == null)
       {
         return false;
       }

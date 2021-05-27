@@ -33,8 +33,8 @@
     }
 
 
-    private decimal? _capacity;
-    public decimal? Capacity
+    private object _capacity;
+    public object Capacity
     {
       get
       {

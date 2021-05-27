@@ -93,7 +93,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitDelete(Valve valve)
     {
-      if (valve.Id <= 0 || valve == null)
+      if (valve.Id <= 0 || valve == null || valve.Id == null)
         return "Please select an item to delete.";
 
       string sqlCommand = $"delete from {TableName} where id={valve.Id}";
@@ -112,13 +112,15 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static bool IsTextBoxEmpty(Valve valve)
     {
-      if (string.IsNullOrEmpty(valve.ItemType) ||
+      if (
+          valve.Id == null ||
+          string.IsNullOrEmpty(valve.ItemType) ||
           string.IsNullOrEmpty(valve.Operation) ||
-          string.IsNullOrEmpty(valve.Size.ToString()) ||
+          valve.Size == null ||
           string.IsNullOrEmpty(valve.ConnectionType) ||
           string.IsNullOrEmpty(valve.Supplier) ||
           string.IsNullOrEmpty(valve.Manufacturer) ||
-          string.IsNullOrEmpty(valve.UnitPrice.ToString()))
+          valve.UnitPrice == null)
       {
         return false;
       }
