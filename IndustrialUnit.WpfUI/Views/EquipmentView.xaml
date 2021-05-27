@@ -207,7 +207,7 @@
       
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumbericTextInput" />
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -239,7 +239,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumbericTextInput" />
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -271,7 +271,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumbericTextInput" />
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -355,7 +355,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumbericTextInput" />
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       

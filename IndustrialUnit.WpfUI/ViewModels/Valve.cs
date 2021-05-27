@@ -4,8 +4,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class Valve : BaseViewModel
   {
-    private int _id;
-    public int Id
+    private int? _id;
+    public int? Id
     {
       get
       {
@@ -47,8 +47,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private decimal _size;
-    public decimal Size
+    private decimal? _size;
+    public decimal? Size
     {
       get
       {
@@ -103,8 +103,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private decimal _unitPrice;
-    public decimal UnitPrice
+    private decimal? _unitPrice;
+    public decimal? UnitPrice
     {
       get
       {

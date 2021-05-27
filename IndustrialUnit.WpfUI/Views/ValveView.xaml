@@ -5,6 +5,8 @@
               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
               xmlns:validationrules="clr-namespace:IndustrialUnit.WpfUI.Validation"
               xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+		          xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
               xmlns:views="clr-namespace:IndustrialUnit.WpfUI.Views"
               mc:Ignorable="d" 
               d:DesignHeight="720.623" d:DesignWidth="1260.263">
@@ -226,6 +228,13 @@
       Grid.Row="4"
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
+
+      <i:Interaction.Triggers>
+        <i:EventTrigger EventName="PreviewTextInput">
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
+        </i:EventTrigger>
+      </i:Interaction.Triggers>
+      
       <TextBox.Text>
         <Binding Path="SelectedValve.Size" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -326,6 +335,13 @@
       Grid.Row="8"
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
+
+      <i:Interaction.Triggers>
+        <i:EventTrigger EventName="PreviewTextInput">
+          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
+        </i:EventTrigger>
+      </i:Interaction.Triggers>
+      
       <TextBox.Text>
         <Binding Path="SelectedValve.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>

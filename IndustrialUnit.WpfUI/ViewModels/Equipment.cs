@@ -3,8 +3,8 @@
   public class Equipment : BaseViewModel
   {
 
-    private int _id;
-    public int Id
+    private int? _id;
+    public int? Id
     {
       get
       {
@@ -33,8 +33,8 @@
     }
 
 
-    private decimal _capacity;
-    public decimal Capacity
+    private decimal? _capacity;
+    public decimal? Capacity
     {
       get
       {
@@ -48,8 +48,8 @@
     }
 
 
-    private decimal _pressure;
-    public decimal Pressure
+    private decimal? _pressure;
+    public decimal? Pressure
     {
       get
       {
@@ -63,8 +63,8 @@
     }
 
 
-    private decimal _powerConsumption;
-    public decimal PowerConsumption
+    private decimal? _powerConsumption;
+    public decimal? PowerConsumption
     {
       get
       {
@@ -108,8 +108,8 @@
     }
 
 
-    private decimal _unitPrice;
-    public decimal UnitPrice
+    private decimal? _unitPrice;
+    public decimal? UnitPrice
     {
       get
       {
