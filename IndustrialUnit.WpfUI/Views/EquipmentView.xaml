@@ -111,6 +111,7 @@
               AutoGenerateColumns="False"              
               ItemsSource="{Binding Path=Equipments, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
               SelectedItem="{Binding Path=SelectedEquipment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+      
       <DataGrid.ColumnHeaderStyle>
         <Style TargetType="{x:Type DataGridColumnHeader}">
           <Setter Property="FontWeight" Value="Bold"/>
