@@ -35,28 +35,28 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private string _messageToView;
-    public string MessageToView
+    private string _MessageToScreen;
+    public string MessageToScreen
     {
       get
       {
-        return _messageToView;
+        return _MessageToScreen;
       }
       set
       {
-        _messageToView = value;
+        _MessageToScreen = value;
         OnPropertyChanged();
       }
     }
 
-    private void RunAddCommand() => MessageToView = InstrumentModel.SubmitAdd(SelectedItem);
-    private void RunDeleteCommand() => MessageToView = InstrumentModel.SubmitDelete(SelectedItem);
-    private void RunUpdateCommand() => MessageToView = InstrumentModel.SubmitUpdate(SelectedItem);
-    private void RunFilterCommand() => (Instruments, MessageToView) = InstrumentModel.GetFilteredInstruments(Instruments, SelectedItem.ItemType);
+    private void RunAddCommand() => MessageToScreen = InstrumentModel.SubmitAdd(SelectedItem);
+    private void RunDeleteCommand() => MessageToScreen = InstrumentModel.SubmitDelete(SelectedItem);
+    private void RunUpdateCommand() => MessageToScreen = InstrumentModel.SubmitUpdate(SelectedItem);
+    private void RunFilterCommand() => (Instruments, MessageToScreen) = InstrumentModel.GetFilteredInstruments(Instruments, SelectedItem.ItemType);
     private void RunRefreshCommand()
     {
-      Instruments = InstrumentModel.GetAllInstruments();
-      MessageToView = "Refresh done.";
+      (Instruments, MessageToScreen) = InstrumentModel.GetAllInstruments();
+      MessageToScreen = "Refresh done.";
     }
 
     public ICommand AddCommand { get; }
@@ -72,7 +72,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       UpdateCommand = new RelayCommand(RunUpdateCommand);
       FilterCommand = new RelayCommand(RunFilterCommand);
       RefreshCommand = new RelayCommand(RunRefreshCommand);
-      Instruments = InstrumentModel.GetAllInstruments();
+      (Instruments, MessageToScreen) = InstrumentModel.GetAllInstruments();
     }
   }
 }

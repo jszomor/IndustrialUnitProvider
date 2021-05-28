@@ -40,28 +40,28 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private string _messageToView;
-    public string MessageToView
+    private string _MessageToScreen;
+    public string MessageToScreen
     {
       get
       {
-        return _messageToView;
+        return _MessageToScreen;
       }
       set
       {
-        _messageToView = value;
+        _MessageToScreen = value;
         OnPropertyChanged();
       }
     }
 
-    private void RunAddCommand() => MessageToView = ValveModel.SubmitAdd(SelectedValve);
-    private void RunDeleteCommand() => MessageToView = ValveModel.SubmitDelete(SelectedValve);
-    private void RunUpdateCommand() => MessageToView = ValveModel.SubmitUpdate(SelectedValve);
-    private void RunFilterCommand() => (Valves, MessageToView) = ValveModel.GetFilteredValves(Valves, SelectedValve.ItemType);
+    private void RunAddCommand() => MessageToScreen = ValveModel.SubmitAdd(SelectedValve);
+    private void RunDeleteCommand() => MessageToScreen = ValveModel.SubmitDelete(SelectedValve);
+    private void RunUpdateCommand() => MessageToScreen = ValveModel.SubmitUpdate(SelectedValve);
+    private void RunFilterCommand() => (Valves, MessageToScreen) = ValveModel.GetFilteredValves(Valves, SelectedValve.ItemType);
     private void RunRefreshCommand()
     {
-      Valves = ValveModel.GetAllValves();
-      MessageToView = "Refresh done.";
+      (Valves, MessageToScreen) = ValveModel.GetAllValves();
+      MessageToScreen = "Refresh done.";
     }
 
     public ICommand AddCommand { get; }
@@ -77,7 +77,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       UpdateCommand = new RelayCommand(RunUpdateCommand);
       FilterCommand = new RelayCommand(RunFilterCommand);
       RefreshCommand = new RelayCommand(RunRefreshCommand);
-      Valves = ValveModel.GetAllValves();
+      (Valves, MessageToScreen) = ValveModel.GetAllValves();
     }
   }
 }

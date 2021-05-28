@@ -18,6 +18,9 @@ namespace IndustrialUnit.WpfUI.Models
 
       var dbRowNumber = getFilteredItem.Rows.Count;
 
+      if (dbRowNumber == 0)
+        return null;
+
       for (int i = 0; i < dbRowNumber; i++)
       {
         var item = getFilteredItem.Rows[i];
@@ -36,18 +39,29 @@ namespace IndustrialUnit.WpfUI.Models
       }
       return valveCollection;
     }
+    
+    public static (ObservableCollection<Valve>, string) GetAllValves()
+    {
+      string sqlCommand = $"SELECT * FROM {TableName}";
 
-    public static ObservableCollection<Valve> GetAllValves() => MapValve($"SELECT * FROM {TableName}");
+      if ((MapValve(sqlCommand) == null))
+        return (null, "Database not found or empty.");
+
+      return (MapValve(sqlCommand), "Database loaded successfully.");
+    }
 
     public static (ObservableCollection<Valve>, string) GetFilteredValves(ObservableCollection<Valve> valves, string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
-        return (valves, "Filter key is 'Item Name', \nit cannot be empty for searching!");
+        return (valves, "Filter key is [Item Name], \nit cannot be empty for searching!");
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
+      if ((MapValve(sqlCommand) == null))
+        return (valves, $"Filter name: [{selectedItem}] not found.");
+
       return (MapValve(sqlCommand), 
-        $"Filter name: {selectedItem} \nPress Refresh to see the whole database again.");
+        $"Filter name: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
     public static string SubmitAdd(Valve valve)
@@ -82,7 +96,7 @@ namespace IndustrialUnit.WpfUI.Models
       try
       {
         SQLiteDataAccess.ActOnItem(valve, sqlCommand + valve.Id);
-        return $"Id number: {valve.Id} successfully updated \nPress refresh to see the result.";
+        return $"Id number: [{valve.Id}] successfully updated \nPress refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {
@@ -101,7 +115,7 @@ namespace IndustrialUnit.WpfUI.Models
       try
       {      
         SQLiteDataAccess.Delete(sqlCommand);
-        return $"Id number: {valve.Id} successfully deleted. \nPress Refresh to see the result.";
+        return $"Id number: [{valve.Id}] successfully deleted. \nPress Refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {

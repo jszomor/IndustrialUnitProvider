@@ -18,9 +18,13 @@ namespace IndustrialUnit.WpfUI.Models
 
       var dbRowNumber = getFilteredItem.Rows.Count;
 
+      if (dbRowNumber == 0)
+        return null;
+
       for (int i = 0; i < dbRowNumber; i++)
       {
         var item = getFilteredItem.Rows[i];
+
         equipmentCollection.Add(
           new Equipment()
           {
@@ -37,17 +41,28 @@ namespace IndustrialUnit.WpfUI.Models
       return equipmentCollection;
     }
 
-    public static ObservableCollection<Equipment> GetAllEquipments() => MapEquipment($"SELECT * FROM {TableName}");
+    public static (ObservableCollection<Equipment>, string) GetAllEquipments()
+    {
+      string sqlCommand = $"SELECT * FROM {TableName}";
+
+      if ((MapEquipment(sqlCommand) == null))
+        return (null, "Database not found or empty.");
+
+      return (MapEquipment(sqlCommand), "Database loaded successfully.");
+    }
 
     public static (ObservableCollection<Equipment>, string) GetFilteredEquipments(ObservableCollection<Equipment> equipments, string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
-        return (equipments, "Filter key is 'Item Name', \nit cannot be empty for searching!");
+        return (equipments, "Filter key is [Item Name], \nit cannot be empty for searching!");
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
+      if ((MapEquipment(sqlCommand) == null))
+      return (equipments, $"Filter name: [{selectedItem}] not found.");
+
       return (MapEquipment(sqlCommand), 
-        $"Filter name: {selectedItem} \nPress Refresh to see the whole database again.");
+        $"Filter name is: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
     public static string SubmitAdd(Equipment item)
@@ -82,7 +97,7 @@ namespace IndustrialUnit.WpfUI.Models
       try
       {
         SQLiteDataAccess.ActOnItem(equipment, sqlCommand + equipment.Id);
-        return $"Id number: {equipment.Id} successfully updated \nPress refresh to see the result.";
+        return $"Id number: [{equipment.Id}] successfully updated \nPress refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {
@@ -101,7 +116,7 @@ namespace IndustrialUnit.WpfUI.Models
       try
       {      
         SQLiteDataAccess.Delete(sqlCommand);
-        return $"Id number: {equipment.Id} successfully deleted. \nPress Refresh to see the result.";
+        return $"Id number: [{equipment.Id}] successfully deleted. \nPress Refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {

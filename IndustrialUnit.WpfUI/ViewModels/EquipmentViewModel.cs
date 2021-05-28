@@ -39,28 +39,28 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private string _messageToView;
-    public string MessageToView
+    private string _MessageToScreen;
+    public string MessageToScreen
     {
       get
       {
-        return _messageToView;
+        return _MessageToScreen;
       }
       set
       {
-        _messageToView = value;
+        _MessageToScreen = value;
         OnPropertyChanged();
       }
     }
 
-    private void RunAddCommand() => MessageToView = EquipmentModel.SubmitAdd(SelectedEquipment);
-    private void RunDeleteCommand() => MessageToView = EquipmentModel.SubmitDelete(SelectedEquipment);
-    private void RunUpdateCommand() => MessageToView = EquipmentModel.SubmitUpdate(SelectedEquipment);
-    private void RunFilterCommand() => (Equipments, MessageToView) = EquipmentModel.GetFilteredEquipments(Equipments, SelectedEquipment.ItemType);
+    private void RunAddCommand() => MessageToScreen = EquipmentModel.SubmitAdd(SelectedEquipment);
+    private void RunDeleteCommand() => MessageToScreen = EquipmentModel.SubmitDelete(SelectedEquipment);
+    private void RunUpdateCommand() => MessageToScreen = EquipmentModel.SubmitUpdate(SelectedEquipment);
+    private void RunFilterCommand() => (Equipments, MessageToScreen) = EquipmentModel.GetFilteredEquipments(Equipments, SelectedEquipment.ItemType);
     private void RunRefreshCommand()
     {
-      Equipments = EquipmentModel.GetAllEquipments();
-      MessageToView = "Refresh done.";
+      (Equipments, MessageToScreen) = EquipmentModel.GetAllEquipments();
+      MessageToScreen = "Refresh done.";
     }
 
     public ICommand AddCommand { get; }
@@ -76,7 +76,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       UpdateCommand = new RelayCommand(RunUpdateCommand);
       FilterCommand = new RelayCommand(RunFilterCommand);
       RefreshCommand = new RelayCommand(RunRefreshCommand);
-      Equipments = EquipmentModel.GetAllEquipments();
+      (Equipments, MessageToScreen) = EquipmentModel.GetAllEquipments();
     }
   }
 }
