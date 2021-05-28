@@ -19,7 +19,7 @@
         <MenuItem Header="_Unit category">
           <MenuItem Header="_Equipment" Command="{Binding LoadEquipmentView}"/>
           <MenuItem Header="_Valve" Command="{Binding LoadValveView}"/>
-          <MenuItem Header="_Instrument" />
+          <MenuItem Header="_Instrument" Command="{Binding LoadInstrumentView}"/>
         </MenuItem>
       </Menu>
     </DockPanel>
