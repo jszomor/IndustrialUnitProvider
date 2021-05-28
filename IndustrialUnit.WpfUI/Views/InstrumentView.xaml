@@ -127,7 +127,7 @@
         <DataGridTextColumn Header="MediumToMeasure" Binding="{Binding MediumToMeasure}" Width="auto"/>
         <DataGridTextColumn Header="Supplier" Binding="{Binding Supplier}" Width="auto"/>
         <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="auto"/>
-        <DataGridTextColumn Header="Unit Price (EUR)" Binding="{Binding UnitPrice}" Width="auto"/>
+        <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, StringFormat={}{0:N2} EUR}" Width="auto"/>
       </DataGrid.Columns>
     </DataGrid>
 
@@ -208,16 +208,10 @@
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
 
-      <i:Interaction.Triggers>
-        <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
-        </i:EventTrigger>
-      </i:Interaction.Triggers>
-
       <TextBox.Text>
         <Binding Path="SelectedItem.OperationPrinciple" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumericValidationRule MinimumCharacters="1"/>
+            <validationrules:StringValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -240,16 +234,10 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
 
-      <i:Interaction.Triggers>
-        <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
-        </i:EventTrigger>
-      </i:Interaction.Triggers>
-
       <TextBox.Text>
         <Binding Path="SelectedItem.InstallationType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumericValidationRule MinimumCharacters="1"/>
+            <validationrules:StringValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -272,16 +260,10 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
 
-      <i:Interaction.Triggers>
-        <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
-        </i:EventTrigger>
-      </i:Interaction.Triggers>
-
       <TextBox.Text>
         <Binding Path="SelectedItem.MediumToMeasure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumericValidationRule MinimumCharacters="1"/>
+            <validationrules:StringValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>

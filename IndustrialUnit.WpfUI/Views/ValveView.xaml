@@ -123,11 +123,11 @@
         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="auto"/>
         <DataGridTextColumn Header="Item name" Binding="{Binding ItemType}" Width="auto"/>
         <DataGridTextColumn Header="Operation" Binding="{Binding Operation}" Width="auto"/>
-        <DataGridTextColumn Header="Size (DN)" Binding="{Binding Size}" Width="auto"/>
+        <DataGridTextColumn Header="Size" Binding="{Binding Size, StringFormat={}DN {0:N0}}" Width="auto"/>
         <DataGridTextColumn Header="ConnectionType" Binding="{Binding ConnectionType}" Width="auto"/>
         <DataGridTextColumn Header="Supplier" Binding="{Binding Supplier}" Width="auto"/>
         <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="auto"/>
-        <DataGridTextColumn Header="Unit Price (EUR)" Binding="{Binding UnitPrice}" Width="auto"/>
+        <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, StringFormat={}{0:N2} EUR}" Width="auto"/>
       </DataGrid.Columns>
     </DataGrid>
 

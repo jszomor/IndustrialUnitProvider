@@ -112,7 +112,7 @@
               AutoGenerateColumns="False"              
               ItemsSource="{Binding Path=Equipments, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
               SelectedItem="{Binding Path=SelectedEquipment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-      
+
       <DataGrid.ColumnHeaderStyle>
         <Style TargetType="{x:Type DataGridColumnHeader}">
           <Setter Property="FontWeight" Value="Bold"/>
@@ -124,10 +124,10 @@
         <DataGridTextColumn Header="Item name" Binding="{Binding ItemType}" Width="auto"/>
         <DataGridTextColumn Header="Capacity (m3/min)" Binding="{Binding Capacity}" Width="auto"/>
         <DataGridTextColumn Header="Pressure (mbar)" Binding="{Binding Pressure}" Width="auto"/>
-        <DataGridTextColumn Header="Power consumption (kW)" Binding="{Binding PowerConsumption}" Width="auto"/>
+        <DataGridTextColumn Header="Power consumption" Binding="{Binding PowerConsumption, StringFormat={}{0:N2} kW}" Width="auto"/>
         <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="auto"/>
         <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="auto"/>
-        <DataGridTextColumn Header="Unit Price (EUR)" Binding="{Binding UnitPrice}" Width="auto"/>
+        <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, StringFormat={}{0:N2} EUR}" Width="auto"/>
       </DataGrid.Columns>
     </DataGrid>
     
