@@ -138,12 +138,13 @@
       FontSize="20" Margin="0,0,5,0"/>
 
     <Label 
-      Content="Id"
+      Content="Id (auto)"
       Grid.Column="1"
       Grid.Row="1"
       VerticalContentAlignment="Center"
       HorizontalContentAlignment="Left"
-      FontSize="14"/>
+      FontSize="14"
+      Foreground="Gray"/>
 
     <TextBox 
       Name="ValveIdTextBox"
@@ -233,7 +234,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -340,7 +341,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       

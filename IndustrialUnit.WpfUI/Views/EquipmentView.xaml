@@ -143,7 +143,8 @@
       Grid.Row="1"
       VerticalContentAlignment="Center"
       HorizontalContentAlignment="Left"
-      FontSize="14"/>
+      FontSize="14"
+      Foreground="Gray"/>
 
     <TextBox
       Name="EqIdTextBox"
@@ -155,6 +156,7 @@
       VerticalContentAlignment="Center"
       IsEnabled="False"
       Foreground="Gray">
+      
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
@@ -207,12 +209,12 @@
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
       
-      <i:Interaction.Triggers>
+      <i:Interaction.Triggers>        
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
-        </i:EventTrigger>
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
+        </i:EventTrigger>        
       </i:Interaction.Triggers>
-      
+
       <TextBox.Text>
         <Binding Path="SelectedEquipment.Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
@@ -241,7 +243,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -273,7 +275,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -357,7 +359,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="PreviewInputTextRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
