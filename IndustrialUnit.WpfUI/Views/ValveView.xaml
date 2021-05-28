@@ -21,6 +21,8 @@
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
 
+          <viewModel:BaseViewModel x:Key="BaseViewModel"/>
+
           <Style x:Key="RoundButtonValidationTemplate" TargetType="Button">
             <Setter Property="Background" Value="DarkKhaki" />
             <Setter Property="Foreground" Value="Black" />
@@ -231,7 +233,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -338,7 +340,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       

@@ -27,11 +27,11 @@ namespace IndustrialUnit.WpfUI.Models
             Id = Convert.ToInt32(item.ItemArray[0]),
             ItemType = Convert.ToString(item.ItemArray[1]),
             Operation = Convert.ToString(item.ItemArray[2]),
-            Size = Convert.ToDecimal(item.ItemArray[3]),
+            Size = item.ItemArray[3],
             ConnectionType = Convert.ToString(item.ItemArray[4]),
             Supplier = Convert.ToString(item.ItemArray[5]),
             Manufacturer = Convert.ToString(item.ItemArray[6]),
-            UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
+            UnitPrice = item.ItemArray[7],
           });
       }
       return valveCollection;

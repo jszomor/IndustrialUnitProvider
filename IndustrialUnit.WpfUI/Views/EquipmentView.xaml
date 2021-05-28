@@ -5,7 +5,7 @@
               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
               xmlns:validationrules="clr-namespace:IndustrialUnit.WpfUI.Validation"
               xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
-              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 		          xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
               xmlns:views="clr-namespace:IndustrialUnit.WpfUI.Views"
               mc:Ignorable="d" 
@@ -19,6 +19,8 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
+
+          <viewModel:BaseViewModel x:Key="BaseViewModel"/>
 
           <Style x:Key="RoundButtonValidationTemplate" TargetType="Button">
             <Setter Property="Background" Value="DarkKhaki" />
@@ -207,7 +209,7 @@
       
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -239,7 +241,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -271,7 +273,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       
@@ -355,7 +357,7 @@
 
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewTextInput">
-          <ei:CallMethodAction TargetObject="{Binding}" MethodName="PreviewNumericTextInput" />
+          <ei:CallMethodAction TargetObject="{StaticResource BaseViewModel}" MethodName="ExecuteInputRule" />
         </i:EventTrigger>
       </i:Interaction.Triggers>
       

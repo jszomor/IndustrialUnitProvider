@@ -10,12 +10,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class EquipmentViewModel : BaseViewModel
   {
-    public void PreviewNumericTextInput(object sender, TextCompositionEventArgs e)
-    {
-      var regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
-      e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
-    }
-
     private ObservableCollection<Equipment> _equipments;
     public ObservableCollection<Equipment> Equipments
     {

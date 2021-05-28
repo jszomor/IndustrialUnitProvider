@@ -48,8 +48,8 @@
     }
 
 
-    private decimal? _pressure;
-    public decimal? Pressure
+    private object _pressure;
+    public object Pressure
     {
       get
       {
@@ -63,8 +63,8 @@
     }
 
 
-    private decimal? _powerConsumption;
-    public decimal? PowerConsumption
+    private object _powerConsumption;
+    public object PowerConsumption
     {
       get
       {
@@ -108,8 +108,8 @@
     }
 
 
-    private decimal? _unitPrice;
-    public decimal? UnitPrice
+    private object _unitPrice;
+    public object UnitPrice
     {
       get
       {

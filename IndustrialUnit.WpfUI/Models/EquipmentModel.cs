@@ -26,12 +26,12 @@ namespace IndustrialUnit.WpfUI.Models
           {
             Id = Convert.ToInt32(item.ItemArray[0]),
             ItemType = Convert.ToString(item.ItemArray[1]),
-            Capacity = Convert.ToDecimal(item.ItemArray[2]),
-            Pressure = Convert.ToDecimal(item.ItemArray[3]),
-            PowerConsumption = Convert.ToDecimal(item.ItemArray[4]),
+            Capacity = item.ItemArray[2],
+            Pressure = item.ItemArray[3],
+            PowerConsumption = item.ItemArray[4],
             Manufacturer = Convert.ToString(item.ItemArray[5]),
             Model = Convert.ToString(item.ItemArray[6]),
-            UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
+            UnitPrice = item.ItemArray[7],
           });
       }
       return equipmentCollection;
