@@ -6,11 +6,11 @@ namespace IndustrialUnitProvider
 {
   public static class ExcelWorker
   {
-    public static ExcelWorksheet ReadExcel(Func<string, string> action, string file, string sheetName)
+    public static ExcelWorksheet ReadExcel(string file, string sheetName)
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-      var workbook = new ExcelPackage(File.OpenRead(action(file)));
+      var workbook = new ExcelPackage(File.OpenRead(file));
 
       if (workbook.Workbook.Worksheets[sheetName] == null)
       {

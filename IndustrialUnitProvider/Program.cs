@@ -1,15 +1,17 @@
-﻿using System;
+﻿using IndustrialUnit.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 
 namespace IndustrialUnitProvider
 {
   class Program
   {
-    static void Main(string[] args)
+    static void Main()
     {
       var mapper = new UnitMapper();
 
@@ -17,7 +19,7 @@ namespace IndustrialUnitProvider
 
       try
       {
-        mapper.LoadUnitsFromSheet(fileName);
+        mapper.LoadUnitsFromSheet(PathHelper.ProjectPath(fileName));
       }
       catch (Exception e)
       {

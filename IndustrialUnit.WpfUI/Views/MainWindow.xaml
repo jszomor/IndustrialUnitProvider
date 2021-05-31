@@ -11,9 +11,9 @@
   <Grid>
     <DockPanel>
       <Menu DockPanel.Dock="Top" >
-        <MenuItem Header="_File">
-          <MenuItem Header="_Load collection" />
-          <MenuItem Header="_Save collection" />
+        <MenuItem Header="_Main">
+          <MenuItem Header="_Intruduction" />
+          <MenuItem Header="_Files" Command="{Binding LoadFileView}" />
           <MenuItem Header="_Exit" />
         </MenuItem>
         <MenuItem Header="_Unit category">

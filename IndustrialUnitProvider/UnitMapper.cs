@@ -10,18 +10,18 @@ namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public void LoadUnitsFromSheet(string fileName)
+    public void LoadUnitsFromSheet(string file)
     {
       List<Equipment> equipments = new List<Equipment>();
-      var sheetEquipment = ExcelWorker.ReadExcel(PathHelper.ProjectPath, fileName, RequiredSheetNames.Equipment.ToString());
+      var sheetEquipment = ExcelWorker.ReadExcel(file, RequiredSheetNames.Equipment.ToString());
       AssignValue(equipments, sheetEquipment);
 
       List<Valve> valves = new List<Valve>();
-      var sheetValve = ExcelWorker.ReadExcel(PathHelper.ProjectPath, fileName, RequiredSheetNames.Valve.ToString());
+      var sheetValve = ExcelWorker.ReadExcel(file, RequiredSheetNames.Valve.ToString());
       AssignValue(valves, sheetValve);
 
       List<Instrument> instruments = new List<Instrument>();
-      var sheetInstruments = ExcelWorker.ReadExcel(PathHelper.ProjectPath, fileName, RequiredSheetNames.Instrument.ToString());
+      var sheetInstruments = ExcelWorker.ReadExcel(file, RequiredSheetNames.Instrument.ToString());
       AssignValue(instruments, sheetInstruments);
     }
 
