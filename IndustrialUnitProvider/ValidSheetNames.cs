@@ -1,6 +1,6 @@
 ﻿namespace IndustrialUnitProvider
 {
-  public enum RequiredSheetNames
+  public enum ValidSheetNames
   {
     Equipment,
     Valve,

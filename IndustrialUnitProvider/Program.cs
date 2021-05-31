@@ -19,7 +19,7 @@ namespace IndustrialUnitProvider
 
       try
       {
-        mapper.LoadUnitsFromSheet(PathHelper.ProjectPath(fileName));
+        //mapper.LoadUnitsFromSheet(PathHelper.ProjectPath(fileName));
       }
       catch (Exception e)
       {

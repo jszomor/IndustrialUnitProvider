@@ -18,7 +18,7 @@
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
-      <RowDefinition Height="auto"/>
+      <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
     <Grid.ColumnDefinitions>
@@ -29,33 +29,67 @@
     </Grid.ColumnDefinitions>
 
     <StackPanel
-      Width="150"
       Grid.Row="1"
-      Margin="10,10">
+      Margin="10,10,10,10"
+      Orientation="Horizontal">
 
-      <Button
+      <StackPanel Width="150">
+
+        <Button
         Style="{StaticResource RoundButtonTemplate}"
-        Content="Load collection" 
+        Content="Browse file" 
         Margin="5"
-        Command="{Binding LoadFileDialogBox}"
+        Command="{Binding SelectFileDialogBox}"
         Height="30"
         FontSize="14"/>
+
+        <Border BorderThickness="1" BorderBrush="Gray">
+          <TextBlock
+          Height="30"
+          Text="{Binding SelectedFile, UpdateSourceTrigger=PropertyChanged}"
+          Background="AntiqueWhite"
+          Padding="5"
+          FontSize="12">
+          </TextBlock>
+        </Border>
+
+        <Button
+        Style="{StaticResource RoundButtonTemplate}"
+        Content="Upload" 
+        Margin="5"
+        Command="{Binding LoadFile}"
+        Height="30"
+        FontSize="14"/>
+
+      </StackPanel>
 
       <Button 
         Style="{StaticResource RoundButtonTemplate}"
         Content="Save collection" 
         Margin="5"
         Height="30"
+        Width="120"
         FontSize="14"/>
-      
+
       <Button        
         Style="{StaticResource RoundButtonTemplate}"
         Content="Dowload temple" 
         Margin="5"
         Height="30"
+        Width="120"
         FontSize="14"/>
-      
+
     </StackPanel>
+
+    <Border BorderThickness="1" BorderBrush="Gray" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" Height="200" Margin="10,88,92,0">
+      <TextBlock
+        Text="{Binding LogMessage}"
+        TextWrapping="Wrap"
+        Background="AntiqueWhite"
+        Padding="5"
+        FontSize="12">
+      </TextBlock>
+    </Border>
 
   </Grid>
 </UserControl>

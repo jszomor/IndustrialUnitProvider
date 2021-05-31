@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Windows;
 
 namespace IndustrialUnit.WpfUI.Models
 {
@@ -38,6 +39,8 @@ namespace IndustrialUnit.WpfUI.Models
             UnitPrice = item.ItemArray[7],
           });
       }
+
+      MessageBox.Show("");
       return equipmentCollection;
     }
 

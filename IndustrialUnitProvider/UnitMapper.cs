@@ -1,5 +1,4 @@
-﻿using IndustrialUnit.Model;
-using IndustrialUnit.Model.Model;
+﻿using IndustrialUnit.Model.Model;
 using IndustrialUnitDatabase;
 using OfficeOpenXml;
 using System;
@@ -10,35 +9,29 @@ namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public void LoadUnitsFromSheet(string file)
+    public void LoadUnitsFromSheet(string file, ref string logMessage)
     {
       List<Equipment> equipments = new List<Equipment>();
-      var sheetEquipment = ExcelWorker.ReadExcel(file, RequiredSheetNames.Equipment.ToString());
-      AssignValue(equipments, sheetEquipment);
+      var sheetEquipment = ExcelWorker.ReadExcel(file, ValidSheetNames.Equipment.ToString(), ref logMessage);
+      AssignValue(equipments, sheetEquipment, ref logMessage);
 
       List<Valve> valves = new List<Valve>();
-      var sheetValve = ExcelWorker.ReadExcel(file, RequiredSheetNames.Valve.ToString());
-      AssignValue(valves, sheetValve);
+      var sheetValve = ExcelWorker.ReadExcel(file, ValidSheetNames.Valve.ToString(), ref logMessage);
+      AssignValue(valves, sheetValve, ref logMessage);
 
       List<Instrument> instruments = new List<Instrument>();
-      var sheetInstruments = ExcelWorker.ReadExcel(file, RequiredSheetNames.Instrument.ToString());
-      AssignValue(instruments, sheetInstruments);
+      var sheetInstruments = ExcelWorker.ReadExcel(file, ValidSheetNames.Instrument.ToString(), ref logMessage);
+      AssignValue(instruments, sheetInstruments, ref logMessage);
     }
 
-    public void AssignValue<T>(List<T> parameterCollection, ExcelWorksheet sheet) where T : class, new()
+    public void AssignValue<T>(List<T> parameterCollection, ExcelWorksheet sheet, ref string logMessage) where T : class, new()
     {
       PropertyInfo[] properties = typeof(T).GetProperties();
 
-      var validation = new Validation();
+      var validation = new ExcelValidation();
       var columnNameToIndex = validation.CollectColumnNamesFromExcel(sheet);
-      try
-      {
-        validation.ValidateColumnNames(columnNameToIndex, properties);
-      }
-      catch (MissingColumnException)
-      {
-        throw new MissingColumnException($"Missing or incorrect column names in the source excel file. Check that!");
-      }
+
+      validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage);
 
       int nextId = 1;
 
@@ -51,14 +44,7 @@ namespace IndustrialUnitProvider
           {
             if (columnNameToIndex.TryGetValue(item.Name, out int value))
             {
-              try
-              {
-                item.SetValue(unit, Convert.ChangeType(sheet.Cells[rowIndex, value].Text, item.PropertyType));
-              }
-              catch (FormatException)
-              {
-                throw new FormatException($"The value of the following cell [{sheet.Cells[rowIndex, value].Address}] in the source file cannot converted into [{item.PropertyType}] type.");
-              }
+              item.SetValue(unit, Convert.ChangeType(sheet.Cells[rowIndex, value].Text, item.PropertyType));
             }
             else if (item.Name == "Id")
             {
@@ -75,7 +61,11 @@ namespace IndustrialUnitProvider
 
       if (parameterCollection.Count < 1)
       {
-        throw new InvalidOperationException("Source file is empty");
+        logMessage += $"\n[{sheet.Name}] type is empty.";
+      }
+      else
+      {
+        logMessage += $"\n[{sheet.Name}] type is successfuly loaded into the database.";
       }
 
       var itemToJsonSerializer = new ItemsToJsonSerializer();

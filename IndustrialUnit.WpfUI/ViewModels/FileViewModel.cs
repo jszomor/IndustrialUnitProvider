@@ -1,4 +1,5 @@
 ﻿using IndustrialUnit.Model;
+using IndustrialUnit.Model.Model;
 using IndustrialUnit.WpfUI.Models;
 using IndustrialUnitProvider;
 using Microsoft.Win32;
@@ -9,36 +10,71 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class FileViewModel
+  public class FileViewModel : BaseViewModel
   {
-    public ICommand LoadFileDialogBox { get; }
+    private string _logMessage;
 
-    private void OpenFile_Click()
+    public string LogMessage
     {
-      OpenFileDialog openFileDialog = new OpenFileDialog();
+      get
+      {
+        return _logMessage;
+      }
+      set
+      {
+        _logMessage = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private string _selectedFile;
+    public string SelectedFile
+    {
+      get
+      {
+        return _selectedFile;
+      }
+      set
+      {
+        _selectedFile = value;
+        OnPropertyChanged();
+      }
+    }
+
+    public ICommand SelectFileDialogBox { get; }
+    public ICommand LoadFile { get; }
+
+    private void OpenFile()
+    {
+      OpenFileDialog openFileDialog = new();
       if (openFileDialog.ShowDialog() == true)
       {
-        var mapper = new UnitMapper();
+        SelectedFile = openFileDialog.FileName;
+      }
+    }
 
-        try
-        {
-          mapper.LoadUnitsFromSheet(openFileDialog.FileName);
-        }
-        catch (Exception e)
-        {
-          Debug.WriteLine(e);
-          throw;
-        }
+    private void LoadIntoDB()
+    {
+      string logMessage = null;
+      if (SelectedFile == null)
+        MessageBox.Show("No file selected.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
+      else
+      {
+        var mapper = new UnitMapper();
+        mapper.LoadUnitsFromSheet(SelectedFile, ref logMessage);
+        LogMessage = logMessage;
       }
     }
 
     public FileViewModel()
     {
-      LoadFileDialogBox = new RelayCommand(OpenFile_Click);
+      SelectFileDialogBox = new RelayCommand(OpenFile);
+      LoadFile = new RelayCommand(LoadIntoDB);
     }
   }
 }
