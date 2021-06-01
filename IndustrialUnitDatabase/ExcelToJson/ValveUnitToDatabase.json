@@ -1,7 +1,7 @@
 [
   {
     "Id": 1,
-    "ItemType": "1123",
+    "ItemType": "Butterfly valve",
     "Operation": "Manual",
     "Size": 50.0,
     "ConnectionType": "Wafer",
@@ -10,13 +10,13 @@
     "UnitPrice": 13.0
   },
   {
-    "Id": 3,
+    "Id": 2,
     "ItemType": "Butterfly valve",
     "Operation": "Manual",
-    "Size": 80.0,
+    "Size": 65.0,
     "ConnectionType": "Wafer",
     "Supplier": "MVV",
     "Manufacturer": "VAG cerex",
-    "UnitPrice": 120.0
+    "UnitPrice": 114.0
   }
 ]

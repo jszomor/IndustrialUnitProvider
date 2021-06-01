@@ -12,7 +12,7 @@ namespace IndustrialUnit.WpfUI.Models
   {
     private static readonly string TableName = "Equipment";
 
-    public static ObservableCollection<Equipment> MapEquipment(string sqlCommand)
+    internal static ObservableCollection<Equipment> MapEquipment(string sqlCommand)
     {
       ObservableCollection<Equipment> equipmentCollection = new();
       var getFilteredItem = SQLiteDataAccess.GetDb(sqlCommand, TableName);
@@ -43,7 +43,7 @@ namespace IndustrialUnit.WpfUI.Models
       return equipmentCollection;
     }
 
-    public static (ObservableCollection<Equipment>, string) GetAllEquipments()
+    internal static (ObservableCollection<Equipment>, string) GetAllEquipments()
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
@@ -53,7 +53,7 @@ namespace IndustrialUnit.WpfUI.Models
       return (MapEquipment(sqlCommand), "Database loaded successfully.");
     }
 
-    public static (ObservableCollection<Equipment>, string) GetFilteredEquipments(ObservableCollection<Equipment> equipments, string selectedItem)
+    internal static (ObservableCollection<Equipment>, string) GetFilteredEquipments(ObservableCollection<Equipment> equipments, string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
         return (equipments, "Filter key is [Item Name], \nit cannot be empty for searching!");
@@ -67,7 +67,7 @@ namespace IndustrialUnit.WpfUI.Models
         $"Filter name is: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
-    public static string SubmitAdd(Equipment item)
+    internal static string SubmitAdd(Equipment item)
     {
       if (!IsTextBoxEmpty(item) || item == null )
         return "No empty cell is allowed.";
@@ -88,12 +88,12 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitUpdate(Equipment equipment)
+    internal static string SubmitUpdate(Equipment equipment)
     {
       if (!IsTextBoxEmpty(equipment) || equipment == null)
         return "No empty cell is allowed.";
 
-      string sqlCommand = "update Equipment set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
+      string sqlCommand = $"update {TableName} set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
                   $"Manufacturer=@Manufacturer, Model=@Model, UnitPrice=@UnitPrice where id=";
 
       try
@@ -108,7 +108,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitDelete(Equipment equipment)
+    internal static string SubmitDelete(Equipment equipment)
     {
       if (equipment.Id <= 0 || equipment == null || equipment.Id == null)
         return "Please select an item to delete.";
@@ -127,7 +127,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static bool IsTextBoxEmpty(Equipment eq)
+    internal static bool IsTextBoxEmpty(Equipment eq)
     {
       if (
           eq.Id == null ||

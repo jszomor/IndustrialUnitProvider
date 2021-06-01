@@ -55,9 +55,9 @@
 
         <Button
         Style="{StaticResource RoundButtonTemplate}"
+        Command="{Binding LoadFile}"
         Content="Upload collection" 
         Margin="5"
-        Command="{Binding LoadFile}"
         Height="30"
         FontSize="14"/>
 
@@ -65,6 +65,7 @@
 
       <Button 
         Style="{StaticResource RoundButtonTemplate}"
+        Command="{Binding SaveFile}"
         Content="Save collection" 
         Margin="5"
         Height="30"
@@ -73,7 +74,8 @@
 
       <Button        
         Style="{StaticResource RoundButtonTemplate}"
-        Content="Download temple" 
+        Content="Download template"
+        Command="{Binding DownloadTemplate}"
         Margin="5"
         Height="30"
         Width="120"

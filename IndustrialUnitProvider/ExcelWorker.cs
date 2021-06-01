@@ -25,5 +25,15 @@ namespace IndustrialUnitProvider
         return workbook.Workbook.Worksheets[sheetName];
       }
     }
+
+    public static ExcelPackage CreateExcelPackage(ExcelPackage excelPackage)
+    {
+      excelPackage.Workbook.Properties.Author = "János Szomor";
+      excelPackage.Workbook.Properties.Title = "Industrial Item Manager template";
+      excelPackage.Workbook.Properties.Subject = "EPPlus demo export data";
+      excelPackage.Workbook.Properties.Created = DateTime.Now;
+
+      return excelPackage;
+    }
   }
 }

@@ -15,7 +15,7 @@ namespace IndustrialUnit.WpfUI.Models
   {
     private static readonly string TableName = "Instrument";
 
-    public static ObservableCollection<Instrument> MapInstrument(string sqlCommand)
+    internal static ObservableCollection<Instrument> MapInstrument(string sqlCommand)
     {
       ObservableCollection<Instrument> instrumentCollection = new();
       var getFilteredItem = SQLiteDataAccess.GetDb(sqlCommand, TableName);
@@ -44,7 +44,7 @@ namespace IndustrialUnit.WpfUI.Models
       return instrumentCollection;
     }
 
-    public static (ObservableCollection<Instrument>, string) GetAllInstruments()
+    internal static (ObservableCollection<Instrument>, string) GetAllInstruments()
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
@@ -54,7 +54,7 @@ namespace IndustrialUnit.WpfUI.Models
       return (MapInstrument(sqlCommand), "Database loaded successfully.");
     }
 
-    public static (ObservableCollection<Instrument>, string) GetFilteredInstruments(ObservableCollection<Instrument> Instruments, string selectedItem)
+    internal static (ObservableCollection<Instrument>, string) GetFilteredInstruments(ObservableCollection<Instrument> Instruments, string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
         return (Instruments, "Filter key is [Item Name], \nit cannot be empty for searching!");
@@ -68,7 +68,7 @@ namespace IndustrialUnit.WpfUI.Models
         $"Filter name: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
-    public static string SubmitAdd(Instrument item)
+    internal static string SubmitAdd(Instrument item)
     {
       if (!IsTextBoxEmpty(item) || item == null)
         return "No empty cell is allowed.";
@@ -89,7 +89,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitUpdate(Instrument Instrument)
+    internal static string SubmitUpdate(Instrument Instrument)
     {
       if (!IsTextBoxEmpty(Instrument) || Instrument == null)
         return "No empty cell is allowed.";
@@ -109,7 +109,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitDelete(Instrument Instrument)
+    internal static string SubmitDelete(Instrument Instrument)
     {
       if (Instrument.Id <= 0 || Instrument == null || Instrument.Id == null)
         return "Please select an item to delete.";
@@ -128,7 +128,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static bool IsTextBoxEmpty(Instrument ins)
+    internal static bool IsTextBoxEmpty(Instrument ins)
     {
       if (
           ins.Id == null ||

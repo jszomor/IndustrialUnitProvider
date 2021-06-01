@@ -11,7 +11,7 @@ namespace IndustrialUnit.WpfUI.Models
   {
     private static readonly string TableName = "Valve";
 
-    public static ObservableCollection<Valve> MapValve(string sqlCommand)
+    internal static ObservableCollection<Valve> MapValve(string sqlCommand)
     {
       ObservableCollection<Valve> valveCollection = new();
       var getFilteredItem = SQLiteDataAccess.GetDb(sqlCommand, TableName);
@@ -39,8 +39,8 @@ namespace IndustrialUnit.WpfUI.Models
       }
       return valveCollection;
     }
-    
-    public static (ObservableCollection<Valve>, string) GetAllValves()
+
+    internal static (ObservableCollection<Valve>, string) GetAllValves()
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
@@ -50,7 +50,7 @@ namespace IndustrialUnit.WpfUI.Models
       return (MapValve(sqlCommand), "Database loaded successfully.");
     }
 
-    public static (ObservableCollection<Valve>, string) GetFilteredValves(ObservableCollection<Valve> valves, string selectedItem)
+    internal static (ObservableCollection<Valve>, string) GetFilteredValves(ObservableCollection<Valve> valves, string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
         return (valves, "Filter key is [Item Name], \nit cannot be empty for searching!");
@@ -64,7 +64,7 @@ namespace IndustrialUnit.WpfUI.Models
         $"Filter name: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
-    public static string SubmitAdd(Valve valve)
+    internal static string SubmitAdd(Valve valve)
     {
       if (!IsTextBoxEmpty(valve) || valve == null)
         return "No empty cell is allowed.";
@@ -85,7 +85,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitUpdate(Valve valve)
+    internal static string SubmitUpdate(Valve valve)
     {
       if (!IsTextBoxEmpty(valve) || valve == null)
         return "No empty cell is allowed.";
@@ -105,7 +105,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitDelete(Valve valve)
+    internal static string SubmitDelete(Valve valve)
     {
       if (valve.Id <= 0 || valve == null || valve.Id == null)
         return "Please select an item to delete.";
@@ -124,7 +124,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static bool IsTextBoxEmpty(Valve valve)
+    internal static bool IsTextBoxEmpty(Valve valve)
     {
       if (
           valve.Id == null ||

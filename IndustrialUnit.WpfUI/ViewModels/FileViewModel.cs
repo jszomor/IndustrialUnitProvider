@@ -1,15 +1,7 @@
-﻿using IndustrialUnit.Model;
-using IndustrialUnit.Model.Model;
-using IndustrialUnit.WpfUI.Models;
+﻿using IndustrialUnit.WpfUI.Models;
 using IndustrialUnitProvider;
 using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -18,7 +10,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
   public class FileViewModel : BaseViewModel
   {
     private List<string> _logMessage;
-
     public List<string> LogMessage
     {
       get
@@ -50,34 +41,17 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     public ICommand SelectFileDialogBox { get; }
     public ICommand LoadFile { get; }
+    public ICommand SaveFile { get; }
+    public ICommand DownloadTemplate { get; }
 
-    private void OpenFile()
-    {
-      OpenFileDialog openFileDialog = new();
-      if (openFileDialog.ShowDialog() == true)
-      {
-        SelectedFile = openFileDialog.SafeFileName;
-        Path = openFileDialog.FileName;
-      }
-    }
-
-    private void LoadIntoDB()
-    {
-      List<string> logMessage = new();
-      if (Path == null)
-        MessageBox.Show("No file selected.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
-      else
-      {
-        var mapper = new UnitMapper();
-        mapper.LoadUnitsFromSheet(Path, ref logMessage);
-        LogMessage = logMessage;
-      }
-    }
-
+    private void RunSelectCommand() => (SelectedFile, Path) = FileModel.OpenFile();
+    private void RunLoadCommand() => LogMessage = FileModel.LoadIntoDB(Path);
     public FileViewModel()
     {
-      SelectFileDialogBox = new RelayCommand(OpenFile);
-      LoadFile = new RelayCommand(LoadIntoDB);
+      SelectFileDialogBox = new RelayCommand(RunSelectCommand);
+      LoadFile = new RelayCommand(RunLoadCommand);
+      SaveFile = new RelayCommand(FileModel.SaveFile);
+      DownloadTemplate = new RelayCommand(FileModel.DownLoadTemplateFile);
     }
   }
 }
