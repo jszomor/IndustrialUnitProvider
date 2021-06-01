@@ -1,32 +1,34 @@
 ﻿using IndustrialUnit.Model.Model;
+using IndustrialUnitDatabase;
 using OfficeOpenXml;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace IndustrialUnitProvider
 {
   public class UnitSave
   {
-    public static ExcelPackage ExcelPackage { get; set; }
+    public static ExcelPackage IndustrialExcelPackage { get; set; }
     public static ExcelPackage CreateTemplateFile()
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-      ExcelPackage = new ExcelPackage();
-      ExcelWorker.CreateExcelPackage(ExcelPackage);
+      IndustrialExcelPackage = new ExcelPackage();
+      ExcelWorker.CreateExcelPackage(IndustrialExcelPackage);
 
-      CreateTemplateColumns<Equipment>(ExcelPackage, ValidSheetNames.Equipment.ToString());
-      CreateTemplateColumns<Valve>(ExcelPackage, ValidSheetNames.Valve.ToString());
-      CreateTemplateColumns<Instrument>(ExcelPackage, ValidSheetNames.Instrument.ToString());
+      CreateTemplateColumns<Equipment>(IndustrialExcelPackage, ValidSheetNames.Equipment.ToString());
+      CreateTemplateColumns<Valve>(IndustrialExcelPackage, ValidSheetNames.Valve.ToString());
+      CreateTemplateColumns<Instrument>(IndustrialExcelPackage, ValidSheetNames.Instrument.ToString());
 
-      return ExcelPackage;
+      return IndustrialExcelPackage;
     }
 
-    public ExcelPackage CopyDBtoExcel()
+    public static ExcelPackage CopyDBtoExcel()
     {
-      AssignDBTableToSheet<Equipment>(CreateTemplateFile(), ValidSheetNames.Equipment.ToString());
-      AssignDBTableToSheet<Valve>(CreateTemplateFile(), ValidSheetNames.Valve.ToString());
-      AssignDBTableToSheet<Instrument>(CreateTemplateFile(), ValidSheetNames.Instrument.ToString());
+      AssignDBTableToSheet(CreateTemplateFile(), ValidSheetNames.Equipment.ToString());
+      AssignDBTableToSheet(CreateTemplateFile(), ValidSheetNames.Valve.ToString());
+      AssignDBTableToSheet(CreateTemplateFile(), ValidSheetNames.Instrument.ToString());
 
-      return ExcelPackage;
+      return IndustrialExcelPackage;
     }
 
     public static ExcelPackage CreateTemplateColumns<T>(ExcelPackage excelPackage, string tableName)
@@ -46,9 +48,30 @@ namespace IndustrialUnitProvider
       return excelPackage;
     }
 
-    public void AssignDBTableToSheet<T>(ExcelPackage excelPackage, string tableName)
+    public static ExcelPackage AssignDBTableToSheet(ExcelPackage excelPackage, string tableName)
     {
+      string sqlCommand = $"SELECT * FROM {tableName}";
 
+      var getItems = SQLiteDataAccess.GetDb(sqlCommand, tableName);
+      var dbRowNumber = getItems.Rows.Count;
+      var dbColumnNumber = getItems.Columns.Count;
+
+      if (dbRowNumber == 0)
+        return null;
+
+      ExcelWorksheet sheet = excelPackage.Workbook.Worksheets[tableName];
+
+      for (int i = 0; i < dbRowNumber; i++)
+      {
+        var item = getItems.Rows[i];
+
+        for (int j = 0; j < dbColumnNumber; j++)
+        {
+          sheet.Cells[i+2, j+1].Value = item.ItemArray[j];
+        }
+      }
+
+      return excelPackage;
     }
   }
 }

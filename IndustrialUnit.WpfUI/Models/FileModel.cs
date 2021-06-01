@@ -22,10 +22,10 @@ namespace IndustrialUnit.WpfUI.Models
 
       if (openFileDialog.ShowDialog() == true)
       {
-         return (openFileDialog.SafeFileName, openFileDialog.FileName);
+        return (openFileDialog.SafeFileName, openFileDialog.FileName);
       }
       else
-      return (null, null);
+        return (null, null);
     }
 
     internal static List<string> LoadIntoDB(string path)
@@ -46,26 +46,27 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static void SaveFile()
     {
-
-      SaveFileDialog saveFileDialog = new();
-        saveFileDialog.Filter = "xlsx files (*.xlsx)|*.xlsx|xls files (*.xls)|*.xls";
-        saveFileDialog.FilterIndex = 1;
-      if (saveFileDialog.ShowDialog() == true)
-      {
-        FileInfo fi = new FileInfo(saveFileDialog.FileName);
-        //unitSave.ExcelPackage.SaveAs(fi);
-      }
-    }
-
-    internal static void DownLoadTemplateFile()
-    {
+      var excelPackage = UnitSave.CopyDBtoExcel();
       SaveFileDialog saveFileDialog = new();
       saveFileDialog.Filter = "xlsx files (*.xlsx)|*.xlsx|xls files (*.xls)|*.xls";
       saveFileDialog.FilterIndex = 1;
       if (saveFileDialog.ShowDialog() == true)
       {
         FileInfo fi = new FileInfo(saveFileDialog.FileName);
-        UnitSave.CreateTemplateFile().SaveAs(fi);
+        excelPackage.SaveAs(fi);
+      }
+    }
+
+    internal static void DownLoadTemplateFile()
+    {
+      var excelPackage = UnitSave.CreateTemplateFile();
+      SaveFileDialog saveFileDialog = new();
+      saveFileDialog.Filter = "xlsx files (*.xlsx)|*.xlsx|xls files (*.xls)|*.xls";
+      saveFileDialog.FilterIndex = 1;
+      if (saveFileDialog.ShowDialog() == true)
+      {
+        FileInfo fi = new FileInfo(saveFileDialog.FileName);
+        excelPackage.SaveAs(fi);
       }
     }
   }

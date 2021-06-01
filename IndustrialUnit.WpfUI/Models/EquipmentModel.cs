@@ -15,16 +15,16 @@ namespace IndustrialUnit.WpfUI.Models
     internal static ObservableCollection<Equipment> MapEquipment(string sqlCommand)
     {
       ObservableCollection<Equipment> equipmentCollection = new();
-      var getFilteredItem = SQLiteDataAccess.GetDb(sqlCommand, TableName);
+      var getItems = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
-      var dbRowNumber = getFilteredItem.Rows.Count;
+      var dbRowNumber = getItems.Rows.Count;
 
       if (dbRowNumber == 0)
         return null;
 
       for (int i = 0; i < dbRowNumber; i++)
       {
-        var item = getFilteredItem.Rows[i];
+        var item = getItems.Rows[i];
 
         equipmentCollection.Add(
           new Equipment()
