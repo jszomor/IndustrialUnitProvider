@@ -24,9 +24,9 @@ namespace IndustrialUnitProvider
 
     public static ExcelPackage CopyDBtoExcel()
     {
-      AssignDBTableToSheet(CreateTemplateFile(), ValidSheetNames.Equipment.ToString());
-      AssignDBTableToSheet(CreateTemplateFile(), ValidSheetNames.Valve.ToString());
-      AssignDBTableToSheet(CreateTemplateFile(), ValidSheetNames.Instrument.ToString());
+      AssignDBTableToSheet(ValidSheetNames.Equipment.ToString());
+      AssignDBTableToSheet(ValidSheetNames.Valve.ToString());
+      AssignDBTableToSheet(ValidSheetNames.Instrument.ToString());
 
       return IndustrialExcelPackage;
     }
@@ -48,7 +48,7 @@ namespace IndustrialUnitProvider
       return excelPackage;
     }
 
-    public static ExcelPackage AssignDBTableToSheet(ExcelPackage excelPackage, string tableName)
+    public static ExcelPackage AssignDBTableToSheet(string tableName)
     {
       string sqlCommand = $"SELECT * FROM {tableName}";
 
@@ -59,7 +59,7 @@ namespace IndustrialUnitProvider
       if (dbRowNumber == 0)
         return null;
 
-      ExcelWorksheet sheet = excelPackage.Workbook.Worksheets[tableName];
+      ExcelWorksheet sheet = IndustrialExcelPackage.Workbook.Worksheets[tableName];
 
       for (int i = 0; i < dbRowNumber; i++)
       {
@@ -71,7 +71,7 @@ namespace IndustrialUnitProvider
         }
       }
 
-      return excelPackage;
+      return IndustrialExcelPackage;
     }
   }
 }
