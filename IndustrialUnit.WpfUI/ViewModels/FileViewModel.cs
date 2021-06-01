@@ -46,6 +46,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
+    public string Path { get; set; }
+
     public ICommand SelectFileDialogBox { get; }
     public ICommand LoadFile { get; }
 
@@ -54,19 +56,20 @@ namespace IndustrialUnit.WpfUI.ViewModels
       OpenFileDialog openFileDialog = new();
       if (openFileDialog.ShowDialog() == true)
       {
-        SelectedFile = openFileDialog.FileName;
+        SelectedFile = openFileDialog.SafeFileName;
+        Path = openFileDialog.FileName;
       }
     }
 
     private void LoadIntoDB()
     {
       List<string> logMessage = new();
-      if (SelectedFile == null)
+      if (Path == null)
         MessageBox.Show("No file selected.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
       else
       {
         var mapper = new UnitMapper();
-        mapper.LoadUnitsFromSheet(SelectedFile, ref logMessage);
+        mapper.LoadUnitsFromSheet(Path, ref logMessage);
         LogMessage = logMessage;
       }
     }

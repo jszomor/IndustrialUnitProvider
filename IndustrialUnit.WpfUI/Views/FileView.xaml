@@ -49,13 +49,13 @@
           Text="{Binding SelectedFile, UpdateSourceTrigger=PropertyChanged}"
           Background="AntiqueWhite"
           Padding="5"
-          FontSize="12">
+          FontSize="13">
           </TextBlock>
         </Border>
 
         <Button
         Style="{StaticResource RoundButtonTemplate}"
-        Content="Upload" 
+        Content="Upload collection" 
         Margin="5"
         Command="{Binding LoadFile}"
         Height="30"
@@ -73,7 +73,7 @@
 
       <Button        
         Style="{StaticResource RoundButtonTemplate}"
-        Content="Dowload temple" 
+        Content="Download temple" 
         Margin="5"
         Height="30"
         Width="120"

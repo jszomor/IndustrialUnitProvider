@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "Id": 2,
+    "ItemType": "365",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  }
+]
