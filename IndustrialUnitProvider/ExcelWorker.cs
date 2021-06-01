@@ -1,13 +1,14 @@
 ﻿using IndustrialUnit.Model.Model;
 using OfficeOpenXml;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace IndustrialUnitProvider
 {
   public static class ExcelWorker
   {
-    public static ExcelWorksheet ReadExcel(string file, string sheetName, ref string logMessage)
+    public static ExcelWorksheet ReadExcel(string file, string sheetName, ref List<string> logMessage)
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
@@ -15,14 +16,14 @@ namespace IndustrialUnitProvider
 
       if (workbook.Workbook.Worksheets[sheetName] == null)
       {
-        logMessage += $"\nGiven type [{sheetName}] is not valid. \nPlese check the manual.";
+        logMessage.Add($"[{sheetName}] sheet is not found.");
+        return null;
       }
       else
       {
-        logMessage += $"\n[{sheetName}] type is found.";
+        logMessage.Add($"[{sheetName}] sheet is found.");
+        return workbook.Workbook.Worksheets[sheetName];
       }
-
-      return workbook.Workbook.Worksheets[sheetName];
     }
   }
 }

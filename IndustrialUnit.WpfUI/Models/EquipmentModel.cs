@@ -40,7 +40,6 @@ namespace IndustrialUnit.WpfUI.Models
           });
       }
 
-      MessageBox.Show("");
       return equipmentCollection;
     }
 

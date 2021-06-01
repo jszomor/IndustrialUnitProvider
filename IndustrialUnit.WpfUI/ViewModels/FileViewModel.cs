@@ -17,9 +17,9 @@ namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class FileViewModel : BaseViewModel
   {
-    private string _logMessage;
+    private List<string> _logMessage;
 
-    public string LogMessage
+    public List<string> LogMessage
     {
       get
       {
@@ -60,7 +60,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     private void LoadIntoDB()
     {
-      string logMessage = null;
+      List<string> logMessage = new();
       if (SelectedFile == null)
         MessageBox.Show("No file selected.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
       else

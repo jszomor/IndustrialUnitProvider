@@ -82,14 +82,12 @@
     </StackPanel>
 
     <Border BorderThickness="1" BorderBrush="Gray" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" Height="200" Margin="10,88,92,0">
-      <TextBlock
-        Text="{Binding LogMessage}"
-        TextWrapping="Wrap"
+      <ListView
+        ItemsSource="{Binding LogMessage}"
         Background="AntiqueWhite"
-        Padding="5"
-        FontSize="12">
-      </TextBlock>
+        Padding="3"
+        FontSize="13">        
+      </ListView>         
     </Border>
-
   </Grid>
 </UserControl>

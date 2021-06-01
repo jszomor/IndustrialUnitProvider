@@ -9,29 +9,32 @@ namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public void LoadUnitsFromSheet(string file, ref string logMessage)
+    public void LoadUnitsFromSheet(string file, ref List<string> logMessage)
     {
       List<Equipment> equipments = new List<Equipment>();
       var sheetEquipment = ExcelWorker.ReadExcel(file, ValidSheetNames.Equipment.ToString(), ref logMessage);
+      if(sheetEquipment != null)
       AssignValue(equipments, sheetEquipment, ref logMessage);
 
       List<Valve> valves = new List<Valve>();
       var sheetValve = ExcelWorker.ReadExcel(file, ValidSheetNames.Valve.ToString(), ref logMessage);
+      if(sheetValve != null)
       AssignValue(valves, sheetValve, ref logMessage);
 
       List<Instrument> instruments = new List<Instrument>();
       var sheetInstruments = ExcelWorker.ReadExcel(file, ValidSheetNames.Instrument.ToString(), ref logMessage);
+      if(sheetInstruments != null)
       AssignValue(instruments, sheetInstruments, ref logMessage);
     }
 
-    public void AssignValue<T>(List<T> parameterCollection, ExcelWorksheet sheet, ref string logMessage) where T : class, new()
+    public void AssignValue<T>(List<T> parameterCollection, ExcelWorksheet sheet, ref List<string> logMessage) where T : class, new()
     {
       PropertyInfo[] properties = typeof(T).GetProperties();
 
       var validation = new ExcelValidation();
       var columnNameToIndex = validation.CollectColumnNamesFromExcel(sheet);
 
-      validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage);
+      if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage))  return;
 
       int nextId = 1;
 
@@ -44,7 +47,15 @@ namespace IndustrialUnitProvider
           {
             if (columnNameToIndex.TryGetValue(item.Name, out int value))
             {
-              item.SetValue(unit, Convert.ChangeType(sheet.Cells[rowIndex, value].Text, item.PropertyType));
+              try
+              {
+                item.SetValue(unit, Convert.ChangeType(sheet.Cells[rowIndex, value].Text, item.PropertyType));
+              }
+              catch
+              {
+                logMessage.Add($"Invalid parameter found. Sheet name:[{sheet.Name}] | Cell address:[{sheet.Cells[rowIndex, value].Address}] | Row is not added.");
+                goto SkipRow;
+              }
             }
             else if (item.Name == "Id")
             {
@@ -57,15 +68,21 @@ namespace IndustrialUnitProvider
 
           parameterCollection.Add(unit);
         }
+        else
+        {
+          logMessage.Add($"Item name not found. Sheet name:[{sheet.Name}] | Cell address:[{sheet.Cells[rowIndex, 1].Address}] | Row is not added.");
+        }
+
+        SkipRow:;
       }
 
       if (parameterCollection.Count < 1)
       {
-        logMessage += $"\n[{sheet.Name}] type is empty.";
+        logMessage.Add($"[{sheet.Name}] sheet is empty.");
       }
       else
       {
-        logMessage += $"\n[{sheet.Name}] type is successfuly loaded into the database.";
+        logMessage.Add($"[{sheet.Name}] sheet is loaded into the database.");
       }
 
       var itemToJsonSerializer = new ItemsToJsonSerializer();
