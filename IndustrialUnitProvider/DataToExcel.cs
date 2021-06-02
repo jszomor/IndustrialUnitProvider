@@ -6,34 +6,38 @@ using System.Reflection;
 
 namespace IndustrialUnitProvider
 {
-  public class UnitSave
+  public class DataToExcel
   {
     public static ExcelPackage IndustrialExcelPackage { get; set; }
-    public static ExcelPackage CreateTemplateFile()
+    public static ExcelPackage CreateEmptyTemplate()
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
       IndustrialExcelPackage = new ExcelPackage();
       ExcelWorker.CreateExcelPackage(IndustrialExcelPackage);
 
-      CreateTemplateColumns<Equipment>(IndustrialExcelPackage, ValidSheetNames.Equipment.ToString());
-      CreateTemplateColumns<Valve>(IndustrialExcelPackage, ValidSheetNames.Valve.ToString());
-      CreateTemplateColumns<Instrument>(IndustrialExcelPackage, ValidSheetNames.Instrument.ToString());
+      CreateExcelSheet<Equipment>(ValidSheetNames.Equipment.ToString());
+      CreateExcelSheet<Valve>(ValidSheetNames.Valve.ToString());
+      CreateExcelSheet<Instrument>(ValidSheetNames.Instrument.ToString());
 
       return IndustrialExcelPackage;
     }
 
     public static ExcelPackage CopyDBtoExcel()
     {
-      AssignDBTableToSheet(ValidSheetNames.Equipment.ToString());
-      AssignDBTableToSheet(ValidSheetNames.Valve.ToString());
-      AssignDBTableToSheet(ValidSheetNames.Instrument.ToString());
+      ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+      IndustrialExcelPackage = new ExcelPackage();
+      ExcelWorker.CreateExcelPackage(IndustrialExcelPackage);
+
+      AssignDBTableToSheet<Equipment>(ValidSheetNames.Equipment.ToString());
+      AssignDBTableToSheet<Valve>(ValidSheetNames.Valve.ToString());
+      AssignDBTableToSheet<Instrument>(ValidSheetNames.Instrument.ToString());
 
       return IndustrialExcelPackage;
     }
 
-    public static ExcelPackage CreateTemplateColumns<T>(ExcelPackage excelPackage, string tableName)
+    public static ExcelPackage CreateExcelSheet<T>(string tableName)
     {
-      ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add(tableName);
+      ExcelWorksheet sheet = IndustrialExcelPackage.Workbook.Worksheets.Add(tableName);
 
       PropertyInfo[] properties = typeof(T).GetProperties();
 
@@ -45,10 +49,10 @@ namespace IndustrialUnitProvider
         columnIndex++;
       }
 
-      return excelPackage;
+      return IndustrialExcelPackage;
     }
 
-    public static ExcelPackage AssignDBTableToSheet(string tableName)
+    public static ExcelPackage AssignDBTableToSheet<T>(string tableName)
     {
       string sqlCommand = $"SELECT * FROM {tableName}";
 
@@ -58,8 +62,8 @@ namespace IndustrialUnitProvider
 
       if (dbRowNumber == 0)
         return null;
-
-      ExcelWorksheet sheet = IndustrialExcelPackage.Workbook.Worksheets[tableName];
+      
+      ExcelWorksheet sheet = CreateExcelSheet<T>(tableName).Workbook.Worksheets[tableName];
 
       for (int i = 0; i < dbRowNumber; i++)
       {

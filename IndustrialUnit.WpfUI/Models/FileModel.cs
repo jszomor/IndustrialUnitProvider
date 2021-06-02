@@ -46,7 +46,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static void SaveFile()
     {
-      var excelPackage = UnitSave.CopyDBtoExcel();
+      var excelPackage = DataToExcel.CopyDBtoExcel();
       SaveFileDialog saveFileDialog = new();
       saveFileDialog.Filter = "xlsx files (*.xlsx)|*.xlsx|xls files (*.xls)|*.xls";
       saveFileDialog.FilterIndex = 1;
@@ -59,7 +59,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static void DownLoadTemplateFile()
     {
-      var excelPackage = UnitSave.CreateTemplateFile();
+      var excelPackage = DataToExcel.CreateEmptyTemplate();
       SaveFileDialog saveFileDialog = new();
       saveFileDialog.Filter = "xlsx files (*.xlsx)|*.xlsx|xls files (*.xls)|*.xls";
       saveFileDialog.FilterIndex = 1;
