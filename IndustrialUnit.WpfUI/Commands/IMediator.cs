@@ -1,7 +1,7 @@
 ﻿namespace IndustrialUnit.WpfUI.Commands
 {
-    public interface IMediator
-    {
-        TResponse Send<TRequest, TResponse>(TRequest request);
-    }
+  public interface IMediator
+  {
+    TResponse Send<TRequest, TResponse>(TRequest request);
+  }
 }

@@ -2,8 +2,8 @@
 
 namespace IndustrialUnit.WpfUI.Commands
 {
-    public class CreateEquipmentRequest
-    {
-        public Equipment Equipment { get; set; }  
-    }
+  public class CreateEquipmentRequest
+  {
+    public Equipment Equipment { get; set; }
+  }
 }
