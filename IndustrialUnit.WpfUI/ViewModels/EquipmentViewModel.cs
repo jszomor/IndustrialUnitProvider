@@ -1,82 +1,141 @@
-﻿using IndustrialUnit.WpfUI.Models;
-using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using IndustrialUnit.Model.Model;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
-  public class EquipmentViewModel : BaseViewModel
-  {
-    private ObservableCollection<Equipment> _equipments;
-    public ObservableCollection<Equipment> Equipments
+    public class EquipmentViewModel : BaseViewModel
     {
-      get
-      {
-        return _equipments;
-      }
-      set
-      {
-        _equipments = value;
-        OnPropertyChanged();
-        SelectedEquipment = new Equipment();
-      }
-    }
+        public EquipmentViewModel()
+        {
+        }
 
-    private Equipment _selectedEquipment;
-    public Equipment SelectedEquipment
-    {
-      get
-      {
-        return _selectedEquipment;
-      }
-      set
-      {
-        _selectedEquipment = value;
-        OnPropertyChanged();
-      }
-    }
+        public EquipmentViewModel(Equipment equipment)
+        {
+            Id = equipment.Id;
+            ItemType = equipment.ItemType;
+            Capacity = equipment.Capacity;
+            Pressure = equipment.Pressure;
+            PowerConsumption = equipment.PowerConsumption;
+            Manufacturer = equipment.Manufacturer;
+            Model = equipment.Model;
+            UnitPrice = equipment.UnitPrice;
+        }
 
-    private string _MessageToScreen;
-    public string MessageToScreen
-    {
-      get
-      {
-        return _MessageToScreen;
-      }
-      set
-      {
-        _MessageToScreen = value;
-        OnPropertyChanged();
-      }
-    }
+        public Equipment ToEquipment()
+        {
+            var equipment = new Equipment
+            {
+                ItemType = ItemType,
+                Capacity = Capacity,
+                Pressure = Pressure,
+                PowerConsumption = PowerConsumption,
+                Manufacturer = Manufacturer,
+                Model = Model,
+                UnitPrice = UnitPrice
+            };
+            return equipment;
+        }
 
-    private void RunAddCommand() => MessageToScreen = EquipmentModel.SubmitAdd(SelectedEquipment);
-    private void RunDeleteCommand() => MessageToScreen = EquipmentModel.SubmitDelete(SelectedEquipment);
-    private void RunUpdateCommand() => MessageToScreen = EquipmentModel.SubmitUpdate(SelectedEquipment);
-    private void RunFilterCommand() => (Equipments, MessageToScreen) = EquipmentModel.GetFilteredEquipments(Equipments, SelectedEquipment.ItemType);
-    private void RunRefreshCommand()
-    {
-      (Equipments, MessageToScreen) = EquipmentModel.GetAllEquipments();
-      MessageToScreen = "Refresh done.";
-    }
+        private int? _id;
 
-    public ICommand AddCommand { get; }
-    public ICommand DeleteCommand { get; }
-    public ICommand UpdateCommand { get; }
-    public ICommand FilterCommand { get; }
-    public ICommand RefreshCommand { get; }
+        public int? Id
+        {
+            get { return _id; }
+            set
+            {
+                _id = value;
+                OnPropertyChanged();
+            }
+        }
 
-    public EquipmentViewModel()
-    {
-      AddCommand = new RelayCommand(RunAddCommand);
-      DeleteCommand = new RelayCommand(RunDeleteCommand);
-      UpdateCommand = new RelayCommand(RunUpdateCommand);
-      FilterCommand = new RelayCommand(RunFilterCommand);
-      RefreshCommand = new RelayCommand(RunRefreshCommand);
-      (Equipments, MessageToScreen) = EquipmentModel.GetAllEquipments();
+
+        private string _itemType;
+
+        public string ItemType
+        {
+            get { return _itemType; }
+            set
+            {
+                _itemType = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private decimal _capacity;
+
+        public decimal Capacity
+        {
+            get { return _capacity; }
+            set
+            {
+                _capacity = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private decimal _pressure;
+
+        public decimal Pressure
+        {
+            get { return _pressure; }
+            set
+            {
+                _pressure = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private decimal _powerConsumption;
+
+        public decimal PowerConsumption
+        {
+            get { return _powerConsumption; }
+            set
+            {
+                _powerConsumption = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private string _manufacturer;
+
+        public string Manufacturer
+        {
+            get { return _manufacturer; }
+            set
+            {
+                _manufacturer = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private string _model;
+
+        public string Model
+        {
+            get { return _model; }
+            set
+            {
+                _model = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private decimal _unitPrice;
+
+        public decimal UnitPrice
+        {
+            get { return _unitPrice; }
+            set
+            {
+                _unitPrice = value;
+                OnPropertyChanged();
+            }
+        }
     }
-  }
 }
