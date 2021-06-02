@@ -62,16 +62,19 @@ namespace IndustrialUnit.WpfUI.ViewModels
     private void RunUpdateCommand() => MessageToScreen = EquipmentRepository.SubmitUpdate(SelectedEquipmentViewModel.ToEquipment());
     private void RunFilterCommand()
     {
-        var (equipments, messageToScreen) = EquipmentRepository.GetFilteredEquipments(SelectedEquipmentViewModel.ItemType);
-        UpdateEquipmentList(equipments);
-        MessageToScreen = messageToScreen;
+      var (equipments, messageToScreen) = EquipmentRepository.GetFilteredEquipments(SelectedEquipmentViewModel.ItemType);
+      UpdateEquipmentList(equipments);
+      MessageToScreen = messageToScreen;
     }
 
     private void RunRefreshCommand()
     {
       var (equipments, messageToScreen) = EquipmentRepository.GetAllEquipments();
       UpdateEquipmentList(equipments);
-      MessageToScreen = "Refresh done.";
+      if (equipments == null)
+        MessageToScreen = messageToScreen;
+      else
+        MessageToScreen = "Refresh done.";
     }
 
     public ICommand AddCommand { get; }
@@ -94,7 +97,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     private void UpdateEquipmentList(IEnumerable<Equipment> equipments)
     {
-        Equipments = new ObservableCollection<EquipmentViewModel>(equipments.Select(x => new EquipmentViewModel(x)));
+      Equipments = new ObservableCollection<EquipmentViewModel>(equipments.Select(x => new EquipmentViewModel(x)));
     }
   }
 }
