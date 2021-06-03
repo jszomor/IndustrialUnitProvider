@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" d:DesignWidth="800" Height="502">
 
   <UserControl.DataContext>
     <local:FileViewModel/>
@@ -15,6 +14,8 @@
 
     <Grid.RowDefinitions>
       <RowDefinition Height="20"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
@@ -88,8 +89,19 @@
         ItemsSource="{Binding LogMessage}"
         Background="AntiqueWhite"
         Padding="3"
-        FontSize="13">        
-      </ListView>         
+        FontSize="13">
+      </ListView>
     </Border>
+
+    <Border BorderThickness="1" BorderBrush="Gray" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,10" Width="328">
+      <TextBlock
+          Height="30"
+          Text="{Binding ProcessTime2, UpdateSourceTrigger=PropertyChanged}"
+          Background="AntiqueWhite"
+          Padding="5"
+          FontSize="13">
+      </TextBlock>
+    </Border>
+
   </Grid>
 </UserControl>

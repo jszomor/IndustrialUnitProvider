@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -44,9 +45,15 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    internal static void SaveFile()
+    internal static async Task<long> SaveFile()
     {
-      var excelPackage = DataToExcel.CopyDBtoExcel();
+      var watch = Stopwatch.StartNew();
+
+      var excelPackage = await DataToExcel.AddDatabaseDataToExcel();
+
+      watch.Stop();
+      var elapsedMs = watch.ElapsedMilliseconds;
+
       SaveFileDialog saveFileDialog = new();
       saveFileDialog.Filter = "xlsx files (*.xlsx)|*.xlsx|xls files (*.xls)|*.xls";
       saveFileDialog.FilterIndex = 1;
@@ -55,11 +62,19 @@ namespace IndustrialUnit.WpfUI.Models
         FileInfo fi = new FileInfo(saveFileDialog.FileName);
         excelPackage.SaveAs(fi);
       }
+
+      return elapsedMs;
     }
 
-    internal static void DownLoadTemplateFile()
+    internal static long DownLoadTemplateFile()
     {
+      var watch = Stopwatch.StartNew();
+
       var excelPackage = DataToExcel.CreateEmptyTemplate();
+
+      watch.Stop();
+      var elapsedMs = watch.ElapsedMilliseconds;
+
       SaveFileDialog saveFileDialog = new();
       saveFileDialog.Filter = "xlsx files (*.xlsx)|*.xlsx|xls files (*.xls)|*.xls";
       saveFileDialog.FilterIndex = 1;
@@ -68,6 +83,8 @@ namespace IndustrialUnit.WpfUI.Models
         FileInfo fi = new FileInfo(saveFileDialog.FileName);
         excelPackage.SaveAs(fi);
       }
+
+      return elapsedMs;
     }
   }
 }

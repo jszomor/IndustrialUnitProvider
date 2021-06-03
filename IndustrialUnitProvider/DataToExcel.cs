@@ -3,34 +3,46 @@ using IndustrialUnitDatabase;
 using OfficeOpenXml;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace IndustrialUnitProvider
 {
   public class DataToExcel
   {
+
     public static ExcelPackage IndustrialExcelPackage { get; set; }
+
     public static ExcelPackage CreateEmptyTemplate()
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
       IndustrialExcelPackage = new ExcelPackage();
-      ExcelWorker.CreateExcelPackage(IndustrialExcelPackage);
+      ExcelWorker.SetupExcelPackage(IndustrialExcelPackage);
 
-      CreateExcelSheet<Equipment>(ValidSheetNames.Equipment.ToString());
+      CreateExcelSheet<List<Equipment>>(ValidSheetNames.Equipment.ToString());
       CreateExcelSheet<Valve>(ValidSheetNames.Valve.ToString());
       CreateExcelSheet<Instrument>(ValidSheetNames.Instrument.ToString());
 
       return IndustrialExcelPackage;
     }
 
-    public static ExcelPackage CopyDBtoExcel()
+    public static async Task<ExcelPackage> AddDatabaseDataToExcel()
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
       IndustrialExcelPackage = new ExcelPackage();
-      ExcelWorker.CreateExcelPackage(IndustrialExcelPackage);
+      ExcelWorker.SetupExcelPackage(IndustrialExcelPackage);
 
-      AssignDBTableToSheet<Equipment>(ValidSheetNames.Equipment.ToString());
-      AssignDBTableToSheet<Valve>(ValidSheetNames.Valve.ToString());
-      AssignDBTableToSheet<Instrument>(ValidSheetNames.Instrument.ToString());
+      List<Task<UnitCategory>> unitCategory = new List<Task<UnitCategory>>();
+
+      foreach (var item in unitCategory)
+      {
+        //AssignDatabaseTableDataToExcelSheet(item, ValidSheetNames.Equipment.ToString());
+      }
+
+      await Task.WhenAll(unitCategory);
+
+      //await Task.Run(() => AssignDatabaseTableDataToExcelSheet<Equipment>(ValidSheetNames.Equipment.ToString()));
+      //await Task.Run(() => AssignDatabaseTableDataToExcelSheet<Valve>(ValidSheetNames.Valve.ToString()));
+      //await Task.Run(() => AssignDatabaseTableDataToExcelSheet<Instrument>(ValidSheetNames.Instrument.ToString()));
 
       return IndustrialExcelPackage;
     }
@@ -52,7 +64,7 @@ namespace IndustrialUnitProvider
       return IndustrialExcelPackage;
     }
 
-    public static ExcelPackage AssignDBTableToSheet<T>(string tableName)
+    public static ExcelPackage AssignDatabaseTableDataToExcelSheet(string tableName)
     {
       string sqlCommand = $"SELECT * FROM {tableName}";
 
@@ -63,7 +75,7 @@ namespace IndustrialUnitProvider
       if (dbRowNumber == 0)
         return null;
       
-      ExcelWorksheet sheet = CreateExcelSheet<T>(tableName).Workbook.Worksheets[tableName];
+      //ExcelWorksheet sheet = CreateExcelSheet<T>(tableName).Workbook.Worksheets[tableName];
 
       for (int i = 0; i < dbRowNumber; i++)
       {
@@ -71,7 +83,7 @@ namespace IndustrialUnitProvider
 
         for (int j = 0; j < dbColumnNumber; j++)
         {
-          sheet.Cells[i+2, j+1].Value = item.ItemArray[j];
+          //sheet.Cells[i+2, j+1].Value = item.ItemArray[j];
         }
       }
 

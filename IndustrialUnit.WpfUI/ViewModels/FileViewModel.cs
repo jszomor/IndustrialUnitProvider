@@ -2,6 +2,7 @@
 using IndustrialUnitProvider;
 using Microsoft.Win32;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -37,6 +38,20 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
+    //private Task<long> _processTime2;
+    //public Task<long> ProcessTime2
+    //{
+    //  get { return _processTime2.Result; }
+    //  set { _processTime2 = value; OnPropertyChanged(); }
+    //}
+
+    private long? _processTime;
+    public long? ProcessTime
+    {
+      get { return _processTime; }
+      set { _processTime = value; OnPropertyChanged(); }
+    }
+
     public string Path { get; set; }
 
     public ICommand SelectFileDialogBox { get; }
@@ -46,12 +61,21 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
     private void RunSelectCommand() => (SelectedFile, Path) = FileModel.OpenFile();
     private void RunLoadCommand() => LogMessage = FileModel.LoadIntoDB(Path);
+    private void RunSaveFileCommand()
+    {
+      Task<long> ElapsedProcessTimeMilliseconds = FileModel.SaveFile();
+      ProcessTime = ElapsedProcessTimeMilliseconds.Result;
+    }
+    private void RunDownLoadTemplateFileCommand()
+    {
+      long ProcessTime = FileModel.DownLoadTemplateFile();
+    }
     public FileViewModel()
     {
       SelectFileDialogBox = new RelayCommand(RunSelectCommand);
       LoadFile = new RelayCommand(RunLoadCommand);
-      SaveFile = new RelayCommand(FileModel.SaveFile);
-      DownloadTemplate = new RelayCommand(FileModel.DownLoadTemplateFile);
+      SaveFile = new RelayCommand(RunSaveFileCommand);
+      DownloadTemplate = new RelayCommand(RunDownLoadTemplateFileCommand);
     }
   }
 }

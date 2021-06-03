@@ -26,7 +26,7 @@ namespace IndustrialUnitProvider
       }
     }
 
-    public static ExcelPackage CreateExcelPackage(ExcelPackage excelPackage)
+    public static ExcelPackage SetupExcelPackage(ExcelPackage excelPackage)
     {
       excelPackage.Workbook.Properties.Author = "János Szomor";
       excelPackage.Workbook.Properties.Title = "Industrial Item Manager template";
