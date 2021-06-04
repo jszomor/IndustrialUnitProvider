@@ -66,10 +66,13 @@ namespace IndustrialUnit.WpfUI.ViewModels
       Task<long> ElapsedProcessTimeMilliseconds = FileModel.SaveFile();
       ProcessTime = ElapsedProcessTimeMilliseconds.Result;
     }
+
     private void RunDownLoadTemplateFileCommand()
     {
-      long ProcessTime = FileModel.DownLoadTemplateFile();
+      Task<long> ElapsedProcessTimeMilliseconds = FileModel.DownLoadTemplateFile();
+      ProcessTime = ElapsedProcessTimeMilliseconds.Result;
     }
+
     public FileViewModel()
     {
       SelectFileDialogBox = new RelayCommand(RunSelectCommand);
