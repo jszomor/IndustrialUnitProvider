@@ -36,7 +36,7 @@ namespace IndustrialUnitProvider
 
       if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage))  return;
 
-      int nextId = 1;
+      //int nextId = 1;
 
       for (int rowIndex = 2; rowIndex < sheet.Dimension.Rows + 1; rowIndex++)
       {
@@ -47,9 +47,21 @@ namespace IndustrialUnitProvider
           {
             if (columnNameToIndex.TryGetValue(item.Name, out int value))
             {
+              Type typeToConvert;
               try
               {
-                item.SetValue(unit, Convert.ChangeType(sheet.Cells[rowIndex, value].Text, item.PropertyType));
+                if(item.PropertyType.FullName == "System.String")
+                {
+                  typeToConvert = item.PropertyType;
+                }
+                else
+                {
+                  typeToConvert = item.PropertyType.GenericTypeArguments[0];
+                }
+
+                var convertedItem = Convert.ChangeType(sheet.Cells[rowIndex, value].Text, typeToConvert);
+
+                item.SetValue(unit, convertedItem);
               }
               catch
               {
@@ -57,11 +69,11 @@ namespace IndustrialUnitProvider
                 goto SkipRow;
               }
             }
-            else if (item.Name == "Id")
-            {
-              item.SetValue(unit, nextId);
-              nextId++;
-            }
+            //else if (item.Name == "Id")
+            //{
+            //  item.SetValue(unit, nextId);
+            //  nextId++;
+            //}
           }
 
           SQLiteDataAccess.AddCollection(unit, sheet.Name);

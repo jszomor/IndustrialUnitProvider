@@ -38,7 +38,7 @@ namespace IndustrialUnit.WpfUI.Models
             MediumToMeasure = Convert.ToString(item.ItemArray[4]),
             Supplier = Convert.ToString(item.ItemArray[5]),
             Manufacturer = Convert.ToString(item.ItemArray[6]),
-            UnitPrice = item.ItemArray[7],
+            UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
           });
       }
       return instrumentCollection;

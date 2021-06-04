@@ -100,8 +100,8 @@
       }
     }
 
-    private object _unitPrice;
-    public object UnitPrice
+    private decimal? _unitPrice;
+    public decimal? UnitPrice
     {
       get
       {

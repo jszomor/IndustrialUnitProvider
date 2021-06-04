@@ -1,16 +1,146 @@
 [
   {
-    "Id": 1,
+    "Id": 158,
     "ItemType": "Blower",
-    "Capacity": 25.0,
+    "Capacity": 333.0,
     "Pressure": 600.0,
-    "PowerConsumption": 55.0,
+    "PowerConsumption": 18.0,
     "Manufacturer": "Kubicek",
-    "Model": "80B",
-    "UnitPrice": 35000.0
+    "Model": "55C",
+    "UnitPrice": 22000.0
   },
   {
-    "Id": 2,
+    "Id": 160,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 173,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 174,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 175,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 179,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 180,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C2",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 182,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 188,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 76.0,
+    "Manufacturer": "Kubicek",
+    "Model": "35C",
+    "UnitPrice": 24000.0
+  },
+  {
+    "Id": 205,
+    "ItemType": "Blower",
+    "Capacity": 60.85,
+    "Pressure": 16.85,
+    "PowerConsumption": 50.45,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22.559
+  },
+  {
+    "Id": 208,
+    "ItemType": "Blower",
+    "Capacity": 123123.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 76.0,
+    "Manufacturer": "Kubicek",
+    "Model": "35C",
+    "UnitPrice": 24000.0
+  },
+  {
+    "Id": 209,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 76.0,
+    "Manufacturer": "Kubicek",
+    "Model": "35C",
+    "UnitPrice": 24000.0
+  },
+  {
+    "Id": 210,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C2",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 215,
+    "ItemType": "Blower",
+    "Capacity": 12.4,
+    "Pressure": 600.0,
+    "PowerConsumption": 76.0,
+    "Manufacturer": "Kubicek",
+    "Model": "35C",
+    "UnitPrice": 24000.0
+  },
+  {
+    "Id": 226,
     "ItemType": "Blower",
     "Capacity": 30.0,
     "Pressure": 600.0,
@@ -20,17 +150,7 @@
     "UnitPrice": 40000.0
   },
   {
-    "Id": 3,
-    "ItemType": "Blower",
-    "Capacity": 35.0,
-    "Pressure": 600.0,
-    "PowerConsumption": 65.0,
-    "Manufacturer": "Kubicek",
-    "Model": "90B",
-    "UnitPrice": 45000.0
-  },
-  {
-    "Id": 4,
+    "Id": 228,
     "ItemType": "Blower",
     "Capacity": 40.0,
     "Pressure": 600.0,
@@ -40,7 +160,7 @@
     "UnitPrice": 50000.0
   },
   {
-    "Id": 5,
+    "Id": 229,
     "ItemType": "Blower",
     "Capacity": 45.0,
     "Pressure": 600.0,
@@ -50,17 +170,67 @@
     "UnitPrice": 45000.0
   },
   {
-    "Id": 6,
+    "Id": 231,
     "ItemType": "Blower",
-    "Capacity": 50.0,
+    "Capacity": 4234.0,
     "Pressure": 600.0,
-    "PowerConsumption": 80.0,
+    "PowerConsumption": 234.0,
     "Manufacturer": "Kubicek",
-    "Model": "95B",
-    "UnitPrice": 50000.0
+    "Model": "100B",
+    "UnitPrice": 3.5
   },
   {
-    "Id": 7,
+    "Id": 232,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 233,
+    "ItemType": "qwrawr",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 76.0,
+    "Manufacturer": "Kubicek",
+    "Model": "35C",
+    "UnitPrice": 24000.0
+  },
+  {
+    "Id": 237,
+    "ItemType": "Blower2",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 68.546,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 654.6546
+  },
+  {
+    "Id": 238,
+    "ItemType": "Blower2",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 241,
+    "ItemType": "Blower2",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 243,
     "ItemType": "Blower",
     "Capacity": 55.0,
     "Pressure": 600.0,
@@ -70,7 +240,3897 @@
     "UnitPrice": 55000.0
   },
   {
-    "Id": 8,
+    "Id": 244,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 246,
+    "ItemType": "Blower",
+    "Capacity": 33.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 247,
+    "ItemType": "1ew",
+    "Capacity": 0.0,
+    "Pressure": 0.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "qewe",
+    "Model": "1dwq",
+    "UnitPrice": 0.0
+  },
+  {
+    "Id": 248,
+    "ItemType": "1d1",
+    "Capacity": 0.0,
+    "Pressure": 0.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "ddwq",
+    "Model": "dqnjfrtg",
+    "UnitPrice": 0.0
+  },
+  {
+    "Id": 249,
+    "ItemType": "dfwaqrfdaw",
+    "Capacity": 0.0,
+    "Pressure": 0.0,
+    "PowerConsumption": 1.145,
+    "Manufacturer": "asdad",
+    "Model": "dasdasd",
+    "UnitPrice": 0.0
+  },
+  {
+    "Id": 250,
+    "ItemType": "qwrawr",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 76.0,
+    "Manufacturer": "Kubicek",
+    "Model": "1,5",
+    "UnitPrice": 24000.0
+  },
+  {
+    "Id": 251,
+    "ItemType": "Blower",
+    "Capacity": 33.234,
+    "Pressure": 600.0,
+    "PowerConsumption": 18.0,
+    "Manufacturer": "Kubicek",
+    "Model": "55C",
+    "UnitPrice": 22000.0
+  },
+  {
+    "Id": 252,
+    "ItemType": "Blower",
+    "Capacity": 555555.55555,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 253,
+    "ItemType": "567567",
+    "Capacity": 23498.75123,
+    "Pressure": 2345.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "bvsdfsfs",
+    "Model": "sdfsg",
+    "UnitPrice": 0.0
+  },
+  {
+    "Id": 258,
+    "ItemType": "123",
+    "Capacity": 0.0,
+    "Pressure": 0.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "eqw2e",
+    "Model": "12e32",
+    "UnitPrice": 0.0
+  },
+  {
+    "Id": 259,
+    "ItemType": "Blower",
+    "Capacity": 50.6,
+    "Pressure": 600.0,
+    "PowerConsumption": 76.0,
+    "Manufacturer": "Kubicek",
+    "Model": "35C",
+    "UnitPrice": 24000.5
+  },
+  {
+    "Id": 261,
+    "ItemType": "Blower",
+    "Capacity": 4687.32542,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.256,
+    "Manufacturer": "Kubicek",
+    "Model": "35C",
+    "UnitPrice": 24000.0
+  },
+  {
+    "Id": 263,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 264,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 265,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 266,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 267,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 268,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 269,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 270,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 271,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 272,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 273,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 274,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 275,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 276,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 277,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 278,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 279,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 280,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 281,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 282,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 283,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 284,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 285,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 286,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 287,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 288,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 289,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 290,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 291,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 292,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 293,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 294,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 295,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 296,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 297,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 298,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 299,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 300,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 301,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 302,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 303,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 304,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 305,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 306,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 307,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 308,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 309,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 310,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 311,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 312,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 313,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 314,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 315,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 316,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 317,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 318,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 319,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 320,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 321,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 322,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 323,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 324,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 325,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 326,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 327,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 328,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 329,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 330,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 331,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 332,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 333,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 334,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 335,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 336,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 337,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 338,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 339,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 340,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 341,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 342,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 343,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 650.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 344,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 345,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 346,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 347,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 348,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 349,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 350,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 351,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 352,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 353,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 354,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 355,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 356,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 357,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 358,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 359,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 360,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 361,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 362,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 363,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 364,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 365,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 366,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 367,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 368,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 369,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 370,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 371,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 372,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 373,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 374,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 375,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 376,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 377,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 378,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 379,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 380,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 381,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 382,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 383,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 384,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 385,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 386,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 387,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 388,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 389,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 390,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 391,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 392,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 393,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 394,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 395,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 396,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 397,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 398,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 399,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 400,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 401,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 402,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 403,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 404,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 405,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 406,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 407,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 408,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 409,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 410,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 411,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 412,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 413,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 414,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 415,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 416,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 417,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 418,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 419,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 420,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 421,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 422,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 423,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 424,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 425,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 426,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 427,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 428,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 429,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 430,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 431,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 432,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 433,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 434,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 435,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 436,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 437,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 438,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 439,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 440,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 441,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 442,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 443,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 444,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 445,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 446,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 447,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 448,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 449,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 450,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 451,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 452,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 453,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 454,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 455,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 456,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 457,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 458,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 459,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 460,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 461,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 462,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 463,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 464,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 465,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 466,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 467,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 468,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 469,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 470,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 471,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 472,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 473,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 474,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 475,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 476,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 477,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 478,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 479,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 480,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 481,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 482,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 483,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 484,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 485,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 486,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 487,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 488,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 489,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 490,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 491,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 492,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 493,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 494,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 495,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 496,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 497,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 498,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 499,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 500,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 501,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 502,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 503,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 504,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 505,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 506,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 507,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 508,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 509,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 510,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 511,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 512,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 513,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 514,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 515,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 516,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 517,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 518,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 519,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 520,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 521,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 522,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 523,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 524,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 525,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 526,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 527,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 528,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 529,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 530,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 531,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 532,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 533,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 534,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 535,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 536,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 537,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 538,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 539,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 540,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 541,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 542,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 543,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 544,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 545,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 546,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 547,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 548,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 549,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 550,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 551,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 552,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 553,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 554,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 555,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 556,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 557,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 558,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 559,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 560,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 561,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 562,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 563,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 564,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 565,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 566,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 567,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 568,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 569,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 570,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 571,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 572,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 573,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 574,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 575,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 576,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 577,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 578,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 579,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 580,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 581,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 582,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 583,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 584,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 585,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 650.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 586,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 587,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 588,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 589,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 590,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 591,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 592,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 593,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 594,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 595,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 596,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 597,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 598,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 599,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 600,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 601,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 602,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 603,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 0.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 604,
+    "ItemType": "365",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 605,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 606,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 607,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 608,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 609,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 610,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 611,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 612,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 613,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 614,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 615,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 616,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 617,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 618,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 619,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 620,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 0.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 621,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 650.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 622,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 623,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 624,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 625,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 626,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 627,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 628,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 629,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 630,
+    "ItemType": "Blower",
+    "Capacity": 60.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 90.0,
+    "Manufacturer": "Kubicek",
+    "Model": "105B",
+    "UnitPrice": 60000.0
+  },
+  {
+    "Id": 631,
+    "ItemType": "365",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 632,
+    "ItemType": "365",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 633,
+    "ItemType": "Blower",
+    "Capacity": 25.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 55.0,
+    "Manufacturer": "Kubicek",
+    "Model": "80B",
+    "UnitPrice": 35000.0
+  },
+  {
+    "Id": 634,
+    "ItemType": "Blower",
+    "Capacity": 30.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 60.0,
+    "Manufacturer": "Kubicek",
+    "Model": "85B",
+    "UnitPrice": 40000.0
+  },
+  {
+    "Id": 635,
+    "ItemType": "Blower",
+    "Capacity": 35.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 65.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 636,
+    "ItemType": "Blower",
+    "Capacity": 40.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 70.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 637,
+    "ItemType": "Blower",
+    "Capacity": 45.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 75.0,
+    "Manufacturer": "Kubicek",
+    "Model": "90B",
+    "UnitPrice": 45000.0
+  },
+  {
+    "Id": 638,
+    "ItemType": "Blower",
+    "Capacity": 50.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 80.0,
+    "Manufacturer": "Kubicek",
+    "Model": "95B",
+    "UnitPrice": 50000.0
+  },
+  {
+    "Id": 639,
+    "ItemType": "Blower",
+    "Capacity": 55.0,
+    "Pressure": 600.0,
+    "PowerConsumption": 85.0,
+    "Manufacturer": "Kubicek",
+    "Model": "100B",
+    "UnitPrice": 55000.0
+  },
+  {
+    "Id": 640,
     "ItemType": "Blower",
     "Capacity": 60.0,
     "Pressure": 600.0,

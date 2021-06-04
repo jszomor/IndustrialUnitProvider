@@ -47,8 +47,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private object _size;
-    public object Size
+    private decimal? _size;
+    public decimal? Size
     {
       get
       {
@@ -103,8 +103,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private object _unitPrice;
-    public object UnitPrice
+    private decimal? _unitPrice;
+    public decimal? UnitPrice
     {
       get
       {
