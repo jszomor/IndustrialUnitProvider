@@ -12,20 +12,15 @@ namespace IndustrialUnitProvider
 
     public static ExcelPackage IndustrialExcelPackage { get; set; }
 
-    public static async Task<ExcelPackage> CreateEmptyTemplate()
+    public static ExcelPackage CreateEmptyTemplate()
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
       IndustrialExcelPackage = new ExcelPackage();
       ExcelWorker.SetupExcelPackage(IndustrialExcelPackage);
 
-      List<Task> tasks = new List<Task>
-      {
-        Task.Run(() => CreateExcelSheet<Equipment>(ValidSheetNames.Equipment.ToString())),
-        Task.Run(() => CreateExcelSheet<Instrument>(ValidSheetNames.Instrument.ToString())),
-        Task.Run(() => CreateExcelSheet<Valve>(ValidSheetNames.Valve.ToString()))
-      };
-
-      await Task.WhenAll(tasks);
+      CreateExcelSheet<Equipment>(ValidSheetNames.Equipment.ToString());
+      CreateExcelSheet<Instrument>(ValidSheetNames.Instrument.ToString());
+      CreateExcelSheet<Valve>(ValidSheetNames.Valve.ToString());
 
       return IndustrialExcelPackage;
     }
@@ -36,14 +31,12 @@ namespace IndustrialUnitProvider
       IndustrialExcelPackage = new ExcelPackage();
       ExcelWorker.SetupExcelPackage(IndustrialExcelPackage);
 
-      List<Task> tasks = new List<Task>
-      {
+      await Task.WhenAll
+      (
         Task.Run(() => AssignDatabaseTableDataToExcelSheet<Equipment>(ValidSheetNames.Equipment.ToString())),
         Task.Run(() => AssignDatabaseTableDataToExcelSheet<Valve>(ValidSheetNames.Valve.ToString())),
         Task.Run(() => AssignDatabaseTableDataToExcelSheet<Instrument>(ValidSheetNames.Instrument.ToString()))
-      };
-
-      await Task.WhenAll(tasks);
+      );
 
       return IndustrialExcelPackage;
     }
@@ -75,7 +68,7 @@ namespace IndustrialUnitProvider
 
       if (dbRowNumber == 0)
         return null;
-      
+
       ExcelWorksheet sheet = CreateExcelSheet<T>(tableName).Workbook.Worksheets[tableName];
 
       for (int i = 0; i < dbRowNumber; i++)
@@ -84,7 +77,7 @@ namespace IndustrialUnitProvider
 
         for (int j = 0; j < dbColumnNumber; j++)
         {
-          sheet.Cells[i+2, j+1].Value = item.ItemArray[j];
+          sheet.Cells[i + 2, j + 1].Value = item.ItemArray[j];
         }
       }
 

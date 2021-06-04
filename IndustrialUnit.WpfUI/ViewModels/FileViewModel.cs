@@ -38,13 +38,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    //private Task<long> _processTime2;
-    //public Task<long> ProcessTime2
-    //{
-    //  get { return _processTime2.Result; }
-    //  set { _processTime2 = value; OnPropertyChanged(); }
-    //}
-
     private long? _processTime;
     public long? ProcessTime
     {
@@ -67,11 +60,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       ProcessTime = ElapsedProcessTimeMilliseconds.Result;
     }
 
-    private void RunDownLoadTemplateFileCommand()
-    {
-      Task<long> ElapsedProcessTimeMilliseconds = FileModel.DownLoadTemplateFile();
-      ProcessTime = ElapsedProcessTimeMilliseconds.Result;
-    }
+    private void RunDownLoadTemplateFileCommand() => ProcessTime = FileModel.DownLoadTemplateFile();
 
     public FileViewModel()
     {

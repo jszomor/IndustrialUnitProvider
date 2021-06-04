@@ -96,7 +96,7 @@
     <Border BorderThickness="1" BorderBrush="Gray" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,10" Width="328">
       <TextBlock
           Height="30"
-          Text="{Binding ProcessTime2, UpdateSourceTrigger=PropertyChanged}"
+          Text="{Binding ProcessTime, UpdateSourceTrigger=PropertyChanged}"
           Background="AntiqueWhite"
           Padding="5"
           FontSize="13">

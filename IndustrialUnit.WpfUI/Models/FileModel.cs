@@ -66,11 +66,11 @@ namespace IndustrialUnit.WpfUI.Models
       return elapsedMs;
     }
 
-    internal static async Task<long> DownLoadTemplateFile()
+    internal static long DownLoadTemplateFile()
     {
       var watch = Stopwatch.StartNew();
 
-      var excelPackage = await DataToExcel.CreateEmptyTemplate();
+      var excelPackage = DataToExcel.CreateEmptyTemplate();
 
       watch.Stop();
       var elapsedMs = watch.ElapsedMilliseconds;
