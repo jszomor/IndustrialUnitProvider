@@ -158,7 +158,7 @@
       <TextBox.Text>
         <Binding Path="SelectedValve.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:NumericValidationRule MinimumCharacters="0"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="0"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -183,7 +183,7 @@
       <TextBox.Text>
         <Binding Path="SelectedValve.ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="3"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -208,7 +208,7 @@
       <TextBox.Text>
         <Binding Path="SelectedValve.Operation" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="1"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -240,7 +240,7 @@
       <TextBox.Text>
         <Binding Path="SelectedValve.Size" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumericValidationRule MinimumCharacters="1"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -265,7 +265,7 @@
       <TextBox.Text>
         <Binding Path="SelectedValve.ConnectionType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="1"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -290,7 +290,7 @@
       <TextBox.Text>
         <Binding Path="SelectedValve.Supplier" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="3"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -315,7 +315,7 @@
       <TextBox.Text>
         <Binding Path="SelectedValve.Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="3"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -347,7 +347,7 @@
       <TextBox.Text>
         <Binding Path="SelectedValve.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumericValidationRule MinimumCharacters="1"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>

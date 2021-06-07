@@ -72,8 +72,8 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitAdd(Equipment item)
     {
-      if (item == null)
-        return "No empty cell is allowed.";
+      if (IsEquipmentEmpty(item) == false || item == null)
+        return "No empty cell is allowed for Insert.";
 
       string sqlCommand =
           $"insert into {TableName} (ItemType, Capacity, Pressure, PowerConsumption, Manufacturer, Model, UnitPrice) " +
@@ -92,10 +92,10 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitUpdate(Equipment equipment)
+    public static string SubmitUpdate(Equipment item)
     {
-      if (equipment == null)
-        return "No empty cell is allowed.";
+      if (IsEquipmentEmpty(item) == false || item == null)
+        return "No empty cell is allowed for Update.";
 
       string sqlCommand =
           $"update {TableName} set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
@@ -103,8 +103,8 @@ namespace IndustrialUnit.WpfUI.Models
 
       try
       {
-        SQLiteDataAccess.ActOnItem(equipment, sqlCommand + equipment.Id);
-        return $"Id number: [{equipment.Id}] successfully updated \nPress refresh to see the result.";
+        SQLiteDataAccess.ActOnItem(item, sqlCommand + item.Id);
+        return $"Id number: [{item.Id}] successfully updated \nPress refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {
@@ -113,23 +113,39 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitDelete(Equipment equipment)
+    public static string SubmitDelete(Equipment item)
     {
-      if (equipment.Id <= 0 || equipment == null || equipment.Id == null)
+      if (item.Id <= 0 || item == null || item.Id == null)
         return "Please select an item to delete.";
 
-      string sqlCommand = $"delete from {TableName} where id={equipment.Id}";
+      string sqlCommand = $"delete from {TableName} where id={item.Id}";
 
       try
       {
         SQLiteDataAccess.Delete(sqlCommand);
-        return $"Id number: [{equipment.Id}] successfully deleted. \nPress Refresh to see the result.";
+        return $"Id number: [{item.Id}] successfully deleted. \nPress Refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {
         Debug.WriteLine("Database access failed!");
         throw new FileNotFoundException($"{message}");
       }
+    }
+
+    internal static bool IsEquipmentEmpty(Equipment item)
+    {
+      if (
+          string.IsNullOrEmpty(item.ItemType) ||
+          item.Capacity == null ||
+          item.Pressure == null ||
+          item.PowerConsumption == null ||
+          string.IsNullOrEmpty(item.Manufacturer) ||
+          string.IsNullOrEmpty(item.Model) ||
+          item.UnitPrice == null)
+      {
+        return false;
+      }
+      return true;
     }
   }
 }

@@ -63,18 +63,28 @@ namespace IndustrialUnit.WpfUI.ViewModels
     private void RunFilterCommand()
     {
       var (equipments, messageToScreen) = EquipmentRepository.GetFilteredEquipments(SelectedEquipmentViewModel.ItemType);
-      UpdateEquipmentList(equipments);
-      MessageToScreen = messageToScreen;
+
+      if (equipments == null)
+        MessageToScreen = messageToScreen;
+
+      else
+      {
+        UpdateEquipmentList(equipments);
+        MessageToScreen = messageToScreen;
+      }
     }
 
     private void RunRefreshCommand()
     {
       var (equipments, messageToScreen) = EquipmentRepository.GetAllEquipments();
-      UpdateEquipmentList(equipments);
+
       if (equipments == null)
         MessageToScreen = messageToScreen;
       else
+      {
+        UpdateEquipmentList(equipments);
         MessageToScreen = "Refresh done.";
+      }
     }
 
     public ICommand AddCommand { get; }

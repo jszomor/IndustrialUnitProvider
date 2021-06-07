@@ -159,7 +159,7 @@
       <TextBox.Text>
         <Binding Path="SelectedItem.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
-            <validationrules:NumericValidationRule MinimumCharacters="0"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="0"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -185,7 +185,7 @@
       <TextBox.Text>
         <Binding Path="SelectedItem.ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="3"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -211,7 +211,7 @@
       <TextBox.Text>
         <Binding Path="SelectedItem.OperationPrinciple" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="1"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -237,7 +237,7 @@
       <TextBox.Text>
         <Binding Path="SelectedItem.InstallationType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="1"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -263,7 +263,7 @@
       <TextBox.Text>
         <Binding Path="SelectedItem.MediumToMeasure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="1"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -289,7 +289,7 @@
       <TextBox.Text>
         <Binding Path="SelectedItem.Supplier" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="3"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -315,7 +315,7 @@
       <TextBox.Text>
         <Binding Path="SelectedItem.Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:StringValidationRule MinimumCharacters="3"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
@@ -347,7 +347,7 @@
       <TextBox.Text>
         <Binding Path="SelectedItem.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
-            <validationrules:NumericValidationRule MinimumCharacters="1"/>
+            <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
         </Binding>
       </TextBox.Text>
