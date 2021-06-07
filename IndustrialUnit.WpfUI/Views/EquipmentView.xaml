@@ -157,7 +157,7 @@
       Foreground="Gray">
       
       <TextBox.Text>
-        <Binding Path="SelectedEquipmentViewModel.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="LostFocus">
+        <Binding Path="SelectedEquipmentViewModel.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="0"/>
           </Binding.ValidationRules>
@@ -215,7 +215,7 @@
       </i:Interaction.Triggers>
 
       <TextBox.Text>
-        <Binding Path="SelectedEquipmentViewModel.Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="Default" Mode="TwoWay">
+        <Binding Path="SelectedEquipmentViewModel.Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -248,7 +248,7 @@
       </i:Interaction.Triggers>
       
       <TextBox.Text>
-        <Binding Path="SelectedEquipmentViewModel.Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="Default" Mode="TwoWay">
+        <Binding Path="SelectedEquipmentViewModel.Pressure" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -280,7 +280,7 @@
       </i:Interaction.Triggers>
       
       <TextBox.Text>
-        <Binding Path="SelectedEquipmentViewModel.PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="Default" Mode="TwoWay">
+        <Binding Path="SelectedEquipmentViewModel.PowerConsumption" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -364,7 +364,7 @@
       </i:Interaction.Triggers>
       
       <TextBox.Text>
-        <Binding Path="SelectedEquipmentViewModel.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="Default" Mode="TwoWay">
+        <Binding Path="SelectedEquipmentViewModel.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>

@@ -23,10 +23,6 @@ namespace IndustrialUnit.WpfUI.ViewModels
     {
       var ue = e.Source as TextBox;
 
-      //string text = ue.Text + e.Text;
-
-      //ue.Text = text;
-
       Regex regex;
       if (ue.Text.Contains("."))
       {
