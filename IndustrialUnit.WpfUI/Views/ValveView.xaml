@@ -13,7 +13,7 @@
 
 
   <UserControl.DataContext>
-    <viewModel:ValveViewModel/>
+    <viewModel:Valve/>
   </UserControl.DataContext>
 
   <UserControl.Resources>

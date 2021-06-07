@@ -48,12 +48,16 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public static void ActOnItem<T>(T unitType, string sqlCommand)
+    public static int ActOnItem<T>(T unitType, string sqlCommand)
     {
+      int newId = 0;
       RunDatabaseCommandsToModify(db =>
       {
         db.Execute(sqlCommand, unitType);
+        newId = (int)db.LastInsertRowId;
       });
+
+      return newId;
     }
 
     public static void Delete(string sqlCommand)

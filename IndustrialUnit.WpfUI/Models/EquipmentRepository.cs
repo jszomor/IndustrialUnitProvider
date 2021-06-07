@@ -16,9 +16,9 @@ namespace IndustrialUnit.WpfUI.Models
 
     private static List<Equipment> MapEquipmentList(string sqlCommand)
     {
-      var itemsTable = SQLiteDataAccess.GetDb(sqlCommand, TableName);
+      var equipmentData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
-      var dbRowNumber = itemsTable.Rows.Count;
+      var dbRowNumber = equipmentData.Rows.Count;
 
       if (dbRowNumber == 0)
         return null;
@@ -27,7 +27,7 @@ namespace IndustrialUnit.WpfUI.Models
 
       for (int i = 0; i < dbRowNumber; i++)
       {
-        var item = itemsTable.Rows[i];
+        var item = equipmentData.Rows[i];
 
         list.Add(
             new Equipment
@@ -59,12 +59,12 @@ namespace IndustrialUnit.WpfUI.Models
     public static (List<Equipment>, string) GetFilteredEquipments(string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
-        return (null, "Filter key is [Item Name], \nit cannot be empty for searching!");
+        return (null, "Filter key is [Item Name], \nit cannot be empty for filtering!");
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
       if ((MapEquipmentList(sqlCommand) == null))
-        return (null, $"Filter name: [{selectedItem}] not found.");
+        return (null, $"Filter name: [{selectedItem}] not found in database.");
 
       return (MapEquipmentList(sqlCommand),
           $"Filter name is: [{selectedItem}] \nPress Refresh to see the whole database again.");
@@ -72,7 +72,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitAdd(Equipment item)
     {
-      if (IsEquipmentEmpty(item) == false || item == null)
+      if (!IsEquipmentEmpty(item) || item == null)
         return "No empty cell is allowed for Insert.";
 
       string sqlCommand =
@@ -81,9 +81,9 @@ namespace IndustrialUnit.WpfUI.Models
 
       try
       {
-        SQLiteDataAccess.ActOnItem(item, sqlCommand);
+        int newId = SQLiteDataAccess.ActOnItem(item, sqlCommand);
 
-        return "You have successfully added. \nPress refresh to see the result.";
+        return $"You have successfully added [{newId}] id. \nPress refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {
@@ -94,7 +94,7 @@ namespace IndustrialUnit.WpfUI.Models
 
     public static string SubmitUpdate(Equipment item)
     {
-      if (IsEquipmentEmpty(item) == false || item == null)
+      if (!IsEquipmentEmpty(item) || item == null)
         return "No empty cell is allowed for Update.";
 
       string sqlCommand =
