@@ -19,11 +19,14 @@ namespace IndustrialUnit.WpfUI.Models
       var equipmentData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
       var dbRowNumber = equipmentData.Rows.Count;
+      
+      var list = new List<Equipment>();
 
       if (dbRowNumber == 0)
-        return null;
+      {
+        return list;
+      }
 
-      var list = new List<Equipment>();
 
       for (int i = 0; i < dbRowNumber; i++)
       {

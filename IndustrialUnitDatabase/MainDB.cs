@@ -13,7 +13,7 @@ namespace IndustrialUnitDatabase
       //Console.WriteLine("Currently available tables: Equipment, Valve or Instrument. Please select.");
       //string tableName = Console.ReadLine();
       //var SQLiteDataAccess = new SQLiteDataAccess();
-      //SQLiteDataAccess.GetAll(tableName);
-    }
+      SQLiteDataAccess.CreateDatabase();
+     }
   }
 }

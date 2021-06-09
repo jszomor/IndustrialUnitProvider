@@ -97,10 +97,22 @@
               <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="Olive"/>
               </Trigger>
+              
               <DataTrigger Binding="{Binding ElementName=EqItemTypeTextBox, Path=(Validation.HasError)}" Value="True">
                 <Setter Property="IsEnabled" Value="False" />
                 <Setter Property="Background" Value="LightGray" />
-              </DataTrigger> 
+              </DataTrigger>
+
+              <DataTrigger Binding="{Binding ElementName=ValveItemTypeTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+
+              <DataTrigger Binding="{Binding ElementName=InsItemTypeTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+              
             </Style.Triggers>
           </Style>
 

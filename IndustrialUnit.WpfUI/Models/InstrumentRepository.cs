@@ -22,15 +22,18 @@ namespace IndustrialUnit.WpfUI.Models
 
       var dbRowNumber = getFilteredItem.Rows.Count;
 
-      if (dbRowNumber == 0)
-        return null;
+      List<Instrument> list = new();
 
-      List<Instrument> instrumentCollection = new();
+      if (dbRowNumber == 0)
+      {
+        return list;
+      }
+
 
       for (int i = 0; i < dbRowNumber; i++)
       {
         var item = getFilteredItem.Rows[i];
-        instrumentCollection.Add(
+        list.Add(
           new Instrument()
           {
             Id = Convert.ToInt32(item.ItemArray[0]),
@@ -43,7 +46,7 @@ namespace IndustrialUnit.WpfUI.Models
             UnitPrice = Convert.ToDecimal(item.ItemArray[7]),
           });
       }
-      return instrumentCollection;
+      return list;
     }
 
     internal static (List<Instrument>, string) GetAllInstruments()
@@ -133,7 +136,6 @@ namespace IndustrialUnit.WpfUI.Models
     internal static bool IsTextBoxEmpty(Instrument ins)
     {
       if (
-          ins.Id == null ||
           string.IsNullOrEmpty(ins.ItemType) ||
           string.IsNullOrEmpty(ins.OperationPrinciple) ||
           string.IsNullOrEmpty(ins.InstallationType) ||

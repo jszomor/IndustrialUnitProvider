@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using IndustrialUnit.Model;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.IO;
@@ -96,6 +97,73 @@ namespace IndustrialUnitDatabase
       else
       {
         throw new FileNotFoundException("Database file not found!");
+      }
+    }
+
+    public static List<string> CreateDatabase()
+    {
+      SQLiteConnection con;
+      SQLiteCommand cmd;
+
+      string sqlEquipment = @"CREATE TABLE EQUIPMENT(
+                              ID                INTEGER PRIMARY KEY AUTOINCREMENT,
+                              ItemType          TEXT    NULL,
+                              Capacity          DECIMAL NULL,
+                              Pressure          DECIMAL NULL,
+                              PowerConsumption  DECIMAL NULL,
+                              Manufacturer      TEXT    NULL,
+                              Model             TEXT    NULL,
+                              UnitPrice         DECIMAL NULL                              
+                            );";
+
+      string sqlValve = @"CREATE TABLE VALVE(
+                              ID                INTEGER PRIMARY KEY AUTOINCREMENT,
+                              ItemType          TEXT    NULL,
+                              Operation         TEXT    NULL,
+                              Size              INTEGER NULL,
+                              ConnectionType    TEXT    NULL,
+                              Supplier          TEXT    NULL,
+                              Manufacturer      TEXT    NULL,
+                              UnitPrice         DECIMAL NULL                              
+                            );";
+
+      string sqlInstrument = @"CREATE TABLE INSTRUMENT(
+                              ID                  INTEGER PRIMARY KEY AUTOINCREMENT,
+                              ItemType            TEXT  NULL,
+                              OperationPrinciple  TEXT  NULL,
+                              InstallationType    TEXT  NULL,
+                              MediumToMeasure     TEXT  NULL,
+                              Supplier            TEXT  NULL,
+                              Manufacturer        TEXT  NULL,
+                              UnitPrice           DECIMAL NULL                              
+                            );";
+
+      List<string> logMessage = new List<string>();
+
+      string[] tableArray = new[] { sqlEquipment, sqlValve, sqlInstrument };
+
+      if (!File.Exists("IndustrialUnitDB.db"))
+      {
+        SQLiteConnection.CreateFile("IndustrialUnitDB.db");
+
+        con = new SQLiteConnection("Data Source=IndustrialUnitDB.db;Version=3;");
+        con.Open();
+
+        foreach (var sqlCommand in tableArray)
+        {
+          cmd = new SQLiteCommand(sqlCommand, con);
+          cmd.ExecuteNonQuery();
+        }
+
+        con.Close();
+
+        logMessage.Add("Database created successfully.");
+        return logMessage;
+      }
+      else
+      {
+        logMessage.Add("Database already exist. \nDelete or rename the previous one.");
+        return logMessage;
       }
     }
   }

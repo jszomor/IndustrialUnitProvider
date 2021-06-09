@@ -82,8 +82,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private decimal? _size;
-    public decimal? Size
+    private int? _size;
+    public int? Size
     {
       get
       {

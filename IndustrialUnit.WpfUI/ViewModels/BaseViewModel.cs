@@ -24,13 +24,18 @@ namespace IndustrialUnit.WpfUI.ViewModels
       var ue = e.Source as TextBox;
 
       Regex regex;
-      if (ue.Text.Contains("."))
+
+      if(ue.DataContext is ValveListViewModel && ue.Name.Contains("Size"))
+      {
+        regex = new Regex("[^0-9]+");
+      }
+      else if (ue.Text.Contains("."))
       {
         regex = new Regex("[^0-9]+");
       }
       else
       {
-        regex = new Regex("[^0-9.]+");
+        regex = new Regex("[^0-9][.]+$");
       }
 
       e.Handled = regex.IsMatch(e.Text);

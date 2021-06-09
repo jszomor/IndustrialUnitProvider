@@ -1,4 +1,5 @@
 ﻿using IndustrialUnit.WpfUI.Models;
+using IndustrialUnitDatabase;
 using IndustrialUnitProvider;
 using Microsoft.Win32;
 using System.Collections.Generic;
@@ -43,15 +44,18 @@ namespace IndustrialUnit.WpfUI.ViewModels
     public ICommand LoadFile { get; }
     public ICommand SaveFile { get; }
     public ICommand DownloadTemplate { get; }
+    public ICommand CreateEmptyDatabase { get; }
 
     private void RunSelectCommand() => (SelectedFile, Path) = FileModel.OpenFile();
     private void RunLoadCommand() => LogMessage = FileModel.LoadIntoDB(Path);
+    private void RunDBCreator() => LogMessage = FileModel.DBCreator();
     public FileViewModel()
     {
       SelectFileDialogBox = new RelayCommand(RunSelectCommand);
       LoadFile = new RelayCommand(RunLoadCommand);
       SaveFile = new RelayCommand(FileModel.SaveFile);
       DownloadTemplate = new RelayCommand(FileModel.DownLoadTemplateFile);
+      CreateEmptyDatabase = new RelayCommand(RunDBCreator);
     }
   }
 }

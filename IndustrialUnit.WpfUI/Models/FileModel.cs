@@ -1,4 +1,5 @@
-﻿using IndustrialUnitProvider;
+﻿using IndustrialUnitDatabase;
+using IndustrialUnitProvider;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -68,6 +69,11 @@ namespace IndustrialUnit.WpfUI.Models
         FileInfo fi = new FileInfo(saveFileDialog.FileName);
         excelPackage.SaveAs(fi);
       }
+    }
+
+    internal static List<string> DBCreator()
+    {
+      return SQLiteDataAccess.CreateDatabase();
     }
   }
 }

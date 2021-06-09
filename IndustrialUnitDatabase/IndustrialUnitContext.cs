@@ -7,7 +7,7 @@ namespace IndustrialUnitDatabase
 {
   public class IndustrialUnitContext : DbContext
   {
-    //public IndustrialUnitContext(DbContextOptions<IndustrialUnitContext> options) : base(options) { }
+    public IndustrialUnitContext(DbContextOptions<IndustrialUnitContext> options) : base(options) { }
     public DbSet<Equipment> Equipment { get; set; }
     public DbSet<Valve> Valve { get; set; }
     public DbSet<Instrument> Instrument { get; set; }

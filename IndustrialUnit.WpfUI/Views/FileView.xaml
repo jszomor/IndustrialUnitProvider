@@ -78,8 +78,17 @@
         Command="{Binding DownloadTemplate}"
         Margin="5"
         Height="30"
-        Width="120"
+        Width="150"
         FontSize="14"/>
+
+      <Button        
+        Style="{StaticResource RoundButtonTemplate}"
+        Content="Create new database"
+        Command="{Binding CreateEmptyDatabase}"
+        Margin="5"
+        Height="30"
+        Width="150"
+        FontSize="13"/>
 
     </StackPanel>
 
