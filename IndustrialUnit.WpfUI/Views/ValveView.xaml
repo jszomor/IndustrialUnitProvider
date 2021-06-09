@@ -23,7 +23,7 @@
 
           <viewModel:BaseViewModel x:Key="BaseViewModel"/>
 
-          <Style x:Key="RoundButtonValidationTemplate" TargetType="Button">
+          <Style x:Key="RoundButtonInsertAndUpdateValidationTemplate" TargetType="Button">
             <Setter Property="Background" Value="DarkKhaki" />
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="Template">
@@ -111,8 +111,8 @@
               Grid.RowSpan="14" 
               Margin="0,0,0,15" 
               AutoGenerateColumns="False"              
-              ItemsSource="{Binding Path=Valves, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-              SelectedItem="{Binding Path=SelectedValveViewModel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+              ItemsSource="{Binding Path=Valves}" 
+              SelectedItem="{Binding Path=SelectedValveViewModel}">
       <DataGrid.ColumnHeaderStyle>
         <Style TargetType="{x:Type DataGridColumnHeader}">
           <Setter Property="FontWeight" Value="Bold"/>
@@ -345,7 +345,7 @@
       </i:Interaction.Triggers>
       
       <TextBox.Text>
-        <Binding Path="SelectedValve.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedValveViewModel.UnitPrice" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -368,7 +368,7 @@
     </Border>
 
     <Button
-      Style ="{StaticResource RoundButtonTemplate}"
+      Style ="{StaticResource RoundButtonFilterValidationTemplate}"
       Name="ValveFilter" 
       Content="Filter" 
       Grid.Column="1" 
@@ -379,7 +379,7 @@
       Command="{Binding FilterCommand, UpdateSourceTrigger=PropertyChanged}"/>
 
     <Button
-      Style="{StaticResource RoundButtonTemplate}"
+      Style="{StaticResource RoundButtonInsertAndUpdateValidationTemplate}"
       Name="ValveInsert" 
       Content="Insert" 
       Grid.Column="2" 
@@ -390,7 +390,7 @@
       Command="{Binding AddCommand}"/>
 
     <Button
-      Style="{StaticResource RoundButtonTemplate}"
+      Style="{StaticResource RoundButtonInsertAndUpdateValidationTemplate}"
       Name="ValveUpdate" 
       Content="Update" 
       Grid.Column="1" 

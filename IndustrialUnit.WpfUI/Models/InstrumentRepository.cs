@@ -1,4 +1,5 @@
-﻿using IndustrialUnit.WpfUI.ViewModels;
+﻿using IndustrialUnit.Model.Model;
+using IndustrialUnit.WpfUI.ViewModels;
 using IndustrialUnitDatabase;
 using System;
 using System.Collections.Generic;
@@ -11,19 +12,20 @@ using System.Threading.Tasks;
 
 namespace IndustrialUnit.WpfUI.Models
 {
-  public class InstrumentModel
+  public class InstrumentRepository
   {
     private static readonly string TableName = "Instrument";
 
-    internal static ObservableCollection<Instrument> MapInstrument(string sqlCommand)
+    internal static List<Instrument> MapInstrument(string sqlCommand)
     {
-      ObservableCollection<Instrument> instrumentCollection = new();
       var getFilteredItem = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
       var dbRowNumber = getFilteredItem.Rows.Count;
 
       if (dbRowNumber == 0)
         return null;
+
+      List<Instrument> instrumentCollection = new();
 
       for (int i = 0; i < dbRowNumber; i++)
       {
@@ -44,7 +46,7 @@ namespace IndustrialUnit.WpfUI.Models
       return instrumentCollection;
     }
 
-    internal static (ObservableCollection<Instrument>, string) GetAllInstruments()
+    internal static (List<Instrument>, string) GetAllInstruments()
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
@@ -54,15 +56,15 @@ namespace IndustrialUnit.WpfUI.Models
       return (MapInstrument(sqlCommand), "Database loaded successfully.");
     }
 
-    internal static (ObservableCollection<Instrument>, string) GetFilteredInstruments(ObservableCollection<Instrument> Instruments, string selectedItem)
+    internal static (List<Instrument>, string) GetFilteredInstruments(string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
-        return (Instruments, "Filter key is [Item Name], \nit cannot be empty for searching!");
+        return (null, "Filter key is [Item Name], \nit cannot be empty for searching!");
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
       if ((MapInstrument(sqlCommand) == null))
-        return (Instruments, $"Filter name: [{selectedItem}] not found.");
+        return (null, $"Filter name: [{selectedItem}] not found.");
 
       return (MapInstrument(sqlCommand),
         $"Filter name: [{selectedItem}] \nPress Refresh to see the whole database again.");

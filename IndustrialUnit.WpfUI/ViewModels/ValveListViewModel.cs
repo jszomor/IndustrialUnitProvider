@@ -29,16 +29,16 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private ValveViewModel _selectedValve;
+    private ValveViewModel _selectedValveViewModel;
     public ValveViewModel SelectedValveViewModel
     {
       get
       {
-        return _selectedValve;
+        return _selectedValveViewModel;
       }
       set
       {
-        _selectedValve = value;
+        _selectedValveViewModel = value;
         OnPropertyChanged();
       }
     }

@@ -12,17 +12,26 @@ namespace IndustrialUnitProvider
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-      var workbook = new ExcelPackage(File.OpenRead(file));
-
-      if (workbook.Workbook.Worksheets[sheetName] == null)
+      try
       {
-        logMessage.Add($"[{sheetName}] sheet is not found.");
-        return null;
+        FileStream openFile = File.OpenRead(file);
+        var workbook = new ExcelPackage(openFile);
+        if (workbook.Workbook.Worksheets[sheetName] == null)
+        {
+          logMessage.Add($"[{sheetName}] sheet is not found.");
+          return null;
+        }
+        else
+        {
+          logMessage.Add($"[{sheetName}] sheet is found.");
+          return workbook.Workbook.Worksheets[sheetName];
+        }
       }
-      else
+      catch (IOException)
       {
-        logMessage.Add($"[{sheetName}] sheet is found.");
-        return workbook.Workbook.Worksheets[sheetName];
+        logMessage.Add("File is already opened by another process! \nIt cannot be used for load.");
+        return null;
+        //throw new IOException("File is already opened by another process! \nIt cannot be used for load.");
       }
     }
 

@@ -1,78 +1,153 @@
-﻿using IndustrialUnit.WpfUI.Models;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
+﻿using IndustrialUnit.Model.Model;
 
 namespace IndustrialUnit.WpfUI.ViewModels
 {
   public class InstrumentViewModel : BaseViewModel
   {
-    private ObservableCollection<Instrument> _instruments;
-    public ObservableCollection<Instrument> Instruments
-    {
-      get
-      {
-        return _instruments;
-      }
-      set
-      {
-        _instruments = value;
-        OnPropertyChanged();
-        SelectedItem = new Instrument();
-      }
-    }
-
-    private Instrument _selectedItem;
-    public Instrument SelectedItem
-    {
-      get
-      {
-        return _selectedItem;
-      }
-      set
-      {
-        _selectedItem = value;
-        OnPropertyChanged();
-      }
-    }
-
-    private string _MessageToScreen;
-    public string MessageToScreen
-    {
-      get
-      {
-        return _MessageToScreen;
-      }
-      set
-      {
-        _MessageToScreen = value;
-        OnPropertyChanged();
-      }
-    }
-
-    private void RunAddCommand() => MessageToScreen = InstrumentModel.SubmitAdd(SelectedItem);
-    private void RunDeleteCommand() => MessageToScreen = InstrumentModel.SubmitDelete(SelectedItem);
-    private void RunUpdateCommand() => MessageToScreen = InstrumentModel.SubmitUpdate(SelectedItem);
-    private void RunFilterCommand() => (Instruments, MessageToScreen) = InstrumentModel.GetFilteredInstruments(Instruments, SelectedItem.ItemType);
-    private void RunRefreshCommand()
-    {
-      (Instruments, MessageToScreen) = InstrumentModel.GetAllInstruments();
-      MessageToScreen = "Refresh done.";
-    }
-
-    public ICommand AddCommand { get; }
-    public ICommand DeleteCommand { get; }
-    public ICommand UpdateCommand { get; }
-    public ICommand FilterCommand { get; }
-    public ICommand RefreshCommand { get; }
-
     public InstrumentViewModel()
     {
-      AddCommand = new RelayCommand(RunAddCommand);
-      DeleteCommand = new RelayCommand(RunDeleteCommand);
-      UpdateCommand = new RelayCommand(RunUpdateCommand);
-      FilterCommand = new RelayCommand(RunFilterCommand);
-      RefreshCommand = new RelayCommand(RunRefreshCommand);
-      (Instruments, MessageToScreen) = InstrumentModel.GetAllInstruments();
+    }
+
+    public InstrumentViewModel(Instrument instrument)
+    {
+      Id = instrument.Id;
+      ItemType = instrument.ItemType;
+      OperationPrinciple = instrument.OperationPrinciple;
+      InstallationType = instrument.InstallationType;
+      MediumToMeasure = instrument.MediumToMeasure;
+      Supplier = instrument.Supplier;
+      Manufacturer = instrument.Manufacturer;
+      UnitPrice = instrument.UnitPrice;
+    }
+
+    public Instrument ToInstrument()
+    {
+      var instrument = new Instrument()
+      {
+        Id = Id,
+        ItemType = ItemType,
+        OperationPrinciple = OperationPrinciple,
+        InstallationType = InstallationType,
+        MediumToMeasure = MediumToMeasure,
+        Supplier = Supplier,
+        Manufacturer = Manufacturer,
+        UnitPrice = UnitPrice
+      };
+
+      return instrument;
+    }
+
+
+    private int? _id;
+    public int? Id
+    {
+      get
+      {
+        return _id;
+      }
+      set
+      {
+        _id = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private string _itemType;
+    public string ItemType
+    {
+      get
+      {
+        return _itemType;
+      }
+      set
+      {
+        _itemType = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private string _operationPrinciple;
+    public string OperationPrinciple
+    {
+      get
+      {
+        return _operationPrinciple;
+      }
+      set
+      {
+        _operationPrinciple = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private string _installationType;
+    public string InstallationType
+    {
+      get
+      {
+        return _installationType;
+      }
+      set
+      {
+        _installationType = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private string _mediumToMeasure;
+    public string MediumToMeasure
+    {
+      get
+      {
+        return _mediumToMeasure;
+      }
+      set
+      {
+        _mediumToMeasure = value;
+        OnPropertyChanged();
+      }
+    }
+
+    public string _supplier;
+    public string Supplier
+    {
+      get
+      {
+        return _supplier;
+      }
+      set
+      {
+        _supplier = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private string _manufacturer;
+    public string Manufacturer
+    {
+      get
+      {
+        return _manufacturer;
+      }
+      set
+      {
+        _manufacturer = value;
+        OnPropertyChanged();
+      }
+    }
+
+    private decimal? _unitPrice;
+    public decimal? UnitPrice
+    {
+      get
+      {
+        return _unitPrice;
+      }
+      set
+      {
+        _unitPrice = value;
+        OnPropertyChanged();
+      }
     }
   }
 }

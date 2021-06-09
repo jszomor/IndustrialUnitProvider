@@ -80,7 +80,30 @@
               </Setter.Value>
             </Setter>
           </Style>
-          
+
+          <Style x:Key="RoundButtonFilterValidationTemplate" TargetType="Button">
+            <Setter Property="Background" Value="DarkKhaki" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+              <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                  <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="1">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  </Border>
+                </ControlTemplate>
+              </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+              <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="Olive"/>
+              </Trigger>
+              <DataTrigger Binding="{Binding ElementName=EqItemTypeTextBox, Path=(Validation.HasError)}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger> 
+            </Style.Triggers>
+          </Style>
+
         </ResourceDictionary>
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
