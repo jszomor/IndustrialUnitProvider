@@ -46,7 +46,7 @@ namespace IndustrialUnit.WpfUI.Models
       return list;
     }
 
-    public static (List<Equipment>, string) GetAllEquipments()
+    internal static (List<Equipment>, string) GetAllEquipments()
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
@@ -56,7 +56,7 @@ namespace IndustrialUnit.WpfUI.Models
       return (MapEquipmentList(sqlCommand), "Database loaded successfully.");
     }
 
-    public static (List<Equipment>, string) GetFilteredEquipments(string selectedItem)
+    internal static (List<Equipment>, string) GetFilteredEquipments(string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
         return (null, "Filter key is [Item Name], \nit cannot be empty for filtering!");
@@ -70,7 +70,7 @@ namespace IndustrialUnit.WpfUI.Models
           $"Filter name is: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
-    public static string SubmitAdd(Equipment item)
+    internal static string SubmitAdd(Equipment item)
     {
       if (!IsEquipmentEmpty(item) || item == null)
         return "No empty cell is allowed for Insert.";
@@ -92,7 +92,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitUpdate(Equipment item)
+    internal static string SubmitUpdate(Equipment item)
     {
       if (!IsEquipmentEmpty(item) || item == null)
         return "No empty cell is allowed for Update.";
@@ -113,7 +113,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    public static string SubmitDelete(Equipment item)
+    internal static string SubmitDelete(Equipment item)
     {
       if (item.Id <= 0 || item == null || item.Id == null)
         return "Please select an item to delete.";

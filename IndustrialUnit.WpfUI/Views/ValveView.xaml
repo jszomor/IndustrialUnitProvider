@@ -13,7 +13,7 @@
 
 
   <UserControl.DataContext>
-    <viewModel:Valve/>
+    <viewModel:ValveListViewModel/>
   </UserControl.DataContext>
 
   <UserControl.Resources>
@@ -112,7 +112,7 @@
               Margin="0,0,0,15" 
               AutoGenerateColumns="False"              
               ItemsSource="{Binding Path=Valves, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-              SelectedItem="{Binding Path=SelectedValve, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+              SelectedItem="{Binding Path=SelectedValveViewModel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
       <DataGrid.ColumnHeaderStyle>
         <Style TargetType="{x:Type DataGridColumnHeader}">
           <Setter Property="FontWeight" Value="Bold"/>
@@ -156,7 +156,7 @@
       IsEnabled="False"
       Foreground="Gray">
       <TextBox.Text>
-        <Binding Path="SelectedValve.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+        <Binding Path="SelectedValveViewModel.Id" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="0"/>
           </Binding.ValidationRules>
@@ -181,7 +181,7 @@
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="SelectedValve.ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedValveViewModel.ItemType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -206,7 +206,7 @@
       HorizontalContentAlignment="Left"
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="SelectedValve.Operation" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedValveViewModel.Operation" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -238,7 +238,7 @@
       </i:Interaction.Triggers>
       
       <TextBox.Text>
-        <Binding Path="SelectedValve.Size" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedValveViewModel.Size" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -263,7 +263,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="SelectedValve.ConnectionType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedValveViewModel.ConnectionType" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>
@@ -288,7 +288,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="SelectedValve.Supplier" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedValveViewModel.Supplier" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -313,7 +313,7 @@
       HorizontalContentAlignment="Left" 
       VerticalContentAlignment="Center">
       <TextBox.Text>
-        <Binding Path="SelectedValve.Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedValveViewModel.Manufacturer" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="3"/>
           </Binding.ValidationRules>
@@ -379,7 +379,7 @@
       Command="{Binding FilterCommand, UpdateSourceTrigger=PropertyChanged}"/>
 
     <Button
-      Style="{StaticResource RoundButtonValidationTemplate}"
+      Style="{StaticResource RoundButtonTemplate}"
       Name="ValveInsert" 
       Content="Insert" 
       Grid.Column="2" 
@@ -390,7 +390,7 @@
       Command="{Binding AddCommand}"/>
 
     <Button
-      Style="{StaticResource RoundButtonValidationTemplate}"
+      Style="{StaticResource RoundButtonTemplate}"
       Name="ValveUpdate" 
       Content="Update" 
       Grid.Column="1" 

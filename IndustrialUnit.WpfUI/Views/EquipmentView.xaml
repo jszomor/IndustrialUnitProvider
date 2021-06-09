@@ -398,7 +398,7 @@
       Command="{Binding FilterCommand, UpdateSourceTrigger=PropertyChanged}"/>
 
     <Button
-      Style="{StaticResource RoundButtonTemplate}"
+      Style="{StaticResource RoundButtonValidationTemplate}"
       Name="EQInsert" 
       Content="Insert" 
       Grid.Column="2" 
@@ -409,7 +409,7 @@
       Command="{Binding AddCommand}"/>
 
     <Button
-      Style="{StaticResource RoundButtonTemplate}"
+      Style="{StaticResource RoundButtonValidationTemplate}"
       Name="EQUpdate" 
       Content="Update" 
       Grid.Column="1" 

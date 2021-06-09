@@ -1,8 +1,11 @@
-﻿using IndustrialUnit.WpfUI.Models;
+﻿using IndustrialUnit.Model.Model;
+using IndustrialUnit.WpfUI.Models;
 using IndustrialUnitDatabase;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,12 +25,12 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         _valves = value;
         OnPropertyChanged();
-        SelectedValve = new ValveViewModel();
+        SelectedValveViewModel = new ValveViewModel();
       }
     }
 
     private ValveViewModel _selectedValve;
-    public ValveViewModel SelectedValve
+    public ValveViewModel SelectedValveViewModel
     {
       get
       {
@@ -54,14 +57,33 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private void RunAddCommand() => MessageToScreen = ValveRepository.SubmitAdd(SelectedValve);
-    private void RunDeleteCommand() => MessageToScreen = ValveRepository.SubmitDelete(SelectedValve);
-    private void RunUpdateCommand() => MessageToScreen = ValveRepository.SubmitUpdate(SelectedValve);
-    private void RunFilterCommand() => (Valves, MessageToScreen) = ValveRepository.GetFilteredValves(Valves, SelectedValve.ItemType);
+    private void RunAddCommand() => MessageToScreen = ValveRepository.SubmitAdd(SelectedValveViewModel.ToValve());
+    private void RunDeleteCommand() => MessageToScreen = ValveRepository.SubmitDelete(SelectedValveViewModel.ToValve());
+    private void RunUpdateCommand() => MessageToScreen = ValveRepository.SubmitUpdate(SelectedValveViewModel.ToValve());
+    private void RunFilterCommand()
+    {
+      var (valves, messageToScreen) = ValveRepository.GetFilteredValves(SelectedValveViewModel.ItemType);
+
+      if (valves == null)
+        MessageToScreen = messageToScreen;
+      else
+      {
+        UpdateValveList(valves);
+        MessageToScreen = "Refresh done.";
+      }
+    }
+
     private void RunRefreshCommand()
     {
-      (Valves, MessageToScreen) = ValveRepository.GetAllValves();
-      MessageToScreen = "Refresh done.";
+      var (valves, messageToScreen) = ValveRepository.GetAllValves();
+
+      if (valves == null)
+        MessageToScreen = messageToScreen;
+      else
+      {
+        UpdateValveList(valves);
+        MessageToScreen = "Refresh done.";
+      }
     }
 
     public ICommand AddCommand { get; }
@@ -77,7 +99,14 @@ namespace IndustrialUnit.WpfUI.ViewModels
       UpdateCommand = new RelayCommand(RunUpdateCommand);
       FilterCommand = new RelayCommand(RunFilterCommand);
       RefreshCommand = new RelayCommand(RunRefreshCommand);
-      (Valves, MessageToScreen) = ValveRepository.GetAllValves();
+      var (valves, messageToScreen) = ValveRepository.GetAllValves();
+      UpdateValveList(valves);
+      MessageToScreen = messageToScreen;
+    }
+
+    private void UpdateValveList(IEnumerable<Valve> valves)
+    {
+      Valves = new ObservableCollection<ValveViewModel>(valves.Select(x => new ValveViewModel(x)));
     }
   }
 }

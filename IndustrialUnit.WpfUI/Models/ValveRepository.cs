@@ -1,4 +1,5 @@
-﻿using IndustrialUnit.WpfUI.ViewModels;
+﻿using IndustrialUnit.Model.Model;
+using IndustrialUnit.WpfUI.ViewModels;
 using IndustrialUnitDatabase;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace IndustrialUnit.WpfUI.Models
   {
     private static readonly string TableName = "Valve";
 
-    internal static List<ValveViewModel> MapValveList(string sqlCommand)
+    internal static List<Valve> MapValveList(string sqlCommand)
     {
       var valveData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
@@ -21,13 +22,13 @@ namespace IndustrialUnit.WpfUI.Models
       if (dbRowNumber == 0)
         return null;
 
-      List<ValveViewModel> list = new();
+      List<Valve> list = new();
 
       for (int i = 0; i < dbRowNumber; i++)
       {
         var item = valveData.Rows[i];
         list.Add(
-          new ValveViewModel()
+          new Valve()
           {
             Id = Convert.ToInt32(item.ItemArray[0]),
             ItemType = Convert.ToString(item.ItemArray[1]),
@@ -42,7 +43,7 @@ namespace IndustrialUnit.WpfUI.Models
       return list;
     }
 
-    internal static (List<ValveViewModel>, string) GetAllValves()
+    internal static (List<Valve>, string) GetAllValves()
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
@@ -52,7 +53,7 @@ namespace IndustrialUnit.WpfUI.Models
       return (MapValveList(sqlCommand), "Database loaded successfully.");
     }
 
-    internal static (List<ValveViewModel>, string) GetFilteredValves(string selectedItem)
+    internal static (List<Valve>, string) GetFilteredValves(string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
         return (null, "Filter key is [Item Name], \nit cannot be empty for filtering!");
@@ -66,7 +67,7 @@ namespace IndustrialUnit.WpfUI.Models
         $"Filter name: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
-    internal static string SubmitAdd(ValveViewModel item)
+    internal static string SubmitAdd(Valve item)
     {
       if (!IsValveEmpty(item) || item == null)
         return "No empty cell is allowed for Insert.";
@@ -87,10 +88,10 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    internal static string SubmitUpdate(ValveViewModel item)
+    internal static string SubmitUpdate(Valve item)
     {
       if (!IsValveEmpty(item) || item == null)
-        return "No empty cell is allowed.";
+        return "No empty cell is allowed for Delete.";
 
       string sqlCommand = $"update {TableName} set ItemType=@ItemType, Operation=@Operation, Size=@Size, ConnectionType=@ConnectionType, " +
                   $"Supplier=@Supplier, Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id=";
@@ -107,7 +108,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    internal static string SubmitDelete(ValveViewModel valve)
+    internal static string SubmitDelete(Valve valve)
     {
       if (valve.Id <= 0 || valve == null || valve.Id == null)
         return "Please select an item to delete.";
@@ -126,7 +127,7 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    internal static bool IsValveEmpty(ValveViewModel valve)
+    internal static bool IsValveEmpty(Valve valve)
     {
       if (
           string.IsNullOrEmpty(valve.ItemType) ||
