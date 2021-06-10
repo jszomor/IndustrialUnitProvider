@@ -71,7 +71,6 @@
       BorderBrush="Gray"
       Background="AntiqueWhite"
       BorderThickness="2"
-      Padding="5"
       Width="700"
       Height="120"
       Grid.Row="2"
@@ -82,15 +81,20 @@
       <StackPanel
       Orientation="Horizontal"
       HorizontalAlignment="Left"
-      Width="685">
+      Width="700">
 
         <TextBlock
         Width="500">
+          <Label
+            Name="LoadExcelFileDescription"
+            Content="{Binding LoadExcelFileDescription}"
+            FontSize="13">            
+          </Label>
         </TextBlock>
 
         <StackPanel 
           Width="160"
-          Margin="10,0,0,0">
+          Margin="30,5,0,0">
 
           <Button
             Style="{StaticResource RoundButtonTemplate}"
@@ -137,6 +141,11 @@
 
         <TextBlock
         Width="500">
+          <Label
+            Name="SaveDatabaseDescription"
+            Content="{Binding SaveDatabaseDescription}"
+            FontSize="14">            
+          </Label>
         </TextBlock>
 
         <StackPanel          
@@ -173,6 +182,11 @@
 
         <TextBlock
         Width="500">
+          <Label
+            Name="DownloadTemplateDescription"
+            Content="{Binding DownloadTemplateDescription}"
+            FontSize="14">            
+          </Label>
         </TextBlock>
 
         <StackPanel          
@@ -209,6 +223,11 @@
 
         <TextBlock
         Width="500">
+          <Label
+            Name="CreateDatabaseDescription"
+            Content="{Binding CreateDatabaseDescription}"
+            FontSize="14">            
+          </Label>
         </TextBlock>
 
         <StackPanel          
@@ -246,6 +265,11 @@
 
         <TextBlock
         Width="500">
+          <Label
+            Name="WipeDatabaseDescription"
+            Content="{Binding}"
+            FontSize="14">            
+          </Label>
         </TextBlock>
 
         <StackPanel
