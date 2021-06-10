@@ -19,8 +19,9 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
-
+          
           <viewModel:BaseViewModel x:Key="BaseViewModel"/>
+          <viewModel:ValueConverter x:Key="ValueConverter"/>
 
           <Style x:Key="RoundButtonInsertAndUpdateValidationTemplate" TargetType="Button">
             <Setter Property="Background" Value="DarkKhaki" />
@@ -215,7 +216,7 @@
       </i:Interaction.Triggers>
 
       <TextBox.Text>
-        <Binding Path="SelectedEquipmentViewModel.Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <Binding Path="SelectedEquipmentViewModel.Capacity" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" Converter="{StaticResource ValueConverter}">
           <Binding.ValidationRules>
             <validationrules:IndustrialUnitValidationRule MinimumCharacters="1"/>
           </Binding.ValidationRules>

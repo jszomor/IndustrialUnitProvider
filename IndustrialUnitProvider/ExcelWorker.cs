@@ -29,7 +29,7 @@ namespace IndustrialUnitProvider
       }
       catch (IOException)
       {
-        logMessage.Add("File is already opened by another process! \nIt cannot be used for load.");
+        logMessage.Add("File is already opened by another process! \nIt cannot be used.");
         return null;
         //throw new IOException("File is already opened by another process! \nIt cannot be used for load.");
       }

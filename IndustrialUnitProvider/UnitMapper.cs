@@ -36,18 +36,17 @@ namespace IndustrialUnitProvider
 
       if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage))  return;
 
-      //int nextId = 1;
-
       for (int rowIndex = 2; rowIndex < sheet.Dimension.Rows + 1; rowIndex++)
       {
-        if (!string.IsNullOrEmpty(sheet.Cells[rowIndex, 1].Text)) //if an ItemType cell is empty in the source excel file item won't be added
+        if (!string.IsNullOrEmpty(sheet.Cells[rowIndex, 2].Text)) //if an ItemType cell is empty in the source excel file item won't be added
         {
           T unit = new T();
           foreach (var item in properties)
           {
-            if (columnNameToIndex.TryGetValue(item.Name, out int value))
+            if (columnNameToIndex.TryGetValue(item.Name, out int value) && item.Name != "Id")
             {
               Type typeToConvert;
+              string cellText = sheet.Cells[rowIndex, value].Text;
               try
               {
                 if(item.PropertyType.FullName == "System.String")
@@ -59,7 +58,12 @@ namespace IndustrialUnitProvider
                   typeToConvert = item.PropertyType.GenericTypeArguments[0];
                 }
 
-                var convertedItem = Convert.ChangeType(sheet.Cells[rowIndex, value].Text, typeToConvert);
+                if(cellText.Contains("."))
+                {
+                  cellText = cellText.Replace(".", ",");
+                }
+
+                var convertedItem = Convert.ChangeType(cellText, typeToConvert);
 
                 item.SetValue(unit, convertedItem);
               }
@@ -69,11 +73,6 @@ namespace IndustrialUnitProvider
                 goto SkipRow;
               }
             }
-            //else if (item.Name == "Id")
-            //{
-            //  item.SetValue(unit, nextId);
-            //  nextId++;
-            //}
           }
 
           SQLiteDataAccess.AddCollection(unit, sheet.Name);

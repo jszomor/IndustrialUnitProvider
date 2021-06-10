@@ -16,7 +16,7 @@ namespace IndustrialUnitProvider
 
       MissingColumnNames = validColumnNames.Where(x => !actualColumnNames.ContainsKey(x));
 
-      if (MissingColumnNames.Count() > 1)
+      if (MissingColumnNames.Count() > 0)
       {
         foreach (var item in MissingColumnNames)
         {

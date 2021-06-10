@@ -71,9 +71,18 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    internal static List<string> DBCreator()
+    internal static List<string> CreateDatabaseModel() => SQLiteDataAccess.CreateDatabase();
+
+    internal static List<string> WipeDatabaseModel()
     {
-      return SQLiteDataAccess.CreateDatabase();
+      MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to wipe out the whole database! \nData will not be recoverable.", 
+        "", System.Windows.MessageBoxButton.YesNo);
+
+      if (messageBoxResult == MessageBoxResult.Yes)
+        return SQLiteDataAccess.WipeDatabase();
+
+      else
+        return null;
     }
   }
 }

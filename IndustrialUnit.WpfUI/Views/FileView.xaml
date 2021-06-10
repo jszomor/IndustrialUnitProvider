@@ -11,6 +11,39 @@
     <local:FileViewModel/>
   </UserControl.DataContext>
 
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+          
+          <Style x:Key="RoundButtonCheckBoxDeleteDBTemplate" TargetType="Button">
+            <Setter Property="Background" Value="DarkKhaki" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+              <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                  <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="1">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  </Border>
+                </ControlTemplate>
+              </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+              <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="Olive"/>
+              </Trigger>
+              <DataTrigger Binding="{Binding ElementName=CheckBoxDeleteDB, Path=IsChecked}" Value="False">
+                <Setter Property="IsEnabled" Value="False" />
+                <Setter Property="Background" Value="LightGray" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+
+        </ResourceDictionary>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </UserControl.Resources>
+  
   <Grid Background="MintCream">
 
     <Grid.RowDefinitions>
@@ -89,6 +122,20 @@
         Height="30"
         Width="150"
         FontSize="13"/>
+
+      <Button     
+        x:Name="DeleteDB"
+        Style="{StaticResource RoundButtonCheckBoxDeleteDBTemplate}"
+        Content="Wipe database"
+        Command="{Binding WipeDatabase}"
+        Margin="5"
+        Height="30"
+        Width="150"
+        FontSize="13"/>
+
+      <CheckBox
+        x:Name="CheckBoxDeleteDB"
+        IsChecked="False"/>
 
     </StackPanel>
 

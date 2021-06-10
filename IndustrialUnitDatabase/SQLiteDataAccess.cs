@@ -12,6 +12,8 @@ namespace IndustrialUnitDatabase
   {
     private static readonly string loadConnectionString = $"Data Source={PathHelper.DatabasePath("IndustrialUnitDB.db")}";
 
+    private static List<string> LogMessage = new List<string>();
+
     private static void RunDatabaseCommandsToModify(Action<SQLiteConnection> action)
     {
       if (!File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
@@ -138,7 +140,7 @@ namespace IndustrialUnitDatabase
                               UnitPrice           DECIMAL NULL                              
                             );";
 
-      List<string> logMessage = new List<string>();
+      //List<string> logMessage = new List<string>();
 
       string[] tableArray = new[] { sqlEquipment, sqlValve, sqlInstrument };
 
@@ -157,14 +159,36 @@ namespace IndustrialUnitDatabase
 
         con.Close();
 
-        logMessage.Add("Database created successfully.");
-        return logMessage;
+        LogMessage.Add("Database created successfully.");
+        return LogMessage;
       }
       else
       {
-        logMessage.Add("Database already exist. \nDelete or rename the previous one.");
-        return logMessage;
+        LogMessage.Add("Database already exist. \nDelete or rename the previous one.");
+        return LogMessage;
       }
+    }
+
+    public static List<string> WipeDatabase()
+    {
+      if (File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
+      {
+        using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
+        {
+          string deleteEquipment = @"DELETE FROM EQUIPMENT";
+          string deleteValve = @"DELETE FROM VALVE";
+          string deleteInstrument = @"DELETE FROM INSTRUMENT";
+
+          cnn.Execute(deleteEquipment);
+          cnn.Execute(deleteValve);
+          cnn.Execute(deleteInstrument);
+        }
+
+        LogMessage.Add("Database is successfully wiped.");
+        return LogMessage;
+      }
+      else
+        throw new FileNotFoundException("Database not found!");
     }
   }
 }

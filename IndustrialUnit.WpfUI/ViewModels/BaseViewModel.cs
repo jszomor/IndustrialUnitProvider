@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
@@ -25,17 +24,17 @@ namespace IndustrialUnit.WpfUI.ViewModels
 
       Regex regex;
 
-      if(ue.DataContext is ValveListViewModel && ue.Name.Contains("Size"))
+      if (ue.DataContext is ValveListViewModel && ue.Name.Contains("Size"))
       {
-        regex = new Regex("[^0-9]+");
+        regex = new Regex("[^0-9]+$");
       }
-      else if (ue.Text.Contains("."))
+      else if (ue.Text.Contains(".") || ue.Text.Contains(".."))
       {
-        regex = new Regex("[^0-9]+");
+        regex = new Regex("[^0-9]+$");
       }
       else
       {
-        regex = new Regex("[^0-9][.]+$");
+        regex = new Regex("[^0-9.]+$");
       }
 
       e.Handled = regex.IsMatch(e.Text);

@@ -45,10 +45,13 @@ namespace IndustrialUnit.WpfUI.ViewModels
     public ICommand SaveFile { get; }
     public ICommand DownloadTemplate { get; }
     public ICommand CreateEmptyDatabase { get; }
+    public ICommand WipeDatabase { get; }
 
     private void RunSelectCommand() => (SelectedFile, Path) = FileModel.OpenFile();
     private void RunLoadCommand() => LogMessage = FileModel.LoadIntoDB(Path);
-    private void RunDBCreator() => LogMessage = FileModel.DBCreator();
+    private void RunDBCreator() => LogMessage = FileModel.CreateDatabaseModel();
+    private void RunWipeDB() => LogMessage = FileModel.WipeDatabaseModel();
+
     public FileViewModel()
     {
       SelectFileDialogBox = new RelayCommand(RunSelectCommand);
@@ -56,6 +59,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       SaveFile = new RelayCommand(FileModel.SaveFile);
       DownloadTemplate = new RelayCommand(FileModel.DownLoadTemplateFile);
       CreateEmptyDatabase = new RelayCommand(RunDBCreator);
+      WipeDatabase = new RelayCommand(RunWipeDB);
     }
   }
 }
