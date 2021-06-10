@@ -11,8 +11,6 @@ namespace IndustrialUnitDatabase
     public DbSet<Equipment> Equipment { get; set; }
     public DbSet<Valve> Valve { get; set; }
     public DbSet<Instrument> Instrument { get; set; }
-    public DbSet<User> User { get; set; }
-    public DbSet<Order> Order { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       string file = "IndustrialUnitDB.db";

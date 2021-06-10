@@ -12,8 +12,6 @@ namespace IndustrialUnitDatabase
   {
     private static readonly string loadConnectionString = $"Data Source={PathHelper.DatabasePath("IndustrialUnitDB.db")}";
 
-    private static List<string> LogMessage = new List<string>();
-
     private static void RunDatabaseCommandsToModify(Action<SQLiteConnection> action)
     {
       if (!File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
@@ -102,7 +100,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public static List<string> CreateDatabase()
+    public static void CreateDatabase(ref List<string> logMessage)
     {
       SQLiteConnection con;
       SQLiteCommand cmd;
@@ -140,8 +138,6 @@ namespace IndustrialUnitDatabase
                               UnitPrice           DECIMAL NULL                              
                             );";
 
-      //List<string> logMessage = new List<string>();
-
       string[] tableArray = new[] { sqlEquipment, sqlValve, sqlInstrument };
 
       if (!File.Exists("IndustrialUnitDB.db"))
@@ -159,17 +155,17 @@ namespace IndustrialUnitDatabase
 
         con.Close();
 
-        LogMessage.Add("Database created successfully.");
-        return LogMessage;
+        logMessage.Add("Database created successfully.");
+        //return logMessage;
       }
       else
       {
-        LogMessage.Add("Database already exist. \nDelete or rename the previous one.");
-        return LogMessage;
+        logMessage.Add("Database already exist. \nDelete or rename the previous one.");
+        //return logMessage;
       }
     }
 
-    public static List<string> WipeDatabase()
+    public static void WipeDatabase(ref List<string> logMessage)
     {
       if (File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
       {
@@ -184,11 +180,14 @@ namespace IndustrialUnitDatabase
           cnn.Execute(deleteInstrument);
         }
 
-        LogMessage.Add("Database is successfully wiped.");
-        return LogMessage;
+        logMessage.Add("Database is successfully wiped.");
+        //return logMessage;
       }
       else
-        throw new FileNotFoundException("Database not found!");
+      {
+        logMessage.Add("Warning! Database not found!");
+        //return logMessage;
+      }
     }
   }
 }

@@ -13,6 +13,8 @@ namespace IndustrialUnit.WpfUI.Models
 {
   public class FileModel
   {
+    private static List<string> LogMessage;
+
     internal static (string, string) OpenFile()
     {
       OpenFileDialog openFileDialog = new();
@@ -31,17 +33,17 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static List<string> LoadIntoDB(string path)
     {
-      List<string> logMessage = new();
+      LogMessage = new();
       if (path == null)
       {
-        logMessage.Add("No file selected.");
-        return logMessage;
+        LogMessage.Add("No file selected.");
+        return LogMessage;
       }
       else
       {
         var mapper = new UnitMapper();
-        mapper.LoadUnitsFromSheet(path, ref logMessage);
-        return logMessage;
+        mapper.LoadUnitsFromSheet(path, ref LogMessage);
+        return LogMessage;
       }
     }
 
@@ -71,18 +73,30 @@ namespace IndustrialUnit.WpfUI.Models
       }
     }
 
-    internal static List<string> CreateDatabaseModel() => SQLiteDataAccess.CreateDatabase();
+    internal static List<string> CreateDatabaseModel()
+    {
+      LogMessage = new();
+      SQLiteDataAccess.CreateDatabase(ref LogMessage);
+      return LogMessage;
+    }
 
     internal static List<string> WipeDatabaseModel()
     {
-      MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to wipe out the whole database! \nData will not be recoverable.", 
-        "", System.Windows.MessageBoxButton.YesNo);
+      LogMessage = new();
+
+      MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to wipe out the whole database! \nData will not be recoverable.", 
+        "", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
       if (messageBoxResult == MessageBoxResult.Yes)
-        return SQLiteDataAccess.WipeDatabase();
-
+      {
+        SQLiteDataAccess.WipeDatabase(ref LogMessage);
+        return LogMessage;
+      }
       else
-        return null;
+      {
+        LogMessage.Add("Delete process cancelled.");
+        return LogMessage;
+      }
     }
   }
 }

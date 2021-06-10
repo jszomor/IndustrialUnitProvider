@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="750" d:DesignWidth="1400">
 
   <UserControl.DataContext>
     <local:FileViewModel/>
@@ -15,7 +15,7 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
-          
+
           <Style x:Key="RoundButtonCheckBoxDeleteDBTemplate" TargetType="Button">
             <Setter Property="Background" Value="DarkKhaki" />
             <Setter Property="Foreground" Value="Black" />
@@ -43,11 +43,16 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </UserControl.Resources>
-  
+
   <Grid Background="MintCream">
 
     <Grid.RowDefinitions>
-      <RowDefinition Height="20"/>
+      <RowDefinition Height="40"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
       <RowDefinition Height="auto"/>
@@ -55,97 +60,259 @@
     </Grid.RowDefinitions>
 
     <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="30"/>
       <ColumnDefinition Width="auto"/>
       <ColumnDefinition Width="auto"/>
       <ColumnDefinition Width="auto"/>
       <ColumnDefinition Width="auto"/>
     </Grid.ColumnDefinitions>
 
-    <StackPanel
-      Grid.Row="1"
-      Margin="10,10,10,10"
-      Orientation="Horizontal">
+    <Border
+      BorderBrush="Gray"
+      Background="AntiqueWhite"
+      BorderThickness="2"
+      Padding="5"
+      Width="700"
+      Height="120"
+      Grid.Row="2"
+      Grid.Column="1"
+      Margin="10,0,0,0"
+      HorizontalAlignment="Left">
 
-      <StackPanel Width="150">
+      <StackPanel
+      Orientation="Horizontal"
+      HorizontalAlignment="Left"
+      Width="685">
 
-        <Button
-        Style="{StaticResource RoundButtonTemplate}"
-        Content="Browse file" 
-        Margin="5"
-        Command="{Binding SelectFileDialogBox}"
-        Height="30"
-        FontSize="14"/>
+        <TextBlock
+        Width="500">
+        </TextBlock>
 
-        <Border BorderThickness="1" BorderBrush="Gray">
-          <TextBlock
-          Height="30"
-          Text="{Binding SelectedFile, UpdateSourceTrigger=PropertyChanged}"
-          Background="AntiqueWhite"
-          Padding="5"
-          FontSize="13">
-          </TextBlock>
-        </Border>
+        <StackPanel 
+          Width="160"
+          Margin="10,0,0,0">
 
-        <Button
-        Style="{StaticResource RoundButtonTemplate}"
-        Command="{Binding LoadFile}"
-        Content="Upload collection" 
-        Margin="5"
-        Height="30"
-        FontSize="14"/>
+          <Button
+            Style="{StaticResource RoundButtonTemplate}"
+            Content="Browse file" 
+            Margin="5"
+            Command="{Binding SelectFileDialogBox}"
+            Height="30"
+            FontSize="14"/>
 
+          <Border BorderThickness="1" BorderBrush="Gray" Background="White" Height="30">
+            <TextBlock
+            Text="{Binding SelectedFile, UpdateSourceTrigger=PropertyChanged}"     
+            Padding="5"
+            FontSize="13">
+            </TextBlock>
+          </Border>
+
+          <Button
+            Style="{StaticResource RoundButtonTemplate}"
+            Command="{Binding LoadFile}"
+            Content="Upload collection" 
+            Margin="5"
+            Height="30"
+            FontSize="14"/>
+
+        </StackPanel>
       </StackPanel>
+    </Border>
 
-      <Button 
-        Style="{StaticResource RoundButtonTemplate}"
-        Command="{Binding SaveFile}"
-        Content="Save collection" 
-        Margin="5"
-        Height="30"
-        Width="120"
-        FontSize="14"/>
+    <Border
+      BorderBrush="Gray"
+      Background="AntiqueWhite"
+      BorderThickness="2"
+      Padding="5"
+      Width="700"
+      Grid.Row="3"      
+      Grid.Column="1"
+      Height="120"
+      Margin="10,10,0,0"
+      HorizontalAlignment="Left">
 
-      <Button        
-        Style="{StaticResource RoundButtonTemplate}"
-        Content="Download template"
-        Command="{Binding DownloadTemplate}"
-        Margin="5"
-        Height="30"
-        Width="150"
-        FontSize="14"/>
+      <StackPanel
+        Orientation="Horizontal">
 
-      <Button        
-        Style="{StaticResource RoundButtonTemplate}"
-        Content="Create new database"
-        Command="{Binding CreateEmptyDatabase}"
-        Margin="5"
-        Height="30"
-        Width="150"
-        FontSize="13"/>
+        <TextBlock
+        Width="500">
+        </TextBlock>
 
-      <Button     
-        x:Name="DeleteDB"
-        Style="{StaticResource RoundButtonCheckBoxDeleteDBTemplate}"
-        Content="Wipe database"
-        Command="{Binding WipeDatabase}"
-        Margin="5"
-        Height="30"
-        Width="150"
-        FontSize="13"/>
+        <StackPanel          
+          Width="160"
+          VerticalAlignment="Bottom"
+          Margin="10,0,0,0">
 
-      <CheckBox
-        x:Name="CheckBoxDeleteDB"
-        IsChecked="False"/>
+          <Button 
+            Style="{StaticResource RoundButtonTemplate}"
+            Command="{Binding SaveFile}"
+            Content="Save collection" 
+            Margin="5"
+            Height="30"
+            FontSize="14"/>
 
-    </StackPanel>
+        </StackPanel>
+      </StackPanel>
+    </Border>
 
-    <Border BorderThickness="1" BorderBrush="Gray" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" Height="200" Margin="10,88,92,0">
-      <ListView
-        ItemsSource="{Binding LogMessage}"
-        Background="AntiqueWhite"
-        Padding="3"
-        FontSize="13">        
-      </ListView>         
+    <Border
+      BorderBrush="Gray"
+      Background="AntiqueWhite"
+      BorderThickness="2"
+      Padding="5"
+      Width="700"
+      Grid.Row="4"      
+      Grid.Column="1"
+      Height="120"
+      Margin="10,10,0,0"
+      HorizontalAlignment="Left">
+
+      <StackPanel
+        Orientation="Horizontal">
+
+        <TextBlock
+        Width="500">
+        </TextBlock>
+
+        <StackPanel          
+          Width="160"
+          VerticalAlignment="Bottom"
+          Margin="10,0,0,0">
+
+          <Button        
+            Style="{StaticResource RoundButtonTemplate}"
+            Content="Download template"
+            Command="{Binding DownloadTemplate}"
+            Margin="5"
+            Height="30"
+            FontSize="14"/>
+
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+    <Border
+      BorderBrush="Gray"
+      Background="AntiqueWhite"
+      BorderThickness="2"
+      Padding="5"
+      Width="700"
+      Grid.Row="5"      
+      Grid.Column="1"
+      Height="120"
+      Margin="10,10,0,0"
+      HorizontalAlignment="Left">
+
+      <StackPanel
+        Orientation="Horizontal">
+
+        <TextBlock
+        Width="500">
+        </TextBlock>
+
+        <StackPanel          
+          Width="160"
+          VerticalAlignment="Bottom"
+          Margin="10,0,0,0">
+
+          <Button        
+            Style="{StaticResource RoundButtonTemplate}"
+            Content="Create new database"
+            Command="{Binding CreateEmptyDatabase}"
+            Margin="5"
+            Height="30"
+            Width="150"
+            FontSize="13"/>
+
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+    <Border
+      BorderBrush="Gray"
+      Background="AntiqueWhite"
+      BorderThickness="2"
+      Padding="5"
+      Width="700"
+      Grid.Row="6"      
+      Grid.Column="1"
+      Height="120"
+      Margin="10,10,0,0"
+      HorizontalAlignment="Left">
+
+      <StackPanel
+        Orientation="Horizontal">
+
+        <TextBlock
+        Width="500">
+        </TextBlock>
+
+        <StackPanel
+          VerticalAlignment="Bottom"
+          Margin="10,0,0,0">
+
+          <Button     
+            x:Name="DeleteDB"
+            Style="{StaticResource RoundButtonCheckBoxDeleteDBTemplate}"
+            Content="Wipe database"
+            Command="{Binding WipeDatabase}"
+            Margin="5"
+            Height="30"
+            Width="150"
+            FontSize="13"/>
+
+          <StackPanel 
+            Orientation="Horizontal">
+
+            <CheckBox
+              x:Name="CheckBoxDeleteDB"
+              IsChecked="False"
+              VerticalAlignment="Center"
+              Margin="10,0,0,0"/>
+
+            <Label
+              Content="Activate delete button"
+              FontSize="12"/>
+
+          </StackPanel>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+    <Border 
+      BorderThickness="2"
+      BorderBrush="Gray" 
+      Grid.Row="2" 
+      Grid.Column="2" 
+      VerticalAlignment="Center" 
+      Grid.ColumnSpan="3" 
+      Margin="10,0,0,0" 
+      Grid.RowSpan="5" 
+      Height="640" 
+      Width="300" 
+      Background="AntiqueWhite">
+      
+      <StackPanel
+        VerticalAlignment="Top">
+        
+        <Label 
+          Content="Log terminal"
+          Height="30"
+          FontSize="14"
+          FontWeight="Bold"
+          HorizontalAlignment="Center"/>
+
+        <ListView
+          ItemsSource="{Binding LogMessage}"
+          Background="AntiqueWhite"
+          Padding="3"
+          FontSize="13"
+          Height="607"
+          BorderBrush="AntiqueWhite">
+        </ListView>
+      </StackPanel>
+      
     </Border>
   </Grid>
 </UserControl>
