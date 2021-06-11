@@ -1,22 +1,32 @@
 [
   {
     "Id": null,
-    "ItemType": null,
-    "Capacity": 32.0,
-    "Pressure": 500.0,
-    "PowerConsumption": 10.0,
-    "Manufacturer": "ABC",
-    "Model": "CBA",
-    "UnitPrice": 1.1
+    "ItemType": "Blower",
+    "Capacity": 21.0,
+    "Pressure": 650.0,
+    "PowerConsumption": 15.7,
+    "Manufacturer": "KBC",
+    "Model": "s20",
+    "UnitPrice": 12500.0
   },
   {
     "Id": null,
-    "ItemType": null,
-    "Capacity": 32.0,
-    "Pressure": 500.0,
-    "PowerConsumption": 10.0,
-    "Manufacturer": "ABC",
-    "Model": "CBA",
-    "UnitPrice": 1.1
+    "ItemType": "Blower",
+    "Capacity": 21.0,
+    "Pressure": 650.0,
+    "PowerConsumption": 15.7,
+    "Manufacturer": "KBC",
+    "Model": "s20",
+    "UnitPrice": 12500.0
+  },
+  {
+    "Id": null,
+    "ItemType": "Blower",
+    "Capacity": 25.5,
+    "Pressure": 650.0,
+    "PowerConsumption": 15.7,
+    "Manufacturer": "KBC",
+    "Model": "s20",
+    "UnitPrice": 12500.0
   }
 ]

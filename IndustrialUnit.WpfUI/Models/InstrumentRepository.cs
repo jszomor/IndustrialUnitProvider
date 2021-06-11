@@ -18,9 +18,11 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static List<Instrument> MapInstrument(string sqlCommand)
     {
-      var getFilteredItem = SQLiteDataAccess.GetDb(sqlCommand, TableName);
+      var instrumentData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
-      var dbRowNumber = getFilteredItem.Rows.Count;
+      if (instrumentData == null) return null;
+
+      var dbRowNumber = instrumentData.Rows.Count;
 
       List<Instrument> list = new();
 
@@ -32,7 +34,7 @@ namespace IndustrialUnit.WpfUI.Models
 
       for (int i = 0; i < dbRowNumber; i++)
       {
-        var item = getFilteredItem.Rows[i];
+        var item = instrumentData.Rows[i];
         list.Add(
           new Instrument()
           {
@@ -54,7 +56,7 @@ namespace IndustrialUnit.WpfUI.Models
       string sqlCommand = $"SELECT * FROM {TableName}";
 
       if ((MapInstrument(sqlCommand) == null))
-        return (null, "Database not found or empty.");
+        return (null, "Database not found! \nCreate a new one in the file menu \nor contact the developer.");
 
       return (MapInstrument(sqlCommand), "Database loaded successfully.");
     }

@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "Id": null,
+    "ItemType": "Level Transmitter",
+    "OperationPrinciple": "Radar",
+    "InstallationType": "Wall mounted",
+    "MediumToMeasure": "Water",
+    "Supplier": "Hach",
+    "Manufacturer": "Sitrans",
+    "UnitPrice": 830.5
+  },
+  {
+    "Id": null,
+    "ItemType": "Level Transmitter",
+    "OperationPrinciple": "Radar",
+    "InstallationType": "Wall mounted",
+    "MediumToMeasure": "Water",
+    "Supplier": "Hach",
+    "Manufacturer": "Sitrans",
+    "UnitPrice": 830.5
+  },
+  {
+    "Id": null,
+    "ItemType": "Level Transmitter",
+    "OperationPrinciple": "Radar",
+    "InstallationType": "Wall mounted",
+    "MediumToMeasure": "Water",
+    "Supplier": "Hach",
+    "Manufacturer": "Sitrans",
+    "UnitPrice": 830.5
+  },
+  {
+    "Id": null,
+    "ItemType": "Level Transmitter",
+    "OperationPrinciple": "Radar",
+    "InstallationType": "Wall mounted",
+    "MediumToMeasure": "Water",
+    "Supplier": "Hach",
+    "Manufacturer": "Sitrans",
+    "UnitPrice": 830.5
+  },
+  {
+    "Id": null,
+    "ItemType": "Level Transmitter",
+    "OperationPrinciple": "Ultrasound",
+    "InstallationType": "Wall mounted",
+    "MediumToMeasure": "Water",
+    "Supplier": "Hach",
+    "Manufacturer": "Sitrans",
+    "UnitPrice": 830.5
+  }
+]

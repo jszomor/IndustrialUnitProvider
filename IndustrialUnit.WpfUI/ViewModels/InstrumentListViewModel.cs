@@ -65,15 +65,18 @@ namespace IndustrialUnit.WpfUI.ViewModels
         UpdateInstrument(instruments);
       MessageToScreen = messageToScreen;
     }
-    private void RunRefreshCommand()
+
+    private void InitDatabase()
     {
       var (instruments, messageToScreen) = InstrumentRepository.GetAllInstruments();
 
       if (instruments == null)
         MessageToScreen = messageToScreen;
       else
-      UpdateInstrument(instruments);
-      MessageToScreen = "Refresh done.";
+      {
+        UpdateInstrument(instruments);
+        MessageToScreen = messageToScreen;
+      }
     }
 
     public ICommand AddCommand { get; }
@@ -88,10 +91,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       DeleteCommand = new RelayCommand(RunDeleteCommand);
       UpdateCommand = new RelayCommand(RunUpdateCommand);
       FilterCommand = new RelayCommand(RunFilterCommand);
-      RefreshCommand = new RelayCommand(RunRefreshCommand);
-      var (instruments, messageToScreen) = InstrumentRepository.GetAllInstruments();
-      UpdateInstrument(instruments);
-      MessageToScreen = messageToScreen;
+      RefreshCommand = new RelayCommand(InitDatabase);
+      InitDatabase();
     }
 
     private void UpdateInstrument(IEnumerable<Instrument> instrument)

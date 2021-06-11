@@ -18,6 +18,8 @@ namespace IndustrialUnit.WpfUI.Models
     {
       var equipmentData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
+      if (equipmentData == null) return null;
+
       var dbRowNumber = equipmentData.Rows.Count;
       
       var list = new List<Equipment>();
@@ -54,7 +56,7 @@ namespace IndustrialUnit.WpfUI.Models
       string sqlCommand = $"SELECT * FROM {TableName}";
 
       if ((MapEquipmentList(sqlCommand) == null))
-        return (null, "Database not found or empty.");
+        return (null, "Database not found! \nCreate a new one in the file menu \nor contact the developer.");
 
       return (MapEquipmentList(sqlCommand), "Database loaded successfully.");
     }

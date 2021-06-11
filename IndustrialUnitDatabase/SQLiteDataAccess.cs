@@ -10,22 +10,24 @@ namespace IndustrialUnitDatabase
 {
   public static class SQLiteDataAccess
   {
-    private static readonly string loadConnectionString = $"Data Source={PathHelper.DatabasePath("IndustrialUnitDB.db")}";
+    private static readonly string DatabaseName = "IndustrialUnitDB.db";
+    private static readonly string Database = PathHelper.DatabasePath(DatabaseName);
+    private static readonly string LoadConnectionString = $"Data Source={Database}";
 
     private static void RunDatabaseCommandsToModify(Action<SQLiteConnection> action)
     {
-      if (!File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
+      if (!File.Exists(Database))
         throw new FileNotFoundException("Database not found!");
-      using var connection = new SQLiteConnection(loadConnectionString);
+      using var connection = new SQLiteConnection(LoadConnectionString);
       connection.Open();
       action(connection);
     }
 
     private static T RunDatabaseCommandsToRead<T>(Func<SQLiteConnection, T> action)
     {
-      if (!File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
+      if (!File.Exists(Database))
         throw new FileNotFoundException("Database not found!");
-      using var connection = new SQLiteConnection(loadConnectionString);
+      using var connection = new SQLiteConnection(LoadConnectionString);
       connection.Open();
       return action(connection);
     }
@@ -36,16 +38,17 @@ namespace IndustrialUnitDatabase
       {
         return RunDatabaseCommandsToRead(db =>
         {
-          var command = new SQLiteCommand(sqlCommand, db);
-          SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(command);
-          DataTable table = new DataTable(tableName);
+          SQLiteCommand command = new(sqlCommand, db);
+          SQLiteDataAdapter dataAdapter = new(command);
+          DataTable table = new(tableName);
           dataAdapter.Fill(table);
           return table;
         });
       }
-      catch (FileNotFoundException message)
+      catch (FileNotFoundException)
       {
-        throw new FileNotFoundException($"{message}");
+        return null;
+        //throw new FileNotFoundException($"{message}");
       }
     }
 
@@ -71,9 +74,9 @@ namespace IndustrialUnitDatabase
 
     public static void AddCollection<T>(T unit, string tableName)
     {
-      if (File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
+      if (File.Exists(Database))
       {
-        using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
+        using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString))
         {
           switch (tableName)
           {
@@ -140,7 +143,7 @@ namespace IndustrialUnitDatabase
 
       string[] tableArray = new[] { sqlEquipment, sqlValve, sqlInstrument };
 
-      if (!File.Exists("IndustrialUnitDB.db"))
+      if (!File.Exists(DatabaseName))
       {
         SQLiteConnection.CreateFile("IndustrialUnitDB.db");
 
@@ -156,37 +159,34 @@ namespace IndustrialUnitDatabase
         con.Close();
 
         logMessage.Add("Database created successfully.");
-        //return logMessage;
       }
       else
       {
         logMessage.Add("Database already exist. \nDelete or rename the previous one.");
-        //return logMessage;
       }
     }
 
     public static void WipeDatabase(ref List<string> logMessage)
     {
-      if (File.Exists(PathHelper.DatabasePath("IndustrialUnitDB.db")))
+      if (File.Exists(Database))
       {
-        using (IDbConnection cnn = new SQLiteConnection(loadConnectionString))
+        using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString))
         {
-          string deleteEquipment = @"DELETE FROM EQUIPMENT";
-          string deleteValve = @"DELETE FROM VALVE";
-          string deleteInstrument = @"DELETE FROM INSTRUMENT";
 
-          cnn.Execute(deleteEquipment);
-          cnn.Execute(deleteValve);
-          cnn.Execute(deleteInstrument);
+          string[] tableArray = new[] { "EQUIPMENT", "VALVE", "INSTRUMENT" };
+
+          for (int i = 0; i < tableArray.Length; i++)
+          {
+            cnn.Execute($"DELETE FROM {tableArray[i]}");
+            cnn.Execute($"UPDATE `sqlite_sequence` SET `seq` = 0 WHERE `name` = '{tableArray[i]}';");
+          }
         }
 
         logMessage.Add("Database is successfully wiped.");
-        //return logMessage;
       }
       else
       {
-        logMessage.Add("Warning! Database not found!");
-        //return logMessage;
+        logMessage.Add("No database found to be wiped!");
       }
     }
   }

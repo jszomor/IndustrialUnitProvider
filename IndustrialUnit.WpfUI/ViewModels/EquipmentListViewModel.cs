@@ -74,7 +74,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private void RunRefreshCommand()
+    private void InitDatabase()
     {
       var (equipments, messageToScreen) = EquipmentRepository.GetAllEquipments();
 
@@ -83,9 +83,10 @@ namespace IndustrialUnit.WpfUI.ViewModels
       else
       {
         UpdateEquipmentList(equipments);
-        MessageToScreen = "Refresh done.";
+        MessageToScreen = messageToScreen;
       }
     }
+
 
     public ICommand AddCommand { get; }
     public ICommand DeleteCommand { get; }
@@ -99,10 +100,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       DeleteCommand = new RelayCommand(RunDeleteCommand);
       UpdateCommand = new RelayCommand(RunUpdateCommand);
       FilterCommand = new RelayCommand(RunFilterCommand);
-      RefreshCommand = new RelayCommand(RunRefreshCommand);
-      var (equipments, messageToScreen) = EquipmentRepository.GetAllEquipments();
-      UpdateEquipmentList(equipments);
-      MessageToScreen = messageToScreen;
+      RefreshCommand = new RelayCommand(InitDatabase);
+      InitDatabase();
     }
 
     private void UpdateEquipmentList(IEnumerable<Equipment> equipments)

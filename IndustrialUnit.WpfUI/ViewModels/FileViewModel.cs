@@ -44,10 +44,10 @@ namespace IndustrialUnit.WpfUI.ViewModels
     {
       get
       {
-        _loadExcelFileDescription = 
-          "Use an excel file to load batch collection of data into the database. " +
-          "\nExcel file must contain strictly named columns and sheets." +
-          "\nPlease use the template file for this.";
+        _loadExcelFileDescription =
+          "Use the appropriate excel file to load batch collection of data into the database. Excel file must" +
+          "\ncontain strictly named columns and sheets. Please download the template file to fill your data." +
+          "\nLog window will show valuable information about the procedure even if invalid data found in the file.";
         return _loadExcelFileDescription;
       }
     }
@@ -58,7 +58,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       get
       {
         _saveDatabaseDescription =
-          "Save the total database into a single excel file in a selected folder.";
+          "Save the total database into a single excel file to selected folder." +
+          "\nYou can name the file as you wish.";
         return _saveDatabaseDescription;
       }
     }
@@ -70,8 +71,9 @@ namespace IndustrialUnit.WpfUI.ViewModels
       {
         _downloadTemplateDescription =
           "This Software can read an excel file that has certain columns and sheets." +
-          "\nPlease use this to be able to load your collection into the database." +
-          "\nDo not change the names of the columns and sheets.";
+          "\nPlease use the template file to to load your collection into the database." +
+          "\nDo not change the names of the columns and sheets." +
+          "\nYou can name the file as you wish.";
         return _downloadTemplateDescription;
       }
     }
@@ -82,11 +84,25 @@ namespace IndustrialUnit.WpfUI.ViewModels
       get
       {
         _createDatabaseDescription =
-          "Industrial Unit Manager uses local database file which is separated from the main program \nwithout this the software is useless." +
-          "So as a good starting pont let's create an empty database file if you don't have to be able to store information." +
-          "\nDdatabase file must be named right 'IndustrialUnitDB.db' which will be created next to this demo program by hit of the create button." +
-          "\nIt is not possible to create new database if one is already exist. You must rename or delete the previous one.";
+          "Industrial Unit Manager uses separate local database file. Without this file the software is useless." +
+          "\nSo as a good starting pont let's create an empty database file if you don't have one yet to be able" +
+          "\nto store data. Database file must be named as follows 'IndustrialUnitDB.db' which will be created" +
+          "\nin the installation folder by the press of the create button. Keep the database file in the folder where" +
+          "\nit is generated. It is not possible to create new database if one is already exist with the same name.";
         return _createDatabaseDescription;
+      }
+    }
+
+    private string _wipeDatabaseDescription;
+    public string WipeDatabaseDescription
+    {
+      get
+      {
+        _wipeDatabaseDescription =
+          "Delete all data from all category by one button. Database file will remain but it will be completely" +
+          "\nempty. You will be asked to confirm your decision. The request is irrevocable and permanent." +
+          "\nSuggestion is to rename the current one and store it as backup for later usage.";
+        return _wipeDatabaseDescription;
       }
     }
 
@@ -99,17 +115,17 @@ namespace IndustrialUnit.WpfUI.ViewModels
     public ICommand CreateEmptyDatabase { get; }
     public ICommand WipeDatabase { get; }
 
-    private void RunSelectCommand() => (SelectedFile, Path) = FileModel.OpenFile();
-    private void RunLoadCommand() => LogMessage = FileModel.LoadIntoDB(Path);
-    private void RunDBCreator() => LogMessage = FileModel.CreateDatabaseModel();
-    private void RunWipeDB() => LogMessage = FileModel.WipeDatabaseModel();
+    private void RunSelectCommand() => (SelectedFile, Path) = FileRepository.OpenFile();
+    private void RunLoadCommand() => LogMessage = FileRepository.LoadIntoDB(Path);
+    private void RunDBCreator() => LogMessage = FileRepository.CreateDatabaseModel();
+    private void RunWipeDB() => LogMessage = FileRepository.WipeDatabaseModel();
 
     public FileViewModel()
     {
       SelectFileDialogBox = new RelayCommand(RunSelectCommand);
       LoadFile = new RelayCommand(RunLoadCommand);
-      SaveFile = new RelayCommand(FileModel.SaveFile);
-      DownloadTemplate = new RelayCommand(FileModel.DownLoadTemplateFile);
+      SaveFile = new RelayCommand(FileRepository.SaveFile);
+      DownloadTemplate = new RelayCommand(FileRepository.DownLoadTemplateFile);
       CreateEmptyDatabase = new RelayCommand(RunDBCreator);
       WipeDatabase = new RelayCommand(RunWipeDB);
     }

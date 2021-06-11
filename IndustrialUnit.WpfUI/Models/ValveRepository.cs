@@ -17,6 +17,8 @@ namespace IndustrialUnit.WpfUI.Models
     {
       var valveData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
+      if (valveData == null) return null;
+
       var dbRowNumber = valveData.Rows.Count;
       
       List<Valve> list = new();
@@ -49,7 +51,7 @@ namespace IndustrialUnit.WpfUI.Models
       string sqlCommand = $"SELECT * FROM {TableName}";
 
       if ((MapValveList(sqlCommand) == null))
-        return (null, "Database not found or empty.");
+        return (null, "Database not found! \nCreate a new one in the file menu \nor contact the developer.");
 
       return (MapValveList(sqlCommand), "Database loaded successfully.");
     }

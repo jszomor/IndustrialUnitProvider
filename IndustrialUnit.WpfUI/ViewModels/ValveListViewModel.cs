@@ -73,7 +73,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       }
     }
 
-    private void RunRefreshCommand()
+    private void InitDatabase()
     {
       var (valves, messageToScreen) = ValveRepository.GetAllValves();
 
@@ -82,7 +82,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       else
       {
         UpdateValveList(valves);
-        MessageToScreen = "Refresh done.";
+        MessageToScreen = messageToScreen;
       }
     }
 
@@ -98,10 +98,8 @@ namespace IndustrialUnit.WpfUI.ViewModels
       DeleteCommand = new RelayCommand(RunDeleteCommand);
       UpdateCommand = new RelayCommand(RunUpdateCommand);
       FilterCommand = new RelayCommand(RunFilterCommand);
-      RefreshCommand = new RelayCommand(RunRefreshCommand);
-      var (valves, messageToScreen) = ValveRepository.GetAllValves();
-      UpdateValveList(valves);
-      MessageToScreen = messageToScreen;
+      RefreshCommand = new RelayCommand(InitDatabase);
+      InitDatabase();
     }
 
     private void UpdateValveList(IEnumerable<Valve> valves)

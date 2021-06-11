@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace IndustrialUnit.WpfUI.Models
 {
-  public class FileModel
+  public class FileRepository
   {
     private static List<string> LogMessage;
 
