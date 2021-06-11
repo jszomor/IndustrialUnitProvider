@@ -12,7 +12,7 @@
     <DockPanel>
       <Menu DockPanel.Dock="Top" >
         <MenuItem Header="_Main">
-          <MenuItem Header="_Intruduction" />
+          <MenuItem Header="_Intruduction" Command="{Binding LoadIntroductionView}"/>
           <MenuItem Header="_Files" Command="{Binding LoadFileView}" />
           <MenuItem Header="_Exit" />
         </MenuItem>

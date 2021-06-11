@@ -16,11 +16,13 @@ namespace IndustrialUnit.WpfUI.ViewModels
     public ICommand LoadValveView { get; }
     public ICommand LoadInstrumentView { get; }
     public ICommand LoadFileView { get; }
+    public ICommand LoadIntroductionView { get; }
 
     public void InitEquipmentView() => Frame.Content = new EquipmentView();
     public void InitValveView() => Frame.Content = new ValveView();
     public void InitInstrumentView() => Frame.Content = new InstrumentView();
     public void InitFileView() => Frame.Content = new FileView();
+    public void InitIntroductionView() => Frame.Content = new IntroductionView();
 
 
     public MainViewModel()
@@ -29,6 +31,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
       LoadValveView = new RelayCommand(InitValveView);
       LoadInstrumentView = new RelayCommand(InitInstrumentView);
       LoadFileView = new RelayCommand(InitFileView);
+      LoadIntroductionView = new RelayCommand(InitIntroductionView);
     }  
 	}
 }

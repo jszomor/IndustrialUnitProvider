@@ -1,0 +1,16 @@
+Welcome to Indsutrial Unit Manager!
+
+The purpose of this software above the seek of my learning is to demonstrate a valuable
+solution for customers who are seeking uniqely developed industry specific wide range 
+of product list with the most important information for further usage.
+This software gives a possiblity to user to maintain its own products or even creates a new database
+to start over to separate lists by manufacturers or item names.
+By further development it is possible the have features like pricing, engineering sizing,
+order list, pre-configured group selection based on engineering calculation.
+The industries which could be intrested in such solution are wastewater treatment, water treatment, energy, oil, food,
+pharmaceutical. These fields have its own specific equipments however there are many
+kind of product in common like pumps, valves and instruments.
+
+Szomor János
+jszomor@gmail.com
+2021.06.11

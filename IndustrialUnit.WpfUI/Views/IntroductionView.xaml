@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="IndustrialUnit.WpfUI.Views.IntroductionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IndustrialUnit.WpfUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1400"
+  xmlns:System="clr-namespace:System;assembly=System.Runtime">
+  <UserControl.Resources>
+    <System:Double x:Key="ImageOpacity1">1</System:Double>
+  </UserControl.Resources>
+  
+  <Grid  Background="White">
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="20"/>
+      <ColumnDefinition Width="auto"/>
+      <ColumnDefinition Width="auto"/>
+      <ColumnDefinition Width="auto"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="20"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Border      
+      Grid.Row="1"
+      Grid.Column="0"
+      Grid.ColumnSpan="5"
+      BorderBrush="Gray"
+      BorderThickness="2">
+
+      <StackPanel
+        Grid.Row="1"
+        Grid.Column="1"
+        Orientation="Horizontal"
+        VerticalAlignment="Center">
+
+        <Image 
+          Source="/img/IndustrialLogo.jpg"
+          Width="80"
+          Visibility="Visible"
+          Margin="10,0,0,0"/>
+
+        <Label
+          Content="Industrial Unit Manager"
+          FontSize="40"
+          FontStyle="Italic"
+          Margin="10,0,0,0"/>
+
+      </StackPanel>
+    </Border>
+
+    <StackPanel 
+      Background="AntiqueWhite" 
+      Grid.Row="2" 
+      Grid.Column="0" 
+      Grid.ColumnSpan="5"
+      Grid.RowSpan="3">
+    </StackPanel>
+
+    <StackPanel 
+      Background="AntiqueWhite" 
+      Grid.Row="0" 
+      Grid.Column="0" 
+      Grid.ColumnSpan="5">
+    </StackPanel>
+
+  </Grid>
+</UserControl>
