@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "IndustrialUnit.WpfUI": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Development": "Value",
+        "Production": "Value"
+      }
+    }
+  }
+}

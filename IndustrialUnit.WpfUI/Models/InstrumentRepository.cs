@@ -83,9 +83,9 @@ namespace IndustrialUnit.WpfUI.Models
 
       try
       {
-        SQLiteDataAccess.ActOnItem(item, sqlCommand);
+        int newId = SQLiteDataAccess.ActOnItem(item, sqlCommand);
 
-        return "You have successfully added. \nPress refresh to see the result.";
+        return $"You have successfully added [{newId}] id. \nPress refresh to see the result.";
       }
       catch (FileNotFoundException message)
       {
