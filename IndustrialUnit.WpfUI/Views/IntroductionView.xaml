@@ -4,13 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IndustrialUnit.WpfUI.Views"
+             xmlns:viewModel="clr-namespace:IndustrialUnit.WpfUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1400"
   xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+  <UserControl.DataContext>
+    <viewModel:IntroductionViewModel/>
+  </UserControl.DataContext>
+
   <UserControl.Resources>
     <System:Double x:Key="ImageOpacity1">1</System:Double>
   </UserControl.Resources>
-  
+
   <Grid  Background="White">
 
     <Grid.ColumnDefinitions>
@@ -71,6 +77,39 @@
       Grid.Column="0" 
       Grid.ColumnSpan="5">
     </StackPanel>
+
+    <FlowDocumentReader Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,67,0,0" Grid.RowSpan="4" FlowDirection="LeftToRight" >
+      <FlowDocument>
+        
+        <Paragraph FontSize="18" FontWeight="Bold">
+          Welcome to Indsutrial Unit Manager Demo!
+        </Paragraph>
+        
+        <Paragraph>
+
+          The purpose of this software above the seek of my learning is to demonstrate a valuable
+          solution for customers who are seeking uniqely developed industry specific wide range 
+          of product list with the most important information for further usage.
+          This software gives a possiblity to user to maintain its own database or even creates a new database
+          to be able to separate products by manufacturers or item types in an isolated file.
+          User can create as many database as they want.
+          By further development become possible to have features like pricing, engineering sizing,
+          shop list, pre-configured group selection based on engineering calculation.
+          The industries which could be intrested in such solution are wastewater treatment, water treatment,
+          energy, oil, food, pharmaceutical. These fields have its own specific equipments however there are many
+          kind of product in common like pumps, valves and instruments.          
+        </Paragraph>
+
+        <Paragraph>
+          Szomor János
+          <LineBreak/>
+          jszomor@gmail.com
+          <LineBreak/>
+          11.06.2021
+        </Paragraph>
+
+      </FlowDocument>
+    </FlowDocumentReader>
 
   </Grid>
 </UserControl>
