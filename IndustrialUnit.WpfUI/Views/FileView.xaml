@@ -94,9 +94,9 @@
         <FlowDocumentScrollViewer Width="630" ScrollViewer.VerticalScrollBarVisibility="Hidden">
           <FlowDocument>
             <Paragraph>
-              Use the appropriate excel file to load batch collection of data into the database. Excel file must
-              contain strictly named columns and sheets. Please download the template file to fill your data.
-              Log window will show valuable information about the procedure even if invalid data found in the file.
+              Download the template excel file to load batch collection of data into the database. This excel file
+              contain strictly named columns and sheets which must be kept as is. Log window will show valuable information
+              about the procedure even if invalid data found in the file.
             </Paragraph>
           </FlowDocument>
         </FlowDocumentScrollViewer>
@@ -193,7 +193,7 @@
           <FlowDocument>
             <Paragraph>
               This Software can read an excel file that has certain columns and sheets.
-              Please use the template file to to load your collecion into the database.
+              Please use the template file for it in order to load your collecion into the database.
               Do not change the names of the columns and sheets. You can name the file as you wish.
             </Paragraph>
           </FlowDocument>
@@ -235,10 +235,10 @@
           <FlowDocument>
             <Paragraph>
               Industrial Unit Manager uses separate local database file. Without this file the software is useless.
-              So as a good starting pont let's create an empty database file if you don't have one yet to be able
-              to store data. Database file must be named as follows 'IndustrialUnitDB.db' which will be created
-              in the installation folder by the press of the create button. Keep the database file in the folder where
-              it is generated. It is not possible to create new database if one is already exist with the same name.
+              An empyt database file is already created in the main directory. It is named 'IndustrialUnitDB.db'
+              the program only recognize this name so do not change. Furthermore you can also create a new and empty
+              database if you want to isolate products by Manufacturers or other related categores. It is not possible to 
+              create new database if one is already exist.
             </Paragraph>
           </FlowDocument>
         </FlowDocumentScrollViewer>
@@ -279,7 +279,7 @@
         <FlowDocumentScrollViewer Width="630" ScrollViewer.VerticalScrollBarVisibility="Hidden">
           <FlowDocument>
             <Paragraph>
-              Delete all data from all category by one button. Database file will remain but it will be completely
+              Delete all data from all category by one click. Database file will remain but it will be completely
               empty. You will be asked to confirm your decision. The request is irrevocable and permanent.
               Suggestion is to rename the current one and store it as backup for later usage.
             </Paragraph>
