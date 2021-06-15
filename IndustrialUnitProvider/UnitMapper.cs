@@ -74,9 +74,7 @@ namespace IndustrialUnitProvider
               }
             }
           }
-
-          SQLiteDataAccess.AddCollection(unit, sheet.Name);
-
+                    
           parameterCollection.Add(unit);
         }
         else
@@ -93,11 +91,9 @@ namespace IndustrialUnitProvider
       }
       else
       {
+        SQLiteDataAccess.AddCollection(parameterCollection, sheet.Name);
         logMessage.Add($"[{sheet.Name}] sheet is loaded into the database.");
       }
-
-      var itemToJsonSerializer = new ItemsToJsonSerializer();
-      itemToJsonSerializer.BuildJson(parameterCollection, sheet.Name);
     }
   }
 }

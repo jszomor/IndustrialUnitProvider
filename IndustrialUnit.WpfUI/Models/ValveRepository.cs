@@ -1,9 +1,7 @@
 ﻿using IndustrialUnit.Model.Model;
-using IndustrialUnit.WpfUI.ViewModels;
 using IndustrialUnitDatabase;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 
@@ -50,7 +48,7 @@ namespace IndustrialUnit.WpfUI.Models
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
-      if ((MapValveList(sqlCommand) == null))
+      if (MapValveList(sqlCommand) == null)
         return (null, "Database not found! \nCreate a new one in the file menu \nor contact the developer.");
 
       return (MapValveList(sqlCommand), "Database loaded successfully.");
@@ -63,7 +61,7 @@ namespace IndustrialUnit.WpfUI.Models
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
-      if ((MapValveList(sqlCommand) == null))
+      if (MapValveList(sqlCommand).Count == 0)
         return (null, $"Filter name: [{selectedItem}] not found in database.");
 
       return (MapValveList(sqlCommand), 
@@ -73,7 +71,7 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitAdd(Valve item)
     {
       if (!IsValveEmpty(item) || item == null)
-        return "No empty cell is allowed for Insert.";
+        return "No empty cell is allowed for insert.";
 
       string sqlCommand = $"insert into {TableName} (ItemType, Operation, Size, ConnectionType, Supplier, Manufacturer, UnitPrice) " +
                 "values (@ItemType, @Operation, @Size, @ConnectionType, @Supplier, @Manufacturer, @UnitPrice)";
@@ -94,7 +92,7 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitUpdate(Valve item)
     {
       if (!IsValveEmpty(item) || item == null)
-        return "No empty cell is allowed for Delete.";
+        return "No empty cell is allowed for update.";
 
       string sqlCommand = $"update {TableName} set ItemType=@ItemType, Operation=@Operation, Size=@Size, ConnectionType=@ConnectionType, " +
                   $"Supplier=@Supplier, Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id=";

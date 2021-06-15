@@ -1,17 +1,17 @@
 ﻿using Dapper;
-using IndustrialUnit.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.IO;
+using System.Reflection;
 
 namespace IndustrialUnitDatabase
 {
   public static class SQLiteDataAccess
   {
     private static readonly string DatabaseName = "IndustrialUnitDB.db";
-    private static readonly string Database = PathHelper.DatabasePath(DatabaseName);
+    private static readonly string Database = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), DatabaseName);
     private static readonly string LoadConnectionString = $"Data Source={Database}";
 
     private static void RunDatabaseCommandsToModify(Action<SQLiteConnection> action)
@@ -145,7 +145,7 @@ namespace IndustrialUnitDatabase
 
       if (!File.Exists(DatabaseName))
       {
-        SQLiteConnection.CreateFile("IndustrialUnitDB.db");
+        SQLiteConnection.CreateFile(@"IndustrialUnitDB.db");
 
         con = new SQLiteConnection("Data Source=IndustrialUnitDB.db;Version=3;");
         con.Open();

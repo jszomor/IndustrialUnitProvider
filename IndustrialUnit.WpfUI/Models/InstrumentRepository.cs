@@ -1,14 +1,9 @@
 ﻿using IndustrialUnit.Model.Model;
-using IndustrialUnit.WpfUI.ViewModels;
 using IndustrialUnitDatabase;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IndustrialUnit.WpfUI.Models
 {
@@ -55,7 +50,7 @@ namespace IndustrialUnit.WpfUI.Models
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
-      if ((MapInstrument(sqlCommand) == null))
+      if (MapInstrument(sqlCommand) == null)
         return (null, "Database not found! \nCreate a new one in the file menu \nor contact the developer.");
 
       return (MapInstrument(sqlCommand), "Database loaded successfully.");
@@ -68,7 +63,7 @@ namespace IndustrialUnit.WpfUI.Models
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
-      if ((MapInstrument(sqlCommand) == null))
+      if (MapInstrument(sqlCommand).Count == 0)
         return (null, $"Filter name: [{selectedItem}] not found.");
 
       return (MapInstrument(sqlCommand),
@@ -78,7 +73,7 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitAdd(Instrument item)
     {
       if (!IsTextBoxEmpty(item) || item == null)
-        return "No empty cell is allowed.";
+        return "No empty cell is allowed for insert.";
 
       string sqlCommand = $"insert into {TableName} (ItemType, OperationPrinciple, InstallationType, MediumToMeasure, Supplier, Manufacturer, UnitPrice) " +
                 "values (@ItemType, @OperationPrinciple, @InstallationType, @MediumToMeasure, @Supplier, @Manufacturer, @UnitPrice)";
@@ -99,7 +94,7 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitUpdate(Instrument Instrument)
     {
       if (!IsTextBoxEmpty(Instrument) || Instrument == null)
-        return "No empty cell is allowed.";
+        return "No empty cell is allowed for update.";
 
       string sqlCommand = "update Instrument set ItemType=@ItemType, OperationPrinciple=@OperationPrinciple, InstallationType=@InstallationType, MediumToMeasure=@MediumToMeasure, " +
                   "Supplier=@Supplier, Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id=";

@@ -28,6 +28,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
     public MainViewModel()
     {
       Frame.Content = new IntroductionView();
+      FileRepository.CreateDatabaseModel();
       LoadEquipmentView = new RelayCommand(InitEquipmentView);
       LoadValveView = new RelayCommand(InitValveView);
       LoadInstrumentView = new RelayCommand(InitInstrumentView);

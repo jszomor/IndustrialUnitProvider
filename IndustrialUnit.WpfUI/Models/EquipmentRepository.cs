@@ -1,11 +1,8 @@
-﻿using IndustrialUnit.WpfUI.ViewModels;
-using IndustrialUnitDatabase;
+﻿using IndustrialUnitDatabase;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using System.Windows;
 using IndustrialUnit.Model.Model;
 
 namespace IndustrialUnit.WpfUI.Models
@@ -55,7 +52,7 @@ namespace IndustrialUnit.WpfUI.Models
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
-      if ((MapEquipmentList(sqlCommand) == null))
+      if (MapEquipmentList(sqlCommand) == null)
         return (null, "Database not found! \nCreate a new one in the file menu \nor contact the developer.");
 
       return (MapEquipmentList(sqlCommand), "Database loaded successfully.");
@@ -68,7 +65,7 @@ namespace IndustrialUnit.WpfUI.Models
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
-      if ((MapEquipmentList(sqlCommand) == null))
+      if (MapEquipmentList(sqlCommand).Count == 0)
         return (null, $"Filter name: [{selectedItem}] not found in database.");
 
       return (MapEquipmentList(sqlCommand),
@@ -78,7 +75,7 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitAdd(Equipment item)
     {
       if (!IsEquipmentEmpty(item) || item == null)
-        return "No empty cell is allowed for Insert.";
+        return "No empty cell is allowed for insert.";
 
       string sqlCommand =
           $"insert into {TableName} (ItemType, Capacity, Pressure, PowerConsumption, Manufacturer, Model, UnitPrice) " +
@@ -100,7 +97,7 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitUpdate(Equipment item)
     {
       if (!IsEquipmentEmpty(item) || item == null)
-        return "No empty cell is allowed for Update.";
+        return "No empty cell is allowed for update.";
 
       string sqlCommand =
           $"update {TableName} set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
