@@ -235,8 +235,8 @@
           <FlowDocument>
             <Paragraph>
               Industrial Unit Manager uses separate local database file. Without this file the software is useless.
-              An empyt database file is already created in the main directory. It is named 'IndustrialUnitDB.db'
-              the program only recognize this name so do not change. Furthermore you can also create a new and empty
+              Note an empty database file is already created in the main directory. It is named 'IndustrialUnitDB.db'
+              the program only recognize this name so do not change. Furthermore you can also create new and empty
               database if you want to isolate products by Manufacturers or other related categores. It is not possible to 
               create new database if one is already exist.
             </Paragraph>

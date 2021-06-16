@@ -8,7 +8,7 @@ namespace IndustrialUnitProvider
 {
   public static class ExcelWorker
   {
-    public static ExcelWorksheet ReadExcel(string file, string sheetName, ref List<string> logMessage)
+    public static ExcelWorksheet ReadExcel(string file, string sheetName, List<string> logMessage)
     {
       ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 

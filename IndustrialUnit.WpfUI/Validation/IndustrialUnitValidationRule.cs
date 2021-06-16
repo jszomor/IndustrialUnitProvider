@@ -19,7 +19,7 @@ namespace IndustrialUnit.WpfUI.Validation
       if (charString.Length < MinimumCharacters && !string.IsNullOrWhiteSpace(charString))
         return new ValidationResult(false, $"Label must consist at least {MinimumCharacters} char.");
       else if (string.IsNullOrWhiteSpace(charString))
-        return new ValidationResult(false, "");
+        return new ValidationResult(false, "Space as start is not allowed.");
       else if (charString.Contains("..") || charString.StartsWith("."))
         return new ValidationResult(false, "Invalid input.");
 

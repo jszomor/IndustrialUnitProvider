@@ -103,7 +103,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public static void CreateDatabase(ref List<string> logMessage)
+    public static void CreateDatabase(List<string> logMessage)
     {
       SQLiteConnection con;
       SQLiteCommand cmd;
@@ -166,7 +166,7 @@ namespace IndustrialUnitDatabase
       }
     }
 
-    public static void WipeDatabase(ref List<string> logMessage)
+    public static void WipeDatabase(List<string> logMessage)
     {
       if (File.Exists(Database))
       {

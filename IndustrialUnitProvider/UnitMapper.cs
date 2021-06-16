@@ -9,25 +9,27 @@ namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public void LoadUnitsFromSheet(string file, ref List<string> logMessage)
+    public void LoadUnitsFromSheet(string file, List<string> logMessage)
     {
-      List<Equipment> equipments = new List<Equipment>();
-      var sheetEquipment = ExcelWorker.ReadExcel(file, ValidSheetNames.Equipment.ToString(), ref logMessage);
+      List<Equipment> equipments = new();
+      var sheetEquipment = ExcelWorker.ReadExcel(file, ValidSheetNames.Equipment.ToString(), logMessage);
       if(sheetEquipment != null)
-      AssignValue(equipments, sheetEquipment, ref logMessage);
+      AssignValue(equipments, sheetEquipment, logMessage);
 
-      List<Valve> valves = new List<Valve>();
-      var sheetValve = ExcelWorker.ReadExcel(file, ValidSheetNames.Valve.ToString(), ref logMessage);
+      List<Valve> valves = new();
+      var sheetValve = ExcelWorker.ReadExcel(file, ValidSheetNames.Valve.ToString(), logMessage);
       if(sheetValve != null)
-      AssignValue(valves, sheetValve, ref logMessage);
+      AssignValue(valves, sheetValve, logMessage);
 
-      List<Instrument> instruments = new List<Instrument>();
-      var sheetInstruments = ExcelWorker.ReadExcel(file, ValidSheetNames.Instrument.ToString(), ref logMessage);
+      List<Instrument> instruments = new();
+      var sheetInstruments = ExcelWorker.ReadExcel(file, ValidSheetNames.Instrument.ToString(), logMessage);
       if(sheetInstruments != null)
-      AssignValue(instruments, sheetInstruments, ref logMessage);
+      AssignValue(instruments, sheetInstruments, logMessage);
+
+      logMessage.Add("\nDatabase updates is completed.");
     }
 
-    public void AssignValue<T>(List<T> parameterCollection, ExcelWorksheet sheet, ref List<string> logMessage) where T : class, new()
+    public void AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
     {
       PropertyInfo[] properties = typeof(T).GetProperties();
 
@@ -75,7 +77,7 @@ namespace IndustrialUnitProvider
             }
           }
                     
-          parameterCollection.Add(unit);
+          units.Add(unit);
         }
         else
         {
@@ -85,13 +87,13 @@ namespace IndustrialUnitProvider
         SkipRow:;
       }
 
-      if (parameterCollection.Count < 1)
+      if (units.Count < 1)
       {
         logMessage.Add($"[{sheet.Name}] sheet is empty.");
       }
       else
       {
-        SQLiteDataAccess.AddCollection(parameterCollection, sheet.Name);
+        SQLiteDataAccess.AddCollection(units, sheet.Name);
         logMessage.Add($"[{sheet.Name}] sheet is loaded into the database.");
       }
     }

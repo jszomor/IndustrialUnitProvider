@@ -9,7 +9,7 @@ namespace IndustrialUnit.WpfUI.Models
 {
   public class FileRepository
   {
-    private static List<string> LogMessage;
+    internal static List<string> LogMessage;
 
     internal static (string, string) OpenFile()
     {
@@ -27,19 +27,19 @@ namespace IndustrialUnit.WpfUI.Models
         return (null, null);
     }
 
-    internal static List<string> LoadIntoDB(string path)
+    internal static void LoadIntoDB(string path)
     {
       LogMessage = new();
       if (path == null)
       {
         LogMessage.Add("No file selected.");
-        return LogMessage;
+        //return LogMessage;
       }
       else
       {
         var mapper = new UnitMapper();
-        mapper.LoadUnitsFromSheet(path, ref LogMessage);
-        return LogMessage;
+        mapper.LoadUnitsFromSheet(path, LogMessage);
+        //return LogMessage;
       }
     }
 
@@ -72,7 +72,7 @@ namespace IndustrialUnit.WpfUI.Models
     internal static List<string> CreateDatabaseModel()
     {
       LogMessage = new();
-      SQLiteDataAccess.CreateDatabase(ref LogMessage);
+      SQLiteDataAccess.CreateDatabase(LogMessage);
       return LogMessage;
     }
 
@@ -85,12 +85,12 @@ namespace IndustrialUnit.WpfUI.Models
 
       if (messageBoxResult == MessageBoxResult.Yes)
       {
-        SQLiteDataAccess.WipeDatabase(ref LogMessage);
+        SQLiteDataAccess.WipeDatabase(LogMessage);
         return LogMessage;
       }
       else
       {
-        LogMessage.Add("Delete process cancelled.");
+        LogMessage.Add("Wipe process cancelled.");
         return LogMessage;
       }
     }

@@ -23,9 +23,9 @@ namespace IndustrialUnitTest
       string file = "3Rows.xlsx";
       string sheetName = "Equipment";
 
-      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, ref messages);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
 
-      mapper.AssignValue(equipments, sheet, ref messages);
+      mapper.AssignValue(equipments, sheet, messages);
 
       var expected = new List<Equipment>()
       {
@@ -65,9 +65,9 @@ namespace IndustrialUnitTest
       string file = "3Rows.xlsx";
       string sheetName = "Valve";
 
-      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, ref messages);
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
 
-      mapper.AssignValue(valves, sheet, ref messages);
+      mapper.AssignValue(valves, sheet, messages);
 
       var expected = new List<Valve>()
       {

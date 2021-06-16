@@ -1,8 +1,5 @@
 ﻿using IndustrialUnit.WpfUI.Models;
 using IndustrialUnit.WpfUI.Views;
-using IndustrialUnitDatabase;
-using IndustrialUnitProvider;
-using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
@@ -49,12 +46,14 @@ namespace IndustrialUnit.WpfUI.ViewModels
     public ICommand WipeDatabase { get; }
 
     private void RunSelectCommand() => (SelectedFile, Path) = FileRepository.OpenFile();
+
     private void RunLoadCommand()
     {
-      Window window = new ProgressDialog(Path);
-      //window.ShowDialog();
-      //=> LogMessage = FileRepository.LoadIntoDB(Path);
+      LogMessage = null;
+      Window window = new ProgressDialogView(Path);
+      LogMessage = FileRepository.LogMessage;
     }
+
     private void RunDBCreator() => LogMessage = FileRepository.CreateDatabaseModel();
     private void RunWipeDB() => LogMessage = FileRepository.WipeDatabaseModel();
 
