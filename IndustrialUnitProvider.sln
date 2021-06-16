@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndustrialUnitTest", "Indus
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndustrialUnit.Model", "IndustrialUnit.Model\IndustrialUnit.Model.csproj", "{66A5992A-C439-424A-8EC5-E27F24B454DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialUnit.WpfUI", "IndustrialUnit.WpfUI\IndustrialUnit.WpfUI.csproj", "{7DF9B6EE-4C53-4871-BD9E-3984B0E4A1E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndustrialUnit.WpfUI", "IndustrialUnit.WpfUI\IndustrialUnit.WpfUI.csproj", "{7DF9B6EE-4C53-4871-BD9E-3984B0E4A1E4}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IndustrialUnitProvider.Installer", "IndustrialUnitProvider.Installer\IndustrialUnitProvider.Installer.vdproj", "{768C536B-40C3-4846-8E05-32ED48B1325F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,9 @@ Global
 		{7DF9B6EE-4C53-4871-BD9E-3984B0E4A1E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DF9B6EE-4C53-4871-BD9E-3984B0E4A1E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DF9B6EE-4C53-4871-BD9E-3984B0E4A1E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{768C536B-40C3-4846-8E05-32ED48B1325F}.Debug|Any CPU.ActiveCfg = Debug
+		{768C536B-40C3-4846-8E05-32ED48B1325F}.Release|Any CPU.ActiveCfg = Release
+		{768C536B-40C3-4846-8E05-32ED48B1325F}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

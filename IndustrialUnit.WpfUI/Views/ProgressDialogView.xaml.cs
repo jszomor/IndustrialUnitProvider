@@ -51,11 +51,14 @@ namespace IndustrialUnit.WpfUI.Views
 
     void OnClosing(object sender, CancelEventArgs e)
     {
-      MessageBoxResult dialogResult = MessageBox.Show("Transaction cannot be stopped properly. \nForce to kill the program?", "", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-      if(dialogResult == MessageBoxResult.Yes)
+      if (_isBusy)
       {
-        throw new InvalidProgramException();
+        MessageBoxResult dialogResult = MessageBox.Show("Transaction cannot be stopped properly. \nForce to kill the program?", "", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+        if (dialogResult == MessageBoxResult.Yes)
+        {
+          throw new InvalidProgramException();
+        }
       }
 
       e.Cancel = _isBusy;
@@ -68,7 +71,8 @@ namespace IndustrialUnit.WpfUI.Views
 
     private void OkButton_Click(object sender, RoutedEventArgs e)
     {
-      Dispatcher.BeginInvoke(DispatcherPriority.Send, (SendOrPostCallback)delegate {
+      Dispatcher.BeginInvoke(DispatcherPriority.Send, (SendOrPostCallback)delegate
+      {
         _isBusy = false;
         Close();
       }, null);

@@ -4,6 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>IndustrialLogoICO.ico</ApplicationIcon>
+    <Authors>Szomor János</Authors>
+    <Product>IndustrialUnitManager</Product>
+    <PackageId>IndustrialUnitManager</PackageId>
+    <RootNamespace>IndustrialUnit.WpfUI</RootNamespace>
+    <StartupObject>IndustrialUnit.WpfUI.App</StartupObject>
+    <AssemblyName>IndustrialUnitManager</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
