@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndustrialUnit.WpfUI.Views"
         Height="140" 
-        Width="340" 
-        MinHeight="140" 
-        MinWidth="340" 
-        Title="XtractBCS" 
+        Width="340"        
+        MaxHeight="140" 
+        MaxWidth="340"
+        Title="Progress bar" 
         FontFamily="Segoe UI" 
         ResizeMode="CanResize" 
-        Closing="OnClosing" 
-        WindowStyle="SingleBorderWindow" 
+        Closing="OnClosing"
+        WindowStyle="ToolWindow" 
         WindowStartupLocation="CenterOwner">
 
   <DockPanel Margin="10">
@@ -21,10 +21,10 @@
         <ColumnDefinition Width="*" />
         <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
-      <ProgressBar x:Name="ProgressBar" Grid.Column="0" IsIndeterminate="True" Height="22" />
-      <Button x:Name="CancelButton" Grid.Column="1" Margin="3,0,0,0" Width="70" Height="22" Content="Cancel" Visibility="Visible" HorizontalAlignment="Right" Click="CancelButton_Click"/>
+      <ProgressBar x:Name="ProgressBar" Grid.Column="0" IsIndeterminate="True" Height="22"/>
+      <Button x:Name="OK" Grid.Column="1" Margin="3,0,0,0" Width="70" Height="22" Content="OK" Visibility="Hidden" HorizontalAlignment="Right" Click="OkButton_Click"/>
     </Grid>
-    <TextBlock x:Name="TextLabel" Text="Loading..." TextTrimming="CharacterEllipsis" DockPanel.Dock="Top" />
-    <TextBlock x:Name="SubTextLabel" Text="..." FontStyle="Italic" Visibility="Collapsed" Margin="0,5,0,5" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
+    <TextBlock x:Name="TextLabel" Text="Loading please wait..." TextTrimming="CharacterEllipsis" DockPanel.Dock="Top" />
+    <TextBlock x:Name="SubTextLabel" Text="Process time depends on the amount of data and the hardware." FontStyle="Italic" Margin="0,5,0,5" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
   </DockPanel>
 </Window>

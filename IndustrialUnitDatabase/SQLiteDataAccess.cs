@@ -12,7 +12,7 @@ namespace IndustrialUnitDatabase
   {
     private static readonly string DatabaseName = "IndustrialUnitDB.db";
     private static readonly string Database = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), DatabaseName);
-    private static readonly string LoadConnectionString = $"Data Source={Database}";
+    private static readonly string LoadConnectionString = $"Data Source={Database};Cache=Shared";
 
     private static void RunDatabaseCommandsToModify(Action<SQLiteConnection> action)
     {
@@ -72,7 +72,7 @@ namespace IndustrialUnitDatabase
       });
     }
 
-    public static void AddCollection<T>(T unit, string tableName)
+    public static void AddCollection<T>(IEnumerable<T> unit, string tableName)
     {
       if (File.Exists(Database))
       {
