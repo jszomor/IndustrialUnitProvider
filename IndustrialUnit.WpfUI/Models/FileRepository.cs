@@ -1,4 +1,5 @@
-﻿using IndustrialUnitDatabase;
+﻿using IndustrialUnit.Model.Model;
+using IndustrialUnitDatabase;
 using IndustrialUnitProvider;
 using Microsoft.Win32;
 using System.Collections.Generic;
@@ -33,13 +34,13 @@ namespace IndustrialUnit.WpfUI.Models
       if (path == null)
       {
         LogMessage.Add("No file selected.");
-        //return LogMessage;
       }
       else
       {
-        var mapper = new UnitMapper();
-        mapper.LoadUnitsFromSheet(path, LogMessage);
-        //return LogMessage;
+        UnitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), LogMessage);
+        UnitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), LogMessage);
+        UnitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), LogMessage);
+        LogMessage.Add("\nDatabase updates is completed.");
       }
     }
 

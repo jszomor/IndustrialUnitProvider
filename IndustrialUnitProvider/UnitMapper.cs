@@ -9,27 +9,15 @@ namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public void LoadUnitsFromSheet(string file, List<string> logMessage)
+    public static void LoadFromSheet<T>(string path, string sheetName, List<string> logMessage) where T : class, new()
     {
-      List<Equipment> equipments = new();
-      var sheetEquipment = ExcelWorker.ReadExcel(file, ValidSheetNames.Equipment.ToString(), logMessage);
-      if(sheetEquipment != null)
-      AssignValue(equipments, sheetEquipment, logMessage);
-
-      List<Valve> valves = new();
-      var sheetValve = ExcelWorker.ReadExcel(file, ValidSheetNames.Valve.ToString(), logMessage);
-      if(sheetValve != null)
-      AssignValue(valves, sheetValve, logMessage);
-
-      List<Instrument> instruments = new();
-      var sheetInstruments = ExcelWorker.ReadExcel(file, ValidSheetNames.Instrument.ToString(), logMessage);
-      if(sheetInstruments != null)
-      AssignValue(instruments, sheetInstruments, logMessage);
-
-      logMessage.Add("\nDatabase updates is completed.");
+      List<T> list = new();
+      var sheet = ExcelWorker.ReadExcel(path, sheetName, logMessage);
+      if(sheet != null)
+        AssignValue(list, sheet, logMessage);
     }
 
-    public void AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
+    public static void AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
     {
       PropertyInfo[] properties = typeof(T).GetProperties();
 

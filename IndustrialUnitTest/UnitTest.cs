@@ -17,7 +17,7 @@ namespace IndustrialUnitTest
     [Fact]
     public void EquipmentValuesShouldBeLikeInTheExcel()
     {
-      var mapper = new UnitMapper();
+      //var mapper = new UnitMapper();
       List<Equipment> equipments = new List<Equipment>();
       List<string> messages = null;
       string file = "3Rows.xlsx";
@@ -25,7 +25,7 @@ namespace IndustrialUnitTest
 
       var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
 
-      mapper.AssignValue(equipments, sheet, messages);
+      UnitMapper.AssignValue(equipments, sheet, messages);
 
       var expected = new List<Equipment>()
       {
@@ -59,7 +59,7 @@ namespace IndustrialUnitTest
     [Fact]
     public void ValveValuesShouldBeLikeInTheExcel()
     {
-      var mapper = new UnitMapper();
+      //var mapper = new UnitMapper();
       List<Valve> valves = new List<Valve>();
       List<string> messages = null;
       string file = "3Rows.xlsx";
@@ -67,7 +67,7 @@ namespace IndustrialUnitTest
 
       var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
 
-      mapper.AssignValue(valves, sheet, messages);
+      UnitMapper.AssignValue(valves, sheet, messages);
 
       var expected = new List<Valve>()
       {
