@@ -3,6 +3,9 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageId>IndustrialUnitManager</PackageId>
+    <Authors>Szomor János</Authors>
+    <Product>IndustrialUnitManager</Product>
   </PropertyGroup>
 
   <ItemGroup>

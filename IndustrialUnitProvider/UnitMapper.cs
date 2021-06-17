@@ -30,7 +30,7 @@ namespace IndustrialUnitProvider
       {
         if (!string.IsNullOrEmpty(sheet.Cells[rowIndex, 2].Text)) //if an ItemType cell is empty in the source excel file item won't be added
         {
-          T unit = new T();
+          T unit = new();
           foreach (var item in properties)
           {
             if (columnNameToIndex.TryGetValue(item.Name, out int value) && item.Name != "Id")

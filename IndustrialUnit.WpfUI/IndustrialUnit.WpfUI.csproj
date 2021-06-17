@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>IndustrialLogoICO.ico</ApplicationIcon>
+    <ApplicationIcon>IndustrialLogoSquare32.ico</ApplicationIcon>
     <Authors>Szomor János</Authors>
     <Product>IndustrialUnitManager</Product>
     <PackageId>IndustrialUnitManager</PackageId>
@@ -21,8 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="img\IndustrialLogo.jpg" />
+    <None Remove="img\IndustrialLogoSquare.jpg" />
   </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.7" />
@@ -36,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\IndustrialLogo.jpg">
+    <Resource Include="img\IndustrialLogoSquare.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
