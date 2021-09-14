@@ -11,7 +11,8 @@ namespace IndustrialUnitDatabase
   public static class SQLiteDataAccess
   {
     private static readonly string DatabaseName = "IndustrialUnitDB.db";
-    private static readonly string Database = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), DatabaseName);
+    //private static readonly string Database = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), DatabaseName);
+    private static readonly string Database = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), DatabaseName);
     private static readonly string LoadConnectionString = $"Data Source={Database};Cache=Shared";
 
     private static void RunDatabaseCommandsToModify(Action<SQLiteConnection> action)
@@ -134,7 +135,7 @@ namespace IndustrialUnitDatabase
                               ID                  INTEGER PRIMARY KEY AUTOINCREMENT,
                               ItemType            TEXT  NULL,
                               OperationPrinciple  TEXT  NULL,
-                              InstallationType    TEXT  NULL,
+                              InstallationType    TEXT  NULL, 
                               MediumToMeasure     TEXT  NULL,
                               Supplier            TEXT  NULL,
                               Manufacturer        TEXT  NULL,
@@ -143,11 +144,11 @@ namespace IndustrialUnitDatabase
 
       string[] tableArray = new[] { sqlEquipment, sqlValve, sqlInstrument };
 
-      if (!File.Exists(DatabaseName))
+      if (!File.Exists(Database))
       {
-        SQLiteConnection.CreateFile(@"IndustrialUnitDB.db");
+        SQLiteConnection.CreateFile(Database);
 
-        con = new SQLiteConnection("Data Source=IndustrialUnitDB.db;Version=3;");
+        con = new SQLiteConnection(LoadConnectionString);
         con.Open();
 
         foreach (var sqlCommand in tableArray)

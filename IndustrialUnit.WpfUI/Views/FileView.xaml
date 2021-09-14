@@ -281,6 +281,8 @@
               Delete all data from all category by one click. Database file will remain but it will be completely
               empty. You will be asked to confirm your decision. The request is irrevocable and permanent.
               Suggestion is to rename or move the current one and store it as backup for later usage.
+              <LineBreak/> 
+              Default database location: c:\Users\UserName\AppData\Roaming\
             </Paragraph>
           </FlowDocument>
         </FlowDocumentScrollViewer>
