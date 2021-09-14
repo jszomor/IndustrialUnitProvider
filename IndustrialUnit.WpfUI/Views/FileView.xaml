@@ -94,8 +94,8 @@
         <FlowDocumentScrollViewer Width="630" ScrollViewer.VerticalScrollBarVisibility="Hidden">
           <FlowDocument>
             <Paragraph>
-              Download the template excel file to load batch collection of data into the database. This excel file
-              contain strictly named columns and sheets which must be kept as is. Log window will show valuable information
+              First download the template file to upload data into the database. The template file contains
+              strictly named columns and sheets which must be kept as is. Log window will show valuable information
               about the procedure even if invalid data found in the file.
             </Paragraph>
           </FlowDocument>
@@ -192,8 +192,7 @@
         <FlowDocumentScrollViewer Width="630" ScrollViewer.VerticalScrollBarVisibility="Hidden">
           <FlowDocument>
             <Paragraph>
-              This Software can read an excel file that has certain columns and sheets.
-              Please use the template file for it in order to load your collecion into the database.
+              Use the template excel file in order to load your collecion into the database. 
               Do not change the names of the columns and sheets. You can name the file as you wish.
             </Paragraph>
           </FlowDocument>
@@ -281,7 +280,7 @@
             <Paragraph>
               Delete all data from all category by one click. Database file will remain but it will be completely
               empty. You will be asked to confirm your decision. The request is irrevocable and permanent.
-              Suggestion is to rename the current one and store it as backup for later usage.
+              Suggestion is to rename or move the current one and store it as backup for later usage.
             </Paragraph>
           </FlowDocument>
         </FlowDocumentScrollViewer>
