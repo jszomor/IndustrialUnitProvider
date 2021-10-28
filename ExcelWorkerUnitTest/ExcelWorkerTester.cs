@@ -51,5 +51,48 @@ namespace ExcelWorkerUnitTest
 
       equipments.Should().BeEquivalentTo(expected);
     }
+
+
+    [Fact]
+    public void ValveValuesShouldBeLikeInTheExcel()
+    {
+      //var mapper = new UnitMapper();
+      List<Valve> valves = new List<Valve>();
+      List<string> messages = new();
+      string file = "3Rows.xlsx";
+      string sheetName = "Valve";
+
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
+
+      UnitMapper.AssignValue(valves, sheet, messages);
+
+      var expected = new List<Valve>()
+      {
+        new Valve
+        {
+          Id = 1,
+          ItemType = "Butterfly valve",
+          Operation = "Manual",
+          Size = 50,
+          ConnectionType = "Wafer",
+          Supplier = "MVV",
+          Manufacturer = "MVV 5.21",
+          UnitPrice = 13
+        },
+        new Valve
+        {
+          Id = 2,
+          ItemType = "Butterfly valve",
+          Operation = "Manual",
+          Size = 65,
+          ConnectionType = "Wafer",
+          Supplier = "MVV",
+          Manufacturer = "VAG cerex",
+          UnitPrice = 114
+        }
+      };
+
+      valves.Should().BeEquivalentTo(expected);
+    }
   }
 }

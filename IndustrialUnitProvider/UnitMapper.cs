@@ -3,28 +3,31 @@ using IndustrialUnitDatabase;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public static void LoadFromSheet<T>(string path, string sheetName, List<string> logMessage) where T : class, new()
+    public static List<T> LoadFromSheet<T>(string path, string sheetName, List<string> logMessage) where T : class, new()
     {
-      List<T> list = new();
+      List<T> units = new();
       var sheet = ExcelWorker.ReadExcel(path, sheetName, logMessage);
       if (sheet != null)
-        AssignValue(list, sheet, logMessage);
+      return AssignValue(units, sheet, logMessage);
+      else
+        return null;
     }
 
-    public static void AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
+    public static List<T> AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
     {
       PropertyInfo[] properties = typeof(T).GetProperties();
 
       var validation = new ExcelValidation();
       var columnNameToIndex = validation.CollectColumnNamesFromExcel(sheet);
 
-      if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage)) return;
+      if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage)) return null;
 
       for (int rowIndex = 2; rowIndex < sheet.Dimension.Rows + 1; rowIndex++)
       {
@@ -70,6 +73,7 @@ namespace IndustrialUnitProvider
         else
         {
           logMessage.Add($"Item name not found. Sheet name:[{sheet.Name}] | Cell address:[{sheet.Cells[rowIndex, 1].Address}] | Row is not added.");
+          return null;
         }
 
       SkipRow:;
@@ -78,11 +82,13 @@ namespace IndustrialUnitProvider
       if (units.Count < 1)
       {
         logMessage.Add($"[{sheet.Name}] sheet is empty.");
+        return null;
       }
       else
       {
-        SQLiteDataAccess.AddCollection(units, sheet.Name);
+        //SQLiteDataAccess.AddCollection(units, sheet.Name);
         logMessage.Add($"[{sheet.Name}] sheet is loaded into the database.");
+        return units;
       }
     }
   }

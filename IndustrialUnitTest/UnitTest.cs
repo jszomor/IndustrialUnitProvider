@@ -56,7 +56,7 @@ namespace IndustrialUnitTest
     {
       //var mapper = new UnitMapper();
       List<Valve> valves = new List<Valve>();
-      List<string> messages = null;
+      List<string> messages = new();
       string file = "3Rows.xlsx";
       string sheetName = "Valve";
 
