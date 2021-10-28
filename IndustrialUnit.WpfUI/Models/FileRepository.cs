@@ -10,8 +10,6 @@ namespace IndustrialUnit.WpfUI.Models
 {
   public class FileRepository
   {
-    internal static List<string> LogMessage;
-
     internal static (string, string) OpenFile()
     {
       OpenFileDialog openFileDialog = new();
@@ -30,17 +28,17 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static void LoadIntoDB(string path)
     {
-      LogMessage = new();
+      AppLogger.LogMessage = new();
       if (path == null)
       {
-        LogMessage.Add("No file selected.");
+        AppLogger.LogMessage.Add("No file selected.");
       }
       else
       {
-        UnitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), LogMessage);
-        UnitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), LogMessage);
-        UnitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), LogMessage);
-        LogMessage.Add("\nDatabase updates is completed.");
+        UnitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), AppLogger.LogMessage);
+        UnitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), AppLogger.LogMessage);
+        UnitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), AppLogger.LogMessage);
+        AppLogger.LogMessage.Add("\nDatabase updates is completed.");
       }
     }
 
@@ -72,27 +70,27 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static List<string> CreateDatabaseModel()
     {
-      LogMessage = new();
-      SQLiteDataAccess.CreateDatabase(LogMessage);
-      return LogMessage;
+      AppLogger.LogMessage = new();
+      SQLiteDataAccess.CreateDatabase(AppLogger.LogMessage);
+      return AppLogger.LogMessage;
     }
 
     internal static List<string> WipeDatabaseModel()
     {
-      LogMessage = new();
+      AppLogger.LogMessage = new();
 
       MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to wipe out the whole database! \nData will not be recoverable.", 
         "", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
       if (messageBoxResult == MessageBoxResult.Yes)
       {
-        SQLiteDataAccess.WipeDatabase(LogMessage);
-        return LogMessage;
+        SQLiteDataAccess.WipeDatabase(AppLogger.LogMessage);
+        return AppLogger.LogMessage;
       }
       else
       {
-        LogMessage.Add("Wipe process cancelled.");
-        return LogMessage;
+        AppLogger.LogMessage.Add("Wipe process cancelled.");
+        return AppLogger.LogMessage;
       }
     }
   }

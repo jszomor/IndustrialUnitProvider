@@ -13,7 +13,7 @@ namespace IndustrialUnitProvider
     {
       List<T> list = new();
       var sheet = ExcelWorker.ReadExcel(path, sheetName, logMessage);
-      if(sheet != null)
+      if (sheet != null)
         AssignValue(list, sheet, logMessage);
     }
 
@@ -24,7 +24,7 @@ namespace IndustrialUnitProvider
       var validation = new ExcelValidation();
       var columnNameToIndex = validation.CollectColumnNamesFromExcel(sheet);
 
-      if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage))  return;
+      if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage)) return;
 
       for (int rowIndex = 2; rowIndex < sheet.Dimension.Rows + 1; rowIndex++)
       {
@@ -33,28 +33,28 @@ namespace IndustrialUnitProvider
           T unit = new();
           foreach (var item in properties)
           {
-            if (columnNameToIndex.TryGetValue(item.Name, out int value) && item.Name != "Id")
+            if (columnNameToIndex.TryGetValue(item.Name, out int value))
             {
               Type typeToConvert;
               string cellText = sheet.Cells[rowIndex, value].Text;
+
+              if (item.PropertyType.FullName == "System.String")
+              {
+                typeToConvert = item.PropertyType;
+              }
+              else
+              {
+                typeToConvert = item.PropertyType.GenericTypeArguments[0];
+              }
+
+              if (cellText.Contains("."))
+              {
+                cellText = cellText.Replace(".", ",");
+              }
+
               try
               {
-                if(item.PropertyType.FullName == "System.String")
-                {
-                  typeToConvert = item.PropertyType;
-                }
-                else
-                {
-                  typeToConvert = item.PropertyType.GenericTypeArguments[0];
-                }
-
-                if(cellText.Contains("."))
-                {
-                  cellText = cellText.Replace(".", ",");
-                }
-
                 var convertedItem = Convert.ChangeType(cellText, typeToConvert);
-
                 item.SetValue(unit, convertedItem);
               }
               catch
@@ -64,7 +64,7 @@ namespace IndustrialUnitProvider
               }
             }
           }
-                    
+
           units.Add(unit);
         }
         else
@@ -72,7 +72,7 @@ namespace IndustrialUnitProvider
           logMessage.Add($"Item name not found. Sheet name:[{sheet.Name}] | Cell address:[{sheet.Cells[rowIndex, 1].Address}] | Row is not added.");
         }
 
-        SkipRow:;
+      SkipRow:;
       }
 
       if (units.Count < 1)

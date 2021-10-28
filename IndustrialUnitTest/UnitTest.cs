@@ -1,13 +1,8 @@
 using IndustrialUnit.Model;
 using IndustrialUnit.Model.Model;
 using FluentAssertions;
-using System;
-using System.IO;
 using Xunit;
 using System.Collections.Generic;
-using OfficeOpenXml;
-using System.Linq;
-using System.Collections;
 using IndustrialUnitProvider;
 
 namespace IndustrialUnitTest
@@ -19,7 +14,7 @@ namespace IndustrialUnitTest
     {
       //var mapper = new UnitMapper();
       List<Equipment> equipments = new List<Equipment>();
-      List<string> messages = null;
+      List<string> messages = new();
       string file = "3Rows.xlsx";
       string sheetName = "Equipment";
 
@@ -98,18 +93,25 @@ namespace IndustrialUnitTest
       valves.Should().BeEquivalentTo(expected);
     }
 
-    //[Fact]
-    //public void ShouldThrowInvalidOperationExceptionInCaseOfEmptyEquipmentSheet()
-    //{
-    //  var mapper = new UnitMapper();
-    //  List<Equipment> equipments = new List<Equipment>();
 
-    //  string file = "NoData.xlsx";
+    //[Fact]
+    //public void LogMessageShouldContainInvalidFormatMessage()
+    //{
+    //  var testLogMessage = new List<string>();
+
+    //  var equipments = new List<Equipment>();
+
+    //  string file = "InvalidFormat.xlsx";
     //  string sheetName = "Equipment";
 
-    //  var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName);
+    //  var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, testLogMessage);
 
-    //  Assert.Throws<InvalidOperationException>(() => mapper.AssignValue(equipments, sheet));
+    //  testLogMessage.Add($"Invalid parameter found. Sheet name:[{sheet.Name}] |" +
+    //    $" Cell address:[{sheet.Cells[2, 3].Address}] | Row is not added.");
+
+    //  UnitMapper.AssignValue(equipments, sheet, testLogMessage);
+
+    //  Assert.Equal(testLogMessage, AppLogger.LogMessage);
     //}
 
     //[Fact]

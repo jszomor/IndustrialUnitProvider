@@ -1,4 +1,5 @@
-﻿using IndustrialUnit.WpfUI.Models;
+﻿using IndustrialUnit.Model.Model;
+using IndustrialUnit.WpfUI.Models;
 using IndustrialUnit.WpfUI.Views;
 using System.Collections.Generic;
 using System.Windows;
@@ -51,7 +52,7 @@ namespace IndustrialUnit.WpfUI.ViewModels
     {
       LogMessage = null;
       Window window = new ProgressDialogView(Path);
-      LogMessage = FileRepository.LogMessage;
+      LogMessage = AppLogger.LogMessage;
     }
 
     private void RunDBCreator() => LogMessage = FileRepository.CreateDatabaseModel();

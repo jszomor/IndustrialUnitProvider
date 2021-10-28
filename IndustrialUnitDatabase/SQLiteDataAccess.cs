@@ -39,9 +39,9 @@ namespace IndustrialUnitDatabase
       {
         return RunDatabaseCommandsToRead(db =>
         {
-          SQLiteCommand command = new(sqlCommand, db);
-          SQLiteDataAdapter dataAdapter = new(command);
-          DataTable table = new(tableName);
+          var command = new SQLiteCommand(sqlCommand, db);
+          var dataAdapter = new SQLiteDataAdapter(command);
+          var table = new DataTable(tableName);
           dataAdapter.Fill(table);
           return table;
         });
