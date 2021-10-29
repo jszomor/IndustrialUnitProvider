@@ -13,11 +13,8 @@ namespace IndustrialUnitProvider
     public static List<T> LoadFromSheet<T>(string path, string sheetName, List<string> logMessage) where T : class, new()
     {
       List<T> units = new();
-      var sheet = ExcelWorker.ReadExcel(path, sheetName, logMessage);
-      if (sheet != null)
-      return AssignValue(units, sheet, logMessage);
-      else
-        return null;
+      ExcelWorksheet sheet = ExcelWorker.ReadExcel(path, sheetName, logMessage);
+      return sheet != null ? AssignValue(units, sheet, logMessage) : null;
     }
 
     public static List<T> AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
