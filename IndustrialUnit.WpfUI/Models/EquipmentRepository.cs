@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using IndustrialUnit.Model.Model;
+using System.Data;
 
 namespace IndustrialUnit.WpfUI.Models
 {
@@ -13,12 +14,15 @@ namespace IndustrialUnit.WpfUI.Models
 
     private static List<Equipment> MapEquipmentList(string sqlCommand)
     {
-      var equipmentData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
+      DataTable equipmentData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
-      if (equipmentData == null) return null;
+      if (equipmentData == null)
+      {
+        return null;
+      }
 
-      var dbRowNumber = equipmentData.Rows.Count;
-      
+      int dbRowNumber = equipmentData.Rows.Count;
+
       var list = new List<Equipment>();
 
       if (dbRowNumber == 0)
@@ -29,7 +33,7 @@ namespace IndustrialUnit.WpfUI.Models
 
       for (int i = 0; i < dbRowNumber; i++)
       {
-        var item = equipmentData.Rows[i];
+        DataRow item = equipmentData.Rows[i];
 
         list.Add(
             new Equipment
@@ -52,30 +56,32 @@ namespace IndustrialUnit.WpfUI.Models
     {
       string sqlCommand = $"SELECT * FROM {TableName}";
 
-      if (MapEquipmentList(sqlCommand) == null)
-        return (null, "Database not found! \nCreate a new one in the file menu \nor contact the developer.");
-
-      return (MapEquipmentList(sqlCommand), "Database loaded successfully.");
+      return MapEquipmentList(sqlCommand) == null
+          ? (null, "Database not found! \nCreate a new one in the file menu \nor contact the developer.")
+          : (MapEquipmentList(sqlCommand), "Database loaded successfully.");
     }
 
     internal static (List<Equipment>, string) GetFilteredEquipments(string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
+      {
         return (null, "Filter key is [Item Name], \nit cannot be empty for filtering!");
+      }
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
-      if (MapEquipmentList(sqlCommand).Count == 0)
-        return (null, $"Filter name: [{selectedItem}] not found in database.");
-
-      return (MapEquipmentList(sqlCommand),
+      return MapEquipmentList(sqlCommand).Count == 0
+          ? (null, $"Filter name: [{selectedItem}] not found in database.")
+          : (MapEquipmentList(sqlCommand),
           $"Filter name is: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
     internal static string SubmitAdd(Equipment item)
     {
       if (!IsEquipmentEmpty(item) || item == null)
+      {
         return "No empty cell is allowed for insert.";
+      }
 
       string sqlCommand =
           $"insert into {TableName} (ItemType, Capacity, Pressure, PowerConsumption, Manufacturer, Model, UnitPrice) " +
@@ -97,7 +103,9 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitUpdate(Equipment item)
     {
       if (!IsEquipmentEmpty(item) || item == null)
+      {
         return "No empty cell is allowed for update.";
+      }
 
       string sqlCommand =
           $"update {TableName} set ItemType=@ItemType, Capacity=@Capacity, Pressure=@Pressure, PowerConsumption=@PowerConsumption, " +
@@ -118,7 +126,9 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitDelete(Equipment item)
     {
       if (item.Id <= 0 || item == null || item.Id == null)
+      {
         return "Please select an item to delete.";
+      }
 
       string sqlCommand = $"delete from {TableName} where id={item.Id}";
 
@@ -136,18 +146,13 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static bool IsEquipmentEmpty(Equipment item)
     {
-      if (
-          string.IsNullOrEmpty(item.ItemType) ||
-          item.Capacity == null ||
-          item.Pressure == null ||
-          item.PowerConsumption == null ||
-          string.IsNullOrEmpty(item.Manufacturer) ||
-          string.IsNullOrEmpty(item.Model) ||
-          item.UnitPrice == null)
-      {
-        return false;
-      }
-      return true;
+      return  !string.IsNullOrEmpty(item.ItemType) &&
+              item.Capacity != null &&
+              item.Pressure != null &&
+              item.PowerConsumption != null &&
+              !string.IsNullOrEmpty(item.Manufacturer) &&
+              !string.IsNullOrEmpty(item.Model) &&
+              item.UnitPrice != null;
     }
   }
 }

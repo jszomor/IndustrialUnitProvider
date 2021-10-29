@@ -2,6 +2,7 @@
 using IndustrialUnitDatabase;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 
@@ -13,11 +14,14 @@ namespace IndustrialUnit.WpfUI.Models
 
     internal static List<Instrument> MapInstrument(string sqlCommand)
     {
-      var instrumentData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
+      DataTable instrumentData = SQLiteDataAccess.GetDb(sqlCommand, TableName);
 
-      if (instrumentData == null) return null;
+      if (instrumentData == null)
+      {
+        return null;
+      }
 
-      var dbRowNumber = instrumentData.Rows.Count;
+      int dbRowNumber = instrumentData.Rows.Count;
 
       List<Instrument> list = new();
 
@@ -29,7 +33,7 @@ namespace IndustrialUnit.WpfUI.Models
 
       for (int i = 0; i < dbRowNumber; i++)
       {
-        var item = instrumentData.Rows[i];
+        DataRow item = instrumentData.Rows[i];
         list.Add(
           new Instrument()
           {
@@ -59,21 +63,24 @@ namespace IndustrialUnit.WpfUI.Models
     internal static (List<Instrument>, string) GetFilteredInstruments(string selectedItem)
     {
       if (String.IsNullOrWhiteSpace(selectedItem))
+      {
         return (null, "Filter key is [Item Name], \nit cannot be empty for searching!");
+      }
 
       string sqlCommand = $"SELECT * FROM {TableName} where ItemType='{selectedItem}'";
 
-      if (MapInstrument(sqlCommand).Count == 0)
-        return (null, $"Filter name: [{selectedItem}] not found.");
-
-      return (MapInstrument(sqlCommand),
+      return MapInstrument(sqlCommand).Count == 0
+          ? (null, $"Filter name: [{selectedItem}] not found.")
+          : (MapInstrument(sqlCommand),
         $"Filter name: [{selectedItem}] \nPress Refresh to see the whole database again.");
     }
 
     internal static string SubmitAdd(Instrument item)
     {
       if (!IsTextBoxEmpty(item) || item == null)
+      {
         return "No empty cell is allowed for insert.";
+      }
 
       string sqlCommand = $"insert into {TableName} (ItemType, OperationPrinciple, InstallationType, MediumToMeasure, Supplier, Manufacturer, UnitPrice) " +
                 "values (@ItemType, @OperationPrinciple, @InstallationType, @MediumToMeasure, @Supplier, @Manufacturer, @UnitPrice)";
@@ -94,7 +101,9 @@ namespace IndustrialUnit.WpfUI.Models
     internal static string SubmitUpdate(Instrument Instrument)
     {
       if (!IsTextBoxEmpty(Instrument) || Instrument == null)
+      {
         return "No empty cell is allowed for update.";
+      }
 
       string sqlCommand = "update Instrument set ItemType=@ItemType, OperationPrinciple=@OperationPrinciple, InstallationType=@InstallationType, MediumToMeasure=@MediumToMeasure, " +
                   "Supplier=@Supplier, Manufacturer=@Manufacturer, UnitPrice=@UnitPrice where id=";
