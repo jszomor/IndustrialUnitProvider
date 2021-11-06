@@ -2,15 +2,15 @@ using FluentAssertions;
 using IndustrialUnit.Model;
 using IndustrialUnit.Model.Model;
 using IndustrialUnitProvider;
-using System;
 using System.Collections.Generic;
-using Xunit;
+using NUnit.Framework;
 
 namespace ExcelWorkerUnitTest
 {
+  [TestFixture]
   public class ExcelWorkerTester
   {
-    [Fact]
+    [Test]
     public void EquipmentValuesShouldBeLikeInTheExcel()
     {
       //var mapper = new UnitMapper();
@@ -53,7 +53,7 @@ namespace ExcelWorkerUnitTest
     }
 
 
-    [Fact]
+    [Test]
     public void ValveValuesShouldBeLikeInTheExcel()
     {
       //var mapper = new UnitMapper();
