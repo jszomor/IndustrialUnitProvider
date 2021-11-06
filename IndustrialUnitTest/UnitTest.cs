@@ -9,110 +9,25 @@ namespace IndustrialUnitTest
 {
   public class UnitTest
   {
-    [Fact]
-    public void EquipmentValuesShouldBeLikeInTheExcel()
-    {
-      //var mapper = new UnitMapper();
-      List<Equipment> equipments = new List<Equipment>();
-      List<string> messages = new();
-      string file = "3Rows.xlsx";
-      string sheetName = "Equipment";
-
-      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
-
-      UnitMapper.AssignValue(equipments, sheet, messages);
-
-      var expected = new List<Equipment>()
-      {
-        new Equipment
-        {
-          Id = 1,
-          ItemType = "Blower",
-          Capacity = 25,
-          Pressure = 650,
-          PowerConsumption = 55,
-          Manufacturer = "Kubicek",
-          Model = "80B",
-          UnitPrice = 35000
-        },
-        new Equipment
-        {
-          Id = 2,
-          ItemType = "Blower",
-          Capacity = 30,
-          Pressure = 600,
-          PowerConsumption = 60,
-          Manufacturer = "Kubicek",
-          Model = "85B",
-          UnitPrice = 40000
-        }
-      };
-
-      equipments.Should().BeEquivalentTo(expected);
-    }
 
     [Fact]
-    public void ValveValuesShouldBeLikeInTheExcel()
+    public void LogMessageShouldContainInvalidFormatMessage()
     {
-      //var mapper = new UnitMapper();
-      List<Valve> valves = new List<Valve>();
-      List<string> messages = new();
-      string file = "3Rows.xlsx";
-      string sheetName = "Valve";
+      var testLogMessage = new List<string>();
 
-      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
+      var equipments = new List<Equipment>();
 
-      UnitMapper.AssignValue(valves, sheet, messages);
+      string file = "InvalidFormat.xlsx";
 
-      var expected = new List<Valve>()
-      {
-        new Valve
-        {
-          Id = 1,
-          ItemType = "Butterfly valve",
-          Operation = "Manual",
-          Size = 50,
-          ConnectionType = "Wafer",
-          Supplier = "MVV",
-          Manufacturer = "MVV 5.21",
-          UnitPrice = 13
-        },
-        new Valve
-        {
-          Id = 2,
-          ItemType = "Butterfly valve",
-          Operation = "Manual",
-          Size = 65,
-          ConnectionType = "Wafer",
-          Supplier = "MVV",
-          Manufacturer = "VAG cerex",
-          UnitPrice = 114
-        }
-      };
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), ValidSheetNames.Equipment.ToString(), testLogMessage);
 
-      valves.Should().BeEquivalentTo(expected);
+      testLogMessage.Add($"Invalid parameter found. Sheet name:[{sheet.Name}] |" +
+        $" Cell address:[{sheet.Cells[2, 3].Address}] | Row is not added.");
+
+      UnitMapper.AssignValue(equipments, sheet, testLogMessage);
+
+      Assert.Equal(testLogMessage, AppLogger.LogMessage);
     }
-
-
-    //[Fact]
-    //public void LogMessageShouldContainInvalidFormatMessage()
-    //{
-    //  var testLogMessage = new List<string>();
-
-    //  var equipments = new List<Equipment>();
-
-    //  string file = "InvalidFormat.xlsx";
-    //  string sheetName = "Equipment";
-
-    //  var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, testLogMessage);
-
-    //  testLogMessage.Add($"Invalid parameter found. Sheet name:[{sheet.Name}] |" +
-    //    $" Cell address:[{sheet.Cells[2, 3].Address}] | Row is not added.");
-
-    //  UnitMapper.AssignValue(equipments, sheet, testLogMessage);
-
-    //  Assert.Equal(testLogMessage, AppLogger.LogMessage);
-    //}
 
     //[Fact]
     //public void ShouldThrowInvalidOperationExceptionInCaseOfEmptyValveSheet()

@@ -7,13 +7,11 @@ using NUnit.Framework;
 
 namespace ExcelWorkerUnitTest
 {
-  [TestFixture]
   public class ExcelWorkerTester
   {
     [Test]
     public void EquipmentValuesShouldBeLikeInTheExcel()
     {
-      //var mapper = new UnitMapper();
       List<Equipment> equipments = new List<Equipment>();
       List<string> messages = new();
       string file = "3Rows.xlsx";
@@ -29,34 +27,32 @@ namespace ExcelWorkerUnitTest
         {
           Id = 1,
           ItemType = "Blower",
-          Capacity = 25,
-          Pressure = 650,
-          PowerConsumption = 55,
+          Capacity = 25.5m,
+          Pressure = 650m,
+          PowerConsumption = 55m,
           Manufacturer = "Kubicek",
           Model = "80B",
-          UnitPrice = 35000
+          UnitPrice = 35000m
         },
         new Equipment
         {
           Id = 2,
           ItemType = "Blower",
-          Capacity = 30,
-          Pressure = 600,
-          PowerConsumption = 60,
+          Capacity = 30m,
+          Pressure = 600m,
+          PowerConsumption = 60m,
           Manufacturer = "Kubicek",
           Model = "85B",
-          UnitPrice = 40000
+          UnitPrice = 40000m
         }
       };
 
       equipments.Should().BeEquivalentTo(expected);
     }
 
-
     [Test]
     public void ValveValuesShouldBeLikeInTheExcel()
     {
-      //var mapper = new UnitMapper();
       List<Valve> valves = new List<Valve>();
       List<string> messages = new();
       string file = "3Rows.xlsx";
@@ -76,8 +72,8 @@ namespace ExcelWorkerUnitTest
           Size = 50,
           ConnectionType = "Wafer",
           Supplier = "MVV",
-          Manufacturer = "MVV 5.21",
-          UnitPrice = 13
+          Manufacturer = "MVV 5,21",
+          UnitPrice = 13m
         },
         new Valve
         {
@@ -88,7 +84,7 @@ namespace ExcelWorkerUnitTest
           ConnectionType = "Wafer",
           Supplier = "MVV",
           Manufacturer = "VAG cerex",
-          UnitPrice = 114
+          UnitPrice = 114m
         }
       };
 

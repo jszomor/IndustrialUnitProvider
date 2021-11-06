@@ -35,17 +35,23 @@ namespace IndustrialUnit.WpfUI.Models
       }
       else
       {
-        var equipments = UnitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), AppLogger.LogMessage);
+        List<Equipment> equipments = UnitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), AppLogger.LogMessage);
         if (equipments != null)
+        {
           SQLiteDataAccess.AddCollection(equipments, ValidSheetNames.Equipment.ToString());
-        
-        var valves = UnitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), AppLogger.LogMessage);
-        if(valves != null)
-        SQLiteDataAccess.AddCollection(valves, ValidSheetNames.Valve.ToString());
+        }
 
-        var instruments = UnitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), AppLogger.LogMessage);
+        List<Valve> valves = UnitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), AppLogger.LogMessage);
+        if(valves != null)
+        {
+          SQLiteDataAccess.AddCollection(valves, ValidSheetNames.Valve.ToString());
+        }
+
+        List<Instrument> instruments = UnitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), AppLogger.LogMessage);
         if(instruments != null)
-        SQLiteDataAccess.AddCollection(instruments, ValidSheetNames.Instrument.ToString());
+        {
+          SQLiteDataAccess.AddCollection(instruments, ValidSheetNames.Instrument.ToString());
+        }
 
         AppLogger.LogMessage.Add("\nDatabase updates is completed.");
       }
