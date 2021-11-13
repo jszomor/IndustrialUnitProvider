@@ -10,11 +10,20 @@ namespace IndustrialUnitProvider
 {
   public class UnitMapper
   {
-    public static List<T> LoadFromSheet<T>(string path, string sheetName, List<string> logMessage) where T : class, new()
+    public static void LoadFromSheet<T>(string path, string sheetName, List<string> logMessage) where T : class, new()
     {
       List<T> units = new();
       ExcelWorksheet sheet = ExcelWorker.ReadExcel(path, sheetName, logMessage);
-      return sheet != null ? AssignValue(units, sheet, logMessage) : null;
+      
+      if(sheet != null)
+      {
+        units = AssignValue(units, sheet, logMessage);
+        SQLiteDataAccess.AddCollection(units, ValidSheetNames.Equipment.ToString());
+      }
+      else
+      {
+        logMessage.Add($"Excel sheet is null. Sheet name: {sheetName}");
+      }
     }
 
     public static List<T> AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
@@ -46,46 +55,38 @@ namespace IndustrialUnitProvider
         }
       }
 
+      return ReturnResult(units, sheet.Name);
+    }
+
+    private static List<T> ReturnResult<T>(List<T> units, string sheetName)
+    {
       if (units.Count < 1)
       {
-        logMessage.Add($"[{sheet.Name}] sheet is empty.");
+        AppLogger.LogMessage.Add($"[{sheetName}] sheet is empty.");
         return null;
       }
       else
       {
         //SQLiteDataAccess.AddCollection(units, sheet.Name);
-        logMessage.Add($"[{sheet.Name}] sheet is loaded into the database.");
+        AppLogger.LogMessage.Add($"[{sheetName}] sheet is loaded into the database.");
         return units;
       }
     }
 
-    public static T ConvertTypesFromExcel<T>(Dictionary<string, int> columnNameToIndex, PropertyInfo[] properties, ExcelWorksheet sheet, int rowIndex) where T : new()
+    private static T ConvertTypesFromExcel<T>(Dictionary<string, int> columnNameToIndex, PropertyInfo[] properties, ExcelWorksheet sheet, int rowIndex) where T : new()
     {
       T unit = new();
       foreach (var item in properties)
       {
         if (columnNameToIndex.TryGetValue(item.Name, out int value))
         {
-          Type typeToConvert;
           string cellText = sheet.Cells[rowIndex, value].Text;
 
-          if (item.PropertyType.FullName == "System.String")
-          {
-            typeToConvert = item.PropertyType;
-          }
-          else
-          {
-            typeToConvert = item.PropertyType.GenericTypeArguments[0];
-          }
-
-          if (cellText.Contains("."))
-          {
-            cellText = cellText.Replace(".", ",");
-          }
+          cellText = ReplaceDot(cellText);
 
           try
           {
-            var convertedItem = Convert.ChangeType(cellText, typeToConvert);
+            var convertedItem = Convert.ChangeType(cellText, ConvertToCorrespondingType(item));
             item.SetValue(unit, convertedItem);
           }
           catch (FormatException e)
@@ -99,5 +100,10 @@ namespace IndustrialUnitProvider
 
       return unit;
     }
+
+    private static string ReplaceDot(string cellText) => cellText.Contains(".") ? cellText.Replace(".", ",") : cellText;
+
+    private static Type ConvertToCorrespondingType(PropertyInfo item)
+    => item.PropertyType.FullName == "System.String" ? item.PropertyType : item.PropertyType.GenericTypeArguments[0];    
   }
 }

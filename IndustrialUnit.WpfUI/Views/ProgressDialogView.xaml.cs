@@ -66,7 +66,7 @@ namespace IndustrialUnit.WpfUI.Views
 
     private void BgWorker_DoWork(object sender, DoWorkEventArgs e)
     {
-      FileRepository.LoadIntoDB(Path);
+      FileRepository.InitiateExcelProcess(Path);
     }
 
     private void OkButton_Click(object sender, RoutedEventArgs e)

@@ -26,33 +26,19 @@ namespace IndustrialUnit.WpfUI.Models
         return (null, null);
     }
 
-    internal static void LoadIntoDB(string path)
+    internal static void InitiateExcelProcess(string path)
     {
       AppLogger.LogMessage = new();
       if (path == null)
       {
-        AppLogger.LogMessage.Add("No file selected.");
+        AppLogger.LogMessage.Add("There is no selected file.");
       }
       else
       {
-        List<Equipment> equipments = UnitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), AppLogger.LogMessage);
-        if (equipments != null)
-        {
-          SQLiteDataAccess.AddCollection(equipments, ValidSheetNames.Equipment.ToString());
-        }
-
-        List<Valve> valves = UnitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), AppLogger.LogMessage);
-        if(valves != null)
-        {
-          SQLiteDataAccess.AddCollection(valves, ValidSheetNames.Valve.ToString());
-        }
-
-        List<Instrument> instruments = UnitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), AppLogger.LogMessage);
-        if(instruments != null)
-        {
-          SQLiteDataAccess.AddCollection(instruments, ValidSheetNames.Instrument.ToString());
-        }
-
+        UnitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), AppLogger.LogMessage);
+        UnitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), AppLogger.LogMessage);
+        UnitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), AppLogger.LogMessage);
+  
         AppLogger.LogMessage.Add("\nDatabase updates is completed.");
       }
     }
