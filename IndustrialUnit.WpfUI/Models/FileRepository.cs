@@ -35,9 +35,10 @@ namespace IndustrialUnit.WpfUI.Models
       }
       else
       {
-        UnitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), AppLogger.LogMessage);
-        UnitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), AppLogger.LogMessage);
-        UnitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), AppLogger.LogMessage);
+        UnitMapper unitMapper = new();
+        unitMapper.LoadFromSheet<Equipment>(path, ValidSheetNames.Equipment.ToString(), AppLogger.LogMessage);
+        unitMapper.LoadFromSheet<Valve>(path, ValidSheetNames.Valve.ToString(), AppLogger.LogMessage);
+        unitMapper.LoadFromSheet<Instrument>(path, ValidSheetNames.Instrument.ToString(), AppLogger.LogMessage);
   
         AppLogger.LogMessage.Add("\nDatabase updates is completed.");
       }

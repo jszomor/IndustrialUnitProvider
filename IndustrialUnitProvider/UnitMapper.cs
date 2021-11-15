@@ -8,17 +8,17 @@ using System.Reflection;
 
 namespace IndustrialUnitProvider
 {
-  public class UnitMapper
+  public class UnitMapper : IUnitMapper
   {
-    public static void LoadFromSheet<T>(string path, string sheetName, List<string> logMessage) where T : class, new()
+    public void LoadFromSheet<T>(string path, string sheetName, List<string> logMessage) where T : class, new()
     {
       List<T> units = new();
       ExcelWorksheet sheet = ExcelWorker.ReadExcel(path, sheetName, logMessage);
-      
-      if(sheet != null)
+
+      if (sheet != null)
       {
         units = AssignValue(units, sheet, logMessage);
-        SQLiteDataAccess.AddCollection(units, ValidSheetNames.Equipment.ToString());
+        SQLiteDataAccess.AddCollection(units, sheetName);
       }
       else
       {
@@ -26,14 +26,14 @@ namespace IndustrialUnitProvider
       }
     }
 
-    public static List<T> AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
+    public List<T> AssignValue<T>(List<T> units, ExcelWorksheet sheet, List<string> logMessage) where T : class, new()
     {
       PropertyInfo[] properties = typeof(T).GetProperties();
 
       var validation = new ExcelValidation();
       Dictionary<string, int> columnNameToIndex = validation.CollectColumnNamesFromExcel(sheet);
 
-      if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, ref logMessage)) return null;
+      if (!validation.ValidateColumnNames(columnNameToIndex, properties, sheet, logMessage)) return null;
 
       for (int rowIndex = 2; rowIndex < sheet.Dimension.Rows + 1; rowIndex++)
       {
@@ -41,11 +41,11 @@ namespace IndustrialUnitProvider
         {
           try
           {
-            units.Add(ConvertTypesFromExcel<T>(columnNameToIndex, properties, sheet, rowIndex));
+            units.Add(ConvertTypesFromExcel<T>(columnNameToIndex, properties, sheet, rowIndex, logMessage));
           }
           catch (FormatException)
           {
-            throw new FormatException();
+            continue;
           }
         }
         else
@@ -55,25 +55,24 @@ namespace IndustrialUnitProvider
         }
       }
 
-      return ReturnResult(units, sheet.Name);
+      return UnitResult(units, sheet.Name, logMessage);
     }
 
-    private static List<T> ReturnResult<T>(List<T> units, string sheetName)
+    public List<T> UnitResult<T>(List<T> units, string sheetName, List<string> logMessage)
     {
       if (units.Count < 1)
       {
-        AppLogger.LogMessage.Add($"[{sheetName}] sheet is empty.");
+        logMessage.Add($"[{sheetName}] sheet is empty.");
         return null;
       }
       else
       {
-        //SQLiteDataAccess.AddCollection(units, sheet.Name);
-        AppLogger.LogMessage.Add($"[{sheetName}] sheet is loaded into the database.");
+        logMessage.Add($"[{sheetName}] sheet is loaded into the database.");
         return units;
       }
     }
 
-    private static T ConvertTypesFromExcel<T>(Dictionary<string, int> columnNameToIndex, PropertyInfo[] properties, ExcelWorksheet sheet, int rowIndex) where T : new()
+    public T ConvertTypesFromExcel<T>(Dictionary<string, int> columnNameToIndex, PropertyInfo[] properties, ExcelWorksheet sheet, int rowIndex, List<string> logMessage) where T : new()
     {
       T unit = new();
       foreach (var item in properties)
@@ -86,13 +85,14 @@ namespace IndustrialUnitProvider
 
           try
           {
-            var convertedItem = Convert.ChangeType(cellText, ConvertToCorrespondingType(item));
+            var convertedItem = Convert.ChangeType(cellText, ConvertToString(item));
             item.SetValue(unit, convertedItem);
           }
           catch (FormatException e)
           {
             string message = $"Invalid parameter found. Sheet name:[{sheet.Name}] | Cell address:[{sheet.Cells[rowIndex, value].Address}] | Row is not added.";
-            AppLogger.LogMessage.Add(message);
+            logMessage.Add(message);
+
             throw new FormatException(message, e);
           }
         }
@@ -101,9 +101,9 @@ namespace IndustrialUnitProvider
       return unit;
     }
 
-    private static string ReplaceDot(string cellText) => cellText.Contains(".") ? cellText.Replace(".", ",") : cellText;
+    public string ReplaceDot(string cellText) => cellText.Contains(".") ? cellText.Replace(".", ",") : cellText;
 
-    private static Type ConvertToCorrespondingType(PropertyInfo item)
-    => item.PropertyType.FullName == "System.String" ? item.PropertyType : item.PropertyType.GenericTypeArguments[0];    
+    public Type ConvertToString(PropertyInfo item)
+    => item.PropertyType.FullName == "System.String" ? item.PropertyType : item.PropertyType.GenericTypeArguments[0];
   }
 }

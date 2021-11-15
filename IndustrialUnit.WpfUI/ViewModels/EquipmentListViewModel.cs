@@ -1,12 +1,7 @@
 ﻿using IndustrialUnit.WpfUI.Models;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Windows.Controls;
 using System.Windows.Input;
 using IndustrialUnit.Model.Model;
 

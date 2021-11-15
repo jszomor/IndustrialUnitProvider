@@ -4,6 +4,8 @@ using IndustrialUnit.Model.Model;
 using IndustrialUnitProvider;
 using System.Collections.Generic;
 using NUnit.Framework;
+using System;
+using System.Reflection;
 
 namespace ExcelWorkerUnitTest
 {
@@ -19,7 +21,9 @@ namespace ExcelWorkerUnitTest
 
       var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
 
-      UnitMapper.AssignValue(equipments, sheet, messages);
+      IUnitMapper unitMapper = new UnitMapper();
+
+      unitMapper.AssignValue(equipments, sheet, messages);
 
       var expected = new List<Equipment>()
       {
@@ -60,7 +64,8 @@ namespace ExcelWorkerUnitTest
 
       var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), sheetName, messages);
 
-      UnitMapper.AssignValue(valves, sheet, messages);
+      IUnitMapper unitMapper = new UnitMapper();
+      unitMapper.AssignValue(valves, sheet, messages);
 
       var expected = new List<Valve>()
       {
@@ -89,6 +94,37 @@ namespace ExcelWorkerUnitTest
       };
 
       valves.Should().BeEquivalentTo(expected);
+    }
+
+    [Test]
+    public void ConvertTypesFromExcel_ShouldTrowFormatException()
+    {
+      AppLogger.LogMessage = new();
+
+      var equipments = new List<Equipment>();
+      PropertyInfo[] properties = typeof(Equipment).GetProperties();
+
+      Dictionary<string, int> columnNameToIndex = new Dictionary<string, int>()
+      {
+        { "Id", 1 },
+        { "ItemType", 2 },
+        { "Capacity", 3 },
+        { "Pressure", 4 },
+        { "PowerConsumption", 5 },
+        { "Manufacturer", 6 },
+        { "Model", 7 },
+        { "UnitPrice", 8 }
+      };
+
+      string file = "InvalidFormat.xlsx";
+
+      var sheet = ExcelWorker.ReadExcel(PathHelper.TestPath(file), ValidSheetNames.Equipment.ToString(), AppLogger.LogMessage);
+
+      IUnitMapper unitMapper = new UnitMapper();
+
+      int rowNumber = 2;
+
+      Assert.Throws<FormatException>(() => unitMapper.ConvertTypesFromExcel<Equipment>(columnNameToIndex, properties, sheet, rowNumber, AppLogger.LogMessage));
     }
   }
 }

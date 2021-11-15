@@ -10,7 +10,7 @@ namespace IndustrialUnitProvider
   {
     public static IEnumerable<string> MissingColumnNames { get; set; }
 
-    public bool ValidateColumnNames(Dictionary<string, int> actualColumnNames, PropertyInfo[] properties, ExcelWorksheet sheet, ref List<string> logMessage)
+    public bool ValidateColumnNames(Dictionary<string, int> actualColumnNames, PropertyInfo[] properties, ExcelWorksheet sheet, List<string> logMessage)
     {
       IEnumerable<string> validColumnNames = from item in properties select item.Name;
 
