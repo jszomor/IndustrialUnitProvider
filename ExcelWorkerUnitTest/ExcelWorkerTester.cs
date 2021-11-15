@@ -104,7 +104,7 @@ namespace ExcelWorkerUnitTest
       var equipments = new List<Equipment>();
       PropertyInfo[] properties = typeof(Equipment).GetProperties();
 
-      Dictionary<string, int> columnNameToIndex = new Dictionary<string, int>()
+      Dictionary<string, int> columnNames = new Dictionary<string, int>()
       {
         { "Id", 1 },
         { "ItemType", 2 },
@@ -124,7 +124,7 @@ namespace ExcelWorkerUnitTest
 
       int rowNumber = 2;
 
-      Assert.Throws<FormatException>(() => unitMapper.ConvertTypesFromExcel<Equipment>(columnNameToIndex, properties, sheet, rowNumber, AppLogger.LogMessage));
+      Assert.Throws<FormatException>(() => unitMapper.ConvertTypesFromExcel<Equipment>(columnNames, properties, sheet, rowNumber, AppLogger.LogMessage));
     }
   }
 }
